@@ -1,0 +1,77 @@
+/**
+ * Company branding & contact details.
+ *
+ * Everything that identifies the business lives here so it can be changed in
+ * one place. Values that differ per deployment (or are secret) are read from
+ * environment variables instead — see `.env.example`.
+ */
+export const siteConfig = {
+  /** Brand name shown in the header, footer, metadata and emails. */
+  name: 'Novaform',
+  /** Short tagline used in metadata and the footer. */
+  tagline: 'Digital studio',
+  /** Legal entity shown in the footer and legal pages. */
+  legalName: 'Novaform Oy',
+  /** Business ID / org. number (Y-tunnus / organisationsnummer). Leave empty to hide. */
+  businessId: '1234567-8',
+
+  /** Public contact details. */
+  contact: {
+    email: 'hello@novaform.studio',
+    phone: '+358 40 123 4567',
+    /** Phone in E.164 format for `tel:` links. */
+    phoneHref: '+358401234567',
+    address: {
+      street: 'Eteläesplanadi 2',
+      postalCode: '00130',
+      city: 'Helsinki',
+      /** ISO 3166 country code (structured data). */
+      countryCode: 'FI',
+      /** Per language: en / sv / fi. */
+      country: { en: 'Finland', sv: 'Finland', fi: 'Suomi' },
+    },
+    /** Opening hours shown next to the contact details, per language. */
+    hours: { en: 'Mon–Fri 9–17 (Finnish time)', sv: 'Mån–fre 9–17 (finsk tid)', fi: 'Ma–pe 9–17' },
+  },
+
+  /** Social profiles. Remove any you don't use. */
+  social: [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/' },
+    { label: 'GitHub', href: 'https://github.com/' },
+  ],
+
+  /** Currency used for budget ranges in the project form. */
+  currency: 'EUR',
+
+  /**
+   * Budget ranges offered in the project form. `max: null` means "and above".
+   * Labels are formatted per language automatically.
+   */
+  budgetRanges: [
+    { id: 'b1', min: 2000, max: 5000 },
+    { id: 'b2', min: 5000, max: 10000 },
+    { id: 'b3', min: 10000, max: 20000 },
+    { id: 'b4', min: 20000, max: 40000 },
+    { id: 'b5', min: 40000, max: null },
+  ],
+
+  /** Meeting time slots offered in the project form (local time of the studio). */
+  meetingSlots: ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
+  /** Timezone the meeting slots refer to. */
+  meetingTimezone: 'Europe/Helsinki',
+} as const
+
+/**
+ * Public site URL, used for canonical links, sitemap and Open Graph.
+ * Set NEXT_PUBLIC_SITE_URL in production.
+ */
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '')
+
+/** Optional Calendly (or compatible) scheduling link, e.g. https://calendly.com/your-team/intro-call */
+export const schedulingUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || ''
+
+/** Optional Cloudflare Turnstile site key for extra spam protection. */
+export const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
+
+export type BudgetRangeId = (typeof siteConfig.budgetRanges)[number]['id']

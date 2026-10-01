@@ -1,0 +1,104 @@
+import Link from 'next/link'
+import { siteConfig } from '@/config/site'
+import type { Dictionary } from '@/i18n'
+import type { Locale } from '@/i18n/config'
+import { ArrowUp } from './Icons'
+import { Logo } from './Logo'
+import styles from './Footer.module.css'
+
+export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
+  const { footer, nav } = dict
+  const { contact } = siteConfig
+  const year = new Date().getFullYear()
+  const links = [
+    { href: `/${lang}#services`, label: nav.services },
+    { href: `/${lang}#work`, label: nav.work },
+    { href: `/${lang}#why`, label: nav.why },
+    { href: `/${lang}#process`, label: nav.process },
+    { href: `/${lang}#contact`, label: nav.contact },
+  ]
+
+  return (
+    <footer className={styles.footer}>
+      <div className="container">
+        <div className={styles.grid}>
+          <div className={styles.brand}>
+            <Link href={`/${lang}`} aria-label={dict.a11y.home}>
+              <Logo />
+            </Link>
+            <p>{footer.description}</p>
+            <ul className={styles.social}>
+              {siteConfig.social.map((s) => (
+                <li key={s.label}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <nav aria-labelledby="footer-nav">
+            <h2 id="footer-nav" className={styles.heading}>
+              {footer.navigation}
+            </h2>
+            <ul className={styles.list}>
+              {links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <h2 className={styles.heading}>{footer.contact}</h2>
+            <address className={styles.list}>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a>
+              <span>
+                {contact.address.street}
+                <br />
+                {contact.address.postalCode} {contact.address.city}, {contact.address.country[lang]}
+              </span>
+            </address>
+          </div>
+
+          <nav aria-labelledby="footer-legal">
+            <h2 id="footer-legal" className={styles.heading}>
+              {footer.legal}
+            </h2>
+            <ul className={styles.list}>
+              <li>
+                <Link href={`/${lang}/privacy`}>{footer.privacy}</Link>
+              </li>
+              <li>
+                <Link href={`/${lang}/terms`}>{footer.terms}</Link>
+              </li>
+            </ul>
+            <p className={styles.note}>{footer.cookies}</p>
+          </nav>
+        </div>
+
+        <div className={styles.bottom}>
+          <p>
+            © {year} {siteConfig.legalName}. {footer.rights}
+            {siteConfig.businessId && (
+              <>
+                {' '}
+                · {footer.businessId} {siteConfig.businessId}
+              </>
+            )}
+          </p>
+          <a href="#main" className={styles.top}>
+            {footer.backToTop}
+            <ArrowUp />
+          </a>
+        </div>
+      </div>
+      <div className={styles.wordmark} aria-hidden="true">
+        {siteConfig.name}
+      </div>
+    </footer>
+  )
+}

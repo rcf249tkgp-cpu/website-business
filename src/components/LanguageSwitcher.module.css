@@ -1,0 +1,136 @@
+.root {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 550;
+  letter-spacing: 0.02em;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.trigger svg {
+  width: 16px;
+  height: 16px;
+}
+
+.chevron {
+  width: 14px !important;
+  height: 14px !important;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.chevron[data-open] {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  padding: 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: rgba(14, 14, 24, 0.92);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top right;
+  transition:
+    opacity 0.2s,
+    transform 0.25s var(--ease-out),
+    visibility 0.2s;
+}
+
+.menu[data-open] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  text-align: left;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.item:hover,
+.item:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+[aria-selected='true'] > .item {
+  color: var(--text);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-subtle);
+  width: 20px;
+}
+
+.check {
+  margin-left: auto;
+  width: 16px;
+  height: 16px;
+  color: var(--violet);
+}
+
+.inline {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.inlineItem {
+  min-width: 52px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inlineItem[aria-pressed='true'] {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
