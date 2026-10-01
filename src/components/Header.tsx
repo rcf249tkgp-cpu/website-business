@@ -93,7 +93,6 @@ export function Header({ lang, dict }: Props) {
           </ul>
         </nav>
         <div className={styles.mobileFooter}>
-          <LanguageSwitcher lang={lang} label={dict.a11y.language} inline onSwitch={close} />
           <Link href={`/${lang}#contact`} className="btn btn-primary" onClick={close}>
             {dict.nav.cta}
             <ArrowRight />

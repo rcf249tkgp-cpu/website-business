@@ -147,8 +147,7 @@ test.describe('inquiry form', () => {
     expect(customer.text).toContain('inte en bekräftad bokning')
 
     // The confirmation survives a language switch, then the form can be reset.
-    await page.getByRole('button', { name: /Språk/ }).click()
-    await page.getByRole('option', { name: /English/ }).click()
+    await page.locator('header').getByRole('button', { name: 'English' }).click()
     await expect(page).toHaveURL(/\/en/)
     await expect(form(page).getByText('Your meeting is not booked yet')).toBeVisible()
     await form(page).getByRole('button', { name: 'Send another request' }).click()
@@ -160,8 +159,7 @@ test.describe('inquiry form', () => {
     const f = form(page)
     await f.getByText('Landing page', { exact: true }).click()
     await f.locator('#f-description').fill('A landing page for our new product launch in November.')
-    await page.getByRole('button', { name: /Language/ }).click()
-    await page.getByRole('option', { name: /Suomi/ }).click()
+    await page.locator('header').getByRole('button', { name: 'Suomi' }).click()
     await expect(page).toHaveURL(/\/fi/)
     await expect(form(page).getByText('Palautimme lähettämättömät vastauksesi.')).toBeVisible()
     await expect(form(page).locator('#f-description')).toHaveValue(

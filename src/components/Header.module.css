@@ -81,10 +81,6 @@
     display: none;
   }
 
-  .actions > :first-child {
-    display: none;
-  }
-
   .menuButton {
     display: grid;
   }
@@ -154,7 +150,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 640px) {
   .actions .cta {
     display: none;
   }

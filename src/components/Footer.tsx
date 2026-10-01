@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import { ArrowUp } from './Icons'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { Logo } from './Logo'
 import styles from './Footer.module.css'
 
@@ -27,6 +28,9 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               <Logo />
             </Link>
             <p>{footer.description}</p>
+            <div className={styles.lang}>
+              <LanguageSwitcher lang={lang} label={dict.a11y.language} expanded />
+            </div>
             <ul className={styles.social}>
               {siteConfig.social.map((s) => (
                 <li key={s.label}>

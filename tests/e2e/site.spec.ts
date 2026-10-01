@@ -34,8 +34,9 @@ test.describe('languages', () => {
 
   test('switcher changes language, keeps the page and remembers the choice', async ({ page }) => {
     await page.goto('/en/privacy')
-    await page.getByRole('button', { name: /Language: English/ }).click()
-    await page.getByRole('option', { name: /Svenska/ }).click()
+    const header = page.locator('header')
+    await expect(header.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true')
+    await header.getByRole('button', { name: 'Svenska' }).click()
     await expect(page).toHaveURL(/\/sv\/privacy$/)
     await expect(page.locator('h1')).toHaveText('Integritetspolicy')
     await expect(page.locator('html')).toHaveAttribute('lang', 'sv-SE')
@@ -44,6 +45,13 @@ test.describe('languages', () => {
     await page.goto('/')
     await expect(page).toHaveURL(/\/sv$/)
     await expect(page.getByRole('link', { name: 'Starta ett projekt' }).first()).toBeVisible()
+  })
+
+  test('language can also be switched from the footer', async ({ page }) => {
+    await page.goto('/sv')
+    await page.locator('footer').getByRole('button', { name: 'Suomi' }).click()
+    await expect(page).toHaveURL(/\/fi$/)
+    await expect(page.locator('footer').getByRole('button', { name: 'Suomi' })).toHaveAttribute('aria-pressed', 'true')
   })
 
   test('every visible string in the main sections is translated', async ({ page }) => {
@@ -117,8 +125,11 @@ test.describe('navigation', () => {
     await expect(page.locator('#process')).toBeInViewport()
     await expect(menu.getByRole('link', { name: 'Process' })).toBeHidden()
 
-    await page.getByRole('button', { name: 'Open menu' }).click()
-    await menu.getByRole('button', { name: 'FI' }).click()
+    // All three languages are visible in the header without opening the menu.
+    for (const name of ['English', 'Svenska', 'Suomi']) {
+      await expect(page.locator('header').getByRole('button', { name })).toBeVisible()
+    }
+    await page.locator('header').getByRole('button', { name: 'Suomi' }).click()
     await expect(page).toHaveURL(/\/fi/)
     await expect(page.locator('h1')).toContainText('on mahdoton ohittaa.')
   })
