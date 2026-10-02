@@ -191,7 +191,7 @@ test.describe('interactive details', () => {
     await expect(item).not.toHaveAttribute('open', '')
     await item.locator('summary').click()
     await expect(item).toHaveAttribute('open', '')
-    await expect(item).toContainText('sex till åtta veckor')
+    await expect(item).toContainText('en till två veckor')
   })
 
   test('makes no invented claims about clients or results', async ({ page }) => {

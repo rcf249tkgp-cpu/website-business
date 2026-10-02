@@ -264,14 +264,14 @@ const fi: Dictionary = {
     eyebrow: 'Prosessimme',
     title: 'Viisi vaihetta ensimmäisestä puhelusta julkaisuun.',
     description:
-      'Sovitut välitavoitteet ja yhteinen esikatselulinkki, joten tiedät aina, mitä seuraavaksi tapahtuu ja mitä tarvitsemme sinulta.',
-    note: 'Ajat ovat tyypillisiä yrityksen verkkosivustolle. Tarkasta aikataulusta sovitaan tarjouksessa.',
+      'Useimmat sivustot julkaistaan kahdessa viikossa. Näet esikatselun jo ensimmäisinä päivinä, joten tiedät aina, mitä seuraavaksi tapahtuu ja mitä tarvitsemme sinulta.',
+    note: 'Ajat ovat tyypillisiä yrityksen verkkosivustolle. Verkkokaupat ja laajemmat sivustot vievät enemmän aikaa, ja tarkasta aikataulusta sovitaan tarjouksessa.',
     deliverablesLabel: 'Saat',
     steps: [
       {
         id: 'discovery',
         title: 'Kartoitus',
-        duration: 'Viikko 1',
+        duration: 'Päivä 1',
         description:
           'Maksuton aloituspalaveri, jossa tutustumme yritykseesi, asiakkaisiisi ja tavoitteisiisi sekä nykyiseen sivustoosi.',
         deliverables: ['Projektikuvaus', 'Sovitut tavoitteet'],
@@ -279,7 +279,7 @@ const fi: Dictionary = {
       {
         id: 'planning',
         title: 'Suunnittelu',
-        duration: 'Viikot 1–2',
+        duration: 'Päivät 1–2',
         description:
           'Suunnittelemme sivuston rakenteen, sisällön ja teknisen toteutuksen ja lähetämme kiinteähintaisen tarjouksen aikatauluineen.',
         deliverables: ['Sivukartta', 'Kiinteähintainen tarjous'],
@@ -287,7 +287,7 @@ const fi: Dictionary = {
       {
         id: 'development',
         title: 'Design ja toteutus',
-        duration: 'Viikot 2–6',
+        duration: 'Päivät 3–9',
         description:
           'Suunnittelemme ja rakennamme lyhyissä jaksoissa ja jaamme edistymisen live-esikatselulinkin kautta.',
         deliverables: ['Tärkeimpien sivujen ulkoasu', 'Esikatselulinkki'],
@@ -295,7 +295,7 @@ const fi: Dictionary = {
       {
         id: 'review',
         title: 'Tarkistus',
-        duration: 'Viikot 6–7',
+        duration: 'Päivät 9–12',
         description:
           'Testaat kaiken. Tarkistamme suorituskyvyn, saavutettavuuden ja hakukoneoptimoinnin ja korjaamme havainnot.',
         deliverables: ['Laaturaportti', 'Viimeistely'],
@@ -303,7 +303,7 @@ const fi: Dictionary = {
       {
         id: 'launch',
         title: 'Julkaisu',
-        duration: 'Viikot 7–8',
+        duration: 'Päivät 12–14',
         description:
           'Julkaisemme sivuston, otamme analytiikan käyttöön ja näytämme tiimillesi, miten sisältöä päivitetään.',
         deliverables: ['Julkaisu ja uudelleenohjaukset', 'Koulutus'],
@@ -320,7 +320,7 @@ const fi: Dictionary = {
       },
       {
         q: 'Kuinka kauan projekti kestää?',
-        a: 'Tyypillinen yrityksen verkkosivusto valmistuu kuudessa–kahdeksassa viikossa aloituksesta julkaisuun. Laskeutumissivut voivat valmistua nopeammin, verkkokaupat ja laajemmat sivustot vievät enemmän aikaa. Aikataulusta sovitaan tarjouksessa.',
+        a: 'Tyypillinen yrityksen verkkosivusto on julkaistu yhdessä–kahdessa viikossa aloituksesta. Laskeutumissivut voivat valmistua vielä nopeammin, verkkokaupat ja laajemmat sivustot vievät enemmän aikaa. Aikataulusta sovitaan tarjouksessa.',
       },
       {
         q: 'Voimmeko päivittää sisältöä itse?',
@@ -349,7 +349,7 @@ const fi: Dictionary = {
     hoursLabel: 'Aukioloajat',
     points: [
       'Maksuton ja sitoumukseton aloituspalaveri',
-      'Kiinteähintainen tarjous viikossa',
+      'Kiinteähintainen tarjous kahdessa päivässä',
       'Tietojasi käsitellään luottamuksellisesti',
     ],
   },

@@ -242,14 +242,14 @@ const en = {
     eyebrow: 'Our process',
     title: 'Five steps from first call to launch.',
     description:
-      'Agreed milestones and a shared preview link, so you always know what happens next and what we need from you.',
-    note: 'Timings are typical for a business website. We agree on the exact schedule in the proposal.',
+      'Most websites go live within two weeks. You see a live preview within the first few days, so you always know what happens next and what we need from you.',
+    note: 'Timings are typical for a business website. Online stores and larger sites take longer, and we agree on the exact schedule in the proposal.',
     deliverablesLabel: 'You get',
     steps: [
       {
         id: 'discovery',
         title: 'Discovery',
-        duration: 'Week 1',
+        duration: 'Day 1',
         description:
           'A free intro meeting to understand your business, customers and goals, and a look at what you have today.',
         deliverables: ['Project brief', 'Agreed goals'],
@@ -257,7 +257,7 @@ const en = {
       {
         id: 'planning',
         title: 'Planning',
-        duration: 'Weeks 1–2',
+        duration: 'Days 1–2',
         description:
           'We map the site structure, content and technical approach, then send a fixed-price proposal and timeline.',
         deliverables: ['Sitemap', 'Fixed-price proposal'],
@@ -265,21 +265,21 @@ const en = {
       {
         id: 'development',
         title: 'Design and development',
-        duration: 'Weeks 2–6',
+        duration: 'Days 3–9',
         description: 'We design and build in short rounds and share progress on a live preview link as we go.',
         deliverables: ['Designs for key pages', 'Live preview link'],
       },
       {
         id: 'review',
         title: 'Review',
-        duration: 'Weeks 6–7',
+        duration: 'Days 9–12',
         description: 'You test everything. We run performance, accessibility and SEO checks and fix what we find.',
         deliverables: ['Quality report', 'Final adjustments'],
       },
       {
         id: 'launch',
         title: 'Launch',
-        duration: 'Weeks 7–8',
+        duration: 'Days 12–14',
         description: 'We go live, set up analytics and show your team how to update the content.',
         deliverables: ['Launch and redirects', 'Training session'],
       },
@@ -295,7 +295,7 @@ const en = {
       },
       {
         q: 'How long does a project take?',
-        a: 'A typical business website takes six to eight weeks from kickoff to launch. Landing pages can be quicker; online stores and larger sites take longer. We agree on the schedule in the proposal.',
+        a: 'A typical business website is live within one to two weeks from kickoff. Landing pages can be even quicker; online stores and larger sites take longer. We agree on the schedule in the proposal.',
       },
       {
         q: 'Can we update the content ourselves?',
@@ -324,7 +324,7 @@ const en = {
     hoursLabel: 'Opening hours',
     points: [
       'Free, no-obligation intro meeting',
-      'Fixed-price proposal within a week',
+      'Fixed-price proposal within two days',
       'Your data is handled confidentially',
     ],
   },

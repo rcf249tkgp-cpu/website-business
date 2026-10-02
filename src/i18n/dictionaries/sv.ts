@@ -255,14 +255,14 @@ const sv: Dictionary = {
     eyebrow: 'Vår process',
     title: 'Fem steg från första samtalet till lansering.',
     description:
-      'Överenskomna milstolpar och en gemensam förhandsvisning, så att du alltid vet vad som händer härnäst och vad vi behöver från dig.',
-    note: 'Tiderna gäller en typisk företagswebbplats. Den exakta tidsplanen kommer vi överens om i offerten.',
+      'De flesta webbplatser går live inom två veckor. Du ser en förhandsvisning redan under de första dagarna, så att du alltid vet vad som händer härnäst och vad vi behöver från dig.',
+    note: 'Tiderna gäller en typisk företagswebbplats. Webbutiker och större webbplatser tar längre tid, och den exakta tidsplanen kommer vi överens om i offerten.',
     deliverablesLabel: 'Du får',
     steps: [
       {
         id: 'discovery',
         title: 'Kartläggning',
-        duration: 'Vecka 1',
+        duration: 'Dag 1',
         description:
           'Ett kostnadsfritt startmöte där vi lär känna ditt företag, dina kunder och mål, och går igenom det du har i dag.',
         deliverables: ['Projektbeskrivning', 'Överenskomna mål'],
@@ -270,7 +270,7 @@ const sv: Dictionary = {
       {
         id: 'planning',
         title: 'Planering',
-        duration: 'Vecka 1–2',
+        duration: 'Dag 1–2',
         description:
           'Vi tar fram webbplatsens struktur, innehåll och tekniska lösning, och skickar en offert till fast pris med tidsplan.',
         deliverables: ['Sajtkarta', 'Offert till fast pris'],
@@ -278,21 +278,21 @@ const sv: Dictionary = {
       {
         id: 'development',
         title: 'Design och utveckling',
-        duration: 'Vecka 2–6',
+        duration: 'Dag 3–9',
         description: 'Vi designar och bygger i korta omgångar och delar framstegen via en live-förhandsvisning.',
         deliverables: ['Design för viktiga sidor', 'Länk till förhandsvisning'],
       },
       {
         id: 'review',
         title: 'Granskning',
-        duration: 'Vecka 6–7',
+        duration: 'Dag 9–12',
         description: 'Du testar allt. Vi kontrollerar prestanda, tillgänglighet och SEO och åtgärdar det vi hittar.',
         deliverables: ['Kvalitetsrapport', 'Slutjusteringar'],
       },
       {
         id: 'launch',
         title: 'Lansering',
-        duration: 'Vecka 7–8',
+        duration: 'Dag 12–14',
         description: 'Vi går live, sätter upp analys och visar ditt team hur innehållet uppdateras.',
         deliverables: ['Lansering och omdirigeringar', 'Utbildningstillfälle'],
       },
@@ -308,7 +308,7 @@ const sv: Dictionary = {
       },
       {
         q: 'Hur lång tid tar ett projekt?',
-        a: 'En typisk företagswebbplats tar sex till åtta veckor från start till lansering. Landningssidor kan gå snabbare, medan webbutiker och större webbplatser tar längre tid. Tidsplanen kommer vi överens om i offerten.',
+        a: 'En typisk företagswebbplats är live inom en till två veckor från start. Landningssidor kan gå ännu snabbare, medan webbutiker och större webbplatser tar längre tid. Tidsplanen kommer vi överens om i offerten.',
       },
       {
         q: 'Kan vi uppdatera innehållet själva?',
@@ -337,7 +337,7 @@ const sv: Dictionary = {
     hoursLabel: 'Öppettider',
     points: [
       'Kostnadsfritt och förutsättningslöst startmöte',
-      'Offert till fast pris inom en vecka',
+      'Offert till fast pris inom två dagar',
       'Dina uppgifter hanteras konfidentiellt',
     ],
   },
