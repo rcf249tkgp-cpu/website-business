@@ -294,7 +294,7 @@ const en = {
     items: [
       {
         q: 'How much does a website cost?',
-        a: 'Websites for small businesses start from €500 (excl. VAT). Online stores and larger sites cost more. After a free intro call we send a fixed price, so you know the full cost before any work starts.',
+        a: 'Every project is priced individually. Tell us your budget in the project form, and after a free intro call we send a fixed-price quote. The price is agreed before any work starts, so there are no surprises.',
       },
       {
         q: 'How long does a project take?',
@@ -383,6 +383,7 @@ const en = {
     },
     budgetUnsure: 'Not sure yet',
     budgetAbove: '{amount}+',
+    budgetUpTo: 'Up to {amount}',
     timelines: {
       asap: 'As soon as possible',
       '1-3': 'Within 1–3 months',

@@ -297,7 +297,7 @@ const sv: Dictionary = {
     items: [
       {
         q: 'Vad kostar en webbplats?',
-        a: 'Webbplatser för småföretag från 500 € (exkl. moms). Webbutiker och större webbplatser kostar mer. Efter ett kostnadsfritt startsamtal skickar vi ett fast pris, så att du vet hela kostnaden innan något arbete börjar.',
+        a: 'Varje projekt prissätts individuellt. Berätta om din budget i projektformuläret, så skickar vi en offert till fast pris efter ett kostnadsfritt startsamtal. Priset kommer vi överens om innan något arbete börjar, så det blir inga överraskningar.',
       },
       {
         q: 'Hur lång tid tar ett projekt?',
@@ -386,6 +386,7 @@ const sv: Dictionary = {
     },
     budgetUnsure: 'Vet inte än',
     budgetAbove: '{amount}+',
+    budgetUpTo: 'Upp till {amount}',
     timelines: {
       asap: 'Så snart som möjligt',
       '1-3': 'Inom 1–3 månader',

@@ -45,14 +45,13 @@ export const siteConfig = {
   currency: 'EUR',
 
   /**
-   * Budget ranges offered in the project form. `max: null` means "and above".
+   * Budget ranges offered in the project form. `min: 0` means "up to", `max: null` means "and above".
    * Labels are formatted per language automatically.
    */
   budgetRanges: [
-    { id: 'b1', min: 500, max: 1000 },
-    { id: 'b2', min: 1000, max: 2500 },
-    { id: 'b3', min: 2500, max: 5000 },
-    { id: 'b4', min: 5000, max: null },
+    { id: 'b1', min: 0, max: 2500 },
+    { id: 'b2', min: 2500, max: 5000 },
+    { id: 'b3', min: 5000, max: null },
   ],
 
   /** Meeting time slots offered in the project form (local time of the studio). */

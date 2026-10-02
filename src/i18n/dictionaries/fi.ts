@@ -313,7 +313,7 @@ const fi: Dictionary = {
     items: [
       {
         q: 'Paljonko verkkosivusto maksaa?',
-        a: 'Pienyrityksen verkkosivut alkaen 500 € (alv 0 %). Verkkokaupat ja laajemmat sivustot maksavat enemmän. Maksuttoman aloituspuhelun jälkeen lähetämme kiinteän hinnan, joten tiedät kokonaiskustannuksen ennen kuin työ alkaa.',
+        a: 'Jokainen projekti hinnoitellaan erikseen. Kerro budjettisi projektilomakkeella, niin lähetämme maksuttoman aloituspuhelun jälkeen kiinteähintaisen tarjouksen. Hinnasta sovitaan ennen kuin työ alkaa, joten yllätyksiä ei tule.',
       },
       {
         q: 'Kuinka kauan projekti kestää?',
@@ -402,6 +402,7 @@ const fi: Dictionary = {
     },
     budgetUnsure: 'En ole vielä varma',
     budgetAbove: '{amount}+',
+    budgetUpTo: 'Enintään {amount}',
     timelines: {
       asap: 'Mahdollisimman pian',
       '1-3': '1–3 kuukauden sisällä',

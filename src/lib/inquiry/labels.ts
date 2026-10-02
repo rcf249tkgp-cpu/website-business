@@ -17,6 +17,7 @@ export function budgetLabel(id: string, locale: Locale, form: Dictionary['form']
   const range = siteConfig.budgetRanges.find((b) => b.id === id)
   if (!range) return id
   if (range.max === null) return format(form.budgetAbove, { amount: money(range.min, locale) })
+  if (range.min === 0) return format(form.budgetUpTo, { amount: money(range.max, locale) })
   return `${money(range.min, locale)} – ${money(range.max, locale)}`
 }
 
