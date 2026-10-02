@@ -51,6 +51,38 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+.navLink[data-active] {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Reading progress, driven purely by CSS scroll timelines where supported. */
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet) 30%, #cfc7ff);
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+@supports (animation-timeline: scroll()) {
+  .header[data-scrolled] .progress {
+    opacity: 1;
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .actions {
   display: flex;
   align-items: center;

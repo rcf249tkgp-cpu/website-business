@@ -1,8 +1,8 @@
 const en = {
   meta: {
-    title: 'Novaform — Premium websites that grow your business',
+    title: 'Novaform — Web design and development studio in Helsinki',
     description:
-      'We design and build fast, beautiful, conversion-focused websites, online stores and landing pages for ambitious businesses.',
+      'Novaform designs and builds websites, online stores and landing pages. Considered design, clean code and a clear process, in English, Swedish and Finnish.',
   },
   a11y: {
     skipToContent: 'Skip to content',
@@ -11,112 +11,166 @@ const en = {
     language: 'Language',
     mainNav: 'Main navigation',
     home: 'Home',
+    progress: 'Page progress',
   },
   nav: {
     services: 'Services',
     work: 'Work',
-    why: 'Why us',
+    why: 'Approach',
     process: 'Process',
+    faq: 'FAQ',
     contact: 'Contact',
     cta: 'Start a project',
   },
   hero: {
-    eyebrow: 'Web design & development studio',
+    eyebrow: 'Independent web studio in Helsinki',
     titleLead: 'Websites that make your business',
     titleHighlight: 'impossible to ignore.',
     description:
-      'We design and engineer premium websites, online stores and landing pages — fast, accessible and built to turn visitors into customers.',
+      'We design and build websites, online stores and landing pages for businesses that care how they come across. Considered design, clean code and a process you can follow at every step.',
     primaryCta: 'Start a project',
-    secondaryCta: 'See our work',
-    trust: ['Reply within 1 business day', 'Fixed-price proposals', 'Built in Finland'],
-    panel: {
-      performance: 'Performance',
-      accessibility: 'Accessibility',
-      bestPractices: 'Best practices',
-      seo: 'SEO',
-      lighthouse: 'Our quality target on every launch',
-      deploy: 'Deployed to production',
+    secondaryCta: 'How we work',
+    trust: ['Reply within one business day', 'Fixed-price proposals', 'English, Swedish and Finnish'],
+    visual: {
+      label: 'Preview size',
+      desktop: 'Desktop',
+      tablet: 'Tablet',
+      mobile: 'Mobile',
+      hint: 'Switch sizes to see the layout adapt',
+      checksTitle: 'Checked before every launch',
+      checks: ['Performance budget', 'Accessibility (WCAG 2.2 AA)', 'SEO and metadata', 'Every language reviewed'],
+      deploy: 'Preview deployed',
       live: 'Live',
     },
   },
   marquee: {
-    label: 'Built with modern, proven technology',
+    label: 'Technologies we work with',
   },
   services: {
     eyebrow: 'Services',
-    title: 'Everything you need to win online.',
-    description: 'From a sharp landing page to a full online store — strategy, design and engineering under one roof.',
+    title: 'What we build.',
+    description:
+      'Five ways we can help. Each project is designed and built by the same small team, from the first sketch to launch.',
     items: [
       {
         id: 'design',
         title: 'Website design',
         description:
-          'Distinctive, on-brand interfaces designed around your customers — not a template. Every screen crafted for clarity and conversion.',
-        points: ['UX & information architecture', 'Visual identity on the web', 'Interactive prototypes'],
+          'Interfaces designed around your customers and your brand, not a template. We start with structure and content, then refine every screen for clarity.',
+        points: ['UX and site structure', 'Visual design and design systems', 'Clickable prototypes before code'],
       },
       {
         id: 'development',
         title: 'Web development',
         description:
-          'Hand-built with modern frameworks for near-instant load times, rock-solid security and easy content editing.',
-        points: ['Next.js & headless CMS', 'Core Web Vitals optimized', 'Integrations & APIs'],
+          'Hand-built with modern frameworks, so your site loads quickly, stays secure and is easy for your team to update.',
+        points: [
+          'Next.js and headless CMS',
+          'Performance budgets and Core Web Vitals checks',
+          'Integrations with your tools',
+        ],
       },
       {
         id: 'ecommerce',
         title: 'E-commerce',
         description:
-          'Online stores that sell — smooth checkout, smart product pages and payment setups that work for Nordic customers.',
-        points: ['Shopify & headless commerce', 'Klarna, Stripe, MobilePay', 'Product & inventory sync'],
+          'Online stores with clear product pages and a smooth checkout, set up with the payment methods Nordic customers expect.',
+        points: ['Shopify or headless commerce', 'Klarna, Stripe, MobilePay and Swish', 'Product and inventory sync'],
       },
       {
         id: 'landing',
         title: 'Landing pages',
         description:
-          'High-converting campaign pages built for one goal: more leads, sign-ups and sales from your marketing spend.',
-        points: ['Conversion copywriting', 'A/B testing ready', 'Analytics & tracking'],
+          'Focused campaign pages with one goal and a clear call to action, ready to measure from the first day.',
+        points: ['Message and page structure', 'Analytics and event tracking', 'Ready for A/B testing'],
       },
       {
         id: 'redesign',
         title: 'Redesigns',
         description:
-          'Give an outdated site a second life. We keep what works, fix what doesn’t, and migrate everything safely — SEO included.',
-        points: ['UX & performance audit', 'SEO-safe migration', 'Content restructuring'],
+          'We review what you have, keep what works and rebuild the rest, moving your content and search rankings over carefully.',
+        points: ['UX and performance review', 'Redirect plan to protect SEO', 'Content restructuring'],
       },
     ],
+    labels: {
+      before: 'Before',
+      after: 'After',
+      compare: 'Compare the old and new design',
+      buildPassed: 'Build passed',
+      checkout: 'Checkout',
+      getStarted: 'Get started',
+    },
+    capabilities: {
+      eyebrow: 'Capabilities',
+      title: 'Design and engineering under one roof.',
+      description:
+        'Every project draws on the same set of skills, so design and technical decisions are made together instead of handed over.',
+      groups: [
+        {
+          title: 'Design',
+          items: [
+            'UX research and site structure',
+            'UI and visual design',
+            'Design systems',
+            'Prototyping',
+            'Content structure',
+          ],
+        },
+        {
+          title: 'Engineering',
+          items: ['Next.js and React', 'Headless CMS', 'WordPress', 'APIs and integrations', 'Hosting and deployment'],
+        },
+        {
+          title: 'Commerce',
+          items: ['Shopify', 'Stripe and Klarna', 'Subscriptions', 'Product data and inventory'],
+        },
+        {
+          title: 'Quality',
+          items: [
+            'Accessibility (WCAG 2.2 AA)',
+            'Technical SEO',
+            'Performance budgets',
+            'Multilingual sites',
+            'Privacy-friendly analytics',
+          ],
+        },
+      ],
+    },
   },
   work: {
-    eyebrow: 'Selected work',
-    title: 'Concepts that show what we can do.',
+    eyebrow: 'Design studies',
+    title: 'How we think, shown in design.',
     description:
-      'A selection of concept projects designed by our team to show our range — from e-commerce to healthcare. Your project could be next.',
-    conceptBadge: 'Concept project',
+      'Novaform is a new studio, so instead of a client list we show self-initiated design studies. Each one explores a different kind of business and the problems its website has to solve.',
+    conceptBadge: 'Design study',
+    disclaimer: 'These brands are fictional and were created by our team. They are not client projects.',
     projects: [
       {
         id: 'ember',
         name: 'Ember Roasters',
         category: 'E-commerce',
-        summary: 'A specialty coffee store with subscription checkout and a story-driven product experience.',
+        summary: 'How a small roastery could sell coffee subscriptions while keeping the warmth of a story-led brand.',
         tags: ['Shopify', 'Subscriptions', 'Brand'],
       },
       {
         id: 'lumo',
         name: 'Lumo Clinic',
         category: 'Healthcare',
-        summary: 'A calm, accessible clinic site with online booking and multilingual service pages.',
+        summary: 'A calm, accessible clinic website where booking an appointment takes three steps.',
         tags: ['Booking', 'WCAG 2.2', 'Multilingual'],
       },
       {
         id: 'voltra',
         name: 'Voltra',
         category: 'SaaS landing page',
-        summary: 'A bold product launch page for an EV-charging platform, built to convert demo requests.',
+        summary: 'A launch page for an EV-charging platform with one clear goal: booking a demo.',
         tags: ['Landing page', 'Animation', 'A/B testing'],
       },
       {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Architecture portfolio',
-        summary: 'An editorial portfolio for an architecture studio — big imagery, quiet typography.',
+        summary: 'An editorial portfolio where large imagery and quiet typography do the work.',
         tags: ['Portfolio', 'Headless CMS', 'Editorial'],
       },
     ],
@@ -124,87 +178,140 @@ const en = {
       shop: 'Shop',
       subscribe: 'Subscribe',
       addToCart: 'Add to cart',
+      emberKicker: 'Single origin · Ethiopia',
+      emberNotes: ['Jasmine', 'Bergamot', 'Peach'],
       bookVisit: 'Book a visit',
       ourServices: 'Our services',
+      lumoTitle: ['Care that', 'feels calm.'],
+      month: 'October',
       requestDemo: 'Request a demo',
-      chargingStations: 'charging stations',
-      uptime: 'uptime',
+      voltraTitle: ['CHARGE', 'FASTER.'],
+      voltraFeatures: ['Fast charging', 'Live availability'],
       projects: 'Projects',
       studio: 'Studio',
+      fjordTitle: ['Quiet', 'architecture'],
     },
   },
   why: {
-    eyebrow: 'Why choose us',
-    title: 'A website is an investment. We make it pay off.',
+    eyebrow: 'Our approach',
+    title: 'Fewer layers, more care.',
     description:
-      'We combine the craft of a design studio with the discipline of an engineering team — so your site looks exceptional and performs where it counts.',
+      'We are a small, new studio. You work directly with the people who design and build your website, and every decision is explained in plain language.',
     items: [
       {
-        id: 'quality',
-        title: 'Uncompromising quality',
-        description: 'Pixel-perfect design, clean code and thorough testing on every device before anything goes live.',
+        id: 'clarity',
+        title: 'Clarity first',
+        description:
+          'We plan the structure and content before the visuals, so every page has a purpose and visitors find what they came for.',
       },
       {
-        id: 'creativity',
-        title: 'Original creativity',
+        id: 'craft',
+        title: 'Built by hand',
         description:
-          'No templates. Every site is designed from scratch to express your brand and stand out in your market.',
+          'No templates or page builders. Each layout is designed for your business and coded to a standard we are happy to show other developers.',
       },
       {
         id: 'performance',
-        title: 'Built for speed',
+        title: 'Fast and accessible by default',
         description:
-          'Sub-second load times and top Core Web Vitals — which means better rankings and fewer lost visitors.',
+          'We set a performance budget at the start and test against WCAG 2.2 AA throughout the project, not just before launch.',
       },
       {
-        id: 'value',
-        title: 'Real business value',
-        description:
-          'We design around your goals: more leads, more sales, less admin. Every decision ties back to results.',
+        id: 'communication',
+        title: 'Open communication',
+        description: 'Regular updates, a live preview link from the first build, and replies within one business day.',
       },
     ],
-    stats: [
-      { value: '<1s', label: 'Target load time' },
-      { value: '95+', label: 'Lighthouse target' },
-      { value: '3', label: 'Languages supported' },
-      { value: '24h', label: 'Response time' },
-    ],
+    commitments: {
+      title: 'What you can expect from us',
+      items: [
+        'A fixed-price proposal before any work starts',
+        'Direct contact with your designer and developer',
+        'A live preview you can check at any time',
+        'Accessibility and performance checked before launch',
+        'Training so your team can update the site',
+        'Clear answers in English, Swedish or Finnish',
+      ],
+    },
+    newStudio: {
+      title: 'Why work with a new studio?',
+      body: 'Your project gets our full attention instead of being one of many. We are building our reputation one website at a time, which means we have every reason to get yours right.',
+    },
   },
   process: {
     eyebrow: 'Our process',
-    title: 'From first call to launch — without surprises.',
-    description: 'A clear, proven process with fixed milestones, so you always know what happens next.',
+    title: 'Five steps from first call to launch.',
+    description:
+      'Agreed milestones and a shared preview link, so you always know what happens next and what we need from you.',
+    note: 'Timings are typical for a business website. We agree on the exact schedule in the proposal.',
+    deliverablesLabel: 'You get',
     steps: [
       {
         id: 'discovery',
         title: 'Discovery',
         duration: 'Week 1',
         description:
-          'We learn your business, customers and goals in a free kickoff meeting and review what you have today.',
+          'A free intro meeting to understand your business, customers and goals, and a look at what you have today.',
+        deliverables: ['Project brief', 'Agreed goals'],
       },
       {
         id: 'planning',
         title: 'Planning',
-        duration: 'Week 1–2',
-        description: 'Sitemap, content plan, technical approach and a fixed-price proposal with a clear timeline.',
+        duration: 'Weeks 1–2',
+        description:
+          'We map the site structure, content and technical approach, then send a fixed-price proposal and timeline.',
+        deliverables: ['Sitemap', 'Fixed-price proposal'],
       },
       {
         id: 'development',
-        title: 'Design & development',
-        duration: 'Week 2–6',
-        description: 'We design and build in short iterations, sharing progress on a live preview link as we go.',
+        title: 'Design and development',
+        duration: 'Weeks 2–6',
+        description: 'We design and build in short rounds and share progress on a live preview link as we go.',
+        deliverables: ['Designs for key pages', 'Live preview link'],
       },
       {
         id: 'review',
         title: 'Review',
-        duration: 'Week 6–7',
-        description: 'You test everything. We polish, run performance and accessibility audits, and fix every detail.',
+        duration: 'Weeks 6–7',
+        description: 'You test everything. We run performance, accessibility and SEO checks and fix what we find.',
+        deliverables: ['Quality report', 'Final adjustments'],
       },
       {
         id: 'launch',
         title: 'Launch',
-        duration: 'Week 7–8',
-        description: 'We go live, set up analytics and hand over — with training and support for what comes next.',
+        duration: 'Weeks 7–8',
+        description: 'We go live, set up analytics and show your team how to update the content.',
+        deliverables: ['Launch and redirects', 'Training session'],
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'FAQ',
+    title: 'Common questions.',
+    items: [
+      {
+        q: 'How much does a website cost?',
+        a: 'It depends on the scope. After a free intro meeting we send a fixed-price proposal, so you know the full cost before any work starts. The budget ranges in our project form give a rough idea.',
+      },
+      {
+        q: 'How long does a project take?',
+        a: 'A typical business website takes six to eight weeks from kickoff to launch. Landing pages can be quicker; online stores and larger sites take longer. We agree on the schedule in the proposal.',
+      },
+      {
+        q: 'Can we update the content ourselves?',
+        a: 'Yes. We set up a content management system that suits your team and show you how to edit pages, news and products.',
+      },
+      {
+        q: 'Do you build multilingual websites?',
+        a: 'Yes. We work in English, Swedish and Finnish, and build sites that support the languages you need, with search engine settings for each one.',
+      },
+      {
+        q: 'What happens after launch?',
+        a: 'We monitor the launch and fix any issues. If you want, we can continue with updates, improvements and support.',
+      },
+      {
+        q: 'Why should we trust a new studio?',
+        a: 'We do not have a long client list yet, so we make the work visible instead: a fixed-price proposal, a live preview link throughout the project, and quality checks you can review before launch.',
       },
     ],
   },

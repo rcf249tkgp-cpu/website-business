@@ -1,14 +1,17 @@
 import { expect, test, type Page } from '@playwright/test'
-import { SMTP_PORT, startMailCatcher } from './smtp'
+import { SMTP_PORT, startMailCatcher, startWebhookCatcher, WEBHOOK_PORT } from './smtp'
 
 let catcher: Awaited<ReturnType<typeof startMailCatcher>>
+let hooks: Awaited<ReturnType<typeof startWebhookCatcher>>
 
 test.beforeAll(async () => {
   catcher = await startMailCatcher(SMTP_PORT)
+  hooks = await startWebhookCatcher(WEBHOOK_PORT)
 })
 
 test.afterAll(async () => {
   await catcher.close()
+  await hooks.close()
 })
 
 /** A weekday at least two days ahead, as YYYY-MM-DD. */
@@ -130,6 +133,12 @@ test.describe('inquiry form', () => {
     await expect(f.getByText('Ditt möte är inte bokat än')).toBeVisible()
     await expect(f.getByText(/En bekräftelse har skickats till aino@example\.fi/)).toBeVisible()
     await expect(f.locator('code')).toHaveText(/^NO-\d{6}-[0-9A-F]{6}$/)
+
+    const reference = await f.locator('code').innerText()
+    const hook = hooks.payloads.find((p) => p.reference === reference)
+    expect(hook, 'webhook received the inquiry').toBeTruthy()
+    expect(hook!.locale).toBe('sv')
+    expect(String(hook!.text)).toContain('Lagom AB')
 
     await expect.poll(() => catcher.messages.length).toBe(before + 2)
     const [business, customer] = catcher.messages.slice(before)

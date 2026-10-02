@@ -55,7 +55,16 @@ test.describe('languages', () => {
   })
 
   test('every visible string in the main sections is translated', async ({ page }) => {
-    const english = ['Services', 'Selected work', 'Why choose us', 'Our process', 'Start a project', 'Continue']
+    const english = [
+      'Services',
+      'Design studies',
+      'Our approach',
+      'Our process',
+      'Common questions',
+      'Start a project',
+      'Continue',
+      'Desktop',
+    ]
     for (const path of ['/sv', '/fi', '/sv/start', '/fi/start']) {
       const lang = path.slice(1, 3)
       await page.goto(path)
@@ -77,7 +86,7 @@ test.describe('navigation', () => {
     for (const [label, id] of [
       ['Services', 'services'],
       ['Work', 'work'],
-      ['Why us', 'why'],
+      ['Approach', 'why'],
       ['Process', 'process'],
       ['Contact', 'contact'],
     ]) {
@@ -87,7 +96,7 @@ test.describe('navigation', () => {
     }
   })
 
-  test('hero CTAs lead to contact and work', async ({ page }) => {
+  test('hero CTAs lead to the project form and the process', async ({ page }) => {
     await page.goto('/en')
     await page.locator('main').getByRole('link', { name: 'Start a project' }).first().click()
     await expect(page).toHaveURL(/\/en\/start$/)
@@ -103,8 +112,8 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/fi\/start$/)
     await expect(page.locator('#contact form')).toBeVisible()
     await page.goto('/en')
-    await page.getByRole('link', { name: 'See our work' }).click()
-    await expect(page.locator('#work')).toBeInViewport()
+    await page.getByRole('link', { name: 'How we work' }).click()
+    await expect(page.locator('#process')).toBeInViewport()
   })
 
   test('footer legal links work in every language', async ({ page }) => {
@@ -155,14 +164,57 @@ test.describe('navigation', () => {
   })
 })
 
+test.describe('interactive details', () => {
+  test('hero preview switches between screen sizes', async ({ page }) => {
+    await page.goto('/en')
+    const controls = page.getByRole('group', { name: 'Preview size' })
+    const browser = page.locator('[data-device]')
+    await expect(browser).toHaveAttribute('data-device', 'desktop')
+    const wide = (await browser.boundingBox())!.width
+    await controls.getByRole('button', { name: 'Mobile' }).click()
+    await expect(browser).toHaveAttribute('data-device', 'mobile')
+    await expect(controls.getByRole('button', { name: 'Mobile' })).toHaveAttribute('aria-pressed', 'true')
+    await expect.poll(async () => (await browser.boundingBox())!.width).toBeLessThan(wide * 0.6)
+  })
+
+  test('redesign comparison can be dragged with the keyboard', async ({ page }) => {
+    await page.goto('/en')
+    const slider = page.getByRole('slider', { name: 'Compare the old and new design' })
+    await slider.focus()
+    await page.keyboard.press('End')
+    await expect(slider).toHaveValue('100')
+  })
+
+  test('FAQ answers open and close', async ({ page }) => {
+    await page.goto('/sv#faq')
+    const item = page.locator('#faq details').nth(1)
+    await expect(item).not.toHaveAttribute('open', '')
+    await item.locator('summary').click()
+    await expect(item).toHaveAttribute('open', '')
+    await expect(item).toContainText('sex till åtta veckor')
+  })
+
+  test('makes no invented claims about clients or results', async ({ page }) => {
+    for (const lang of ['en', 'sv', 'fi']) {
+      await page.goto(`/${lang}`)
+      const text = await page.locator('main').innerText()
+      expect(text).not.toMatch(/99\.9%|12k\+|testimonial|trusted by/i)
+    }
+    await page.goto('/en')
+    await expect(page.getByText('They are not client projects.')).toBeVisible()
+  })
+})
+
 test.describe('seo', () => {
   test('serves sitemap, robots and structured data', async ({ page, request }) => {
     const sitemap = await (await request.get('/sitemap.xml')).text()
     expect(sitemap).toContain('/sv/privacy')
     expect(await (await request.get('/robots.txt')).text()).toContain('Sitemap:')
     await page.goto('/en')
-    const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? '{}')
-    expect(ld['@type']).toBe('ProfessionalService')
+    const types = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((els) => els.map((el) => JSON.parse(el.textContent ?? '{}')['@type']))
+    expect(types).toEqual(expect.arrayContaining(['ProfessionalService', 'FAQPage']))
     await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /websites/)
   })
 })

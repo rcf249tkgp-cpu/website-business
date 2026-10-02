@@ -416,20 +416,24 @@
 
 .voltraStats {
   display: flex;
-  gap: 4cqw;
-  font-size: 1.3cqw;
-  color: rgba(255, 255, 255, 0.6);
+  flex-wrap: wrap;
+  gap: 1.2cqw 3cqw;
+  font-size: 1.4cqw;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .voltraStats span {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 1cqw;
 }
 
-.voltraStats b {
-  color: #fff;
-  font-size: 2.6cqw;
-  font-weight: 700;
+.voltraStats i {
+  width: 1cqw;
+  height: 1cqw;
+  border-radius: 50%;
+  background: #d4ff3a;
+  box-shadow: 0 0 1.4cqw #d4ff3a;
 }
 
 .voltraCta {

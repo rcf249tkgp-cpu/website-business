@@ -22,12 +22,12 @@ function Ember({ t }: { t: Mock }) {
       </div>
       <div className={styles.emberBody}>
         <div className={styles.emberCopy}>
-          <span className={styles.emberKicker}>Single origin · Ethiopia</span>
+          <span className={styles.emberKicker}>{t.emberKicker}</span>
           <span className={styles.emberTitle}>Yirgacheffe</span>
           <span className={styles.emberNotes}>
-            <i>Jasmine</i>
-            <i>Bergamot</i>
-            <i>Peach</i>
+            {t.emberNotes.map((note) => (
+              <i key={note}>{note}</i>
+            ))}
           </span>
           <span className={styles.emberPriceRow}>
             <b>€18</b>
@@ -62,9 +62,9 @@ function Lumo({ t }: { t: Mock }) {
       <div className={styles.lumoBody}>
         <div className={styles.lumoHero}>
           <span className={styles.lumoTitle}>
-            Care that
+            {t.lumoTitle[0]}
             <br />
-            feels calm.
+            {t.lumoTitle[1]}
           </span>
           <span className={styles.lumoServicesLabel}>{t.ourServices}</span>
           <span className={styles.lumoServices}>
@@ -77,7 +77,7 @@ function Lumo({ t }: { t: Mock }) {
           </span>
         </div>
         <div className={styles.lumoBooking}>
-          <span className={styles.lumoMonth}>October</span>
+          <span className={styles.lumoMonth}>{t.month}</span>
           <span className={styles.lumoDays}>
             {days.map((d) => (
               <i key={d} data-active={d === 14 || undefined} data-off={d % 7 === 4 || d % 7 === 5 || undefined}>
@@ -111,19 +111,17 @@ function Voltra({ t }: { t: Mock }) {
       </div>
       <div className={styles.voltraBody}>
         <span className={styles.voltraTitle}>
-          CHARGE
+          {t.voltraTitle[0]}
           <br />
-          <em>FASTER.</em>
+          <em>{t.voltraTitle[1]}</em>
         </span>
         <span className={styles.voltraStats}>
-          <span>
-            <b>12k+</b>
-            {t.chargingStations}
-          </span>
-          <span>
-            <b>99.9%</b>
-            {t.uptime}
-          </span>
+          {t.voltraFeatures.map((feature) => (
+            <span key={feature}>
+              <i />
+              {feature}
+            </span>
+          ))}
         </span>
         <span className={styles.voltraCta}>{t.requestDemo} →</span>
       </div>
@@ -164,9 +162,9 @@ function Fjord({ t }: { t: Mock }) {
       </div>
       <div className={styles.fjordBody}>
         <span className={styles.fjordTitle}>
-          Quiet
+          {t.fjordTitle[0]}
           <br />
-          <em>architecture</em>
+          <em>{t.fjordTitle[1]}</em>
         </span>
         <div className={styles.fjordGrid}>
           <span className={`${styles.fjordImg} ${styles.fjordImgA}`}>

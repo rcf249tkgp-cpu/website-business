@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
@@ -17,6 +18,9 @@ interface Props {
 export function Header({ lang, dict }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [active, setActive] = useState('')
+  const pathname = usePathname()
+  const onHome = pathname === `/${lang}`
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -33,17 +37,35 @@ export function Header({ lang, dict }: Props) {
     return () => document.removeEventListener('keydown', onKey)
   }, [menuOpen])
 
-  const links = [
-    { href: `/${lang}#services`, label: dict.nav.services },
-    { href: `/${lang}#work`, label: dict.nav.work },
-    { href: `/${lang}#why`, label: dict.nav.why },
-    { href: `/${lang}#process`, label: dict.nav.process },
-    { href: `/${lang}#contact`, label: dict.nav.contact },
-  ]
+  const sections = ['services', 'work', 'why', 'process', 'contact'] as const
+
+  // Highlight the nav item for the section currently in view (homepage only).
+  useEffect(() => {
+    if (!onHome) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id)
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    )
+    // FAQ has no nav item; observing it clears the highlight there.
+    for (const id of [...sections, 'faq']) {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    }
+    return () => {
+      observer.disconnect()
+      setActive('')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onHome])
+
+  const links = sections.map((id) => ({ id, href: `/${lang}#${id}`, label: dict.nav[id] }))
   const close = () => setMenuOpen(false)
 
   return (
     <header className={styles.header} data-scrolled={scrolled || menuOpen || undefined}>
+      <span className={styles.progress} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
         <Link href={`/${lang}`} className={styles.logo} aria-label={dict.a11y.home} onClick={close}>
           <Logo />
@@ -53,7 +75,7 @@ export function Header({ lang, dict }: Props) {
           <ul>
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className={styles.navLink}>
+                <Link href={l.href} className={styles.navLink} data-active={(onHome && active === l.id) || undefined}>
                   {l.label}
                 </Link>
               </li>

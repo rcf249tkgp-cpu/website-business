@@ -50,6 +50,8 @@ The form posts to `/api/inquiry`, which validates the request and emails:
 
 If no provider is configured, the API returns `503` and the form tells visitors to email you directly. Inquiries are never silently dropped.
 
+Each delivery is retried once on a temporary failure. For extra safety you can add a **second delivery channel** with `INQUIRY_WEBHOOK_URL`. Every inquiry is then also posted as JSON to a Slack or Teams incoming webhook, or to Zapier, Make or n8n. The inquiry counts as delivered if either channel succeeds.
+
 **Option A: Resend (recommended, free tier available)**
 1. Create an account at <https://resend.com>.
 2. Add and verify your domain (DNS records: SPF + DKIM).
@@ -96,6 +98,7 @@ Set `NEXT_PUBLIC_SITE_URL=https://www.yourdomain.com` so canonical URLs, `hrefla
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` | Optional | CAPTCHA |
 | `SEND_CUSTOMER_CONFIRMATION` | Optional | `false` disables the customer acknowledgement email |
 | `INQUIRY_RATE_LIMIT` | Optional | Inquiries per IP per 15 min |
+| `INQUIRY_WEBHOOK_URL` | Optional | Also post each inquiry to Slack/Teams/Zapier/Make (HTTPS) |
 | `MAIL_PROVIDER` | Optional | Force `resend`, `smtp` or `console` (dev only) |
 
 All secrets are read only on the server. The browser never sees them.
@@ -146,4 +149,5 @@ src/
 - [ ] Set `NEXT_PUBLIC_SITE_URL` (and optionally Calendly / Turnstile)
 - [ ] Have the privacy policy and terms (`legal` in the dictionaries) reviewed for your business
 - [ ] Proofread Swedish and Finnish copy
+- [ ] Confirm the commitments you make on the site are ones you'll keep: fixed-price proposals, reply within one business day, free intro meeting, live preview link, training at launch (`why.commitments`, `faq` and `contact.points` in the dictionaries)
 - [ ] Swap concept projects for real case studies as you get them (`work` in the dictionaries plus `src/components/ProjectMockups.tsx`)

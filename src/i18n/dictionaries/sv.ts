@@ -2,9 +2,9 @@ import type { Dictionary } from './en'
 
 const sv: Dictionary = {
   meta: {
-    title: 'Novaform — Premiumwebbplatser som får ditt företag att växa',
+    title: 'Novaform — Studio för webbdesign och webbutveckling i Helsingfors',
     description:
-      'Vi designar och bygger snabba, snygga och konverterande webbplatser, webbutiker och landningssidor för ambitiösa företag.',
+      'Novaform designar och bygger webbplatser, webbutiker och landningssidor. Genomtänkt design, ren kod och en tydlig process, på svenska, finska och engelska.',
   },
   a11y: {
     skipToContent: 'Hoppa till innehållet',
@@ -13,114 +13,176 @@ const sv: Dictionary = {
     language: 'Språk',
     mainNav: 'Huvudnavigering',
     home: 'Startsida',
+    progress: 'Hur långt du har läst',
   },
   nav: {
     services: 'Tjänster',
     work: 'Projekt',
-    why: 'Varför vi',
+    why: 'Arbetssätt',
     process: 'Process',
+    faq: 'Frågor',
     contact: 'Kontakt',
     cta: 'Starta ett projekt',
   },
   hero: {
-    eyebrow: 'Studio för webbdesign och webbutveckling',
+    eyebrow: 'Oberoende webbstudio i Helsingfors',
     titleLead: 'Webbplatser som gör ditt företag',
     titleHighlight: 'omöjligt att ignorera.',
     description:
-      'Vi designar och utvecklar premiumwebbplatser, webbutiker och landningssidor — snabba, tillgängliga och byggda för att göra besökare till kunder.',
+      'Vi designar och bygger webbplatser, webbutiker och landningssidor för företag som bryr sig om hur de uppfattas. Genomtänkt design, ren kod och en process du kan följa i varje steg.',
     primaryCta: 'Starta ett projekt',
-    secondaryCta: 'Se våra projekt',
-    trust: ['Svar inom en arbetsdag', 'Offerter till fast pris', 'Byggt i Finland'],
-    panel: {
-      performance: 'Prestanda',
-      accessibility: 'Tillgänglighet',
-      bestPractices: 'Bästa praxis',
-      seo: 'SEO',
-      lighthouse: 'Vårt kvalitetsmål vid varje lansering',
-      deploy: 'Publicerad i produktion',
+    secondaryCta: 'Så arbetar vi',
+    trust: ['Svar inom en arbetsdag', 'Offerter till fast pris', 'Svenska, finska och engelska'],
+    visual: {
+      label: 'Förhandsvisningens storlek',
+      desktop: 'Dator',
+      tablet: 'Surfplatta',
+      mobile: 'Mobil',
+      hint: 'Byt storlek och se hur layouten anpassar sig',
+      checksTitle: 'Kontrolleras före varje lansering',
+      checks: ['Prestandabudget', 'Tillgänglighet (WCAG 2.2 AA)', 'SEO och metadata', 'Alla språk granskade'],
+      deploy: 'Förhandsversion publicerad',
       live: 'Live',
     },
   },
   marquee: {
-    label: 'Byggt med modern, beprövad teknik',
+    label: 'Teknik vi arbetar med',
   },
   services: {
     eyebrow: 'Tjänster',
-    title: 'Allt du behöver för att vinna online.',
+    title: 'Det här bygger vi.',
     description:
-      'Från en vass landningssida till en komplett webbutik — strategi, design och utveckling under ett och samma tak.',
+      'Fem sätt vi kan hjälpa till. Varje projekt designas och byggs av samma lilla team, från första skissen till lansering.',
     items: [
       {
         id: 'design',
         title: 'Webbdesign',
         description:
-          'Unika gränssnitt i linje med ditt varumärke, designade kring dina kunder — inte en mall. Varje vy är utformad för tydlighet och konvertering.',
-        points: ['UX och informationsarkitektur', 'Visuell identitet på webben', 'Interaktiva prototyper'],
+          'Gränssnitt som utgår från dina kunder och ditt varumärke, inte från en mall. Vi börjar med struktur och innehåll och finslipar sedan varje vy för tydlighet.',
+        points: ['UX och webbplatsstruktur', 'Visuell design och designsystem', 'Klickbara prototyper före kod'],
       },
       {
         id: 'development',
         title: 'Webbutveckling',
         description:
-          'Handbyggt med moderna ramverk för blixtsnabba laddningstider, stabil säkerhet och enkel innehållsredigering.',
-        points: ['Next.js och headless CMS', 'Optimerat för Core Web Vitals', 'Integrationer och API:er'],
+          'Handbyggt med moderna ramverk, så att webbplatsen laddar snabbt, är säker och är enkel för ditt team att uppdatera.',
+        points: [
+          'Next.js och headless CMS',
+          'Prestandabudget och kontroll av Core Web Vitals',
+          'Integrationer med era verktyg',
+        ],
       },
       {
         id: 'ecommerce',
         title: 'E-handel',
         description:
-          'Webbutiker som säljer — smidig kassa, smarta produktsidor och betallösningar som fungerar för nordiska kunder.',
-        points: ['Shopify och headless commerce', 'Klarna, Stripe, Swish', 'Synk av produkter och lager'],
+          'Webbutiker med tydliga produktsidor och en smidig kassa, med de betalsätt som nordiska kunder förväntar sig.',
+        points: [
+          'Shopify eller headless commerce',
+          'Klarna, Stripe, MobilePay och Swish',
+          'Synk av produkter och lager',
+        ],
       },
       {
         id: 'landing',
         title: 'Landningssidor',
-        description:
-          'Kampanjsidor med hög konvertering, byggda för ett mål: fler leads, registreringar och köp från din marknadsföring.',
-        points: ['Säljande copywriting', 'Redo för A/B-tester', 'Analys och spårning'],
+        description: 'Fokuserade kampanjsidor med ett mål och en tydlig uppmaning, redo att mätas från första dagen.',
+        points: ['Budskap och sidstruktur', 'Analys och händelsespårning', 'Redo för A/B-tester'],
       },
       {
         id: 'redesign',
         title: 'Omdesign',
         description:
-          'Ge en föråldrad webbplats nytt liv. Vi behåller det som fungerar, förbättrar resten och migrerar allt säkert — inklusive SEO.',
-        points: ['UX- och prestandagranskning', 'SEO-säker migrering', 'Omstrukturering av innehåll'],
+          'Vi går igenom det du har, behåller det som fungerar och bygger om resten, och flyttar innehåll och sökpositioner varsamt.',
+        points: ['Genomgång av UX och prestanda', 'Omdirigeringsplan som skyddar SEO', 'Omstrukturering av innehåll'],
       },
     ],
+    labels: {
+      before: 'Före',
+      after: 'Efter',
+      compare: 'Jämför den gamla och nya designen',
+      buildPassed: 'Bygget lyckades',
+      checkout: 'Kassa',
+      getStarted: 'Kom igång',
+    },
+    capabilities: {
+      eyebrow: 'Kompetens',
+      title: 'Design och utveckling under samma tak.',
+      description:
+        'Varje projekt bygger på samma uppsättning kompetenser, så att design och tekniska beslut fattas tillsammans i stället för att lämnas över.',
+      groups: [
+        {
+          title: 'Design',
+          items: [
+            'UX-research och webbplatsstruktur',
+            'UI och visuell design',
+            'Designsystem',
+            'Prototyper',
+            'Innehållsstruktur',
+          ],
+        },
+        {
+          title: 'Utveckling',
+          items: [
+            'Next.js och React',
+            'Headless CMS',
+            'WordPress',
+            'API:er och integrationer',
+            'Drift och publicering',
+          ],
+        },
+        {
+          title: 'E-handel',
+          items: ['Shopify', 'Stripe och Klarna', 'Prenumerationer', 'Produktdata och lager'],
+        },
+        {
+          title: 'Kvalitet',
+          items: [
+            'Tillgänglighet (WCAG 2.2 AA)',
+            'Teknisk SEO',
+            'Prestandabudget',
+            'Flerspråkiga webbplatser',
+            'Integritetsvänlig analys',
+          ],
+        },
+      ],
+    },
   },
   work: {
-    eyebrow: 'Utvalda projekt',
-    title: 'Koncept som visar vad vi kan.',
+    eyebrow: 'Designstudier',
+    title: 'Hur vi tänker, visat i design.',
     description:
-      'Ett urval konceptprojekt som vårt team har designat för att visa vår bredd — från e-handel till vård. Ditt projekt kan bli nästa.',
-    conceptBadge: 'Konceptprojekt',
+      'Novaform är en ny studio, så i stället för en kundlista visar vi egna designstudier. Varje studie utforskar en annan typ av företag och de problem dess webbplats behöver lösa.',
+    conceptBadge: 'Designstudie',
+    disclaimer: 'Varumärkena är påhittade och skapade av vårt team. De är inte kunduppdrag.',
     projects: [
       {
         id: 'ember',
         name: 'Ember Roasters',
         category: 'E-handel',
-        summary: 'En webbutik för specialkaffe med prenumerationer och en berättande produktupplevelse.',
+        summary:
+          'Hur ett litet rosteri kan sälja kaffeprenumerationer och samtidigt behålla värmen i ett berättande varumärke.',
         tags: ['Shopify', 'Prenumerationer', 'Varumärke'],
       },
       {
         id: 'lumo',
         name: 'Lumo Clinic',
         category: 'Vård',
-        summary: 'En lugn och tillgänglig klinikwebbplats med onlinebokning och tjänstesidor på flera språk.',
+        summary: 'En lugn och tillgänglig klinikwebbplats där det tar tre steg att boka en tid.',
         tags: ['Bokning', 'WCAG 2.2', 'Flerspråkig'],
       },
       {
         id: 'voltra',
         name: 'Voltra',
         category: 'Landningssida för SaaS',
-        summary:
-          'En kraftfull lanseringssida för en laddplattform för elbilar, byggd för att ge fler demoförfrågningar.',
+        summary: 'En lanseringssida för en laddplattform för elbilar med ett tydligt mål: att boka en demo.',
         tags: ['Landningssida', 'Animation', 'A/B-test'],
       },
       {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Arkitektportfolio',
-        summary: 'En redaktionell portfolio för en arkitektbyrå — stora bilder, stillsam typografi.',
+        summary: 'En redaktionell portfolio där stora bilder och stillsam typografi gör jobbet.',
         tags: ['Portfolio', 'Headless CMS', 'Redaktionell'],
       },
     ],
@@ -128,89 +190,141 @@ const sv: Dictionary = {
       shop: 'Butik',
       subscribe: 'Prenumerera',
       addToCart: 'Lägg i varukorgen',
+      emberKicker: 'Ett ursprung · Etiopien',
+      emberNotes: ['Jasmin', 'Bergamott', 'Persika'],
       bookVisit: 'Boka besök',
       ourServices: 'Våra tjänster',
+      lumoTitle: ['Vård som', 'känns lugn.'],
+      month: 'Oktober',
       requestDemo: 'Boka en demo',
-      chargingStations: 'laddstationer',
-      uptime: 'drifttid',
+      voltraTitle: ['LADDA', 'SNABBARE.'],
+      voltraFeatures: ['Snabbladdning', 'Lediga platser i realtid'],
       projects: 'Projekt',
       studio: 'Studio',
+      fjordTitle: ['Stillsam', 'arkitektur'],
     },
   },
   why: {
-    eyebrow: 'Varför välja oss',
-    title: 'En webbplats är en investering. Vi ser till att den lönar sig.',
+    eyebrow: 'Vårt arbetssätt',
+    title: 'Färre mellanhänder, mer omsorg.',
     description:
-      'Vi kombinerar en designstudios hantverk med ett utvecklingsteams disciplin — så att din webbplats ser exceptionell ut och presterar där det räknas.',
+      'Vi är en liten, ny studio. Du arbetar direkt med dem som designar och bygger din webbplats, och varje beslut förklaras på ett begripligt sätt.',
     items: [
       {
-        id: 'quality',
-        title: 'Kompromisslös kvalitet',
-        description: 'Pixelperfekt design, ren kod och noggranna tester på alla enheter innan något publiceras.',
+        id: 'clarity',
+        title: 'Tydlighet först',
+        description:
+          'Vi planerar struktur och innehåll före det visuella, så att varje sida har ett syfte och besökarna hittar det de söker.',
       },
       {
-        id: 'creativity',
-        title: 'Genuin kreativitet',
+        id: 'craft',
+        title: 'Byggt för hand',
         description:
-          'Inga mallar. Varje webbplats designas från grunden för att uttrycka ditt varumärke och sticka ut på din marknad.',
+          'Inga mallar eller sidbyggare. Varje layout designas för ditt företag och kodas enligt en standard vi gärna visar för andra utvecklare.',
       },
       {
         id: 'performance',
-        title: 'Byggd för hastighet',
+        title: 'Snabbt och tillgängligt från början',
         description:
-          'Laddtider under en sekund och toppresultat i Core Web Vitals — bättre ranking och färre tappade besökare.',
+          'Vi sätter en prestandabudget i början och testar mot WCAG 2.2 AA genom hela projektet, inte bara före lansering.',
       },
       {
-        id: 'value',
-        title: 'Verkligt affärsvärde',
+        id: 'communication',
+        title: 'Öppen kommunikation',
         description:
-          'Vi designar utifrån dina mål: fler leads, mer försäljning, mindre administration. Varje beslut kopplas till resultat.',
+          'Regelbundna uppdateringar, en live-förhandsvisning från första bygget och svar inom en arbetsdag.',
       },
     ],
-    stats: [
-      { value: '<1 s', label: 'Mål för laddtid' },
-      { value: '95+', label: 'Lighthouse-mål' },
-      { value: '3', label: 'Språk som stöds' },
-      { value: '24 h', label: 'Svarstid' },
-    ],
+    commitments: {
+      title: 'Det här kan du förvänta dig av oss',
+      items: [
+        'En offert till fast pris innan något arbete börjar',
+        'Direktkontakt med din designer och utvecklare',
+        'En förhandsvisning du kan titta på när som helst',
+        'Tillgänglighet och prestanda kontrolleras före lansering',
+        'Utbildning så att ditt team kan uppdatera webbplatsen',
+        'Tydliga svar på svenska, finska eller engelska',
+      ],
+    },
+    newStudio: {
+      title: 'Varför arbeta med en ny studio?',
+      body: 'Ditt projekt får vår fulla uppmärksamhet i stället för att vara ett av många. Vi bygger vårt rykte en webbplats i taget, så vi har all anledning att göra din rätt.',
+    },
   },
   process: {
     eyebrow: 'Vår process',
-    title: 'Från första samtalet till lansering — utan överraskningar.',
-    description: 'En tydlig och beprövad process med fasta milstolpar, så att du alltid vet vad som händer härnäst.',
+    title: 'Fem steg från första samtalet till lansering.',
+    description:
+      'Överenskomna milstolpar och en gemensam förhandsvisning, så att du alltid vet vad som händer härnäst och vad vi behöver från dig.',
+    note: 'Tiderna gäller en typisk företagswebbplats. Den exakta tidsplanen kommer vi överens om i offerten.',
+    deliverablesLabel: 'Du får',
     steps: [
       {
         id: 'discovery',
         title: 'Kartläggning',
         duration: 'Vecka 1',
         description:
-          'Vi lär känna ditt företag, dina kunder och mål på ett kostnadsfritt startmöte och går igenom det du har i dag.',
+          'Ett kostnadsfritt startmöte där vi lär känna ditt företag, dina kunder och mål, och går igenom det du har i dag.',
+        deliverables: ['Projektbeskrivning', 'Överenskomna mål'],
       },
       {
         id: 'planning',
         title: 'Planering',
         duration: 'Vecka 1–2',
-        description: 'Sajtkarta, innehållsplan, teknisk lösning och en offert till fast pris med en tydlig tidsplan.',
+        description:
+          'Vi tar fram webbplatsens struktur, innehåll och tekniska lösning, och skickar en offert till fast pris med tidsplan.',
+        deliverables: ['Sajtkarta', 'Offert till fast pris'],
       },
       {
         id: 'development',
         title: 'Design och utveckling',
         duration: 'Vecka 2–6',
-        description: 'Vi designar och bygger i korta iterationer och delar framstegen via en live-förhandsvisning.',
+        description: 'Vi designar och bygger i korta omgångar och delar framstegen via en live-förhandsvisning.',
+        deliverables: ['Design för viktiga sidor', 'Länk till förhandsvisning'],
       },
       {
         id: 'review',
         title: 'Granskning',
         duration: 'Vecka 6–7',
-        description:
-          'Du testar allt. Vi finslipar, gör prestanda- och tillgänglighetsgranskningar och rättar varje detalj.',
+        description: 'Du testar allt. Vi kontrollerar prestanda, tillgänglighet och SEO och åtgärdar det vi hittar.',
+        deliverables: ['Kvalitetsrapport', 'Slutjusteringar'],
       },
       {
         id: 'launch',
         title: 'Lansering',
         duration: 'Vecka 7–8',
-        description:
-          'Vi går live, sätter upp analys och lämnar över — med utbildning och support för det som kommer sedan.',
+        description: 'Vi går live, sätter upp analys och visar ditt team hur innehållet uppdateras.',
+        deliverables: ['Lansering och omdirigeringar', 'Utbildningstillfälle'],
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Frågor',
+    title: 'Vanliga frågor.',
+    items: [
+      {
+        q: 'Vad kostar en webbplats?',
+        a: 'Det beror på omfattningen. Efter ett kostnadsfritt startmöte skickar vi en offert till fast pris, så att du vet hela kostnaden innan något arbete börjar. Budgetintervallen i vårt projektformulär ger en ungefärlig bild.',
+      },
+      {
+        q: 'Hur lång tid tar ett projekt?',
+        a: 'En typisk företagswebbplats tar sex till åtta veckor från start till lansering. Landningssidor kan gå snabbare, medan webbutiker och större webbplatser tar längre tid. Tidsplanen kommer vi överens om i offerten.',
+      },
+      {
+        q: 'Kan vi uppdatera innehållet själva?',
+        a: 'Ja. Vi sätter upp ett publiceringssystem som passar ditt team och visar hur ni redigerar sidor, nyheter och produkter.',
+      },
+      {
+        q: 'Bygger ni flerspråkiga webbplatser?',
+        a: 'Ja. Vi arbetar på svenska, finska och engelska och bygger webbplatser med de språk du behöver, med rätt inställningar för sökmotorer på varje språk.',
+      },
+      {
+        q: 'Vad händer efter lanseringen?',
+        a: 'Vi följer upp lanseringen och åtgärdar eventuella problem. Om du vill kan vi fortsätta med uppdateringar, förbättringar och support.',
+      },
+      {
+        q: 'Varför ska vi lita på en ny studio?',
+        a: 'Vi har ingen lång kundlista än, så vi gör arbetet synligt i stället: en offert till fast pris, en förhandsvisning genom hela projektet och kvalitetskontroller som du kan granska före lansering.',
       },
     ],
   },

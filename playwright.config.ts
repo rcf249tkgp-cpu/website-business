@@ -33,6 +33,8 @@ export default defineConfig({
       MAIL_FROM: 'Novaform <no-reply@studio.test>',
       INQUIRY_TO_EMAIL: 'inbox@studio.test',
       INQUIRY_RATE_LIMIT: '100',
+      // Second delivery channel, captured by a local server in the tests.
+      INQUIRY_WEBHOOK_URL: 'http://127.0.0.1:2527/hook',
     },
   },
 })

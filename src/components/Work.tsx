@@ -1,4 +1,5 @@
 import type { Dictionary } from '@/i18n'
+import { Alert as Info } from './Icons'
 import { ProjectMockup } from './ProjectMockups'
 import { SectionHeading } from './SectionHeading'
 import styles from './Work.module.css'
@@ -9,6 +10,10 @@ export function Work({ dict }: { dict: Dictionary }) {
     <section id="work" className="section" aria-labelledby="work-title">
       <div className="container">
         <SectionHeading id="work-title" eyebrow={work.eyebrow} title={work.title} description={work.description} />
+        <p className={`${styles.disclaimer} reveal`}>
+          <Info />
+          {work.disclaimer}
+        </p>
         <ul className={styles.grid}>
           {work.projects.map((project) => (
             <li key={project.id} className={`card reveal ${styles.project}`}>

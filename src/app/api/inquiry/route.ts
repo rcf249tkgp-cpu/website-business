@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto'
 import { NextResponse, type NextRequest } from 'next/server'
 import { siteConfig } from '@/config/site'
 import { defaultLocale, isLocale } from '@/i18n/config'
+import { inquiryWebhookUrl, postWebhook, withRetry } from '@/lib/inquiry/delivery'
 import { businessEmail, customerEmail } from '@/lib/inquiry/email-templates'
 import { getMailer, inquiryRecipient } from '@/lib/inquiry/mailer'
 import { looksAutomated, rateLimited, verifyTurnstile } from '@/lib/inquiry/spam'
@@ -75,28 +76,45 @@ export async function POST(request: NextRequest) {
   if (Object.keys(fields).length > 0) return reply({ ok: false, error: 'validation', fields }, 422)
 
   const mailer = getMailer()
-  if (!mailer) {
-    console.error('[inquiry] No mail provider configured — set RESEND_API_KEY or SMTP_HOST (see README).')
+  const webhook = inquiryWebhookUrl()
+  if (!mailer && !webhook) {
+    console.error(
+      '[inquiry] No delivery channel configured — set RESEND_API_KEY, SMTP_HOST or INQUIRY_WEBHOOK_URL (see README).',
+    )
     return reply({ ok: false, error: 'notConfigured' }, 503)
   }
 
   const reference = newReference()
+  const message = businessEmail(data, locale, reference)
+  let delivered = false
 
-  try {
-    const message = businessEmail(data, locale, reference)
-    await mailer.send({ to: inquiryRecipient(), replyTo: data.email, ...message })
-  } catch (error) {
-    console.error(`[inquiry] Failed to deliver inquiry ${reference} via ${mailer.name}:`, error)
-    return reply({ ok: false, error: 'server' }, 502)
+  if (mailer) {
+    try {
+      await withRetry(() => mailer.send({ to: inquiryRecipient(), replyTo: data.email, ...message }))
+      delivered = true
+    } catch (error) {
+      console.error(`[inquiry] Email delivery of ${reference} via ${mailer.name} failed:`, error)
+    }
   }
+
+  if (webhook) {
+    try {
+      await withRetry(() => postWebhook(webhook, { reference, locale, data, summary: message.text }))
+      delivered = true
+    } catch (error) {
+      console.error(`[inquiry] Webhook delivery of ${reference} failed:`, error)
+    }
+  }
+
+  if (!delivered) return reply({ ok: false, error: 'server' }, 502)
 
   // The inquiry itself is delivered at this point. The customer copy is a
   // courtesy: if it fails we still succeed, but tell the UI not to claim it was sent.
   let confirmationSent = false
-  if (process.env.SEND_CUSTOMER_CONFIRMATION !== 'false') {
+  if (mailer && process.env.SEND_CUSTOMER_CONFIRMATION !== 'false') {
     try {
-      const message = customerEmail(data, locale, reference)
-      await mailer.send({ to: data.email, replyTo: inquiryRecipient(), ...message })
+      const confirmation = customerEmail(data, locale, reference)
+      await withRetry(() => mailer.send({ to: data.email, replyTo: inquiryRecipient(), ...confirmation }))
       confirmationSent = true
     } catch (error) {
       console.error(`[inquiry] Customer confirmation for ${reference} failed:`, error)

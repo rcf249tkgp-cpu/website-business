@@ -12,27 +12,38 @@
   --border-strong: rgba(255, 255, 255, 0.16);
 
   --text: #f4f4f8;
-  --text-muted: #a3a3b8;
-  --text-subtle: #80809a;
+  --text-muted: #a5a5b8;
+  --text-subtle: #82829a;
+  --surface: #0b0b13;
+  --hairline: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12) 20%,
+    rgba(255, 255, 255, 0.12) 80%,
+    transparent
+  );
 
   --violet: #8b7bff;
-  --violet-strong: #7c5cff;
+  --violet-strong: #6a4cf0;
   --blue: #4f8cff;
   --cyan: #38d6f5;
   --success: #34d399;
   --danger: #ff6b81;
   --warning: #fbbf24;
 
-  --gradient: linear-gradient(120deg, #a594ff 0%, #7c9cff 45%, #5ec8ff 100%);
-  --gradient-strong: linear-gradient(120deg, #7c5cff 0%, #4f8cff 100%);
-  --glow: 0 0 0 1px rgba(139, 123, 255, 0.35), 0 8px 40px -8px rgba(124, 92, 255, 0.55);
+  /* Gradients are reserved for the hero highlight and the logo mark. */
+  --gradient: linear-gradient(100deg, #cfc7ff 0%, #9d8cff 50%, #7ea6ff 100%);
+  --accent-soft: rgba(139, 123, 255, 0.14);
+  --shadow-lg:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 40px 80px -40px rgba(0, 0, 0, 0.9),
+    0 24px 60px -48px rgba(124, 92, 255, 0.5);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   --radius-sm: 10px;
   --radius: 16px;
-  --radius-lg: 24px;
+  --radius-lg: 22px;
 
   --container: 1200px;
   --gutter: clamp(16px, 4vw, 32px);
@@ -69,6 +80,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* Fine film grain gives flat dark surfaces some depth. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 h1,
@@ -145,7 +167,7 @@ ol {
 
 .section {
   position: relative;
-  padding-block: clamp(88px, 11vw, 152px);
+  padding-block: clamp(80px, 9vw, 128px);
 }
 
 .sr-only {
@@ -233,30 +255,20 @@ ol {
 }
 
 .btn-primary {
-  background: var(--gradient-strong);
-  color: #fff;
-  box-shadow: var(--glow);
-}
-
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.8s var(--ease-out);
+  background: var(--text);
+  color: #0a0a12;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 10px 30px -12px rgba(139, 123, 255, 0.6);
 }
 
 .btn-primary:hover:not(:disabled) {
-  box-shadow:
-    0 0 0 1px rgba(139, 123, 255, 0.55),
-    0 12px 48px -6px rgba(124, 92, 255, 0.75);
+  background: #fff;
   transform: translateY(-1px);
-}
-
-.btn-primary:hover:not(:disabled)::after {
-  transform: translateX(120%);
+  box-shadow:
+    0 1px 0 #fff inset,
+    0 0 0 4px rgba(139, 123, 255, 0.18),
+    0 16px 40px -12px rgba(139, 123, 255, 0.7);
 }
 
 .btn-secondary {
@@ -296,6 +308,7 @@ ol {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--bg-card);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   transition:
     border-color 0.4s,
     background-color 0.4s,

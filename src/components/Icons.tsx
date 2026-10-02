@@ -159,3 +159,26 @@ export const Shield = (p: IconProps) => (
     <path d="M8.5 12l2.5 2.5 4.5-5" />
   </Icon>
 )
+export const Monitor = (p: IconProps) => (
+  <Icon {...p}>
+    <rect x="3" y="4" width="18" height="12" rx="2" />
+    <path d="M8 20h8M12 16v4" />
+  </Icon>
+)
+export const Tablet = (p: IconProps) => (
+  <Icon {...p}>
+    <rect x="5" y="3" width="14" height="18" rx="2.5" />
+    <path d="M11 18h2" />
+  </Icon>
+)
+export const Smartphone = (p: IconProps) => (
+  <Icon {...p}>
+    <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
+    <path d="M11 18.5h2" />
+  </Icon>
+)
+export const Plus = (p: IconProps) => (
+  <Icon {...p}>
+    <path d="M12 5v14M5 12h14" />
+  </Icon>
+)

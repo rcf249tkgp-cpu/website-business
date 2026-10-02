@@ -26,10 +26,19 @@ export function Process({ dict }: { dict: Dictionary }) {
                 <span className={styles.duration}>{step.duration}</span>
                 <h3 className={styles.title}>{step.title}</h3>
                 <p className={styles.description}>{step.description}</p>
+                <div className={styles.deliverables}>
+                  <span className={styles.deliverablesLabel}>{process.deliverablesLabel}</span>
+                  <ul>
+                    {step.deliverables.map((d) => (
+                      <li key={d}>{d}</li>
+                    ))}
+                  </ul>
+                </div>
               </li>
             ))}
           </ol>
         </div>
+        <p className={styles.note}>{process.note}</p>
       </div>
     </section>
   )

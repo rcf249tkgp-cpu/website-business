@@ -1,4 +1,5 @@
 import { Contact } from '@/components/Contact'
+import { Faq } from '@/components/Faq'
 import { Hero } from '@/components/Hero'
 import { Process } from '@/components/Process'
 import { Services } from '@/components/Services'
@@ -39,8 +40,23 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
     })),
   }
 
+  const faqData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: localeTags[lang],
+    mainEntity: dict.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData).replace(/</g, '\\u003c') }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
@@ -51,6 +67,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
       <Work dict={dict} />
       <WhyUs dict={dict} />
       <Process dict={dict} />
+      <Faq dict={dict} />
       <Contact lang={lang} dict={dict} variant="teaser" />
     </>
   )

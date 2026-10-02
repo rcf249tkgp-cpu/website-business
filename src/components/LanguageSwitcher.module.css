@@ -38,7 +38,7 @@
 }
 
 .item[aria-pressed='true'] {
-  background: var(--gradient-strong);
+  background: var(--violet-strong);
   color: #fff;
   box-shadow: 0 4px 16px -6px rgba(124, 92, 255, 0.8);
 }
