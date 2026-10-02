@@ -142,10 +142,11 @@ const sv: Dictionary = {
     },
   },
   work: {
-    eyebrow: 'Designstudier',
-    title: 'Hur vi tänker, visat i design.',
+    eyebrow: 'Exempel',
+    title: 'Så här kan din webbplats se ut.',
     description:
-      'Novaform är en ny studio, så i stället för en kundlista visar vi egna designstudier. Varje studie utforskar en annan typ av företag och de problem dess webbplats behöver lösa.',
+      'Fyra exempelwebbplatser för påhittade företag, var och en med sitt eget syfte. Din webbplats får samma omsorg och designas kring just ditt företag.',
+    tagsLabel: 'Funktioner',
     conceptBadge: 'Designstudie',
     disclaimer: 'Varumärkena är påhittade och skapade av vårt team. De är inte kunduppdrag.',
     projects: [
@@ -522,8 +523,8 @@ const sv: Dictionary = {
           body: 'Innehållet på webbplatsen är allmän information. Du får inte kopiera eller återanvända vår design, kod eller vårt innehåll utan skriftligt tillstånd.',
         },
         {
-          title: 'Designstudier',
-          body: 'Projekt märkta ”Designstudie” är skapade av vårt team för att visa vad vi kan. De är inte verkliga kunduppdrag.',
+          title: 'Exempelwebbplatser',
+          body: 'Exempelwebbplatserna på den här webbplatsen har vårt team skapat för påhittade företag, för att visa vad vi kan. De är inte verkliga kunduppdrag.',
         },
         {
           title: 'Förfrågningar och möten',

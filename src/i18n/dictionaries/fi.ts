@@ -156,10 +156,11 @@ const fi: Dictionary = {
     },
   },
   work: {
-    eyebrow: 'Suunnittelututkielmat',
-    title: 'Miten ajattelemme, suunnittelun kautta näytettynä.',
+    eyebrow: 'Esimerkit',
+    title: 'Tältä sinun verkkosivusi voisivat näyttää.',
     description:
-      'Novaform on uusi studio, joten asiakaslistan sijaan näytämme omia suunnittelututkielmiamme. Jokainen tarkastelee erilaista yritystä ja ongelmia, jotka sen verkkosivuston on ratkaistava.',
+      'Neljä esimerkkisivustoa kuvitteellisille yrityksille, joilla jokaisella on eri tarve. Sinun sivustosi suunnitellaan yhtä huolella juuri sinun yrityksellesi.',
+    tagsLabel: 'Ominaisuudet',
     conceptBadge: 'Suunnittelututkielma',
     disclaimer: 'Brändit ovat kuvitteellisia ja tiimimme luomia. Ne eivät ole asiakastöitä.',
     projects: [
@@ -539,8 +540,8 @@ const fi: Dictionary = {
           body: 'Sivuston sisältö on yleistä tietoa. Suunnitteluamme, koodiamme tai sisältöämme ei saa kopioida tai käyttää uudelleen ilman kirjallista lupaa.',
         },
         {
-          title: 'Suunnittelututkielmat',
-          body: '”Suunnittelututkielma”-merkinnällä varustetut työt ovat tiimimme tekemiä esimerkkejä osaamisestamme. Ne eivät ole todellisia asiakastöitä.',
+          title: 'Esimerkkisivustot',
+          body: 'Sivustolla esitellyt esimerkkisivustot ovat tiimimme kuvitteellisille yrityksille tekemiä näytteitä osaamisestamme. Ne eivät ole todellisia asiakastöitä.',
         },
         {
           title: 'Yhteydenotot ja tapaamiset',

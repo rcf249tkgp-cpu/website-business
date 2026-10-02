@@ -140,10 +140,11 @@ const en = {
     },
   },
   work: {
-    eyebrow: 'Design studies',
-    title: 'How we think, shown in design.',
+    eyebrow: 'Examples',
+    title: 'What your website could look like.',
     description:
-      'Novaform is a new studio, so instead of a client list we show self-initiated design studies. Each one explores a different kind of business and the problems its website has to solve.',
+      'Four example sites for made-up businesses, each with a different job to do. Yours gets the same care, designed around your business.',
+    tagsLabel: 'Features',
     conceptBadge: 'Design study',
     disclaimer: 'These brands are fictional and were created by our team. They are not client projects.',
     projects: [
@@ -519,8 +520,8 @@ const en = {
           body: 'The content of this website is provided for general information. You may not copy or reuse our design, code or content without written permission.',
         },
         {
-          title: 'Design studies',
-          body: 'Projects marked “Design study” are created by our team to show what we can do. They are not real client projects.',
+          title: 'Example sites',
+          body: 'The example sites shown on this website were created by our team for fictional businesses, to show what we can do. They are not real client projects.',
         },
         {
           title: 'Inquiries and meetings',
