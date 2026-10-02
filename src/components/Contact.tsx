@@ -94,7 +94,7 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
                 </li>
               ))}
             </ol>
-            <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.teaserCta}`}>
+            <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.teaserCta}`} data-magnetic>
               {dict.nav.cta}
               <ArrowRight />
             </Link>

@@ -69,7 +69,7 @@ export function Header({ lang, dict }: Props) {
 
         <div className={styles.actions}>
           <LanguageSwitcher lang={lang} label={dict.a11y.language} />
-          <Link href={`/${lang}/start`} className={`btn btn-primary btn-sm ${styles.cta}`}>
+          <Link href={`/${lang}/start`} className={`btn btn-primary btn-sm ${styles.cta}`} data-magnetic>
             {dict.nav.cta}
           </Link>
           <button

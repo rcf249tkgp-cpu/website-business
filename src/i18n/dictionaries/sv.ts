@@ -265,8 +265,7 @@ const sv: Dictionary = {
         id: 'planning',
         title: 'Planering',
         duration: 'Dag 1–2',
-        description:
-          'Vi planerar sidorna och innehållet och skickar en offert till fast pris med tidsplan.',
+        description: 'Vi planerar sidorna och innehållet och skickar en offert till fast pris med tidsplan.',
         deliverables: ['Sidplan', 'Offert till fast pris'],
       },
       {
@@ -280,14 +279,16 @@ const sv: Dictionary = {
         id: 'review',
         title: 'Granskning',
         duration: 'Dag 9–12',
-        description: 'Du testar allt. Vi kontrollerar hastighet, mobilanvändning och grunderna för Google och åtgärdar det vi hittar.',
+        description:
+          'Du testar allt. Vi kontrollerar hastighet, mobilanvändning och grunderna för Google och åtgärdar det vi hittar.',
         deliverables: ['Slutkontroll', 'Slutjusteringar'],
       },
       {
         id: 'launch',
         title: 'Lansering',
         duration: 'Dag 12–14',
-        description: 'Vi kopplar din domän, går live och sätter upp besöksstatistik, och visar sedan hur uppdateringar fungerar.',
+        description:
+          'Vi kopplar din domän, går live och sätter upp besöksstatistik, och visar sedan hur uppdateringar fungerar.',
         deliverables: ['Färdig webbplats', 'Kort guide'],
       },
     ],

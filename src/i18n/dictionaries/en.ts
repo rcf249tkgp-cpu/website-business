@@ -57,11 +57,7 @@ const en = {
         title: 'Websites',
         description:
           'A clear, good-looking website built around your business: your services, prices, photos and contact details, easy to find on any device.',
-        points: [
-          'Designed for phones first',
-          'Your texts, photos and logo',
-          'Contact details, map and opening hours',
-        ],
+        points: ['Designed for phones first', 'Your texts, photos and logo', 'Contact details, map and opening hours'],
       },
       {
         id: 'development',
@@ -222,8 +218,7 @@ const en = {
       {
         id: 'communication',
         title: 'Open communication',
-        description:
-          'Regular updates, a live preview link from the first build, and replies within one business day.',
+        description: 'Regular updates, a live preview link from the first build, and replies within one business day.',
       },
     ],
     commitments: {
@@ -262,8 +257,7 @@ const en = {
         id: 'planning',
         title: 'Planning',
         duration: 'Days 1–2',
-        description:
-          'We plan the pages and content, then send a fixed-price proposal and timeline.',
+        description: 'We plan the pages and content, then send a fixed-price proposal and timeline.',
         deliverables: ['Page plan', 'Fixed-price proposal'],
       },
       {

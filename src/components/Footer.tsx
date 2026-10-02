@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
@@ -101,8 +102,12 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           </a>
         </div>
       </div>
-      <div className={styles.wordmark} aria-hidden="true">
-        {siteConfig.name}
+      <div className={styles.wordmark} aria-hidden="true" data-split>
+        {Array.from(siteConfig.name).map((letter, i) => (
+          <span key={i} className="split-word">
+            <span style={{ '--i': i } as CSSProperties}>{letter}</span>
+          </span>
+        ))}
       </div>
     </footer>
   )

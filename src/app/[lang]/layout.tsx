@@ -4,7 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { Spotlight } from '@/components/Spotlight'
+import { Motion } from '@/components/Motion'
 import { siteConfig, siteUrl } from '@/config/site'
 import { getDictionary } from '@/i18n'
 import { defaultLocale, isLocale, localeTags, locales } from '@/i18n/config'
@@ -32,7 +32,10 @@ export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Prom
     applicationName: siteConfig.name,
     alternates: {
       canonical: `/${lang}`,
-      languages: { ...Object.fromEntries(locales.map((l) => [localeTags[l], `/${l}`])), 'x-default': `/${defaultLocale}` },
+      languages: {
+        ...Object.fromEntries(locales.map((l) => [localeTags[l], `/${l}`])),
+        'x-default': `/${defaultLocale}`,
+      },
     },
     openGraph: {
       type: 'website',
@@ -53,15 +56,22 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
   const dict = getDictionary(lang)
 
   return (
-    <html lang={localeTags[lang]} className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang={localeTags[lang]} suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
+        {/* Enables entrance animations before first paint, unless the visitor prefers reduced motion. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')",
+          }}
+        />
         <a href="#main" className="skip-link">
           {dict.a11y.skipToContent}
         </a>
         <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y }} />
         <main id="main">{children}</main>
         <Footer lang={lang} dict={dict} />
-        <Spotlight />
+        <Motion />
       </body>
     </html>
   )

@@ -82,11 +82,7 @@ const fi: Dictionary = {
         title: 'Verkkokaupat',
         description:
           'Yksinkertainen verkkokauppa, jossa asiakkaat selaavat tuotteitasi ja maksavat turvallisesti. Toteutus Shopifylla tai Stripe-maksuilla.',
-        points: [
-          'Shopify-kauppa valmiiksi pystytettynä',
-          'Kortti- ja verkkomaksut',
-          'Tuotteet, toimitukset ja kuitit',
-        ],
+        points: ['Shopify-kauppa valmiiksi pystytettynä', 'Kortti- ja verkkomaksut', 'Tuotteet, toimitukset ja kuitit'],
       },
       {
         id: 'landing',
@@ -278,8 +274,7 @@ const fi: Dictionary = {
         id: 'planning',
         title: 'Suunnittelu',
         duration: 'Päivät 1–2',
-        description:
-          'Suunnittelemme sivut ja sisällön ja lähetämme kiinteähintaisen tarjouksen aikatauluineen.',
+        description: 'Suunnittelemme sivut ja sisällön ja lähetämme kiinteähintaisen tarjouksen aikatauluineen.',
         deliverables: ['Sivusuunnitelma', 'Kiinteähintainen tarjous'],
       },
       {

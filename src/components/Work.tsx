@@ -32,12 +32,7 @@ export function Work({ dict, standalone = false }: { dict: Dictionary; standalon
         />
         <ul className={styles.stack}>
           {work.projects.map((project, i) => (
-            <li
-              key={project.id}
-              className={styles.panel}
-              data-id={project.id}
-              style={{ '--i': i } as CSSProperties}
-            >
+            <li key={project.id} className={styles.panel} data-id={project.id} style={{ '--i': i } as CSSProperties}>
               <div className={styles.text}>
                 <p className={styles.category}>{project.category}</p>
                 <h3 className={styles.name}>{project.name}</h3>

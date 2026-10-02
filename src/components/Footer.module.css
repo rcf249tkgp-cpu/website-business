@@ -103,9 +103,6 @@
 
 .wordmark {
   margin-bottom: -0.22em;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 80%);
-  -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
   font-size: clamp(5rem, 21vw, 18rem);
   font-weight: 700;
@@ -114,6 +111,17 @@
   text-align: center;
   user-select: none;
   pointer-events: none;
+}
+
+.wordmark :global(.split-word) > span {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.wordmark:global([data-split]) :global(.split-word) > span {
+  transition-duration: 1.4s;
+  transition-delay: calc(var(--i) * 70ms);
 }
 
 @media (max-width: 860px) {

@@ -8,7 +8,7 @@ import styles from './Hero.module.css'
 export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const { hero } = dict
   return (
-    <section className={styles.hero} aria-labelledby="hero-title">
+    <section className={styles.hero} aria-labelledby="hero-title" data-glow>
       <div className={styles.backdrop} aria-hidden="true">
         <div className={styles.grid} />
         <div className={`${styles.orb} ${styles.orbA}`} />
@@ -28,11 +28,11 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             {hero.description}
           </p>
           <div className={styles.ctas} style={{ animationDelay: '0.32s' }}>
-            <Link href={`/${lang}/start`} className="btn btn-primary">
+            <Link href={`/${lang}/start`} className="btn btn-primary" data-magnetic>
               {hero.primaryCta}
               <ArrowRight />
             </Link>
-            <Link href={`/${lang}/process`} className="btn btn-secondary">
+            <Link href={`/${lang}/process`} className="btn btn-secondary" data-magnetic>
               {hero.secondaryCta}
             </Link>
           </div>
