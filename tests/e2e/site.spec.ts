@@ -88,7 +88,7 @@ test.describe('navigation', () => {
         'en',
         [
           ['Services', 'services', 'What we do.'],
-          ['Work', 'work', 'How we think, shown in design.'],
+          ['Work', 'work', 'What your website could look like.'],
           ['Approach', 'approach', 'Straightforward from start to finish.'],
           ['Process', 'process', 'Five steps from first call to launch.'],
           ['Contact', 'contact', 'Let’s build something remarkable.'],
