@@ -87,9 +87,9 @@ test.describe('navigation', () => {
       [
         'en',
         [
-          ['Services', 'services', 'What we build.'],
+          ['Services', 'services', 'What we do.'],
           ['Work', 'work', 'How we think, shown in design.'],
-          ['Approach', 'approach', 'Fewer layers, more care.'],
+          ['Approach', 'approach', 'Straightforward from start to finish.'],
           ['Process', 'process', 'Five steps from first call to launch.'],
           ['Contact', 'contact', 'Let’s build something remarkable.'],
         ],
@@ -97,8 +97,8 @@ test.describe('navigation', () => {
       [
         'fi',
         [
-          ['Palvelut', 'services', 'Mitä rakennamme.'],
-          ['Toimintatapa', 'approach', 'Vähemmän välikäsiä, enemmän huolellisuutta.'],
+          ['Palvelut', 'services', 'Mitä teemme.'],
+          ['Toimintatapa', 'approach', 'Suoraviivaisesti alusta loppuun.'],
         ],
       ],
     ] as const) {

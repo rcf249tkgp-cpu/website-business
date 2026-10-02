@@ -33,7 +33,7 @@ async function fillAllSteps(page: Page, labels: Record<string, string>, company 
 
   await f
     .locator('label')
-    .filter({ hasText: /10[\s,.]000/ })
+    .filter({ hasText: /2[\s,.]500/ })
     .first()
     .click()
   await f.getByText(labels.timeline, { exact: true }).click()
