@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test'
 
 const titles = {
-  en: 'impossible to ignore.',
-  sv: 'omöjligt att ignorera.',
-  fi: 'on mahdoton ohittaa.',
+  fi: 'lisää asiakkaita.',
+  sv: 'fler kunder.',
+  en: 'more customers.',
 }
 
 test.describe('languages', () => {
@@ -16,20 +16,22 @@ test.describe('languages', () => {
     })
   }
 
-  test('redirects / using Accept-Language', async ({ browser }) => {
-    const context = await browser.newContext({ locale: 'fi-FI' })
+  test('opens in Swedish for Swedish-language browsers', async ({ browser }) => {
+    const context = await browser.newContext({ locale: 'sv-FI' })
     const page = await context.newPage()
     await page.goto('/')
-    await expect(page).toHaveURL(/\/fi$/)
+    await expect(page).toHaveURL(/\/sv$/)
     await context.close()
   })
 
-  test('falls back to English for unsupported languages', async ({ browser }) => {
-    const context = await browser.newContext({ locale: 'de-DE' })
-    const page = await context.newPage()
-    await page.goto('/')
-    await expect(page).toHaveURL(/\/en$/)
-    await context.close()
+  test('opens in Finnish for everyone else, English included', async ({ browser }) => {
+    for (const locale of ['fi-FI', 'en-US', 'de-DE']) {
+      const context = await browser.newContext({ locale })
+      const page = await context.newPage()
+      await page.goto('/')
+      await expect(page).toHaveURL(/\/fi$/)
+      await context.close()
+    }
   })
 
   test('switcher changes language, keeps the page and remembers the choice', async ({ page }) => {

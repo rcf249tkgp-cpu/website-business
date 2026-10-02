@@ -49,11 +49,10 @@ export const siteConfig = {
    * Labels are formatted per language automatically.
    */
   budgetRanges: [
-    { id: 'b1', min: 2000, max: 5000 },
-    { id: 'b2', min: 5000, max: 10000 },
-    { id: 'b3', min: 10000, max: 20000 },
-    { id: 'b4', min: 20000, max: 40000 },
-    { id: 'b5', min: 40000, max: null },
+    { id: 'b1', min: 500, max: 1000 },
+    { id: 'b2', min: 1000, max: 2500 },
+    { id: 'b3', min: 2500, max: 5000 },
+    { id: 'b4', min: 5000, max: null },
   ],
 
   /** Meeting time slots offered in the project form (local time of the studio). */

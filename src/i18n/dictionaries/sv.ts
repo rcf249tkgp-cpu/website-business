@@ -2,9 +2,9 @@ import type { Dictionary } from './en'
 
 const sv: Dictionary = {
   meta: {
-    title: 'Novaform — Studio för webbdesign och webbutveckling i Helsingfors',
+    title: 'Novaform — Webbplatser för lokala företag i Helsingfors',
     description:
-      'Novaform designar och bygger webbplatser, webbutiker och landningssidor. Genomtänkt design, ren kod och en tydlig process, på svenska, finska och engelska.',
+      'Novaform bygger moderna webbplatser, webbutiker och bokningssidor för lokala företag. Fast pris i förväg, på finska, svenska och engelska.',
   },
   a11y: {
     skipToContent: 'Hoppa till innehållet',
@@ -25,14 +25,14 @@ const sv: Dictionary = {
     cta: 'Starta ett projekt',
   },
   hero: {
-    eyebrow: 'Oberoende webbstudio i Helsingfors',
-    titleLead: 'Webbplatser som gör ditt företag',
-    titleHighlight: 'omöjligt att ignorera.',
+    eyebrow: 'Webbstudio i Helsingfors',
+    titleLead: 'Webbplatser som ger ditt företag',
+    titleHighlight: 'fler kunder.',
     description:
-      'Vi designar och bygger webbplatser, webbutiker och landningssidor för företag som bryr sig om hur de uppfattas. Genomtänkt design, ren kod och en process du kan följa i varje steg.',
+      'Vi bygger moderna webbplatser, webbutiker och bokningssidor för lokala företag. Ett tydligt pris i förväg, en första förhandsvisning inom några dagar och en webbplats som fungerar i alla mobiler.',
     primaryCta: 'Starta ett projekt',
     secondaryCta: 'Så arbetar vi',
-    trust: ['Svar inom en arbetsdag', 'Offerter till fast pris', 'Svenska, finska och engelska'],
+    trust: ['Svar inom en arbetsdag', 'Fast pris i förväg', 'Finska, svenska och engelska'],
     visual: {
       label: 'Förhandsvisningens storlek',
       desktop: 'Dator',
@@ -40,7 +40,7 @@ const sv: Dictionary = {
       mobile: 'Mobil',
       hint: 'Byt storlek och se hur layouten anpassar sig',
       checksTitle: 'Kontrolleras före varje lansering',
-      checks: ['Prestandabudget', 'Tillgänglighet (WCAG 2.2 AA)', 'SEO och metadata', 'Alla språk granskade'],
+      checks: ['Fungerar i alla mobiler', 'Laddar snabbt', 'Redo för Google', 'Alla språk granskade'],
       deploy: 'Förhandsversion publicerad',
       live: 'Live',
     },
@@ -50,51 +50,52 @@ const sv: Dictionary = {
   },
   services: {
     eyebrow: 'Tjänster',
-    title: 'Det här bygger vi.',
+    title: 'Det här gör vi.',
     description:
-      'Fem sätt vi kan hjälpa till. Varje projekt designas och byggs av samma lilla team, från första skissen till lansering.',
+      'Fem sätt vi hjälper lokala företag att komma ut på nätet och bli hittade. Samma lilla team tar hand om din webbplats från första samtalet till lansering.',
     items: [
       {
         id: 'design',
-        title: 'Webbdesign',
+        title: 'Webbplatser',
         description:
-          'Gränssnitt som utgår från dina kunder och ditt varumärke, inte från en mall. Vi börjar med struktur och innehåll och finslipar sedan varje vy för tydlighet.',
-        points: ['UX och webbplatsstruktur', 'Visuell design och designsystem', 'Klickbara prototyper före kod'],
+          'En tydlig och snygg webbplats byggd kring ditt företag: tjänster, priser, bilder och kontaktuppgifter som är lätta att hitta på alla enheter.',
+        points: [
+          'Designad för mobilen först',
+          'Dina texter, bilder och logotyp',
+          'Kontaktuppgifter, karta och öppettider',
+        ],
       },
       {
         id: 'development',
-        title: 'Webbutveckling',
+        title: 'Online och klar',
         description:
-          'Handbyggt med moderna ramverk, så att webbplatsen laddar snabbt, är säker och är enkel för ditt team att uppdatera.',
-        points: [
-          'Next.js och headless CMS',
-          'Prestandabudget och kontroll av Core Web Vitals',
-          'Integrationer med era verktyg',
-        ],
+          'Vi publicerar din webbplats och sköter tekniken, så att den laddar snabbt, är säker och helt enkelt fungerar.',
+        points: ['Drift hos Vercel', 'Din egen domän kopplad', 'Företagsmejl vid behov'],
       },
       {
         id: 'ecommerce',
-        title: 'E-handel',
+        title: 'Webbutiker',
         description:
-          'Webbutiker med tydliga produktsidor och en smidig kassa, med de betalsätt som nordiska kunder förväntar sig.',
-        points: [
-          'Shopify eller headless commerce',
-          'Klarna, Stripe, MobilePay och Swish',
-          'Synk av produkter och lager',
-        ],
+          'En enkel webbutik där kunderna kan bläddra bland dina produkter och betala tryggt, byggd med Shopify eller Stripe-betalningar.',
+        points: ['Shopify-butik uppsatt åt dig', 'Kort- och onlinebetalningar', 'Produkter, frakt och kvitton'],
       },
       {
         id: 'landing',
-        title: 'Landningssidor',
-        description: 'Fokuserade kampanjsidor med ett mål och en tydlig uppmaning, redo att mätas från första dagen.',
-        points: ['Budskap och sidstruktur', 'Analys och händelsespårning', 'Redo för A/B-tester'],
+        title: 'Bokning och integrationer',
+        description:
+          'Låt kunderna boka, beställa eller kontakta dig direkt från webbplatsen, med verktyg du redan har eller nya som vi sätter upp.',
+        points: [
+          'Onlinebokning (Timma, Fresha m.fl.)',
+          'Kontaktformulär som når din inkorg',
+          'Google Maps, sociala medier och recensioner',
+        ],
       },
       {
         id: 'redesign',
         title: 'Omdesign',
         description:
-          'Vi går igenom det du har, behåller det som fungerar och bygger om resten, och flyttar innehåll och sökpositioner varsamt.',
-        points: ['Genomgång av UX och prestanda', 'Omdirigeringsplan som skyddar SEO', 'Omstrukturering av innehåll'],
+          'Känns din nuvarande webbplats föråldrad eller är den svår att använda i mobilen? Vi bygger om den, behåller det som fungerar och flyttar över innehållet.',
+        points: ['Fräsch, modern design', 'Innehållet flyttas åt dig', 'Din synlighet på Google behålls'],
       },
     ],
     labels: {
@@ -103,46 +104,38 @@ const sv: Dictionary = {
       compare: 'Jämför den gamla och nya designen',
       buildPassed: 'Bygget lyckades',
       checkout: 'Kassa',
-      getStarted: 'Kom igång',
+      getStarted: 'Boka tid',
     },
     capabilities: {
-      eyebrow: 'Kompetens',
-      title: 'Design och utveckling under samma tak.',
+      eyebrow: 'Det här ingår',
+      title: 'Allt en webbplats för småföretag behöver.',
       description:
-        'Varje projekt bygger på samma uppsättning kompetenser, så att design och tekniska beslut fattas tillsammans i stället för att lämnas över.',
+        'Från design till lansering sköter ett och samma team allt, så du har en kontaktperson och inget faller mellan stolarna.',
       groups: [
         {
           title: 'Design',
           items: [
-            'UX-research och webbplatsstruktur',
-            'UI och visuell design',
-            'Designsystem',
-            'Prototyper',
-            'Innehållsstruktur',
+            'Mobilvänliga layouter',
+            'Dina färger och logotyp',
+            'Tydliga texter och struktur',
+            'Bilder och gallerier',
           ],
         },
         {
-          title: 'Utveckling',
-          items: [
-            'Next.js och React',
-            'Headless CMS',
-            'WordPress',
-            'API:er och integrationer',
-            'Drift och publicering',
-          ],
+          title: 'Bygge',
+          items: ['Moderna, snabba webbplatser', 'Drift och publicering', 'Domän och e-post', 'Kontaktformulär'],
         },
         {
-          title: 'E-handel',
-          items: ['Shopify', 'Stripe och Klarna', 'Prenumerationer', 'Produktdata och lager'],
+          title: 'Försäljning och bokning',
+          items: ['Shopify', 'Stripe-betalningar', 'Bokningssystem', 'Länkar till sociala medier'],
         },
         {
-          title: 'Kvalitet',
+          title: 'Synlighet',
           items: [
-            'Tillgänglighet (WCAG 2.2 AA)',
-            'Teknisk SEO',
-            'Prestandabudget',
-            'Flerspråkiga webbplatser',
-            'Integritetsvänlig analys',
+            'Grunderna i sökmotoroptimering',
+            'Google-företagsprofil',
+            'Besöksstatistik',
+            'Webbplatser på finska, svenska och engelska',
           ],
         },
       ],
@@ -169,21 +162,21 @@ const sv: Dictionary = {
         name: 'Lumo Clinic',
         category: 'Vård',
         summary: 'En lugn och tillgänglig klinikwebbplats där det tar tre steg att boka en tid.',
-        tags: ['Bokning', 'WCAG 2.2', 'Flerspråkig'],
+        tags: ['Bokning', 'Tillgänglig', 'Flerspråkig'],
       },
       {
         id: 'voltra',
         name: 'Voltra',
         category: 'Landningssida för SaaS',
         summary: 'En lanseringssida för en laddplattform för elbilar med ett tydligt mål: att boka en demo.',
-        tags: ['Landningssida', 'Animation', 'A/B-test'],
+        tags: ['Landningssida', 'Animation', 'Kontaktformulär'],
       },
       {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Arkitektportfolio',
         summary: 'En redaktionell portfolio där stora bilder och stillsam typografi gör jobbet.',
-        tags: ['Portfolio', 'Headless CMS', 'Redaktionell'],
+        tags: ['Portfolio', 'Bildgalleri', 'Redaktionell'],
       },
     ],
     mock: {
@@ -206,27 +199,27 @@ const sv: Dictionary = {
   },
   why: {
     eyebrow: 'Vårt arbetssätt',
-    title: 'Färre mellanhänder, mer omsorg.',
+    title: 'Enkelt från början till slut.',
     description:
-      'Vi är en liten, ny studio. Du arbetar direkt med dem som designar och bygger din webbplats, och varje beslut förklaras på ett begripligt sätt.',
+      'Vi är en liten, ny studio. Du pratar direkt med dem som bygger din webbplats, och allt förklaras på ett begripligt sätt.',
     items: [
       {
         id: 'clarity',
         title: 'Tydlighet först',
         description:
-          'Vi planerar struktur och innehåll före det visuella, så att varje sida har ett syfte och besökarna hittar det de söker.',
+          'Vi planerar vad webbplatsen ska säga innan vi designar den, så att besökarna snabbt hittar dina tjänster, priser och kontaktuppgifter.',
       },
       {
         id: 'craft',
-        title: 'Byggt för hand',
+        title: 'Moderna verktyg, äkta omsorg',
         description:
-          'Inga mallar eller sidbyggare. Varje layout designas för ditt företag och kodas enligt en standard vi gärna visar för andra utvecklare.',
+          'Vi bygger med moderna verktyg, AI inräknat. Det gör att vi kan arbeta snabbt och hålla rimliga priser, och tiden vi sparar lägger vi på detaljerna i din webbplats.',
       },
       {
         id: 'performance',
-        title: 'Snabbt och tillgängligt från början',
+        title: 'Snabbt och lätt att använda',
         description:
-          'Vi sätter en prestandabudget i början och testar mot WCAG 2.2 AA genom hela projektet, inte bara före lansering.',
+          'Före lanseringen kontrollerar vi att webbplatsen laddar snabbt, fungerar bra i mobilen och har det grundläggande som Google behöver för att hitta den.',
       },
       {
         id: 'communication',
@@ -238,12 +231,12 @@ const sv: Dictionary = {
     commitments: {
       title: 'Det här kan du förvänta dig av oss',
       items: [
-        'En offert till fast pris innan något arbete börjar',
-        'Direktkontakt med din designer och utvecklare',
+        'Ett fast pris innan något arbete börjar',
+        'Direktkontakt med dem som bygger din webbplats',
         'En förhandsvisning du kan titta på när som helst',
-        'Tillgänglighet och prestanda kontrolleras före lansering',
-        'Utbildning så att ditt team kan uppdatera webbplatsen',
-        'Tydliga svar på svenska, finska eller engelska',
+        'Hastighet och mobilanvändning kontrolleras före lansering',
+        'En kort guide till hur uppdateringar fungerar',
+        'Tydliga svar på finska, svenska eller engelska',
       ],
     },
     newStudio: {
@@ -272,8 +265,8 @@ const sv: Dictionary = {
         title: 'Planering',
         duration: 'Dag 1–2',
         description:
-          'Vi tar fram webbplatsens struktur, innehåll och tekniska lösning, och skickar en offert till fast pris med tidsplan.',
-        deliverables: ['Sajtkarta', 'Offert till fast pris'],
+          'Vi planerar sidorna och innehållet och skickar en offert till fast pris med tidsplan.',
+        deliverables: ['Sidplan', 'Offert till fast pris'],
       },
       {
         id: 'development',
@@ -286,15 +279,15 @@ const sv: Dictionary = {
         id: 'review',
         title: 'Granskning',
         duration: 'Dag 9–12',
-        description: 'Du testar allt. Vi kontrollerar prestanda, tillgänglighet och SEO och åtgärdar det vi hittar.',
-        deliverables: ['Kvalitetsrapport', 'Slutjusteringar'],
+        description: 'Du testar allt. Vi kontrollerar hastighet, mobilanvändning och grunderna för Google och åtgärdar det vi hittar.',
+        deliverables: ['Slutkontroll', 'Slutjusteringar'],
       },
       {
         id: 'launch',
         title: 'Lansering',
         duration: 'Dag 12–14',
-        description: 'Vi går live, sätter upp analys och visar ditt team hur innehållet uppdateras.',
-        deliverables: ['Lansering och omdirigeringar', 'Utbildningstillfälle'],
+        description: 'Vi kopplar din domän, går live och sätter upp besöksstatistik, och visar sedan hur uppdateringar fungerar.',
+        deliverables: ['Färdig webbplats', 'Kort guide'],
       },
     ],
   },
@@ -304,7 +297,7 @@ const sv: Dictionary = {
     items: [
       {
         q: 'Vad kostar en webbplats?',
-        a: 'Det beror på omfattningen. Efter ett kostnadsfritt startmöte skickar vi en offert till fast pris, så att du vet hela kostnaden innan något arbete börjar. Budgetintervallen i vårt projektformulär ger en ungefärlig bild.',
+        a: 'Webbplatser för småföretag från 500 € (exkl. moms). Webbutiker och större webbplatser kostar mer. Efter ett kostnadsfritt startsamtal skickar vi ett fast pris, så att du vet hela kostnaden innan något arbete börjar.',
       },
       {
         q: 'Hur lång tid tar ett projekt?',
@@ -312,15 +305,15 @@ const sv: Dictionary = {
       },
       {
         q: 'Kan vi uppdatera innehållet själva?',
-        a: 'Ja. Vi sätter upp ett publiceringssystem som passar ditt team och visar hur ni redigerar sidor, nyheter och produkter.',
+        a: 'Ja, om du vill. De flesta kunder skickar sina ändringar till oss och vi gör dem snabbt, till exempel som en del av ett månatligt underhållsavtal. Om du hellre redigerar texterna själv kan vi lägga till ett enkelt redigeringsverktyg.',
       },
       {
         q: 'Bygger ni flerspråkiga webbplatser?',
-        a: 'Ja. Vi arbetar på svenska, finska och engelska och bygger webbplatser med de språk du behöver, med rätt inställningar för sökmotorer på varje språk.',
+        a: 'Ja. Vi arbetar på finska, svenska och engelska och bygger webbplatser med de språk du behöver, med rätt inställningar för sökmotorer på varje språk.',
       },
       {
         q: 'Vad händer efter lanseringen?',
-        a: 'Vi följer upp lanseringen och åtgärdar eventuella problem. Om du vill kan vi fortsätta med uppdateringar, förbättringar och support.',
+        a: 'Vi följer upp lanseringen och åtgärdar eventuella problem. Om du vill sköter vi drift, uppdateringar och små ändringar mot en månadsavgift.',
       },
       {
         q: 'Varför ska vi lita på en ny studio?',
@@ -376,7 +369,7 @@ const sv: Dictionary = {
       ecommerce: 'Webbutik',
       landing: 'Landningssida',
       redesign: 'Omdesign',
-      webapp: 'Webbapp / skräddarsytt',
+      webapp: 'Något annat',
       unsure: 'Vet inte än',
     },
     features: {
@@ -388,7 +381,7 @@ const sv: Dictionary = {
       payments: 'Betalningar',
       integrations: 'Integrationer (CRM, affärssystem…)',
       analytics: 'Analys',
-      accessibility: 'Tillgänglighet (WCAG)',
+      accessibility: 'Tillgänglighet',
       branding: 'Logotyp och varumärke',
     },
     budgetUnsure: 'Vet inte än',
@@ -528,8 +521,8 @@ const sv: Dictionary = {
           body: 'Innehållet på webbplatsen är allmän information. Du får inte kopiera eller återanvända vår design, kod eller vårt innehåll utan skriftligt tillstånd.',
         },
         {
-          title: 'Konceptprojekt',
-          body: 'Projekt märkta ”Konceptprojekt” är designstudier som vårt team har skapat för att visa vår kompetens. De representerar inte verkliga kunduppdrag.',
+          title: 'Designstudier',
+          body: 'Projekt märkta ”Designstudie” är skapade av vårt team för att visa vad vi kan. De är inte verkliga kunduppdrag.',
         },
         {
           title: 'Förfrågningar och möten',

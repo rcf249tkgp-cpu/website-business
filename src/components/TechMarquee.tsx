@@ -1,18 +1,16 @@
 import styles from './TechMarquee.module.css'
 
+/** Only tools we actually use on client projects. */
 const tech = [
   'Next.js',
   'React',
-  'TypeScript',
-  'Shopify',
-  'Sanity',
   'Vercel',
+  'GitHub',
+  'Shopify',
   'Stripe',
-  'Klarna',
-  'Figma',
-  'Tailwind',
-  'WordPress',
-  'Cloudflare',
+  'Resend',
+  'Google Business Profile',
+  'Google Search Console',
 ]
 
 export function TechMarquee({ label }: { label: string }) {

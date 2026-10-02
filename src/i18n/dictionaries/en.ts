@@ -1,8 +1,8 @@
 const en = {
   meta: {
-    title: 'Novaform — Web design and development studio in Helsinki',
+    title: 'Novaform — Websites for local businesses in Helsinki',
     description:
-      'Novaform designs and builds websites, online stores and landing pages. Considered design, clean code and a clear process, in English, Swedish and Finnish.',
+      'Novaform builds modern websites, online stores and booking pages for local businesses. A fixed price up front, in Finnish, Swedish and English.',
   },
   a11y: {
     skipToContent: 'Skip to content',
@@ -23,14 +23,14 @@ const en = {
     cta: 'Start a project',
   },
   hero: {
-    eyebrow: 'Independent web studio in Helsinki',
-    titleLead: 'Websites that make your business',
-    titleHighlight: 'impossible to ignore.',
+    eyebrow: 'Web studio in Helsinki',
+    titleLead: 'Websites that bring your business',
+    titleHighlight: 'more customers.',
     description:
-      'We design and build websites, online stores and landing pages for businesses that care how they come across. Considered design, clean code and a process you can follow at every step.',
+      'We build modern websites, online stores and booking pages for local businesses. A clear price up front, a first preview within days and a site that works on every phone.',
     primaryCta: 'Start a project',
     secondaryCta: 'How we work',
-    trust: ['Reply within one business day', 'Fixed-price proposals', 'English, Swedish and Finnish'],
+    trust: ['Reply within one business day', 'Fixed price up front', 'Finnish, Swedish and English'],
     visual: {
       label: 'Preview size',
       desktop: 'Desktop',
@@ -38,7 +38,7 @@ const en = {
       mobile: 'Mobile',
       hint: 'Switch sizes to see the layout adapt',
       checksTitle: 'Checked before every launch',
-      checks: ['Performance budget', 'Accessibility (WCAG 2.2 AA)', 'SEO and metadata', 'Every language reviewed'],
+      checks: ['Works on every phone', 'Loads fast', 'Ready for Google', 'Every language checked'],
       deploy: 'Preview deployed',
       live: 'Live',
     },
@@ -48,48 +48,52 @@ const en = {
   },
   services: {
     eyebrow: 'Services',
-    title: 'What we build.',
+    title: 'What we do.',
     description:
-      'Five ways we can help. Each project is designed and built by the same small team, from the first sketch to launch.',
+      'Five ways we help local businesses get online and get found. The same small team takes care of your site from the first call to launch.',
     items: [
       {
         id: 'design',
-        title: 'Website design',
+        title: 'Websites',
         description:
-          'Interfaces designed around your customers and your brand, not a template. We start with structure and content, then refine every screen for clarity.',
-        points: ['UX and site structure', 'Visual design and design systems', 'Clickable prototypes before code'],
-      },
-      {
-        id: 'development',
-        title: 'Web development',
-        description:
-          'Hand-built with modern frameworks, so your site loads quickly, stays secure and is easy for your team to update.',
+          'A clear, good-looking website built around your business: your services, prices, photos and contact details, easy to find on any device.',
         points: [
-          'Next.js and headless CMS',
-          'Performance budgets and Core Web Vitals checks',
-          'Integrations with your tools',
+          'Designed for phones first',
+          'Your texts, photos and logo',
+          'Contact details, map and opening hours',
         ],
       },
       {
-        id: 'ecommerce',
-        title: 'E-commerce',
+        id: 'development',
+        title: 'Online and ready',
         description:
-          'Online stores with clear product pages and a smooth checkout, set up with the payment methods Nordic customers expect.',
-        points: ['Shopify or headless commerce', 'Klarna, Stripe, MobilePay and Swish', 'Product and inventory sync'],
+          'We put your site online and take care of the technical side, so it loads fast, stays secure and simply works.',
+        points: ['Hosting on Vercel', 'Your own domain connected', 'Business email set up if you need it'],
+      },
+      {
+        id: 'ecommerce',
+        title: 'Online stores',
+        description:
+          'A simple online store where customers can browse your products and pay safely, built on Shopify or with Stripe payments.',
+        points: ['Shopify store set up for you', 'Card and online payments', 'Products, shipping and receipts'],
       },
       {
         id: 'landing',
-        title: 'Landing pages',
+        title: 'Booking and integrations',
         description:
-          'Focused campaign pages with one goal and a clear call to action, ready to measure from the first day.',
-        points: ['Message and page structure', 'Analytics and event tracking', 'Ready for A/B testing'],
+          'Let customers book, order or get in touch straight from your site, using the tools you already have or new ones we set up.',
+        points: [
+          'Online booking (Timma, Fresha and others)',
+          'Contact forms that reach your inbox',
+          'Google Maps, social media and reviews',
+        ],
       },
       {
         id: 'redesign',
         title: 'Redesigns',
         description:
-          'We review what you have, keep what works and rebuild the rest, moving your content and search rankings over carefully.',
-        points: ['UX and performance review', 'Redirect plan to protect SEO', 'Content restructuring'],
+          'Is your current website dated or hard to use on a phone? We rebuild it, keep what works and move your content over.',
+        points: ['A fresh, modern look', 'Your content moved over for you', 'Your Google visibility kept'],
       },
     ],
     labels: {
@@ -98,40 +102,38 @@ const en = {
       compare: 'Compare the old and new design',
       buildPassed: 'Build passed',
       checkout: 'Checkout',
-      getStarted: 'Get started',
+      getStarted: 'Book now',
     },
     capabilities: {
-      eyebrow: 'Capabilities',
-      title: 'Design and engineering under one roof.',
+      eyebrow: 'What is included',
+      title: 'Everything a small business website needs.',
       description:
-        'Every project draws on the same set of skills, so design and technical decisions are made together instead of handed over.',
+        'From design to going live, one team handles it all, so you have one contact and nothing gets lost in handovers.',
       groups: [
         {
           title: 'Design',
           items: [
-            'UX research and site structure',
-            'UI and visual design',
-            'Design systems',
-            'Prototyping',
-            'Content structure',
+            'Mobile-friendly layouts',
+            'Your colours and logo',
+            'Clear texts and structure',
+            'Photos and galleries',
           ],
         },
         {
-          title: 'Engineering',
-          items: ['Next.js and React', 'Headless CMS', 'WordPress', 'APIs and integrations', 'Hosting and deployment'],
+          title: 'Build',
+          items: ['Modern, fast websites', 'Hosting and publishing', 'Domain and email setup', 'Contact forms'],
         },
         {
-          title: 'Commerce',
-          items: ['Shopify', 'Stripe and Klarna', 'Subscriptions', 'Product data and inventory'],
+          title: 'Selling and booking',
+          items: ['Shopify', 'Stripe payments', 'Booking systems', 'Social media links'],
         },
         {
-          title: 'Quality',
+          title: 'Getting found',
           items: [
-            'Accessibility (WCAG 2.2 AA)',
-            'Technical SEO',
-            'Performance budgets',
-            'Multilingual sites',
-            'Privacy-friendly analytics',
+            'Google search basics',
+            'Google Business Profile',
+            'Visitor statistics',
+            'Sites in Finnish, Swedish and English',
           ],
         },
       ],
@@ -157,21 +159,21 @@ const en = {
         name: 'Lumo Clinic',
         category: 'Healthcare',
         summary: 'A calm, accessible clinic website where booking an appointment takes three steps.',
-        tags: ['Booking', 'WCAG 2.2', 'Multilingual'],
+        tags: ['Booking', 'Accessible', 'Multilingual'],
       },
       {
         id: 'voltra',
         name: 'Voltra',
         category: 'SaaS landing page',
         summary: 'A launch page for an EV-charging platform with one clear goal: booking a demo.',
-        tags: ['Landing page', 'Animation', 'A/B testing'],
+        tags: ['Landing page', 'Animation', 'Contact form'],
       },
       {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Architecture portfolio',
         summary: 'An editorial portfolio where large imagery and quiet typography do the work.',
-        tags: ['Portfolio', 'Headless CMS', 'Editorial'],
+        tags: ['Portfolio', 'Image gallery', 'Editorial'],
       },
     ],
     mock: {
@@ -194,43 +196,44 @@ const en = {
   },
   why: {
     eyebrow: 'Our approach',
-    title: 'Fewer layers, more care.',
+    title: 'Straightforward from start to finish.',
     description:
-      'We are a small, new studio. You work directly with the people who design and build your website, and every decision is explained in plain language.',
+      'We are a small, new studio. You talk directly with the people who build your website, and everything is explained in plain language.',
     items: [
       {
         id: 'clarity',
         title: 'Clarity first',
         description:
-          'We plan the structure and content before the visuals, so every page has a purpose and visitors find what they came for.',
+          'We plan what your site needs to say before we design it, so visitors quickly find your services, prices and how to reach you.',
       },
       {
         id: 'craft',
-        title: 'Built by hand',
+        title: 'Modern tools, real care',
         description:
-          'No templates or page builders. Each layout is designed for your business and coded to a standard we are happy to show other developers.',
+          'We build with modern tools, AI included. That lets us work quickly and keep prices fair, and the time we save goes into the details of your site.',
       },
       {
         id: 'performance',
-        title: 'Fast and accessible by default',
+        title: 'Fast and easy to use',
         description:
-          'We set a performance budget at the start and test against WCAG 2.2 AA throughout the project, not just before launch.',
+          'Before launch we check that your site loads quickly, works well on phones and has the basics Google needs to find it.',
       },
       {
         id: 'communication',
         title: 'Open communication',
-        description: 'Regular updates, a live preview link from the first build, and replies within one business day.',
+        description:
+          'Regular updates, a live preview link from the first build, and replies within one business day.',
       },
     ],
     commitments: {
       title: 'What you can expect from us',
       items: [
-        'A fixed-price proposal before any work starts',
-        'Direct contact with your designer and developer',
+        'A fixed price before any work starts',
+        'Direct contact with the people building your site',
         'A live preview you can check at any time',
-        'Accessibility and performance checked before launch',
-        'Training so your team can update the site',
-        'Clear answers in English, Swedish or Finnish',
+        'Speed and mobile use checked before launch',
+        'A short guide to how updates work',
+        'Clear answers in Finnish, Swedish or English',
       ],
     },
     newStudio: {
@@ -259,8 +262,8 @@ const en = {
         title: 'Planning',
         duration: 'Days 1–2',
         description:
-          'We map the site structure, content and technical approach, then send a fixed-price proposal and timeline.',
-        deliverables: ['Sitemap', 'Fixed-price proposal'],
+          'We plan the pages and content, then send a fixed-price proposal and timeline.',
+        deliverables: ['Page plan', 'Fixed-price proposal'],
       },
       {
         id: 'development',
@@ -273,15 +276,15 @@ const en = {
         id: 'review',
         title: 'Review',
         duration: 'Days 9–12',
-        description: 'You test everything. We run performance, accessibility and SEO checks and fix what we find.',
-        deliverables: ['Quality report', 'Final adjustments'],
+        description: 'You try everything. We check speed, mobile use and the Google basics, and fix what we find.',
+        deliverables: ['Final checks', 'Final adjustments'],
       },
       {
         id: 'launch',
         title: 'Launch',
         duration: 'Days 12–14',
-        description: 'We go live, set up analytics and show your team how to update the content.',
-        deliverables: ['Launch and redirects', 'Training session'],
+        description: 'We connect your domain, go live and set up visitor statistics, then show you how updates work.',
+        deliverables: ['Live website', 'Short guide'],
       },
     ],
   },
@@ -291,7 +294,7 @@ const en = {
     items: [
       {
         q: 'How much does a website cost?',
-        a: 'It depends on the scope. After a free intro meeting we send a fixed-price proposal, so you know the full cost before any work starts. The budget ranges in our project form give a rough idea.',
+        a: 'Websites for small businesses start from €500 (excl. VAT). Online stores and larger sites cost more. After a free intro call we send a fixed price, so you know the full cost before any work starts.',
       },
       {
         q: 'How long does a project take?',
@@ -299,15 +302,15 @@ const en = {
       },
       {
         q: 'Can we update the content ourselves?',
-        a: 'Yes. We set up a content management system that suits your team and show you how to edit pages, news and products.',
+        a: 'Yes, if you want to. Most clients simply send us their changes and we make them quickly, for example as part of a monthly maintenance plan. If you would rather edit texts yourself, we can add a simple editing tool.',
       },
       {
         q: 'Do you build multilingual websites?',
-        a: 'Yes. We work in English, Swedish and Finnish, and build sites that support the languages you need, with search engine settings for each one.',
+        a: 'Yes. We work in Finnish, Swedish and English, and build sites in the languages you need, with search engine settings for each one.',
       },
       {
         q: 'What happens after launch?',
-        a: 'We monitor the launch and fix any issues. If you want, we can continue with updates, improvements and support.',
+        a: 'We follow up after launch and fix any issues. If you want, we take care of hosting, updates and small changes for a monthly fee.',
       },
       {
         q: 'Why should we trust a new studio?',
@@ -363,7 +366,7 @@ const en = {
       ecommerce: 'Online store',
       landing: 'Landing page',
       redesign: 'Redesign',
-      webapp: 'Web app / custom',
+      webapp: 'Something else',
       unsure: 'Not sure yet',
     },
     features: {
@@ -375,7 +378,7 @@ const en = {
       payments: 'Payments',
       integrations: 'Integrations (CRM, ERP…)',
       analytics: 'Analytics',
-      accessibility: 'Accessibility (WCAG)',
+      accessibility: 'Accessibility',
       branding: 'Logo & branding',
     },
     budgetUnsure: 'Not sure yet',
@@ -515,8 +518,8 @@ const en = {
           body: 'The content of this website is provided for general information. You may not copy or reuse our design, code or content without written permission.',
         },
         {
-          title: 'Concept projects',
-          body: 'Projects marked “Concept project” are design studies created by our team to demonstrate our capabilities. They do not represent real client engagements.',
+          title: 'Design studies',
+          body: 'Projects marked “Design study” are created by our team to show what we can do. They are not real client projects.',
         },
         {
           title: 'Inquiries and meetings',

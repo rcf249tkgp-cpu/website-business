@@ -2,9 +2,9 @@ import type { Dictionary } from './en'
 
 const fi: Dictionary = {
   meta: {
-    title: 'Novaform — Verkkosuunnittelu- ja kehitysstudio Helsingissä',
+    title: 'Novaform — Verkkosivut paikallisille yrityksille Helsingissä',
     description:
-      'Novaform suunnittelee ja toteuttaa verkkosivustoja, verkkokauppoja ja laskeutumissivuja. Harkittua suunnittelua, puhdasta koodia ja selkeä prosessi suomeksi, ruotsiksi ja englanniksi.',
+      'Novaform tekee moderneja verkkosivuja, verkkokauppoja ja ajanvaraussivuja paikallisille yrityksille. Kiinteä hinta etukäteen, suomeksi, ruotsiksi ja englanniksi.',
   },
   a11y: {
     skipToContent: 'Siirry sisältöön',
@@ -25,14 +25,14 @@ const fi: Dictionary = {
     cta: 'Aloita projekti',
   },
   hero: {
-    eyebrow: 'Itsenäinen verkkostudio Helsingissä',
-    titleLead: 'Verkkosivut, joiden ansiosta yritystäsi',
-    titleHighlight: 'on mahdoton ohittaa.',
+    eyebrow: 'Verkkostudio Helsingissä',
+    titleLead: 'Verkkosivut, jotka tuovat yrityksellesi',
+    titleHighlight: 'lisää asiakkaita.',
     description:
-      'Suunnittelemme ja rakennamme verkkosivustoja, verkkokauppoja ja laskeutumissivuja yrityksille, joille ei ole yhdentekevää, miltä ne näyttävät. Harkittua suunnittelua, puhdasta koodia ja prosessi, jota voit seurata joka vaiheessa.',
+      'Teemme moderneja verkkosivuja, verkkokauppoja ja ajanvaraussivuja paikallisille yrityksille. Selkeä hinta etukäteen, ensimmäinen esikatselu muutamassa päivässä ja sivusto, joka toimii jokaisella puhelimella.',
     primaryCta: 'Aloita projekti',
     secondaryCta: 'Näin työskentelemme',
-    trust: ['Vastaus yhden arkipäivän sisällä', 'Kiinteähintaiset tarjoukset', 'Suomeksi, ruotsiksi ja englanniksi'],
+    trust: ['Vastaus yhden arkipäivän sisällä', 'Kiinteä hinta etukäteen', 'Suomeksi, ruotsiksi ja englanniksi'],
     visual: {
       label: 'Esikatselun koko',
       desktop: 'Tietokone',
@@ -41,9 +41,9 @@ const fi: Dictionary = {
       hint: 'Vaihda kokoa ja katso, miten asettelu mukautuu',
       checksTitle: 'Tarkistetaan ennen jokaista julkaisua',
       checks: [
-        'Suorituskykybudjetti',
-        'Saavutettavuus (WCAG 2.2 AA)',
-        'SEO ja metatiedot',
+        'Toimii kaikilla puhelimilla',
+        'Latautuu nopeasti',
+        'Valmis Googlea varten',
         'Kaikki kieliversiot tarkistettu',
       ],
       deploy: 'Esikatseluversio julkaistu',
@@ -55,56 +55,56 @@ const fi: Dictionary = {
   },
   services: {
     eyebrow: 'Palvelut',
-    title: 'Mitä rakennamme.',
+    title: 'Mitä teemme.',
     description:
-      'Viisi tapaa, joilla voimme auttaa. Jokaisen projektin suunnittelee ja toteuttaa sama pieni tiimi ensimmäisestä luonnoksesta julkaisuun.',
+      'Viisi tapaa, joilla autamme paikallisia yrityksiä verkkoon ja löydetyiksi. Sama pieni tiimi hoitaa sivustosi ensimmäisestä puhelusta julkaisuun.',
     items: [
       {
         id: 'design',
-        title: 'Verkkosivujen suunnittelu',
+        title: 'Verkkosivut',
         description:
-          'Käyttöliittymiä, jotka lähtevät asiakkaistasi ja brändistäsi, eivät valmispohjasta. Aloitamme rakenteesta ja sisällöstä ja hiomme sitten jokaisen näkymän selkeäksi.',
+          'Selkeät ja näyttävät verkkosivut yrityksesi ympärille: palvelut, hinnat, kuvat ja yhteystiedot helposti löydettävissä millä tahansa laitteella.',
         points: [
-          'UX ja sivuston rakenne',
-          'Visuaalinen suunnittelu ja design-järjestelmät',
-          'Klikattavat prototyypit ennen koodia',
+          'Suunniteltu ensin puhelimille',
+          'Omat tekstisi, kuvasi ja logosi',
+          'Yhteystiedot, kartta ja aukioloajat',
         ],
       },
       {
         id: 'development',
-        title: 'Verkkokehitys',
+        title: 'Verkossa ja valmiina',
         description:
-          'Käsityönä moderneilla teknologioilla, jotta sivusto latautuu nopeasti, pysyy turvallisena ja on tiimillesi helppo päivittää.',
-        points: [
-          'Next.js ja headless CMS',
-          'Suorituskykybudjetti ja Core Web Vitals -tarkistukset',
-          'Integraatiot käyttämiinne työkaluihin',
-        ],
+          'Julkaisemme sivustosi ja hoidamme tekniikan, jotta se latautuu nopeasti, pysyy turvallisena ja yksinkertaisesti toimii.',
+        points: ['Ylläpito Vercelissä', 'Oma verkkotunnus käyttöön', 'Yrityssähköposti tarvittaessa'],
       },
       {
         id: 'ecommerce',
         title: 'Verkkokaupat',
         description:
-          'Verkkokauppoja, joissa on selkeät tuotesivut ja sujuva kassa sekä maksutavat, joita pohjoismaiset asiakkaat odottavat.',
-        points: ['Shopify tai headless-kauppa', 'Klarna, Stripe, MobilePay ja Swish', 'Tuote- ja varastosynkronointi'],
+          'Yksinkertainen verkkokauppa, jossa asiakkaat selaavat tuotteitasi ja maksavat turvallisesti. Toteutus Shopifylla tai Stripe-maksuilla.',
+        points: [
+          'Shopify-kauppa valmiiksi pystytettynä',
+          'Kortti- ja verkkomaksut',
+          'Tuotteet, toimitukset ja kuitit',
+        ],
       },
       {
         id: 'landing',
-        title: 'Laskeutumissivut',
+        title: 'Ajanvaraus ja integraatiot',
         description:
-          'Keskittyneitä kampanjasivuja, joilla on yksi tavoite ja selkeä toimintakehote ja joita voi mitata ensimmäisestä päivästä alkaen.',
-        points: ['Viesti ja sivun rakenne', 'Analytiikka ja tapahtumaseuranta', 'Valmiina A/B-testaukseen'],
+          'Asiakkaat voivat varata, tilata tai ottaa yhteyttä suoraan sivustoltasi. Käytämme jo käyttämiäsi työkaluja tai otamme uudet käyttöön.',
+        points: [
+          'Ajanvaraus (Timma, Fresha ym.)',
+          'Yhteydenottolomake suoraan sähköpostiisi',
+          'Google Maps, some ja arvostelut',
+        ],
       },
       {
         id: 'redesign',
         title: 'Uudistukset',
         description:
-          'Käymme läpi nykyisen sivustosi, säilytämme toimivan ja rakennamme loput uudelleen. Siirrämme sisällön ja hakusijoitukset huolella.',
-        points: [
-          'UX- ja suorituskykykatselmus',
-          'Uudelleenohjaussuunnitelma hakunäkyvyyden suojaamiseksi',
-          'Sisällön uudelleenjärjestely',
-        ],
+          'Onko nykyinen sivustosi vanhanaikainen tai hankala käyttää puhelimella? Rakennamme sen uudelleen, säilytämme toimivan ja siirrämme sisällön.',
+        points: ['Raikas, moderni ulkoasu', 'Sisältö siirretään puolestasi', 'Näkyvyys Googlessa säilyy'],
       },
     ],
     labels: {
@@ -113,46 +113,43 @@ const fi: Dictionary = {
       compare: 'Vertaa vanhaa ja uutta ulkoasua',
       buildPassed: 'Koostaminen onnistui',
       checkout: 'Kassa',
-      getStarted: 'Aloita',
+      getStarted: 'Varaa aika',
     },
     capabilities: {
-      eyebrow: 'Osaaminen',
-      title: 'Suunnittelu ja kehitys saman katon alla.',
+      eyebrow: 'Sisältyy',
+      title: 'Kaikki, mitä pienyrityksen verkkosivut tarvitsevat.',
       description:
-        'Jokainen projekti hyödyntää samaa osaamista, joten suunnittelu- ja teknisistä ratkaisuista päätetään yhdessä eikä niitä siirretä tiimiltä toiselle.',
+        'Suunnittelusta julkaisuun yksi tiimi hoitaa kaiken, joten sinulla on yksi yhteyshenkilö eikä mitään huku matkalla.',
       groups: [
         {
           title: 'Suunnittelu',
           items: [
-            'Käyttäjätutkimus ja sivuston rakenne',
-            'Käyttöliittymä ja visuaalinen ilme',
-            'Design-järjestelmät',
-            'Prototyypit',
-            'Sisällön rakenne',
+            'Mobiiliystävällinen asettelu',
+            'Omat värisi ja logosi',
+            'Selkeät tekstit ja rakenne',
+            'Kuvat ja galleriat',
           ],
         },
         {
-          title: 'Kehitys',
+          title: 'Toteutus',
           items: [
-            'Next.js ja React',
-            'Headless CMS',
-            'WordPress',
-            'Rajapinnat ja integraatiot',
+            'Modernit, nopeat sivustot',
             'Ylläpito ja julkaisu',
+            'Verkkotunnus ja sähköposti',
+            'Yhteydenottolomakkeet',
           ],
         },
         {
-          title: 'Verkkokauppa',
-          items: ['Shopify', 'Stripe ja Klarna', 'Tilausmallit', 'Tuotetiedot ja varasto'],
+          title: 'Myynti ja ajanvaraus',
+          items: ['Shopify', 'Stripe-maksut', 'Ajanvarausjärjestelmät', 'Somelinkit'],
         },
         {
-          title: 'Laatu',
+          title: 'Löydettävyys',
           items: [
-            'Saavutettavuus (WCAG 2.2 AA)',
-            'Tekninen SEO',
-            'Suorituskykybudjetti',
-            'Monikieliset sivustot',
-            'Yksityisyyttä kunnioittava analytiikka',
+            'Hakukoneiden perusasiat',
+            'Google-yritysprofiili',
+            'Kävijätilastot',
+            'Sivut suomeksi, ruotsiksi ja englanniksi',
           ],
         },
       ],
@@ -178,21 +175,21 @@ const fi: Dictionary = {
         name: 'Lumo Clinic',
         category: 'Terveydenhuolto',
         summary: 'Rauhallinen ja saavutettava klinikkasivusto, jossa ajan varaaminen vie kolme vaihetta.',
-        tags: ['Ajanvaraus', 'WCAG 2.2', 'Monikielinen'],
+        tags: ['Ajanvaraus', 'Saavutettava', 'Monikielinen'],
       },
       {
         id: 'voltra',
         name: 'Voltra',
         category: 'SaaS-laskeutumissivu',
         summary: 'Julkaisusivu sähköautojen latausalustalle, jolla on yksi selkeä tavoite: demon varaaminen.',
-        tags: ['Laskeutumissivu', 'Animaatio', 'A/B-testaus'],
+        tags: ['Laskeutumissivu', 'Animaatio', 'Yhteydenottolomake'],
       },
       {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Arkkitehtiportfolio',
         summary: 'Journalistinen portfolio, jossa suuret kuvat ja hillitty typografia hoitavat työn.',
-        tags: ['Portfolio', 'Headless CMS', 'Editoriaalinen'],
+        tags: ['Portfolio', 'Kuvagalleria', 'Editoriaalinen'],
       },
     ],
     mock: {
@@ -215,27 +212,27 @@ const fi: Dictionary = {
   },
   why: {
     eyebrow: 'Toimintatapamme',
-    title: 'Vähemmän välikäsiä, enemmän huolellisuutta.',
+    title: 'Suoraviivaisesti alusta loppuun.',
     description:
-      'Olemme pieni, uusi studio. Työskentelet suoraan niiden kanssa, jotka suunnittelevat ja rakentavat sivustosi, ja jokainen ratkaisu perustellaan selkeällä kielellä.',
+      'Olemme pieni, uusi studio. Puhut suoraan niiden kanssa, jotka rakentavat sivustosi, ja kaikki selitetään selkeällä kielellä.',
     items: [
       {
         id: 'clarity',
         title: 'Selkeys ensin',
         description:
-          'Suunnittelemme rakenteen ja sisällön ennen visuaalista ilmettä, jotta jokaisella sivulla on tarkoitus ja kävijät löytävät etsimänsä.',
+          'Mietimme ensin, mitä sivustosi pitää kertoa, ja vasta sitten ulkoasun. Näin kävijät löytävät nopeasti palvelut, hinnat ja yhteystiedot.',
       },
       {
         id: 'craft',
-        title: 'Käsin tehty',
+        title: 'Modernit työkalut, aitoa huolellisuutta',
         description:
-          'Ei valmispohjia eikä sivunrakentajia. Jokainen asettelu suunnitellaan yrityksellesi ja koodataan tasolla, jonka näytämme mielellämme muillekin kehittäjille.',
+          'Rakennamme moderneilla työkaluilla, myös tekoälyn avulla. Näin työ etenee nopeasti ja hinnat pysyvät kohtuullisina, ja säästetty aika menee sivustosi yksityiskohtiin.',
       },
       {
         id: 'performance',
-        title: 'Nopea ja saavutettava alusta asti',
+        title: 'Nopea ja helppokäyttöinen',
         description:
-          'Asetamme suorituskykybudjetin heti alussa ja testaamme WCAG 2.2 AA -vaatimuksia vasten koko projektin ajan, emme vasta ennen julkaisua.',
+          'Ennen julkaisua tarkistamme, että sivusto latautuu nopeasti, toimii hyvin puhelimella ja että Googlen tarvitsemat perusasiat ovat kunnossa.',
       },
       {
         id: 'communication',
@@ -247,11 +244,11 @@ const fi: Dictionary = {
     commitments: {
       title: 'Mitä voit odottaa meiltä',
       items: [
-        'Kiinteähintainen tarjous ennen kuin työ alkaa',
-        'Suora yhteys suunnittelijaan ja kehittäjään',
+        'Kiinteä hinta ennen kuin työ alkaa',
+        'Suora yhteys sivustosi tekijöihin',
         'Esikatselu, jota voit seurata milloin tahansa',
-        'Saavutettavuus ja suorituskyky tarkistetaan ennen julkaisua',
-        'Koulutus, jotta tiimisi voi päivittää sivustoa',
+        'Nopeus ja mobiilikäyttö tarkistetaan ennen julkaisua',
+        'Lyhyt ohje päivitysten hoitamisesta',
         'Selkeät vastaukset suomeksi, ruotsiksi tai englanniksi',
       ],
     },
@@ -281,8 +278,8 @@ const fi: Dictionary = {
         title: 'Suunnittelu',
         duration: 'Päivät 1–2',
         description:
-          'Suunnittelemme sivuston rakenteen, sisällön ja teknisen toteutuksen ja lähetämme kiinteähintaisen tarjouksen aikatauluineen.',
-        deliverables: ['Sivukartta', 'Kiinteähintainen tarjous'],
+          'Suunnittelemme sivut ja sisällön ja lähetämme kiinteähintaisen tarjouksen aikatauluineen.',
+        deliverables: ['Sivusuunnitelma', 'Kiinteähintainen tarjous'],
       },
       {
         id: 'development',
@@ -297,16 +294,16 @@ const fi: Dictionary = {
         title: 'Tarkistus',
         duration: 'Päivät 9–12',
         description:
-          'Testaat kaiken. Tarkistamme suorituskyvyn, saavutettavuuden ja hakukoneoptimoinnin ja korjaamme havainnot.',
-        deliverables: ['Laaturaportti', 'Viimeistely'],
+          'Testaat kaiken. Tarkistamme nopeuden, mobiilikäytön ja Googlen perusasiat ja korjaamme havainnot.',
+        deliverables: ['Lopputarkistus', 'Viimeistely'],
       },
       {
         id: 'launch',
         title: 'Julkaisu',
         duration: 'Päivät 12–14',
         description:
-          'Julkaisemme sivuston, otamme analytiikan käyttöön ja näytämme tiimillesi, miten sisältöä päivitetään.',
-        deliverables: ['Julkaisu ja uudelleenohjaukset', 'Koulutus'],
+          'Yhdistämme verkkotunnuksesi, julkaisemme sivuston ja otamme kävijätilastot käyttöön. Lopuksi näytämme, miten päivitykset hoituvat.',
+        deliverables: ['Valmis sivusto', 'Lyhyt ohje'],
       },
     ],
   },
@@ -316,7 +313,7 @@ const fi: Dictionary = {
     items: [
       {
         q: 'Paljonko verkkosivusto maksaa?',
-        a: 'Hinta riippuu laajuudesta. Maksuttoman aloituspalaverin jälkeen lähetämme kiinteähintaisen tarjouksen, joten tiedät kokonaiskustannuksen ennen kuin työ alkaa. Projektilomakkeen budjettihaarukat antavat suuntaa.',
+        a: 'Pienyrityksen verkkosivut alkaen 500 € (alv 0 %). Verkkokaupat ja laajemmat sivustot maksavat enemmän. Maksuttoman aloituspuhelun jälkeen lähetämme kiinteän hinnan, joten tiedät kokonaiskustannuksen ennen kuin työ alkaa.',
       },
       {
         q: 'Kuinka kauan projekti kestää?',
@@ -324,7 +321,7 @@ const fi: Dictionary = {
       },
       {
         q: 'Voimmeko päivittää sisältöä itse?',
-        a: 'Kyllä. Otamme käyttöön tiimillesi sopivan sisällönhallintajärjestelmän ja näytämme, miten sivuja, uutisia ja tuotteita muokataan.',
+        a: 'Halutessasi kyllä. Useimmat asiakkaat lähettävät muutokset meille ja teemme ne nopeasti, esimerkiksi osana kuukausittaista ylläpitosopimusta. Jos haluat muokata tekstejä itse, voimme lisätä yksinkertaisen muokkaustyökalun.',
       },
       {
         q: 'Teettekö monikielisiä sivustoja?',
@@ -332,7 +329,7 @@ const fi: Dictionary = {
       },
       {
         q: 'Mitä julkaisun jälkeen tapahtuu?',
-        a: 'Seuraamme julkaisua ja korjaamme mahdolliset ongelmat. Halutessasi jatkamme päivityksillä, parannuksilla ja tuella.',
+        a: 'Seuraamme julkaisua ja korjaamme mahdolliset ongelmat. Halutessasi hoidamme ylläpidon, päivitykset ja pienet muutokset kuukausimaksua vastaan.',
       },
       {
         q: 'Miksi luottaa uuteen studioon?',
@@ -388,7 +385,7 @@ const fi: Dictionary = {
       ecommerce: 'Verkkokauppa',
       landing: 'Laskeutumissivu',
       redesign: 'Uudistus',
-      webapp: 'Verkkosovellus / räätälöity',
+      webapp: 'Jotain muuta',
       unsure: 'En ole vielä varma',
     },
     features: {
@@ -400,7 +397,7 @@ const fi: Dictionary = {
       payments: 'Maksut',
       integrations: 'Integraatiot (CRM, ERP…)',
       analytics: 'Analytiikka',
-      accessibility: 'Saavutettavuus (WCAG)',
+      accessibility: 'Saavutettavuus',
       branding: 'Logo ja brändi',
     },
     budgetUnsure: 'En ole vielä varma',
@@ -541,8 +538,8 @@ const fi: Dictionary = {
           body: 'Sivuston sisältö on yleistä tietoa. Suunnitteluamme, koodiamme tai sisältöämme ei saa kopioida tai käyttää uudelleen ilman kirjallista lupaa.',
         },
         {
-          title: 'Konseptiprojektit',
-          body: '”Konseptiprojekti”-merkinnällä varustetut työt ovat tiimimme laatimia suunnittelutöitä, joilla esittelemme osaamistamme. Ne eivät ole todellisia asiakastoimeksiantoja.',
+          title: 'Suunnittelututkielmat',
+          body: '”Suunnittelututkielma”-merkinnällä varustetut työt ovat tiimimme tekemiä esimerkkejä osaamisestamme. Ne eivät ole todellisia asiakastöitä.',
         },
         {
           title: 'Yhteydenotot ja tapaamiset',

@@ -1,20 +1,21 @@
-export const locales = ['en', 'sv', 'fi'] as const
+/** Order shown in the language switcher: Finnish first, then Swedish, then English. */
+export const locales = ['fi', 'sv', 'en'] as const
 export type Locale = (typeof locales)[number]
 
-export const defaultLocale: Locale = 'en'
+export const defaultLocale: Locale = 'fi'
 export const localeCookie = 'NEXT_LOCALE'
 
 export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  sv: 'Svenska',
   fi: 'Suomi',
+  sv: 'Svenska',
+  en: 'English',
 }
 
 /** BCP 47 tags used for <html lang>, hreflang and Intl formatting. */
 export const localeTags: Record<Locale, string> = {
-  en: 'en',
-  sv: 'sv-SE',
   fi: 'fi-FI',
+  sv: 'sv-SE',
+  en: 'en',
 }
 
 export function isLocale(value: unknown): value is Locale {

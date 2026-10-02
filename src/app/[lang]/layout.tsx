@@ -7,7 +7,7 @@ import { Header } from '@/components/Header'
 import { Spotlight } from '@/components/Spotlight'
 import { siteConfig, siteUrl } from '@/config/site'
 import { getDictionary } from '@/i18n'
-import { isLocale, localeTags, locales } from '@/i18n/config'
+import { defaultLocale, isLocale, localeTags, locales } from '@/i18n/config'
 import '../globals.css'
 
 export const dynamicParams = false
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Prom
     applicationName: siteConfig.name,
     alternates: {
       canonical: `/${lang}`,
-      languages: { ...Object.fromEntries(locales.map((l) => [localeTags[l], `/${l}`])), 'x-default': '/en' },
+      languages: { ...Object.fromEntries(locales.map((l) => [localeTags[l], `/${l}`])), 'x-default': `/${defaultLocale}` },
     },
     openGraph: {
       type: 'website',
