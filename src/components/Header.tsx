@@ -63,7 +63,7 @@ export function Header({ lang, dict }: Props) {
 
         <div className={styles.actions}>
           <LanguageSwitcher lang={lang} label={dict.a11y.language} />
-          <Link href={`/${lang}#contact`} className={`btn btn-primary btn-sm ${styles.cta}`}>
+          <Link href={`/${lang}/start`} className={`btn btn-primary btn-sm ${styles.cta}`}>
             {dict.nav.cta}
           </Link>
           <button
@@ -93,7 +93,7 @@ export function Header({ lang, dict }: Props) {
           </ul>
         </nav>
         <div className={styles.mobileFooter}>
-          <Link href={`/${lang}#contact`} className="btn btn-primary" onClick={close}>
+          <Link href={`/${lang}/start`} className="btn btn-primary" onClick={close}>
             {dict.nav.cta}
             <ArrowRight />
           </Link>

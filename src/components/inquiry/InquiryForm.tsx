@@ -287,9 +287,9 @@ export function InquiryForm({ lang, dict, schedulingUrl, turnstileSiteKey }: Pro
           <span style={{ width: `${progress}%` }} />
         </div>
 
-        <h3 ref={headingRef} tabIndex={-1} className={styles.stepTitle}>
+        <h2 ref={headingRef} tabIndex={-1} className={styles.stepTitle}>
           {t.steps[current.id]}
-        </h3>
+        </h2>
 
         {restored && <p className={styles.notice}>{t.draftRestored}</p>}
 

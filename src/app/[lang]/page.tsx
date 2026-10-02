@@ -51,7 +51,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
       <Work dict={dict} />
       <WhyUs dict={dict} />
       <Process dict={dict} />
-      <Contact lang={lang} dict={dict} />
+      <Contact lang={lang} dict={dict} variant="teaser" />
     </>
   )
 }

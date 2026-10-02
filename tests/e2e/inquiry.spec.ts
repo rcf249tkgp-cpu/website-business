@@ -58,7 +58,7 @@ const en = {
 
 test.describe('inquiry form', () => {
   test('validates each step with translated messages', async ({ page }) => {
-    await page.goto('/fi#contact')
+    await page.goto('/fi/start')
     const f = form(page)
     await f.getByRole('button', { name: 'Jatka' }).click()
     await expect(f.getByText('Valitse vaihtoehto.').first()).toBeVisible()
@@ -92,7 +92,7 @@ test.describe('inquiry form', () => {
   })
 
   test('meeting step rejects weekends and requires consent', async ({ page }) => {
-    await page.goto('/en#contact')
+    await page.goto('/en/start')
     await fillAllSteps(page, en)
     const f = form(page)
     const saturday = new Date()
@@ -106,7 +106,7 @@ test.describe('inquiry form', () => {
 
   test('submits, emails the business and the customer, and never claims the meeting is booked', async ({ page }) => {
     const before = catcher.messages.length
-    await page.goto('/sv#contact')
+    await page.goto('/sv/start')
     await fillAllSteps(
       page,
       {
@@ -155,7 +155,7 @@ test.describe('inquiry form', () => {
   })
 
   test('keeps unsent answers when switching language', async ({ page }) => {
-    await page.goto('/en#contact')
+    await page.goto('/en/start')
     const f = form(page)
     await f.getByText('Landing page', { exact: true }).click()
     await f.locator('#f-description').fill('A landing page for our new product launch in November.')
@@ -180,7 +180,7 @@ test.describe('inquiry form', () => {
       await page.route('**/api/inquiry', (route) =>
         route.fulfill({ status, contentType: 'application/json', body: JSON.stringify({ ok: false, error }) }),
       )
-      await page.goto('/en#contact')
+      await page.goto('/en/start')
       await fillAllSteps(page, en)
       await form(page).getByRole('button', { name: en.submit }).click()
       const alert = form(page).getByRole('alert')
@@ -196,7 +196,7 @@ test.describe('inquiry form', () => {
 
   test('handles network failures', async ({ page }) => {
     await page.route('**/api/inquiry', (route) => route.abort('internetdisconnected'))
-    await page.goto('/en#contact')
+    await page.goto('/en/start')
     await fillAllSteps(page, en)
     await form(page).getByRole('button', { name: en.submit }).click()
     await expect(form(page).getByRole('alert')).toContainText('We couldn’t reach the server.')

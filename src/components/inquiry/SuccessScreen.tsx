@@ -55,9 +55,9 @@ export function SuccessScreen({ lang, dict, result, schedulingUrl, headingRef, o
       <div className={styles.successIcon} aria-hidden="true">
         <Check />
       </div>
-      <h3 ref={headingRef} tabIndex={-1} className={styles.successTitle}>
+      <h2 ref={headingRef} tabIndex={-1} className={styles.successTitle}>
         {s.title}
-      </h3>
+      </h2>
       <p className={styles.successText} role="status">
         {s.description}
         {result.confirmationSent && <> {format(s.copySent, { email: result.email })}</>}

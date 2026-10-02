@@ -56,8 +56,9 @@ test.describe('languages', () => {
 
   test('every visible string in the main sections is translated', async ({ page }) => {
     const english = ['Services', 'Selected work', 'Why choose us', 'Our process', 'Start a project', 'Continue']
-    for (const lang of ['sv', 'fi']) {
-      await page.goto(`/${lang}`)
+    for (const path of ['/sv', '/fi', '/sv/start', '/fi/start']) {
+      const lang = path.slice(1, 3)
+      await page.goto(path)
       // Ignore decorative content (e.g. the code snippet in the hero illustration).
       const text = await page.locator('main').evaluate((main) => {
         const clone = main.cloneNode(true) as HTMLElement
@@ -89,7 +90,18 @@ test.describe('navigation', () => {
   test('hero CTAs lead to contact and work', async ({ page }) => {
     await page.goto('/en')
     await page.locator('main').getByRole('link', { name: 'Start a project' }).first().click()
-    await expect(page.locator('#contact')).toBeInViewport()
+    await expect(page).toHaveURL(/\/en\/start$/)
+    await expect(page.locator('h1')).toHaveText('Let’s build something remarkable.')
+    await expect(page.locator('#contact form')).toBeVisible()
+
+    // The header button and the homepage contact section lead there too.
+    await page.goto('/sv')
+    await page.locator('header').getByRole('link', { name: 'Starta ett projekt' }).click()
+    await expect(page).toHaveURL(/\/sv\/start$/)
+    await page.goto('/fi#contact')
+    await page.locator('#contact').getByRole('link', { name: 'Aloita projekti' }).click()
+    await expect(page).toHaveURL(/\/fi\/start$/)
+    await expect(page.locator('#contact form')).toBeVisible()
     await page.goto('/en')
     await page.getByRole('link', { name: 'See our work' }).click()
     await expect(page.locator('#work')).toBeInViewport()

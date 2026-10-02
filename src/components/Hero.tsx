@@ -29,7 +29,7 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           {hero.description}
         </p>
         <div className={styles.ctas} style={{ animationDelay: '0.32s' }}>
-          <Link href={`/${lang}#contact`} className="btn btn-primary">
+          <Link href={`/${lang}/start`} className="btn btn-primary">
             {hero.primaryCta}
             <ArrowRight />
           </Link>

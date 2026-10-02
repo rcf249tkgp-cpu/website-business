@@ -1,22 +1,39 @@
 import { schedulingUrl, siteConfig, turnstileSiteKey } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
-import { Check, Clock, Mail, MapPin, Phone } from './Icons'
+import Link from 'next/link'
+import { ArrowRight, Check, Clock, Mail, MapPin, Phone } from './Icons'
 import { InquiryForm } from './inquiry/InquiryForm'
 import styles from './Contact.module.css'
 
-export function Contact({ lang, dict }: { lang: Locale; dict: Dictionary }) {
+interface Props {
+  lang: Locale
+  dict: Dictionary
+  /**
+   * `page`: the dedicated /start page with the inquiry form.
+   * `teaser`: the homepage section that links to it.
+   */
+  variant: 'page' | 'teaser'
+}
+
+export function Contact({ lang, dict, variant }: Props) {
   const { contact } = dict
   const { address } = siteConfig.contact
+  const Heading = variant === 'page' ? 'h1' : 'h2'
   return (
-    <section id="contact" className={`section ${styles.section}`} aria-labelledby="contact-title">
+    <section
+      id="contact"
+      className={`section ${styles.section}`}
+      data-variant={variant}
+      aria-labelledby="contact-title"
+    >
       <div className={styles.glow} aria-hidden="true" />
       <div className={`container ${styles.layout}`}>
         <div className={`${styles.intro} reveal`}>
           <p className={styles.eyebrow}>{contact.eyebrow}</p>
-          <h2 id="contact-title" className={styles.title}>
+          <Heading id="contact-title" className={styles.title}>
             {contact.title}
-          </h2>
+          </Heading>
           <p className={styles.description}>{contact.description}</p>
 
           <ul className={styles.points}>
@@ -56,14 +73,32 @@ export function Contact({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           </div>
         </div>
 
-        <div className={styles.formWrap}>
-          <InquiryForm
-            lang={lang}
-            dict={{ form: dict.form }}
-            schedulingUrl={schedulingUrl}
-            turnstileSiteKey={turnstileSiteKey}
-          />
-        </div>
+        {variant === 'page' ? (
+          <div className={styles.formWrap}>
+            <InquiryForm
+              lang={lang}
+              dict={{ form: dict.form }}
+              schedulingUrl={schedulingUrl}
+              turnstileSiteKey={turnstileSiteKey}
+            />
+          </div>
+        ) : (
+          <div className={`${styles.teaser} reveal`}>
+            <ol className={styles.teaserSteps}>
+              {Object.values(dict.form.steps).map((step, i) => (
+                <li key={step}>
+                  <span aria-hidden="true">{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+            <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.teaserCta}`}>
+              {dict.nav.cta}
+              <ArrowRight />
+            </Link>
+            <p className={styles.teaserNote}>{dict.hero.trust[0]}</p>
+          </div>
+        )}
       </div>
     </section>
   )
