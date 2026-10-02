@@ -22,8 +22,8 @@ export const siteConfig = {
     /** Phone in E.164 format for `tel:` links. */
     phoneHref: '+358401234567',
     address: {
-      street: 'Eteläesplanadi 2',
-      postalCode: '00130',
+      street: 'Työpajankatu 17',
+      postalCode: '00580',
       city: 'Helsinki',
       /** ISO 3166 country code (structured data). */
       countryCode: 'FI',
