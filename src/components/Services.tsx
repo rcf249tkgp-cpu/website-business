@@ -4,14 +4,15 @@ import { SectionHeading } from './SectionHeading'
 import { ServiceVisual } from './ServiceVisuals'
 import styles from './Services.module.css'
 
-export function Services({ dict }: { dict: Dictionary }) {
+export function Services({ dict, standalone = false }: { dict: Dictionary; standalone?: boolean }) {
   const { services } = dict
   const labels = { ...services.labels, addToCart: dict.work.mock.addToCart }
   return (
-    <section id="services" className="section" aria-labelledby="services-title">
+    <section id="services" className={`section${standalone ? ' section-page' : ''}`} aria-labelledby="services-title">
       <div className="container">
         <SectionHeading
           id="services-title"
+          as={standalone ? 'h1' : 'h2'}
           eyebrow={services.eyebrow}
           title={services.title}
           description={services.description}

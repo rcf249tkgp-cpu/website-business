@@ -4,12 +4,18 @@ import { ProjectMockup } from './ProjectMockups'
 import { SectionHeading } from './SectionHeading'
 import styles from './Work.module.css'
 
-export function Work({ dict }: { dict: Dictionary }) {
+export function Work({ dict, standalone = false }: { dict: Dictionary; standalone?: boolean }) {
   const { work } = dict
   return (
-    <section id="work" className="section" aria-labelledby="work-title">
+    <section id="work" className={`section${standalone ? ' section-page' : ''}`} aria-labelledby="work-title">
       <div className="container">
-        <SectionHeading id="work-title" eyebrow={work.eyebrow} title={work.title} description={work.description} />
+        <SectionHeading
+          id="work-title"
+          as={standalone ? 'h1' : 'h2'}
+          eyebrow={work.eyebrow}
+          title={work.title}
+          description={work.description}
+        />
         <p className={`${styles.disclaimer} reveal`}>
           <Info />
           {work.disclaimer}

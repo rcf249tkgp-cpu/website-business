@@ -12,12 +12,12 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const { contact } = siteConfig
   const year = new Date().getFullYear()
   const links = [
-    { href: `/${lang}#services`, label: nav.services },
-    { href: `/${lang}#work`, label: nav.work },
-    { href: `/${lang}#why`, label: nav.why },
-    { href: `/${lang}#process`, label: nav.process },
-    { href: `/${lang}#faq`, label: nav.faq },
-    { href: `/${lang}#contact`, label: nav.contact },
+    { href: `/${lang}/services`, label: nav.services },
+    { href: `/${lang}/work`, label: nav.work },
+    { href: `/${lang}/approach`, label: nav.why },
+    { href: `/${lang}/process`, label: nav.process },
+    { href: `/${lang}/process#faq`, label: nav.faq },
+    { href: `/${lang}/contact`, label: nav.contact },
   ]
 
   return (

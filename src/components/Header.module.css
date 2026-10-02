@@ -51,7 +51,7 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-.navLink[data-active] {
+.navLink[aria-current='page'] {
   color: var(--text);
   background: rgba(255, 255, 255, 0.06);
 }
@@ -162,6 +162,10 @@
     font-size: 28px;
     font-weight: 600;
     letter-spacing: -0.03em;
+  }
+
+  .mobile li a[aria-current='page'] {
+    color: #cfc7ff;
   }
 
   .mobile li a svg {

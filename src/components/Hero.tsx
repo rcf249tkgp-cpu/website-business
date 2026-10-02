@@ -32,7 +32,7 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               {hero.primaryCta}
               <ArrowRight />
             </Link>
-            <Link href={`/${lang}#process`} className="btn btn-secondary">
+            <Link href={`/${lang}/process`} className="btn btn-secondary">
               {hero.secondaryCta}
             </Link>
           </div>

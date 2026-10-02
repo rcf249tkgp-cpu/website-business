@@ -18,9 +18,7 @@ interface Props {
 export function Header({ lang, dict }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [active, setActive] = useState('')
   const pathname = usePathname()
-  const onHome = pathname === `/${lang}`
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -37,30 +35,16 @@ export function Header({ lang, dict }: Props) {
     return () => document.removeEventListener('keydown', onKey)
   }, [menuOpen])
 
-  const sections = ['services', 'work', 'why', 'process', 'contact'] as const
-
-  // Highlight the nav item for the section currently in view (homepage only).
-  useEffect(() => {
-    if (!onHome) return
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id)
-      },
-      { rootMargin: '-45% 0px -50% 0px' },
-    )
-    // FAQ has no nav item; observing it clears the highlight there.
-    for (const id of [...sections, 'faq']) {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    }
-    return () => {
-      observer.disconnect()
-      setActive('')
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onHome])
-
-  const links = sections.map((id) => ({ id, href: `/${lang}#${id}`, label: dict.nav[id] }))
+  // Each menu item opens its own page.
+  const links = (
+    [
+      ['services', 'services'],
+      ['work', 'work'],
+      ['why', 'approach'],
+      ['process', 'process'],
+      ['contact', 'contact'],
+    ] as const
+  ).map(([key, slug]) => ({ id: slug, href: `/${lang}/${slug}`, label: dict.nav[key] }))
   const close = () => setMenuOpen(false)
 
   return (
@@ -75,7 +59,7 @@ export function Header({ lang, dict }: Props) {
           <ul>
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className={styles.navLink} data-active={(onHome && active === l.id) || undefined}>
+                <Link href={l.href} className={styles.navLink} aria-current={pathname === l.href ? 'page' : undefined}>
                   {l.label}
                 </Link>
               </li>
@@ -106,7 +90,7 @@ export function Header({ lang, dict }: Props) {
           <ul>
             {links.map((l, i) => (
               <li key={l.href} style={{ transitionDelay: menuOpen ? `${60 + i * 40}ms` : '0ms' }}>
-                <Link href={l.href} onClick={close}>
+                <Link href={l.href} onClick={close} aria-current={pathname === l.href ? 'page' : undefined}>
                   {l.label}
                   <ArrowRight />
                 </Link>

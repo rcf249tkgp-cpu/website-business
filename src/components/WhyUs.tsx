@@ -12,13 +12,23 @@ const icons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
 }
 
 /** "Our approach": principles, concrete commitments and an honest note about being a new studio. */
-export function WhyUs({ dict }: { dict: Dictionary }) {
+export function WhyUs({ dict, standalone = false }: { dict: Dictionary; standalone?: boolean }) {
   const { why } = dict
   return (
-    <section id="why" className={`section ${styles.section}`} aria-labelledby="why-title">
+    <section
+      id="why"
+      className={`section ${styles.section}${standalone ? ' section-page' : ''}`}
+      aria-labelledby="why-title"
+    >
       <div className={styles.bg} aria-hidden="true" />
       <div className="container">
-        <SectionHeading id="why-title" eyebrow={why.eyebrow} title={why.title} description={why.description} />
+        <SectionHeading
+          id="why-title"
+          as={standalone ? 'h1' : 'h2'}
+          eyebrow={why.eyebrow}
+          title={why.title}
+          description={why.description}
+        />
 
         <ul className={styles.principles}>
           {why.items.map((item) => {

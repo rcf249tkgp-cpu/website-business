@@ -14,16 +14,18 @@ interface Props {
    * `teaser`: the homepage section that links to it.
    */
   variant: 'page' | 'teaser'
+  /** The teaser shown as the main content of its own page (/contact). */
+  standalone?: boolean
 }
 
-export function Contact({ lang, dict, variant }: Props) {
+export function Contact({ lang, dict, variant, standalone = false }: Props) {
   const { contact } = dict
   const { address } = siteConfig.contact
-  const Heading = variant === 'page' ? 'h1' : 'h2'
+  const Heading = variant === 'page' || standalone ? 'h1' : 'h2'
   return (
     <section
       id="contact"
-      className={`section ${styles.section}`}
+      className={`section ${styles.section}${standalone ? ' section-page' : ''}`}
       data-variant={variant}
       aria-labelledby="contact-title"
     >

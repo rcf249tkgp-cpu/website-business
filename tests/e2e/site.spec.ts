@@ -80,20 +80,52 @@ test.describe('languages', () => {
 })
 
 test.describe('navigation', () => {
-  test('header links scroll to their sections', async ({ page }) => {
-    await page.goto('/en')
-    const nav = page.getByRole('navigation', { name: 'Main navigation' }).first()
-    for (const [label, id] of [
-      ['Services', 'services'],
-      ['Work', 'work'],
-      ['Approach', 'why'],
-      ['Process', 'process'],
-      ['Contact', 'contact'],
-    ]) {
-      await nav.getByRole('link', { name: label, exact: true }).click()
-      await expect(page).toHaveURL(new RegExp(`#${id}$`))
-      await expect(page.locator(`#${id}`)).toBeInViewport()
+  test('each menu item opens its own page', async ({ page }) => {
+    for (const [lang, pages] of [
+      [
+        'en',
+        [
+          ['Services', 'services', 'What we build.'],
+          ['Work', 'work', 'How we think, shown in design.'],
+          ['Approach', 'approach', 'Fewer layers, more care.'],
+          ['Process', 'process', 'Five steps from first call to launch.'],
+          ['Contact', 'contact', 'Let’s build something remarkable.'],
+        ],
+      ],
+      [
+        'fi',
+        [
+          ['Palvelut', 'services', 'Mitä rakennamme.'],
+          ['Toimintatapa', 'approach', 'Vähemmän välikäsiä, enemmän huolellisuutta.'],
+        ],
+      ],
+    ] as const) {
+      await page.goto(`/${lang}`)
+      for (const [label, slug, heading] of pages) {
+        const nav = page.getByRole('navigation', { name: /Main navigation|Päänavigaatio/ }).first()
+        await nav.getByRole('link', { name: label, exact: true }).click()
+        await expect(page).toHaveURL(new RegExp(`/${lang}/${slug}$`))
+        await expect(page.locator('h1')).toHaveText(heading)
+        await expect(nav.getByRole('link', { name: label, exact: true })).toHaveAttribute('aria-current', 'page')
+        // Every page ends with a way to start a project.
+        await expect(
+          page.locator('#contact').getByRole('link', { name: /Start a project|Aloita projekti/ }),
+        ).toBeVisible()
+      }
     }
+  })
+
+  test('each page works in every language', async ({ page }) => {
+    for (const slug of ['services', 'work', 'approach', 'process', 'contact']) {
+      for (const lang of ['en', 'sv', 'fi']) {
+        const res = await page.goto(`/${lang}/${slug}`)
+        expect(res?.status(), `/${lang}/${slug}`).toBe(200)
+        await expect(page.locator('h1')).toHaveCount(1)
+      }
+    }
+    await page.goto('/sv/work')
+    await page.locator('header').getByRole('button', { name: 'Suomi' }).click()
+    await expect(page).toHaveURL(/\/fi\/work$/)
   })
 
   test('hero CTAs lead to the project form and the process', async ({ page }) => {
@@ -113,7 +145,7 @@ test.describe('navigation', () => {
     await expect(page.locator('#contact form')).toBeVisible()
     await page.goto('/en')
     await page.getByRole('link', { name: 'How we work' }).click()
-    await expect(page.locator('#process')).toBeInViewport()
+    await expect(page).toHaveURL(/\/en\/process$/)
   })
 
   test('footer legal links work in every language', async ({ page }) => {
@@ -143,7 +175,8 @@ test.describe('navigation', () => {
     const menu = page.locator('#mobile-menu')
     await expect(menu.getByRole('link', { name: 'Process' })).toBeVisible()
     await menu.getByRole('link', { name: 'Process' }).click()
-    await expect(page.locator('#process')).toBeInViewport()
+    await expect(page).toHaveURL(/\/en\/process$/)
+    await expect(page.locator('h1')).toHaveText('Five steps from first call to launch.')
     await expect(menu.getByRole('link', { name: 'Process' })).toBeHidden()
 
     // All three languages are visible in the header without opening the menu.
@@ -151,8 +184,9 @@ test.describe('navigation', () => {
       await expect(page.locator('header').getByRole('button', { name })).toBeVisible()
     }
     await page.locator('header').getByRole('button', { name: 'Suomi' }).click()
-    await expect(page).toHaveURL(/\/fi/)
-    await expect(page.locator('h1')).toContainText('on mahdoton ohittaa.')
+    // Switching language keeps you on the same page.
+    await expect(page).toHaveURL(/\/fi\/process$/)
+    await expect(page.locator('h1')).toHaveText('Viisi vaihetta ensimmäisestä puhelusta julkaisuun.')
   })
 
   test('has no horizontal overflow on small screens @mobile', async ({ page }) => {

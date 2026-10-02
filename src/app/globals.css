@@ -170,6 +170,11 @@ ol {
   padding-block: clamp(80px, 9vw, 128px);
 }
 
+/* A section that is the main content of its own page clears the fixed header. */
+.section-page {
+  padding-top: calc(var(--header-h) + clamp(48px, 7vw, 96px));
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
