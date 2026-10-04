@@ -142,6 +142,19 @@
   border-radius: 22px;
 }
 
+.addonLabel {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.maintenance + .maintenance {
+  margin-top: 12px;
+}
+
 .maintenance h2,
 .maintenance h3 {
   margin-bottom: 8px;

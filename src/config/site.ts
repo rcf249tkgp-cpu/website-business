@@ -77,6 +77,13 @@ export const siteConfig = {
       { id: 'reviews', src: '/work/vyro/reviews.webp' },
     ] as const,
     screenSize: { width: 1564, height: 1220 },
+    /** Phone screenshots in /public/work/vyro/mobile/ (640 wide; `page` names the matching label). */
+    mobileScreens: [
+      { id: 'drop', src: '/work/vyro/mobile/drop.webp', page: 'drop' },
+      { id: 'products', src: '/work/vyro/mobile/products.webp', page: 'shop' },
+      { id: 'product', src: '/work/vyro/mobile/product.webp', page: 'product' },
+    ] as const,
+    mobileSize: { width: 640, height: 1199 },
   },
 
   /** Meeting time slots offered in the project form (local time of the studio). */

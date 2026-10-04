@@ -46,6 +46,11 @@ const fi: Dictionary = {
     description:
       'Neljä asiaa, jotka osaamme hyvin. Sama pieni tiimi vie projektisi ensimmäisestä puhelusta julkaisuun ja pitää siitä huolta myöhemminkin, jos haluat.',
     includesLabel: 'Sisältää',
+    addon: {
+      label: 'Lisäpalvelu',
+      title: 'Shopify-integraatio',
+      text: 'Yhdistämme sivustosi Shopifyhin: tuotteet, maksut ja tilaukset. Saatavilla valinnaisena lisäpalveluna lisähinnasta.',
+    },
     items: [
       {
         id: 'websites',
@@ -180,6 +185,7 @@ const fi: Dictionary = {
         'Julkaisusivu ja värivaihtoehtojen vaihtaja',
         'Kauppa suodattimineen ja tuotesivuineen',
         'Arvostelut istuvuusvinkein, englanniksi ja suomeksi',
+        'Verkkokaupan Shopify-integraatio',
       ],
       builtLabel: 'Mitä rakensimme',
       cta: 'Vieraile vyroathletics.comissa',
@@ -383,6 +389,13 @@ const fi: Dictionary = {
         cta: 'Pyydä tarjous',
       },
     ],
+    addon: {
+      label: 'Lisäpalvelu',
+      title: 'Shopify-integraatio',
+      description:
+        'Yhdistämme verkkosivustosi Shopifyhin: tuotteet, varastosaldot, maksut ja tilaukset yhdessä paikassa. Valinnainen lisäpalvelu.',
+      price: 'Lisähinnasta',
+    },
     maintenance: {
       title: 'Ylläpito ja palvelin',
       description:

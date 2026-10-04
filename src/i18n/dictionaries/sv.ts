@@ -46,6 +46,11 @@ const sv: Dictionary = {
     description:
       'Fyra saker vi är bra på. Samma lilla team tar ditt projekt från första samtalet till lansering, och tar hand om det efteråt om du vill.',
     includesLabel: 'Innehåller',
+    addon: {
+      label: 'Tillägg',
+      title: 'Shopify-integration',
+      text: 'Vi kopplar din webbplats till Shopify: produkter, betalningar och beställningar. Finns som valfritt tillägg mot en extra avgift.',
+    },
     items: [
       {
         id: 'websites',
@@ -184,6 +189,7 @@ const sv: Dictionary = {
         'Lanseringssida med färgväljare',
         'Butik med filter och produktsidor',
         'Recensioner med passformstips, på engelska och finska',
+        'Shopify-integration för webbutiken',
       ],
       builtLabel: 'Det här byggde vi',
       cta: 'Besök vyroathletics.com',
@@ -385,6 +391,13 @@ const sv: Dictionary = {
         cta: 'Begär offert',
       },
     ],
+    addon: {
+      label: 'Tillägg',
+      title: 'Shopify-integration',
+      description:
+        'Vi kopplar din webbplats till Shopify: produkter, lager, betalningar och beställningar på ett ställe. Ett valfritt tillägg.',
+      price: 'Mot extra avgift',
+    },
     maintenance: {
       title: 'Drift och underhåll',
       description:

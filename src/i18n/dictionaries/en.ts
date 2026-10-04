@@ -44,6 +44,11 @@ const en = {
     description:
       'Four things we do well. The same small team takes your project from the first call to launch, and looks after it afterwards if you want.',
     includesLabel: 'Includes',
+    addon: {
+      label: 'Add-on',
+      title: 'Shopify integration',
+      text: 'Connect your site to Shopify for products, payments and orders. Available as an optional add-on for an additional fee.',
+    },
     items: [
       {
         id: 'websites',
@@ -174,6 +179,7 @@ const en = {
         'Drop launch page with colourway switcher',
         'Shop with filters and product pages',
         'Reviews with fit notes, in English and Finnish',
+        'Shopify integration for the online store',
       ],
       builtLabel: 'What we built',
       cta: 'Visit vyroathletics.com',
@@ -363,6 +369,13 @@ const en = {
         cta: 'Ask for a quote',
       },
     ],
+    addon: {
+      label: 'Add-on',
+      title: 'Shopify integration',
+      description:
+        'We connect your website to Shopify: products, stock, payments and orders in one place. An optional add-on.',
+      price: 'Additional fee',
+    },
     maintenance: {
       title: 'Hosting & maintenance',
       description:

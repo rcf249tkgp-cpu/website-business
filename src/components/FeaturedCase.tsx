@@ -7,7 +7,7 @@ import styles from './Work.module.css'
 /** The real client project: VYRO Athletics. */
 export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['work']; heading?: 'h2' | 'h3' }) {
   const { featured } = t
-  const { url, screens, screenSize } = siteConfig.featuredCase
+  const { url, screens, screenSize, mobileScreens, mobileSize } = siteConfig.featuredCase
   const host = url.replace(/^https?:\/\//, '')
   return (
     <article className={`${styles.case} reveal`} aria-labelledby="case-title">
@@ -45,6 +45,9 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
           host={host}
           client={featured.client}
           label={featured.galleryLabel}
+          phone={mobileScreens.map((m) => ({ id: m.id, src: m.src, label: featured.pages[m.page] }))}
+          phoneSize={mobileSize}
+          mobileLabel={t.mobile}
         />
       </div>
     </article>

@@ -81,6 +81,17 @@ export function Pricing({ lang, dict, standalone = false }: { lang: Locale; dict
 
         <div className={`${styles.maintenance} reveal`}>
           <div>
+            <p className={styles.addonLabel}>{pricing.addon.label}</p>
+            <Sub>{pricing.addon.title}</Sub>
+            <p>{pricing.addon.description}</p>
+          </div>
+          <p className={styles.price}>
+            <span className={styles.pending}>{pricing.addon.price}</span>
+          </p>
+        </div>
+
+        <div className={`${styles.maintenance} reveal`}>
+          <div>
             <Sub>{pricing.maintenance.title}</Sub>
             <p>{pricing.maintenance.description}</p>
           </div>

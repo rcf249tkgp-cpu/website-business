@@ -82,6 +82,38 @@
   color: #fff;
 }
 
+/* ------------------------------------------------------------ Add-on note */
+.addon {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(12px, 2vw, 24px);
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px dashed var(--border-strong);
+}
+
+.addonLabel {
+  grid-column: 1;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.addonTitle {
+  grid-column: 2 / span 5;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+}
+
+.addonText {
+  grid-column: 7 / -1;
+  max-width: 54ch;
+  color: var(--text-muted);
+}
+
 /* ------------------------------------------------------------ Cursor preview */
 .preview {
   position: absolute;
@@ -400,6 +432,23 @@
   }
 
   .body {
+    grid-column: 1 / -1;
+  }
+
+  .addon {
+    grid-template-columns: auto 1fr;
+    row-gap: 10px;
+  }
+
+  .addonLabel {
+    padding-right: 6px;
+  }
+
+  .addonTitle {
+    grid-column: 2;
+  }
+
+  .addonText {
     grid-column: 1 / -1;
   }
 }

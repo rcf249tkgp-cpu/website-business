@@ -22,17 +22,33 @@ export function CaseGallery({
   host,
   client,
   label,
+  phone,
+  phoneSize,
+  mobileLabel,
 }: {
   screens: Screen[]
   size: { width: number; height: number }
   host: string
   client: string
   label: string
+  /** Phone screenshots, swipeable inside a phone frame. */
+  phone: Screen[]
+  phoneSize: { width: number; height: number }
+  mobileLabel: string
 }) {
   const [active, setActive] = useState(0)
   const [auto, setAuto] = useState(false)
   const [paused, setPaused] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const track = useRef<HTMLDivElement>(null)
+  const [slide, setSlide] = useState(0)
+
+  const goTo = (i: number) => {
+    const el = track.current
+    if (!el) return
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    el.scrollTo({ left: i * el.clientWidth, behavior: smooth ? 'smooth' : 'auto' })
+  }
 
   // Autoplay only while visible, and never with reduced motion.
   useEffect(() => {
@@ -80,6 +96,40 @@ export function CaseGallery({
               sizes="(max-width: 1000px) 100vw, 62vw"
               loading={i === 0 ? 'eager' : 'lazy'}
             />
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.phoneWrap}>
+        <div className={styles.phone}>
+          <span className={styles.phoneNotch} aria-hidden="true" />
+          <div
+            ref={track}
+            className={styles.phoneTrack}
+            style={{ aspectRatio: `${phoneSize.width} / ${phoneSize.height}` }}
+            tabIndex={0}
+            role="region"
+            aria-label={`${client} — ${mobileLabel}`}
+            onScroll={(e) => {
+              const el = e.currentTarget
+              setSlide(Math.round(el.scrollLeft / el.clientWidth))
+            }}
+          >
+            {phone.map((p) => (
+              <Image
+                key={p.id}
+                src={p.src}
+                width={phoneSize.width}
+                height={phoneSize.height}
+                alt={`${client} — ${p.label} (${mobileLabel})`}
+                sizes="260px"
+              />
+            ))}
+          </div>
+        </div>
+        <div className={styles.phoneDots} role="group" aria-label={`${mobileLabel}: ${label}`}>
+          {phone.map((p, i) => (
+            <button key={p.id} type="button" aria-label={p.label} aria-pressed={i === slide} onClick={() => goTo(i)} />
           ))}
         </div>
       </div>
