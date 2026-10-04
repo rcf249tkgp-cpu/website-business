@@ -69,9 +69,14 @@ export const siteConfig = {
   /** The real client project featured in the Work section. */
   featuredCase: {
     url: 'https://vyroathletics.com',
-    /** Full-page screenshots in /public/work/vyro/ (path, pixel width and height). Empty shows a placeholder. */
-    desktop: null as { src: string; width: number; height: number } | null,
-    mobile: null as { src: string; width: number; height: number } | null,
+    /** Screenshots of the live site in /public/work/vyro/ (all 1564 × 1220). */
+    screens: [
+      { id: 'drop', src: '/work/vyro/drop.webp' },
+      { id: 'shop', src: '/work/vyro/shop.webp' },
+      { id: 'product', src: '/work/vyro/product.webp' },
+      { id: 'reviews', src: '/work/vyro/reviews.webp' },
+    ] as const,
+    screenSize: { width: 1564, height: 1220 },
   },
 
   /** Meeting time slots offered in the project form (local time of the studio). */

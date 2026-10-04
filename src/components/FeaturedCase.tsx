@@ -1,13 +1,13 @@
-import Image from 'next/image'
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
+import { CaseGallery } from './CaseGallery'
 import { ArrowUpRight } from './Icons'
 import styles from './Work.module.css'
 
 /** The real client project: VYRO Athletics. */
 export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['work']; heading?: 'h2' | 'h3' }) {
   const { featured } = t
-  const { url, desktop, mobile } = siteConfig.featuredCase
+  const { url, screens, screenSize } = siteConfig.featuredCase
   const host = url.replace(/^https?:\/\//, '')
   return (
     <article className={`${styles.case} reveal`} aria-labelledby="case-title">
@@ -39,54 +39,13 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
       </div>
 
       <div className={styles.caseVisual}>
-        <div className={styles.caseDesktop}>
-          <div className={styles.caseChrome} aria-hidden="true">
-            <span>
-              <i />
-              <i />
-              <i />
-            </span>
-            <span className={styles.caseUrl}>{host}</span>
-          </div>
-          {desktop ? (
-            <div
-              className={styles.caseScroll}
-              tabIndex={0}
-              role="region"
-              aria-label={`${featured.client} — ${t.desktop}`}
-            >
-              <Image
-                src={desktop.src}
-                width={desktop.width}
-                height={desktop.height}
-                alt=""
-                sizes="(max-width: 900px) 100vw, 60vw"
-              />
-            </div>
-          ) : (
-            <div className={styles.casePending}>
-              <span className={styles.pendingMark}>{featured.client}</span>
-              <span>{featured.imagesPending}</span>
-            </div>
-          )}
-        </div>
-        <div className={styles.casePhone}>
-          <span className={styles.notch} aria-hidden="true" />
-          {mobile ? (
-            <div
-              className={styles.caseScroll}
-              tabIndex={0}
-              role="region"
-              aria-label={`${featured.client} — ${t.mobile}`}
-            >
-              <Image src={mobile.src} width={mobile.width} height={mobile.height} alt="" sizes="320px" />
-            </div>
-          ) : (
-            <div className={styles.casePending}>
-              <span className={styles.pendingMark}>VYRO</span>
-            </div>
-          )}
-        </div>
+        <CaseGallery
+          screens={screens.map((sc) => ({ ...sc, label: featured.pages[sc.id] }))}
+          size={screenSize}
+          host={host}
+          client={featured.client}
+          label={featured.galleryLabel}
+        />
       </div>
     </article>
   )

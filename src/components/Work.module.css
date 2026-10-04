@@ -115,8 +115,6 @@
 
 .caseVisual {
   grid-column: 6 / -1;
-  position: relative;
-  padding-bottom: 8%;
 }
 
 .caseDesktop {
@@ -159,84 +157,93 @@
   font-size: 11px;
 }
 
-.caseScroll {
-  height: 100%;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
+.gallery {
+  display: grid;
+  gap: 14px;
 }
 
-.caseScroll img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.caseDesktop .caseScroll,
-.caseDesktop .casePending {
-  aspect-ratio: 16 / 10;
-}
-
-.casePhone {
-  position: absolute;
-  right: -2%;
-  bottom: 0;
-  width: 26%;
-  aspect-ratio: 9 / 19;
+.shots {
+  position: relative;
   overflow: hidden;
-  border: 6px solid #0b0e14;
-  border-radius: 28px;
-  background: #0b0e14;
-  box-shadow:
-    0 0 0 1px rgba(200, 215, 240, 0.18),
-    0 40px 80px -20px rgba(0, 0, 0, 0.95);
+  background: #0a0a0a;
 }
 
-.casePhone .caseScroll,
-.casePhone .casePending {
-  height: 100%;
-  border-radius: 22px;
-}
-
-.notch {
+.shots img {
   position: absolute;
-  top: 6px;
-  left: 50%;
-  z-index: 2;
-  width: 34%;
-  height: 12px;
-  border-radius: 999px;
-  translate: -50% 0;
-  background: #0b0e14;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  scale: 1.02;
+  transition:
+    opacity 0.8s var(--ease-out),
+    scale 1.2s var(--ease-out);
 }
 
-.casePending {
+.shots img[data-on] {
+  opacity: 1;
+  scale: 1;
+}
+
+.pages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.pages button {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background:
-    linear-gradient(rgba(200, 215, 240, 0.05) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(90deg, rgba(200, 215, 240, 0.05) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(160deg, #111826, #070a10);
+  gap: 10px;
+  padding: 12px 2px 14px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: left;
+  transition: color 0.3s;
+}
+
+.pages button span {
   color: var(--text-subtle);
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-align: center;
 }
 
-.caseDesktop .casePending {
-  padding-right: 22%;
-}
-
-.pendingMark {
+.pages button:hover,
+.pages button[aria-pressed='true'] {
   color: var(--text);
-  font-family: var(--font-display);
-  font-size: clamp(12px, 1.6vw, 20px);
-  letter-spacing: 0.08em;
+}
+
+.pages button[aria-pressed='true'] {
+  border-top-color: var(--silver);
+}
+
+.pages button[aria-pressed='true'] span {
+  color: var(--accent);
+}
+
+/* Time until the next page, drawn along the active tab's top rule. */
+.timer {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  transform-origin: left;
+  animation: timer 5s linear both;
+}
+
+@keyframes timer {
+  from {
+    transform: scaleX(0);
+  }
 }
 
 /* ================================================================ Concepts */
@@ -656,12 +663,6 @@
     border-width: 7px;
     border-radius: 36px;
   }
-
-  .casePhone {
-    width: 34%;
-    border-radius: 22px;
-    border-width: 4px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -672,5 +673,12 @@
   .conceptName {
     transition: none;
     animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .pages {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 14px;
   }
 }
