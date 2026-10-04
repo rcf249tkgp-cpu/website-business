@@ -669,82 +669,41 @@
   box-shadow: 0 6px 18px -6px rgba(255, 150, 70, 0.7);
 }
 
-/* A warm "photo" with a coffee cup drawn in CSS. */
+/* A real photo (CC0, Rachel Michetti / Pikolo Espresso Bar, via scikit-image). */
 .newPhoto {
   position: relative;
-  flex: 0 0 34%;
+  flex: 0 0 40%;
   align-self: stretch;
-  margin-block: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  background:
-    radial-gradient(60% 50% at 50% 60%, rgba(255, 200, 140, 0.35), transparent 70%),
-    linear-gradient(160deg, #3a2417, #1b110b);
+  margin-block: 4px;
+  border-radius: 16px;
+  background: #2a1a10;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 18px 40px -16px rgba(0, 0, 0, 0.9),
+    0 0 60px -20px rgba(255, 160, 90, 0.45);
   overflow: hidden;
 }
 
-.cup {
-  position: absolute;
-  left: 50%;
-  bottom: 22%;
-  width: 34%;
-  aspect-ratio: 1.3;
-  translate: -50% 0;
-  border-radius: 0 0 40% 40%;
-  background: linear-gradient(90deg, #f3ebe2, #fff 40%, #d8cdc1);
-  box-shadow: 0 10px 18px -6px rgba(0, 0, 0, 0.6);
-}
-
-/* Coffee surface and handle. */
-.cup::before {
+.newPhoto::before {
   content: '';
   position: absolute;
-  inset: 0 6% auto;
-  height: 22%;
-  border-radius: 50%;
-  translate: 0 -50%;
-  background: radial-gradient(circle at 50% 50%, #e9c9a4 0 25%, #6b3b1d 32%);
-  border: 2px solid #fff;
+  inset: 0;
+  background: url('../assets/espresso.webp') center 40% / cover;
+  transition: transform 1.4s var(--ease-out);
 }
 
-.cup::after {
+/* Soft vignette so the photo sits in the dark page. */
+.newPhoto::after {
   content: '';
   position: absolute;
-  top: 18%;
-  right: -22%;
-  width: 28%;
-  height: 42%;
-  border: 3px solid #e9e1d7;
-  border-left: 0;
-  border-radius: 0 50% 50% 0;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(8, 6, 4, 0.55)),
+    radial-gradient(120% 100% at 50% 40%, transparent 60%, rgba(8, 6, 4, 0.45));
 }
 
-.steam {
-  position: absolute;
-  left: 50%;
-  bottom: 110%;
-  width: 30%;
-  height: 70%;
-  translate: -50% 0;
-  border-radius: 50%;
-  border-left: 2px solid rgba(255, 255, 255, 0.35);
-  opacity: 0.8;
-}
-
-.motion .steam {
-  animation: steam 3s ease-in-out infinite;
-}
-
-@keyframes steam {
-  0%,
-  100% {
-    opacity: 0;
-    transform: translateY(4px) scaleY(0.8);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateY(-4px) scaleY(1);
-  }
+:global(.card):hover .newPhoto::before {
+  transform: scale(1.08);
 }
 
 /* Narrow cards (phones): drop the extras so both sites still read. */
@@ -759,11 +718,10 @@
   }
 
   .newPhoto {
-    flex-basis: 28%;
+    flex-basis: 34%;
   }
-}
 
-.tag {
+  .tag {
   position: absolute;
   bottom: 10px;
   left: 10px;
