@@ -185,13 +185,6 @@ ol {
   padding-block: clamp(80px, 9vw, 128px);
 }
 
-/* Sections further down the page aren't rendered until they approach the
-   viewport, which keeps the first paint fast on long pages. */
-main .section:not(:first-child) {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 1000px;
-}
-
 /* A section that is the main content of its own page clears the fixed header. */
 .section-page {
   padding-top: calc(var(--header-h) + clamp(48px, 7vw, 96px));
