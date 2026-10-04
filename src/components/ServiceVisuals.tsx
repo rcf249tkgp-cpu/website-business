@@ -185,7 +185,11 @@ function RedesignVisual({ t }: { t: Labels }) {
             <strong className={styles.newHeadline}>{d.headline}</strong>
             <span className={styles.newCta}>{d.cta} →</span>
           </span>
-          <span className={styles.newPhoto} />
+          <span className={styles.newPhoto}>
+            <span className={styles.cup}>
+              <span className={styles.steam} />
+            </span>
+          </span>
         </div>
         <span className={`${styles.tag} ${styles.tagAfter}`}>{t.after}</span>
       </div>
