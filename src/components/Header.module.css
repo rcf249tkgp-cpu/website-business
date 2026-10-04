@@ -11,7 +11,7 @@
 }
 
 .header[data-scrolled] {
-  background: rgba(6, 6, 11, 0.72);
+  background: rgba(5, 7, 13, 0.72);
   border-bottom-color: var(--border);
   backdrop-filter: saturate(160%) blur(18px);
   -webkit-backdrop-filter: saturate(160%) blur(18px);
@@ -63,7 +63,7 @@
   right: 0;
   bottom: -1px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--violet) 30%, #cfc7ff);
+  background: linear-gradient(90deg, transparent, var(--accent) 30%, #d6e2ff);
   transform-origin: left;
   transform: scaleX(0);
   opacity: 0;
@@ -125,7 +125,7 @@
     justify-content: space-between;
     gap: 32px;
     padding: 24px var(--gutter) calc(32px + env(safe-area-inset-bottom));
-    background: rgba(6, 6, 11, 0.97);
+    background: rgba(5, 7, 13, 0.97);
     backdrop-filter: blur(20px);
     overflow-y: auto;
     opacity: 0;
@@ -165,7 +165,7 @@
   }
 
   .mobile li a[aria-current='page'] {
-    color: #cfc7ff;
+    color: #d6e2ff;
   }
 
   .mobile li a svg {

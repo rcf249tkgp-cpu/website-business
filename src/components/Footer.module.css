@@ -42,10 +42,9 @@
 
 .heading {
   color: var(--text-subtle);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 
@@ -102,20 +101,21 @@
 }
 
 .wordmark {
-  margin-bottom: -0.22em;
+  margin-bottom: -0.16em;
   color: transparent;
-  font-size: clamp(3.5rem, 14vw, 13rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 7.2vw, 7rem);
   white-space: nowrap;
-  font-weight: 700;
-  letter-spacing: -0.06em;
+  letter-spacing: 0.02em;
   line-height: 1;
+  text-transform: uppercase;
   text-align: center;
   user-select: none;
   pointer-events: none;
 }
 
 .wordmark :global(.split-word) > span {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 80%);
+  background: linear-gradient(180deg, rgba(226, 232, 240, 0.22), rgba(77, 141, 255, 0.1) 50%, transparent 92%);
   -webkit-background-clip: text;
   background-clip: text;
 }

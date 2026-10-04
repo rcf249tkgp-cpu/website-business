@@ -3,12 +3,12 @@
   padding: clamp(20px, 3.5vw, 40px);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(20, 20, 34, 0.75), rgba(10, 10, 18, 0.85));
+  background: linear-gradient(180deg, rgba(10, 15, 26, 0.75), rgba(5, 7, 13, 0.85));
   backdrop-filter: blur(20px);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.02) inset,
     0 40px 100px -40px rgba(0, 0, 0, 0.9),
-    0 30px 80px -50px rgba(124, 92, 255, 0.55);
+    0 30px 80px -50px rgba(47, 123, 255, 0.55);
 }
 
 /* ---- Progress ---- */
@@ -22,9 +22,9 @@
 
 .stepCount {
   color: var(--text-subtle);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .stepList li[aria-current='step'] {
-  background: rgba(124, 92, 255, 0.16);
+  background: rgba(47, 123, 255, 0.16);
   color: #d4ccff;
 }
 
@@ -65,15 +65,15 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--violet);
-  box-shadow: 0 0 12px rgba(139, 123, 255, 0.9);
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(77, 141, 255, 0.9);
   transition: width 0.6s var(--ease-out);
 }
 
 .stepTitle {
   margin-top: 28px;
-  font-size: clamp(22px, 2.6vw, 28px);
-  letter-spacing: -0.03em;
+  font-size: clamp(19px, 2.2vw, 23px);
+  letter-spacing: 0.01em;
   outline: none;
 }
 
@@ -81,7 +81,7 @@
   margin-top: 12px;
   padding: 10px 14px;
   border-radius: 10px;
-  background: rgba(79, 140, 255, 0.1);
+  background: rgba(0, 180, 255, 0.1);
   color: #b9d0ff;
   font-size: 14px;
 }
@@ -170,9 +170,9 @@ textarea.input {
 
 .input:focus {
   outline: none;
-  border-color: var(--violet);
-  background: rgba(124, 92, 255, 0.05);
-  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18);
+  border-color: var(--accent);
+  background: rgba(47, 123, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(47, 123, 255, 0.18);
 }
 
 [data-invalid] .input {
@@ -292,14 +292,14 @@ textarea.input {
 }
 
 .choice[data-checked] {
-  border-color: var(--violet);
-  background: rgba(124, 92, 255, 0.12);
+  border-color: var(--accent);
+  background: rgba(47, 123, 255, 0.12);
   color: var(--text);
-  box-shadow: 0 0 0 1px rgba(139, 123, 255, 0.4) inset;
+  box-shadow: 0 0 0 1px rgba(77, 141, 255, 0.4) inset;
 }
 
 .choice:has(:focus-visible) {
-  outline: 2px solid var(--violet);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -308,7 +308,7 @@ textarea.input {
 }
 
 [data-invalid] .choice[data-checked] {
-  border-color: var(--violet);
+  border-color: var(--accent);
 }
 
 .choiceBox {
@@ -342,7 +342,7 @@ input[type='radio'] + .choiceBox {
 
 .choice[data-checked] .choiceBox {
   border-color: transparent;
-  background: var(--violet-strong);
+  background: var(--accent-strong);
 }
 
 .choice[data-checked] .choiceBox svg {
@@ -378,7 +378,7 @@ input[type='radio'] + .choiceBox {
   width: 20px;
   height: 20px;
   margin: 1px 0 0;
-  accent-color: var(--violet-strong);
+  accent-color: var(--accent-strong);
   cursor: pointer;
 }
 
@@ -386,9 +386,9 @@ input[type='radio'] + .choiceBox {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #c3b9ff;
+  color: #a9c6ff;
   text-decoration: underline;
-  text-decoration-color: rgba(195, 185, 255, 0.4);
+  text-decoration-color: rgba(190, 212, 255, 0.4);
   text-underline-offset: 3px;
 }
 
@@ -500,7 +500,7 @@ input[type='radio'] + .choiceBox {
 }
 
 .successTitle {
-  font-size: clamp(26px, 3vw, 34px);
+  font-size: clamp(22px, 2.6vw, 28px);
   outline: none;
 }
 
@@ -594,7 +594,7 @@ input[type='radio'] + .choiceBox {
   padding: 20px;
   border: 1px solid var(--border-strong);
   border-radius: 16px;
-  background: rgba(124, 92, 255, 0.06);
+  background: rgba(47, 123, 255, 0.06);
 }
 
 .bookNowText {

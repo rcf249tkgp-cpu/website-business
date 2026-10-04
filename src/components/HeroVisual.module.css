@@ -43,7 +43,7 @@
 }
 
 .control[aria-pressed='true'] {
-  border-color: rgba(139, 123, 255, 0.55);
+  border-color: rgba(77, 141, 255, 0.55);
   background: var(--accent-soft);
   color: var(--text);
 }
@@ -68,7 +68,7 @@
   inset: 12% 6% 4%;
   z-index: -1;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(124, 92, 255, 0.4), transparent);
+  background: radial-gradient(closest-side, rgba(47, 123, 255, 0.4), transparent);
   filter: blur(50px);
 }
 
@@ -96,11 +96,11 @@
   margin-inline: auto;
   border: 1px solid var(--border-strong);
   border-radius: 16px;
-  background: linear-gradient(180deg, #13131f, #0a0a12);
+  background: linear-gradient(180deg, #13131f, #05070d);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.06) inset,
     0 60px 120px -40px rgba(0, 0, 0, 0.95),
-    0 30px 80px -50px rgba(124, 92, 255, 0.7);
+    0 30px 80px -50px rgba(47, 123, 255, 0.7);
   overflow: hidden;
   transition:
     width 0.8s var(--ease-out),
@@ -203,7 +203,7 @@
   width: 68px;
   height: 24px;
   border-radius: 999px;
-  background: var(--violet-strong);
+  background: var(--accent-strong);
 }
 
 .siteBurger {
@@ -248,7 +248,7 @@
 .barLg {
   width: 72%;
   height: 20px;
-  background: linear-gradient(90deg, #cfc7ff, #8b7bff);
+  background: linear-gradient(90deg, #d6e2ff, #4d8dff);
 }
 
 .barMd {
@@ -288,7 +288,7 @@
   aspect-ratio: 4 / 3;
   border-radius: 12px;
   background:
-    radial-gradient(circle at 30% 30%, rgba(165, 148, 255, 0.85), transparent 55%),
+    radial-gradient(circle at 30% 30%, rgba(143, 182, 255, 0.85), transparent 55%),
     radial-gradient(circle at 75% 72%, rgba(94, 200, 255, 0.55), transparent 50%),
     linear-gradient(135deg, #1b1640, #0d1a3a);
   overflow: hidden;
@@ -402,7 +402,7 @@
   position: absolute;
   border: 1px solid var(--border-strong);
   border-radius: 14px;
-  background: rgba(14, 14, 24, 0.97);
+  background: rgba(10, 15, 26, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow:
@@ -451,7 +451,7 @@
 .codeBadge {
   padding: 1px 6px;
   border-radius: 5px;
-  background: rgba(79, 140, 255, 0.16);
+  background: rgba(0, 180, 255, 0.16);
   color: #a9c6ff;
   font-size: 10px;
 }
@@ -481,11 +481,11 @@
 
 .rule[data-active] {
   opacity: 1;
-  background: rgba(139, 123, 255, 0.12);
+  background: rgba(77, 141, 255, 0.12);
 }
 
 .kw {
-  color: #c4b5ff;
+  color: #a9c6ff;
 }
 .str {
   color: #ffb3c4;

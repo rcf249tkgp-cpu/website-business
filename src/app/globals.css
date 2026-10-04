@@ -4,17 +4,17 @@
 :root {
   color-scheme: dark;
 
-  --bg: #06060b;
-  --bg-elevated: #0c0c15;
+  --bg: #05070d;
+  --bg-elevated: #0a0f1a;
   --bg-card: rgba(255, 255, 255, 0.025);
   --bg-card-hover: rgba(255, 255, 255, 0.045);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --border: rgba(200, 215, 240, 0.09);
+  --border-strong: rgba(200, 215, 240, 0.18);
 
-  --text: #f4f4f8;
-  --text-muted: #a5a5b8;
-  --text-subtle: #82829a;
-  --surface: #0b0b13;
+  --text: #e6e9ef;
+  --text-muted: #a0a7b4;
+  --text-subtle: #808899;
+  --surface: #080c15;
   --hairline: linear-gradient(
     90deg,
     transparent,
@@ -23,22 +23,28 @@
     transparent
   );
 
-  --violet: #8b7bff;
-  --violet-strong: #6a4cf0;
-  --blue: #4f8cff;
+  /* Brand: electric blue on near-black, with chrome/silver accents. */
+  --accent: #4d8dff;
+  --accent-strong: #1f66f0;
+  --accent-bright: #2f7bff;
+  --blue: #00b4ff;
+  --silver: #e2e8f0;
+  --steel: #8a95a8;
   --cyan: #38d6f5;
   --success: #34d399;
   --danger: #ff6b81;
   --warning: #fbbf24;
 
-  /* Gradients are reserved for the hero highlight and the logo mark. */
-  --gradient: linear-gradient(100deg, #cfc7ff 0%, #9d8cff 50%, #7ea6ff 100%);
-  --accent-soft: rgba(139, 123, 255, 0.14);
+  /* Gradients are reserved for highlights, headings and the logo mark. */
+  --gradient: linear-gradient(100deg, #d6e2ff 0%, #6fa3ff 45%, #2f7bff 100%);
+  --chrome: linear-gradient(180deg, #ffffff 0%, #e2e8f0 38%, #a7b2c4 62%, #e6e9ef 100%);
+  --accent-soft: rgba(77, 141, 255, 0.14);
   --shadow-lg:
     0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 40px 80px -40px rgba(0, 0, 0, 0.9),
-    0 24px 60px -48px rgba(124, 92, 255, 0.5);
+    0 24px 60px -48px rgba(47, 123, 255, 0.5);
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: var(--font-michroma), var(--font-sans);
   --font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   --radius-sm: 10px;
@@ -71,7 +77,10 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(47, 123, 255, 0.07), transparent 70%),
+    linear-gradient(180deg, #05070d, #070b14 50%, #05070d) fixed,
+    var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -101,13 +110,19 @@ p {
   margin: 0;
 }
 
+/* Michroma is a single-weight, very wide face: keep headings regular weight,
+   slightly tracked out, and allow long Finnish compounds to break. */
 h1,
 h2,
 h3 {
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
   text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 p {
@@ -145,12 +160,12 @@ ol {
 }
 
 ::selection {
-  background: rgba(124, 92, 255, 0.45);
+  background: rgba(47, 123, 255, 0.5);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--violet);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -212,6 +227,60 @@ ol {
   color: transparent;
 }
 
+/* Silver/chrome text for headings and the wordmark. */
+.chrome-text {
+  background: var(--chrome);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ==========================================================================
+   Brand lockup (Logo.tsx)
+   ========================================================================== */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.brand-logo svg {
+  flex: none;
+  width: var(--logo-mark, 34px);
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 140, 255, 0.25));
+}
+
+.brand-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  line-height: 1;
+}
+
+.brand-logo-name {
+  background: var(--chrome);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-display);
+  font-size: var(--logo-size, 17px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brand-logo-sub {
+  /* Optical centring: trailing letter-spacing is cancelled by the padding. */
+  padding-left: 0.62em;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: calc(var(--logo-size, 17px) * 0.5);
+  letter-spacing: 0.62em;
+  text-transform: uppercase;
+}
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -227,8 +296,8 @@ ol {
   border-radius: 999px;
   border: 1px solid transparent;
   font-size: 15px;
-  font-weight: 550;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: 0;
   white-space: nowrap;
   overflow: hidden;
   isolation: isolate;
@@ -260,20 +329,21 @@ ol {
 }
 
 .btn-primary {
-  background: var(--text);
-  color: #0a0a12;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 60%) var(--accent-strong);
+  border-color: rgba(143, 182, 255, 0.35);
+  color: #fff;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.8) inset,
-    0 10px 30px -12px rgba(139, 123, 255, 0.6);
+    0 1px 0 rgba(255, 255, 255, 0.28) inset,
+    0 10px 30px -12px rgba(47, 123, 255, 0.75);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: #fff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 70%) var(--accent-strong);
   transform: translateY(-1px);
   box-shadow:
-    0 1px 0 #fff inset,
-    0 0 0 4px rgba(139, 123, 255, 0.18),
-    0 16px 40px -12px rgba(139, 123, 255, 0.7);
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 0 0 4px rgba(47, 123, 255, 0.2),
+    0 16px 44px -12px rgba(0, 180, 255, 0.6);
 }
 
 .btn-secondary {
@@ -328,8 +398,8 @@ ol {
   padding: 1px;
   background: radial-gradient(
     420px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(139, 123, 255, 0.55),
-    rgba(79, 140, 255, 0.18) 40%,
+    rgba(77, 141, 255, 0.55),
+    rgba(0, 180, 255, 0.18) 40%,
     transparent 70%
   );
   -webkit-mask:
@@ -347,7 +417,7 @@ ol {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(124, 92, 255, 0.07), transparent 45%);
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(47, 123, 255, 0.07), transparent 45%);
   opacity: 0;
   transition: opacity 0.4s;
   pointer-events: none;

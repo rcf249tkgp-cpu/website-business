@@ -52,7 +52,7 @@ function layout(title: string, inner: string): string {
 <body style="margin:0;background:#f4f4f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111827">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f7;padding:32px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:16px;overflow:hidden">
-<tr><td style="background:#0a0a12;padding:24px 32px;color:#ffffff;font-size:18px;font-weight:600;letter-spacing:-0.01em">${escapeHtml(siteConfig.name)}<span style="color:#8b7bff">.</span></td></tr>
+<tr><td style="background:#05070d;padding:24px 32px;color:#ffffff;font-size:18px;font-weight:600;letter-spacing:-0.01em">${escapeHtml(siteConfig.name)}<span style="color:#4d8dff">.</span></td></tr>
 <tr><td style="padding:32px">${inner}</td></tr>
 </table></td></tr></table></body></html>`
 }
@@ -102,7 +102,7 @@ export function customerEmail(data: InquiryData, locale: Locale, reference: stri
   const html = layout(
     subject,
     `${paragraphs.map((p) => `<p style="margin:0 0 16px;font-size:15px;line-height:1.6">${escapeHtml(p)}</p>`).join('')}
-<p style="margin:0 0 24px;padding:14px 16px;background:#f5f3ff;border-left:3px solid #7c5cff;border-radius:8px;font-size:14px;line-height:1.5">${escapeHtml(meetingNote)}</p>
+<p style="margin:0 0 24px;padding:14px 16px;background:#eef4ff;border-left:3px solid #2f7bff;border-radius:8px;font-size:14px;line-height:1.5">${escapeHtml(meetingNote)}</p>
 <h2 style="margin:0 0 8px;font-size:16px">${escapeHtml(e.summaryTitle)}</h2>
 ${rowsHtml(rows)}
 <p style="margin:24px 0 0;font-size:14px;color:#4b5563">${escapeHtml(e.reply)}</p>

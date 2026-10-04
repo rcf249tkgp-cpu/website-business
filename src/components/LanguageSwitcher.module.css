@@ -38,9 +38,9 @@
 }
 
 .item[aria-pressed='true'] {
-  background: var(--violet-strong);
+  background: var(--accent-strong);
   color: #fff;
-  box-shadow: 0 4px 16px -6px rgba(124, 92, 255, 0.8);
+  box-shadow: 0 4px 16px -6px rgba(47, 123, 255, 0.8);
 }
 
 /* Show codes by default; full names where there's room. */

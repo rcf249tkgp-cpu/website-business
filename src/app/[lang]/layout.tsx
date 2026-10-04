@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
 import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Motion } from '@/components/Motion'
 import { siteConfig, siteUrl } from '@/config/site'
+import { inter, michroma } from '@/fonts'
 import { getDictionary } from '@/i18n'
 import { defaultLocale, isLocale, localeTags, locales } from '@/i18n/config'
 import '../globals.css'
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#06060b',
+  themeColor: '#05070d',
   colorScheme: 'dark',
 }
 
@@ -56,7 +56,11 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
   const dict = getDictionary(lang)
 
   return (
-    <html lang={localeTags[lang]} suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang={localeTags[lang]}
+      suppressHydrationWarning
+      className={`${inter.variable} ${michroma.variable} ${GeistMono.variable}`}
+    >
       <body>
         {/* Enables entrance animations before first paint, unless the visitor prefers reduced motion. */}
         <script

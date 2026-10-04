@@ -21,7 +21,7 @@ function DesignVisual() {
       <span className={`${styles.block} ${styles.blockC}`} />
       <span className={`${styles.block} ${styles.blockD}`} />
       <svg className={styles.cursor} viewBox="0 0 16 16">
-        <path d="M2 1l11 6.5-5 1.2-2.2 4.8z" fill="#fff" stroke="#0a0a12" strokeWidth="1" />
+        <path d="M2 1l11 6.5-5 1.2-2.2 4.8z" fill="#fff" stroke="#05070d" strokeWidth="1" />
       </svg>
     </div>
   )
@@ -114,7 +114,7 @@ function LandingVisual({ t }: { t: Labels }) {
         </span>
       </div>
       <svg className={styles.clicker} viewBox="0 0 16 16">
-        <path d="M2 1l11 6.5-5 1.2-2.2 4.8z" fill="#fff" stroke="#0a0a12" strokeWidth="1" />
+        <path d="M2 1l11 6.5-5 1.2-2.2 4.8z" fill="#fff" stroke="#05070d" strokeWidth="1" />
       </svg>
     </div>
   )

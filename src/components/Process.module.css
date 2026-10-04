@@ -21,8 +21,8 @@
 .lineFill {
   display: block;
   height: 100%;
-  background: var(--violet);
-  box-shadow: 0 0 12px rgba(139, 123, 255, 0.8);
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(77, 141, 255, 0.8);
   transform-origin: left;
 }
 
@@ -69,15 +69,15 @@
 }
 
 .step:hover .marker {
-  border-color: var(--violet);
+  border-color: var(--accent);
   box-shadow:
     0 0 0 6px var(--bg),
-    0 0 30px rgba(124, 92, 255, 0.6);
+    0 0 30px rgba(47, 123, 255, 0.6);
 }
 
 .duration {
   margin-top: 28px;
-  color: var(--violet);
+  color: var(--accent);
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.06em;
@@ -86,8 +86,8 @@
 
 .title {
   margin-top: 8px;
-  font-size: 21px;
-  letter-spacing: -0.025em;
+  font-size: 17px;
+  letter-spacing: 0.01em;
 }
 
 .description {
@@ -129,7 +129,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--violet);
+  background: var(--accent);
 }
 
 .note {

@@ -47,7 +47,7 @@
 
 .item[open] .icon {
   transform: rotate(45deg);
-  color: var(--violet);
+  color: var(--accent);
 }
 
 .item p {

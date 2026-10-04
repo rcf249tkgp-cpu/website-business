@@ -12,10 +12,10 @@
   /* Per-brand tones, set below by data-id. */
   --tone: #12121c;
   --tone-2: #1c1c2a;
-  --ink: #f4f4f8;
-  --ink-soft: rgba(244, 244, 248, 0.72);
-  --line: rgba(244, 244, 248, 0.18);
-  --glow: rgba(139, 123, 255, 0.35);
+  --ink: #e6e9ef;
+  --ink-soft: rgba(230, 233, 239, 0.72);
+  --line: rgba(230, 233, 239, 0.18);
+  --glow: rgba(77, 141, 255, 0.35);
 
   position: relative;
   display: grid;
@@ -97,6 +97,9 @@
 }
 
 .name {
+  /* Example clients keep their own typography, not the Fusion Sites display face. */
+  font-family: var(--font-sans);
+  font-synthesis: weight;
   font-size: clamp(40px, 5.6vw, 76px);
   font-weight: 650;
   line-height: 0.95;
