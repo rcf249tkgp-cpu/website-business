@@ -59,7 +59,9 @@ export function ConceptShowcase({ concepts, sites, t }: { concepts: Concept[]; s
             </span>
             <span className={styles.conceptName}>{c.name}</span>
             <span className={styles.conceptCategory}>{c.category}</span>
-            <span className={styles.conceptSummary}>{c.summary}</span>
+            <span className={styles.conceptSummary}>
+              <span>{c.summary}</span>
+            </span>
           </button>
         ))}
       </div>

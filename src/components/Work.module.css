@@ -328,6 +328,10 @@
     margin 0.5s var(--ease-out);
 }
 
+.conceptSummary > span {
+  min-height: 0;
+}
+
 .conceptItem:hover {
   color: var(--text);
 }
