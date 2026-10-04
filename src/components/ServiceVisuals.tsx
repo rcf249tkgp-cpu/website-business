@@ -120,35 +120,76 @@ function LandingVisual({ t }: { t: Labels }) {
   )
 }
 
-/** Before/after comparison the visitor can drag (keyboard accessible range input). */
+/**
+ * Before/after comparison the visitor can drag (keyboard accessible range input).
+ * Both sides show the same made-up café: a dated early-2000s homepage on the left
+ * and the kind of site we would build for it on the right.
+ */
 function RedesignVisual({ t }: { t: Labels }) {
-  const [split, setSplit] = useState(55)
+  const [split, setSplit] = useState(50)
+  const d = t.demo
   return (
     <div className={`${styles.visual} ${styles.redesign}`} style={{ '--split': `${split}%` } as CSSProperties}>
       <div className={styles.before} aria-hidden="true">
-        <span className={styles.oldBanner} />
-        <span className={styles.oldRow}>
-          <i />
-          <i />
-          <i />
-        </span>
-        <span className={styles.oldText}>
-          <b />
-          <b />
-          <b />
-        </span>
+        <div className={styles.oldHeader}>
+          <span className={styles.oldTitle}>~*~ Café Aamu ~*~</span>
+        </div>
+        <div className={styles.oldNav}>
+          [ <u>{d.home}</u> ] [ <u>{d.menu}</u> ] [ <u>{d.contact}</u> ]
+        </div>
+        <div className={styles.oldMarquee}>
+          <span>{d.news}</span>
+        </div>
+        <div className={styles.oldBody}>
+          <span className={styles.oldImage}>
+            <span className={styles.oldBroken} />
+            cafe_kuva1.JPG
+          </span>
+          <span className={styles.oldCopy}>
+            <span className={styles.oldWelcome}>{d.welcome}</span>
+            <span className={styles.oldIntro}>{d.intro}</span>
+          </span>
+        </div>
+        <div className={styles.oldFooter}>
+          <span className={styles.oldCounter}>
+            {d.visitors}: <b>004213</b>
+          </span>
+          <span className={styles.oldConstruction}>{d.construction}</span>
+          <span className={styles.oldBest}>{d.bestViewed}</span>
+        </div>
         <span className={styles.tag}>{t.before}</span>
       </div>
+
       <div className={styles.after} aria-hidden="true">
-        <span className={styles.newNav}>
-          <i />
-          <b />
-        </span>
-        <span className={styles.newTitle} />
-        <span className={styles.newTitleShort} />
-        <span className={styles.newButton} />
+        <div className={styles.newNav}>
+          <span className={styles.newLogo}>
+            <i />
+            Café Aamu
+          </span>
+          <span className={styles.newLinks}>
+            <span>{d.menu}</span>
+            <span>{d.contact}</span>
+          </span>
+          <span className={styles.newBook}>{d.book}</span>
+        </div>
+        <div className={styles.newHero}>
+          <span className={styles.newCopy}>
+            <span className={styles.newChip}>
+              <i />
+              {d.open}
+            </span>
+            <strong className={styles.newHeadline}>{d.headline}</strong>
+            <span className={styles.newCta}>{d.cta} →</span>
+          </span>
+          <span className={styles.newPhoto}>
+            <span className={styles.cup}>
+              <span className={styles.steam} />
+            </span>
+          </span>
+        </div>
         <span className={`${styles.tag} ${styles.tagAfter}`}>{t.after}</span>
       </div>
+
       <span className={styles.handle} aria-hidden="true" />
       <input
         type="range"
