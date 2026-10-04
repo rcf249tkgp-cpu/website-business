@@ -8,6 +8,8 @@ interface Screen {
   id: string
   src: string
   label: string
+  /** Areas to blur (placeholder text): [left, top, width, height] in %. */
+  blur?: number[][]
 }
 
 const INTERVAL = 5000
@@ -85,17 +87,28 @@ export function CaseGallery({
         </div>
         <div className={styles.shots} style={{ aspectRatio: `${size.width} / ${size.height}` }}>
           {screens.map((s, i) => (
-            <Image
+            <div
               key={s.id}
-              src={s.src}
-              width={size.width}
-              height={size.height}
-              alt={`${client} — ${s.label}`}
-              aria-hidden={i !== active || undefined}
+              className={styles.shot}
               data-on={i === active || undefined}
-              sizes="(max-width: 1000px) 100vw, 62vw"
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
+              aria-hidden={i !== active || undefined}
+            >
+              <Image
+                src={s.src}
+                width={size.width}
+                height={size.height}
+                alt={`${client} — ${s.label}`}
+                sizes="(max-width: 1000px) 100vw, 62vw"
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
+              {s.blur?.map(([left, top, width, height]) => (
+                <span
+                  key={`${left}-${top}`}
+                  className={styles.blur}
+                  style={{ left: `${left}%`, top: `${top}%`, width: `${width}%`, height: `${height}%` }}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </div>

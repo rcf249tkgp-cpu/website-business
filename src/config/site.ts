@@ -74,7 +74,17 @@ export const siteConfig = {
       { id: 'drop', src: '/work/vyro/drop.webp' },
       { id: 'shop', src: '/work/vyro/shop.webp' },
       { id: 'product', src: '/work/vyro/product.webp' },
-      { id: 'reviews', src: '/work/vyro/reviews.webp' },
+      {
+        id: 'reviews',
+        src: '/work/vyro/reviews.webp',
+        /** Placeholder review texts, blurred in the preview: [left, top, width, height] in % of the image. */
+        blur: [
+          [1.0, 70.0, 24.4, 21.0],
+          [25.3, 76.0, 24.3, 21.0],
+          [49.5, 70.0, 24.3, 21.0],
+          [73.7, 76.0, 24.4, 21.0],
+        ],
+      },
     ] as const,
     screenSize: { width: 1564, height: 1220 },
     /** Phone screenshots in /public/work/vyro/mobile/ (640 wide; `page` names the matching label). */

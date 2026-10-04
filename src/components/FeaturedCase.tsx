@@ -40,7 +40,12 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
 
       <div className={styles.caseVisual}>
         <CaseGallery
-          screens={screens.map((sc) => ({ ...sc, label: featured.pages[sc.id] }))}
+          screens={screens.map((sc) => ({
+            id: sc.id,
+            src: sc.src,
+            label: featured.pages[sc.id],
+            blur: 'blur' in sc ? sc.blur.map((r) => [...r]) : undefined,
+          }))}
           size={screenSize}
           host={host}
           client={featured.client}
