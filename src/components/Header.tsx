@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
+import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import { ArrowRight, Close, Menu } from './Icons'
@@ -21,14 +22,15 @@ export function Header({ lang, dict }: Props) {
   const pathname = usePathname()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Lock the page behind the open menu and close it with Escape.
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    document.documentElement.toggleAttribute('data-menu-open', menuOpen)
     if (!menuOpen) return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false)
     document.addEventListener('keydown', onKey)
@@ -40,18 +42,24 @@ export function Header({ lang, dict }: Props) {
     [
       ['services', 'services'],
       ['work', 'work'],
-      ['why', 'approach'],
       ['process', 'process'],
+      ['pricing', 'pricing'],
+      ['about', 'approach'],
       ['contact', 'contact'],
     ] as const
   ).map(([key, slug]) => ({ id: slug, href: `/${lang}/${slug}`, label: dict.nav[key] }))
   const close = () => setMenuOpen(false)
 
   return (
-    <header className={styles.header} data-scrolled={scrolled || menuOpen || undefined}>
+    <header className={styles.header} data-scrolled={scrolled || undefined} data-menu-open={menuOpen || undefined}>
       <span className={styles.progress} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
-        <Link href={`/${lang}`} className={styles.logo} aria-label={dict.a11y.home} onClick={close}>
+        <Link
+          href={`/${lang}`}
+          className={styles.logo}
+          aria-label={`${siteConfig.name} — ${dict.a11y.home}`}
+          onClick={close}
+        >
           <Logo />
         </Link>
 
@@ -69,7 +77,7 @@ export function Header({ lang, dict }: Props) {
 
         <div className={styles.actions}>
           <LanguageSwitcher lang={lang} label={dict.a11y.language} />
-          <Link href={`/${lang}/start`} className={`btn btn-primary btn-sm ${styles.cta}`} data-magnetic>
+          <Link href={`/${lang}/start`} className={`btn btn-primary btn-sm ${styles.cta}`}>
             {dict.nav.cta}
           </Link>
           <button
@@ -86,23 +94,29 @@ export function Header({ lang, dict }: Props) {
       </div>
 
       <div id="mobile-menu" className={styles.mobile} data-open={menuOpen || undefined} inert={!menuOpen}>
-        <nav aria-label={dict.a11y.mainNav}>
-          <ul>
+        <nav aria-label={dict.a11y.mainNav} className={`container ${styles.mobileNav}`}>
+          <ol>
             {links.map((l, i) => (
-              <li key={l.href} style={{ transitionDelay: menuOpen ? `${60 + i * 40}ms` : '0ms' }}>
+              <li key={l.href} style={{ '--i': i } as CSSProperties}>
                 <Link href={l.href} onClick={close} aria-current={pathname === l.href ? 'page' : undefined}>
+                  <span className={styles.index} aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   {l.label}
-                  <ArrowRight />
                 </Link>
               </li>
             ))}
-          </ul>
+          </ol>
         </nav>
-        <div className={styles.mobileFooter}>
+        <div className={`container ${styles.mobileFooter}`}>
           <Link href={`/${lang}/start`} className="btn btn-primary" onClick={close}>
             {dict.nav.cta}
             <ArrowRight />
           </Link>
+          <p className={styles.mobileContact}>
+            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+            <a href={`tel:${siteConfig.contact.phoneHref}`}>{siteConfig.contact.phone}</a>
+          </p>
         </div>
       </div>
     </header>

@@ -1,194 +1,186 @@
-.wrap {
-  position: relative;
+.section {
+  border-top: 1px solid var(--border);
 }
 
-.timeline {
+.layout {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(12px, 2vw, 24px);
+  align-items: start;
 }
 
-.line {
-  position: absolute;
-  top: 27px;
-  left: 28px;
-  right: 28px;
-  height: 1px;
-  background: var(--border-strong);
+/* The big, sticky step number. */
+.counter {
+  grid-column: 1 / span 4;
+  position: sticky;
+  top: calc(var(--header-h) + 40px);
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.counterWindow {
+  display: block;
+  height: clamp(110px, 13vw, 190px);
   overflow: hidden;
 }
 
-.lineFill {
+.counterTrack {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(100px, 13vw, 190px);
+  transition: translate 0.8s var(--ease-out);
+}
+
+.counterTrack span {
   display: block;
-  height: 100%;
-  background: var(--accent);
+  height: clamp(110px, 13vw, 190px);
+  background: var(--chrome) 0 0 / 100% clamp(110px, 13vw, 190px);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.counterTotal {
+  padding-bottom: 0.6em;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.timeline {
+  --progress: 1;
+  grid-column: 6 / -1;
+  position: relative;
+  display: grid;
+  padding-left: 44px;
+}
+
+/* The rail and its fill. */
+.timeline::before,
+.timeline::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 7px;
+  width: 1px;
+}
+
+.timeline::before {
+  background: var(--border-strong);
+}
+
+.timeline::after {
+  background: linear-gradient(180deg, var(--accent), #8fb6ff);
   box-shadow: 0 0 12px rgba(77, 141, 255, 0.8);
-  transform-origin: left;
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .lineFill {
-      animation: fill linear both;
-      animation-timeline: view();
-      animation-range: entry 40% cover 55%;
-    }
-  }
-}
-
-@keyframes fill {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+  transform: scaleY(var(--progress));
+  transform-origin: top;
 }
 
 .step {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 12px;
+  padding-bottom: clamp(48px, 7vw, 88px);
+  transition: opacity 0.5s var(--ease-out);
+}
+
+.step:last-child {
+  padding-bottom: 0;
 }
 
 .marker {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
+  position: absolute;
+  top: 4px;
+  left: -44px;
+  width: 15px;
+  height: 15px;
   border: 1px solid var(--border-strong);
   border-radius: 50%;
   background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 14px;
-  box-shadow: 0 0 0 6px var(--bg);
   transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
-}
-
-.step:hover .marker {
-  border-color: var(--accent);
-  box-shadow:
-    0 0 0 6px var(--bg),
-    0 0 30px rgba(47, 123, 255, 0.6);
+    background-color 0.4s,
+    border-color 0.4s,
+    box-shadow 0.4s;
 }
 
 .duration {
-  margin-top: 28px;
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 12px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .title {
-  margin-top: 8px;
-  font-size: 17px;
-  letter-spacing: 0.01em;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
 }
 
 .description {
-  margin-top: 10px;
+  max-width: 52ch;
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: 1.05rem;
 }
 
 .deliverables {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px dashed var(--border-strong);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: var(--text);
+  font-size: 14px;
 }
 
-.deliverablesLabel {
+.deliverables span {
   color: var(--text-subtle);
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
+  line-height: 1.9;
   text-transform: uppercase;
 }
 
-.deliverables ul {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 8px;
-  font-size: 14px;
+/* With motion: dim what's ahead, light up the current step. */
+.layout[data-live] .step[data-state='next'] {
+  opacity: 0.38;
 }
 
-.deliverables li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.deliverables li::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+.step[data-state='done'] .marker,
+.step[data-state='active'] .marker {
+  border-color: var(--accent);
   background: var(--accent);
 }
 
+.layout[data-live] .step[data-state='active'] .marker {
+  box-shadow:
+    0 0 0 5px rgba(77, 141, 255, 0.18),
+    0 0 18px var(--accent);
+}
+
 .note {
-  margin-top: clamp(32px, 4vw, 48px);
+  margin-top: clamp(48px, 6vw, 72px);
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
   color: var(--text-subtle);
   font-size: 14px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 900px) {
+  .counter {
+    display: none;
+  }
+
   .timeline {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-column: 1 / -1;
   }
+}
 
-  .line {
-    top: 28px;
-    bottom: 28px;
-    left: 27px;
-    right: auto;
-    width: 1px;
-    height: auto;
-  }
-
-  .lineFill {
-    width: 100%;
-    height: 100%;
-    transform-origin: top;
-  }
-
-  @keyframes fill-y {
-    from {
-      transform: scaleY(0);
-    }
-    to {
-      transform: scaleY(1);
-    }
-  }
-
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .lineFill {
-        animation-name: fill-y;
-        animation-range: entry 20% cover 70%;
-      }
-    }
-  }
-
-  .step {
-    padding-left: 80px;
-    min-height: 56px;
-  }
-
+@media (prefers-reduced-motion: reduce) {
+  .counterTrack,
+  .step,
   .marker {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .duration {
-    margin-top: 0;
+    transition: none;
   }
 }

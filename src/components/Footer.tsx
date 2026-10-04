@@ -15,8 +15,9 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const links = [
     { href: `/${lang}/services`, label: nav.services },
     { href: `/${lang}/work`, label: nav.work },
-    { href: `/${lang}/approach`, label: nav.why },
     { href: `/${lang}/process`, label: nav.process },
+    { href: `/${lang}/pricing`, label: nav.pricing },
+    { href: `/${lang}/approach`, label: nav.about },
     { href: `/${lang}/process#faq`, label: nav.faq },
     { href: `/${lang}/contact`, label: nav.contact },
   ]
@@ -26,7 +27,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <Link href={`/${lang}`} aria-label={dict.a11y.home}>
+            <Link href={`/${lang}`} aria-label={`${siteConfig.name} — ${dict.a11y.home}`}>
               <Logo />
             </Link>
             <p>{footer.description}</p>

@@ -1,71 +1,23 @@
 import type { Dictionary } from '@/i18n'
-import { Check } from './Icons'
+import type { Locale } from '@/i18n/config'
 import { SectionHeading } from './SectionHeading'
-import { ServiceVisual } from './ServiceVisuals'
-import styles from './Services.module.css'
+import { ServiceRows } from './ServiceRows'
 
-export function Services({ dict, standalone = false }: { dict: Dictionary; standalone?: boolean }) {
+export function Services({ dict, standalone = false }: { lang: Locale; dict: Dictionary; standalone?: boolean }) {
   const { services } = dict
-  const labels = { ...services.labels, addToCart: dict.work.mock.addToCart }
   return (
     <section id="services" className={`section${standalone ? ' section-page' : ''}`} aria-labelledby="services-title">
       <div className="container">
         <SectionHeading
           id="services-title"
-          as={standalone ? 'h1' : 'h2'}
+          index="01"
           eyebrow={services.eyebrow}
           title={services.title}
           description={services.description}
+          as={standalone ? 'h1' : 'h2'}
         />
-        <ul className={styles.grid}>
-          {services.items.map((item) => (
-            <li key={item.id} className={`card reveal ${styles.item}`} data-id={item.id}>
-              <ServiceVisual id={item.id} labels={labels} />
-              <div className={styles.body}>
-                <h3 className={styles.title}>{item.title}</h3>
-                <p className={styles.description}>{item.description}</p>
-                <ul className={styles.points}>
-                  {item.points.map((point) => (
-                    <li key={point}>
-                      <Check />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        <Capabilities dict={dict} />
+        <ServiceRows items={services.items} includesLabel={services.includesLabel} heading={standalone ? 'h2' : 'h3'} />
       </div>
     </section>
-  )
-}
-
-function Capabilities({ dict }: { dict: Dictionary }) {
-  const c = dict.services.capabilities
-  return (
-    <div className={`${styles.capabilities} reveal`}>
-      <div className={styles.capIntro}>
-        <p className={styles.capEyebrow}>{c.eyebrow}</p>
-        <h3 id="capabilities-title" className={styles.capTitle}>
-          {c.title}
-        </h3>
-        <p className={styles.capDescription}>{c.description}</p>
-      </div>
-      <div className={styles.capGroups}>
-        {c.groups.map((group) => (
-          <div key={group.title} className={styles.capGroup}>
-            <h4>{group.title}</h4>
-            <ul>
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
   )
 }

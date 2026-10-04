@@ -46,7 +46,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ lan
           {dict.hero.titleHighlight}
         </div>
       </div>
-      <div style={{ fontSize: 26, color: '#a0a7b4' }}>{dict.hero.eyebrow}</div>
+      <div style={{ fontSize: 26, color: '#a0a7b4' }}>{dict.hero.kicker}</div>
     </div>,
     { ...size, fonts: [{ name: 'Michroma', data: michroma, weight: 400, style: 'normal' }] },
   )

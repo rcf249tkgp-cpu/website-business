@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Contact } from '@/components/Contact'
+import { BeforeAfter } from '@/components/BeforeAfter'
+import { Pricing } from '@/components/Pricing'
 import { Services } from '@/components/Services'
 import { getDictionary } from '@/i18n'
 import { isLocale } from '@/i18n/config'
@@ -19,7 +21,9 @@ export default async function Page({ params }: PageProps<'/[lang]/services'>) {
   const dict = getDictionary(lang)
   return (
     <>
-      <Services dict={dict} standalone />
+      <Services lang={lang} dict={dict} standalone />
+      <BeforeAfter lang={lang} dict={dict} />
+      <Pricing lang={lang} dict={dict} />
       <Contact lang={lang} dict={dict} variant="teaser" />
     </>
   )

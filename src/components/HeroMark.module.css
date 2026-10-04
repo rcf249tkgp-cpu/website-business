@@ -1,0 +1,179 @@
+@property --sx {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: -1;
+}
+
+.mark {
+  --sx: -1;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  position: relative;
+  aspect-ratio: 1;
+  perspective: 1200px;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------ Drawing */
+.drawing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: rgba(200, 215, 240, 0.12);
+  stroke-width: 0.6;
+}
+
+.drawing text {
+  fill: rgba(200, 215, 240, 0.35);
+  stroke: none;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+/* ------------------------------------------------------------ Object */
+.object {
+  position: absolute;
+  inset: 14%;
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease-out);
+}
+
+.f {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 40px rgba(0, 120, 255, 0.18));
+}
+
+.reflection {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -14%;
+  height: 22%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 140, 255, 0.22), transparent);
+  filter: blur(12px);
+}
+
+.glow {
+  opacity: 0.55;
+}
+
+.edge {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 0.25;
+  stroke-linecap: round;
+}
+
+/* The light sweep: --sx runs from -1 (left) to 1 (right). */
+.sheen {
+  transform: translateX(calc(var(--sx) * 52px));
+  mix-blend-mode: soft-light;
+}
+
+.mark[data-live] .sheen {
+  transition: transform 0.7s var(--ease-out);
+}
+
+/* ------------------------------------------------------------ Motion */
+:global(.motion) .mark:not([data-live]) {
+  animation: sweep 7s var(--ease-in-out) 1.4s infinite;
+}
+
+@keyframes sweep {
+  0%,
+  15% {
+    --sx: -1;
+  }
+  60%,
+  100% {
+    --sx: 1;
+  }
+}
+
+/* Fusion: the two ribbons slide together when the page loads… */
+:global(.motion) .upper {
+  animation: fuse-upper 1.6s var(--ease-out) 0.15s backwards;
+}
+
+:global(.motion) .lower {
+  animation: fuse-lower 1.6s var(--ease-out) 0.15s backwards;
+}
+
+@keyframes fuse-upper {
+  from {
+    opacity: 0;
+    translate: 9px -9px;
+  }
+}
+
+@keyframes fuse-lower {
+  from {
+    opacity: 0;
+    translate: -9px 9px;
+  }
+}
+
+:global(.motion) .drawing {
+  animation: draw-in 1.8s var(--ease-out) backwards;
+}
+
+@keyframes draw-in {
+  from {
+    opacity: 0;
+    scale: 0.94;
+  }
+}
+
+/* …and ease apart again as the hero scrolls away. */
+@supports (animation-timeline: scroll()) {
+  :global(.motion) .drift,
+  :global(.motion) .driftLow {
+    animation: var(--drift-name) linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 90vh;
+  }
+
+  .drift {
+    --drift-name: drift-up;
+  }
+
+  .driftLow {
+    --drift-name: drift-down;
+  }
+
+  :global(.motion) .drawing {
+    animation:
+      draw-in 1.8s var(--ease-out) backwards,
+      turn linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range:
+      normal,
+      0 100vh;
+  }
+}
+
+@keyframes drift-up {
+  to {
+    transform: translate(4px, -4px);
+  }
+}
+
+@keyframes drift-down {
+  to {
+    transform: translate(-4px, 4px);
+  }
+}
+
+@keyframes turn {
+  to {
+    rotate: 24deg;
+  }
+}

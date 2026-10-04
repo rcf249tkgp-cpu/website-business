@@ -18,248 +18,280 @@ const sv: Dictionary = {
   nav: {
     services: 'Tjänster',
     work: 'Projekt',
-    why: 'Arbetssätt',
     process: 'Process',
+    pricing: 'Priser',
+    about: 'Om oss',
     faq: 'Frågor',
     contact: 'Kontakt',
     cta: 'Starta ett projekt',
   },
   hero: {
-    eyebrow: 'Webbstudio i Helsingfors',
+    kicker: 'Webbstudio — Helsingfors',
     titleLead: 'Webbplatser som ger ditt företag',
     titleHighlight: 'fler kunder.',
     description:
-      'Vi bygger moderna webbplatser, webbutiker och bokningssidor för lokala företag. Ett tydligt pris i förväg, en första förhandsvisning inom några dagar och en webbplats som fungerar i alla mobiler.',
+      'Vi designar och bygger snabba, snygga webbplatser, webbutiker och bokningssidor för lokala företag. Fast pris i förväg och en första förhandsvisning inom några dagar.',
     primaryCta: 'Starta ett projekt',
-    secondaryCta: 'Så arbetar vi',
-    trust: ['Svar inom en arbetsdag', 'Fast pris i förväg', 'Finska, svenska och engelska'],
-    visual: {
-      label: 'Förhandsvisningens storlek',
-      desktop: 'Dator',
-      tablet: 'Surfplatta',
-      mobile: 'Mobil',
-      hint: 'Byt storlek och se hur layouten anpassar sig',
-      checksTitle: 'Kontrolleras före varje lansering',
-      checks: ['Fungerar i alla mobiler', 'Laddar snabbt', 'Redo för Google', 'Alla språk granskade'],
-      deploy: 'Förhandsversion publicerad',
-      live: 'Live',
-    },
-  },
-  marquee: {
-    label: 'Teknik vi arbetar med',
+    secondaryCta: 'Se våra projekt',
+    facts: [
+      { label: 'Studio', value: 'Verkstadsgatan, Helsingfors' },
+      { label: 'Svar', value: 'Inom en arbetsdag' },
+      { label: 'Språk', value: 'Finska · Svenska · Engelska' },
+    ],
+    scroll: 'Skrolla',
   },
   services: {
     eyebrow: 'Tjänster',
     title: 'Det här gör vi.',
     description:
-      'Fem sätt vi hjälper lokala företag att komma ut på nätet och bli hittade. Samma lilla team tar hand om din webbplats från första samtalet till lansering.',
+      'Fyra saker vi är bra på. Samma lilla team tar ditt projekt från första samtalet till lansering, och tar hand om det efteråt om du vill.',
+    includesLabel: 'Innehåller',
     items: [
       {
-        id: 'design',
+        id: 'websites',
         title: 'Webbplatser',
         description:
-          'En tydlig och snygg webbplats byggd kring ditt företag: tjänster, priser, bilder och kontaktuppgifter som är lätta att hitta på alla enheter.',
-        points: [
+          'En tydlig och snygg webbplats byggd kring ditt företag, så att kunderna hittar dina tjänster, priser och kontaktuppgifter på alla enheter.',
+        includes: [
           'Designad för mobilen först',
           'Dina texter, bilder och logotyp',
-          'Kontaktuppgifter, karta och öppettider',
+          'Karta, öppettider och kontaktformulär',
         ],
       },
       {
-        id: 'development',
-        title: 'Online och klar',
-        description:
-          'Vi publicerar din webbplats och sköter tekniken, så att den laddar snabbt, är säker och helt enkelt fungerar.',
-        points: ['Drift hos Vercel', 'Din egen domän kopplad', 'Företagsmejl vid behov'],
-      },
-      {
-        id: 'ecommerce',
+        id: 'stores',
         title: 'Webbutiker',
         description:
-          'En enkel webbutik där kunderna kan bläddra bland dina produkter och betala tryggt, byggd med Shopify eller Stripe-betalningar.',
-        points: ['Shopify-butik uppsatt åt dig', 'Kort- och onlinebetalningar', 'Produkter, frakt och kvitton'],
+          'En butik som dina kunder gillar att handla i, byggd på Shopify eller med Stripe-betalningar, med produkter, frakt och kvitton färdigt uppsatta.',
+        includes: ['Shopify eller Stripe', 'Kort- och mobilbetalningar', 'Produkter, frakt och kvitton'],
       },
       {
-        id: 'landing',
+        id: 'booking',
         title: 'Bokning och integrationer',
         description:
-          'Låt kunderna boka, beställa eller kontakta dig direkt från webbplatsen, med verktyg du redan har eller nya som vi sätter upp.',
-        points: [
-          'Onlinebokning (Timma, Fresha m.fl.)',
-          'Kontaktformulär som når din inkorg',
-          'Google Maps, sociala medier och recensioner',
+          'Låt kunderna boka, beställa eller kontakta dig direkt från webbplatsen, med verktygen du redan har eller nya som vi sätter upp.',
+        includes: [
+          'Timma, Fresha och liknande',
+          'Formulär direkt till din inkorg',
+          'Google Maps, recensioner och sociala medier',
         ],
       },
       {
         id: 'redesign',
-        title: 'Omdesign',
+        title: 'Förnyelser',
         description:
-          'Känns din nuvarande webbplats föråldrad eller är den svår att använda i mobilen? Vi bygger om den, behåller det som fungerar och flyttar över innehållet.',
-        points: ['Fräsch, modern design', 'Innehållet flyttas åt dig', 'Din synlighet på Google behålls'],
+          'Föråldrad eller svår att använda i mobilen? Vi bygger om webbplatsen, behåller det som fungerar, flyttar innehållet och skyddar din synlighet på Google.',
+        includes: ['Ett modernt utseende', 'Innehållet flyttas åt dig', 'Synligheten i sök behålls'],
       },
     ],
-    labels: {
-      before: 'Före',
-      after: 'Efter',
-      compare: 'Jämför den gamla och nya designen',
-      demo: {
-        home: 'Hem',
-        menu: 'Meny',
-        contact: 'Kontakt',
-        welcome: 'Välkommen till Café Aamu',
-        intro: 'Kaffe · Bakverk · Lunch',
-        readMore: 'Läs mer',
-        cookies: 'Den här webbplatsen använder cookies för att förbättra din upplevelse.',
-        book: 'Boka bord',
-        open: 'Öppet idag 7–18',
-        headline: 'Lugna morgnar, gott kaffe.',
-        cta: 'Se menyn',
+  },
+  beforeAfter: {
+    eyebrow: 'Före och efter',
+    title: 'Samma företag. Ett helt annat första intryck.',
+    description:
+      'Dra i handtaget och jämför en typisk föråldrad webbplats med det vi skulle bygga i stället. Välj en bransch för att se ett annat exempel.',
+    tabsLabel: 'Välj ett exempel',
+    hint: 'Dra',
+    before: 'Före',
+    after: 'Efter',
+    compare: 'Jämför den gamla och nya designen',
+    disclaimer: 'Illustrativa exempel. Företagen är påhittade.',
+    examples: {
+      cafe: {
+        label: 'Kafé',
+        before: {
+          nav: ['Hem', 'Meny', 'Kontakt'],
+          welcome: 'Välkommen till Café Aamu',
+          intro: 'Kaffe · Bakverk · Lunch',
+          readMore: 'Läs mer',
+          cookies: 'Den här webbplatsen använder cookies för att förbättra din upplevelse.',
+        },
+        after: {
+          nav: ['Meny', 'Hitta hit', 'Beställ'],
+          kicker: 'Berghäll, Helsingfors',
+          title: 'Lugna morgnar, seriöst kaffe.',
+          text: 'Specialkaffe, kardemummabullar bakade varje morgon och soplunch på vardagar.',
+          cta: 'Se menyn',
+          secondary: 'Beställ i förväg',
+          open: 'Öppet i dag 7–18',
+          menuTitle: 'Den här veckan',
+          menu: [
+            ['Flat white med havre', '4,90'],
+            ['Kardemummabulle', '3,80'],
+            ['Dagens soppa', '12,50'],
+          ],
+        },
       },
-      buildPassed: 'Bygget lyckades',
-      checkout: 'Kassa',
-      getStarted: 'Boka tid',
-    },
-    capabilities: {
-      eyebrow: 'Det här ingår',
-      title: 'Allt en webbplats för småföretag behöver.',
-      description:
-        'Från design till lansering sköter ett och samma team allt, så du har en kontaktperson och inget faller mellan stolarna.',
-      groups: [
-        {
-          title: 'Design',
-          items: [
-            'Mobilvänliga layouter',
-            'Dina färger och logotyp',
-            'Tydliga texter och struktur',
-            'Bilder och gallerier',
+      salon: {
+        label: 'Frisörsalong',
+        before: {
+          welcome: 'Välkommen till vår hemsida!',
+          text: 'Vi erbjuder klippning, färgning och behandlingar för hela familjen. Ring oss för att boka tid!',
+          phone: 'Tfn 09 123 4567',
+          prices: 'Prislista (PDF)',
+          news: 'Nyheter',
+          newsText: 'Vi har stängt på midsommarafton.',
+        },
+        after: {
+          nav: ['Tjänster', 'Teamet', 'Priser'],
+          kicker: 'Hårstudio i Rödbergen',
+          title: 'Hår som känns som du.',
+          text: 'Klippning, färg och vård i en lugn studio. Boka online på under en minut.',
+          cta: 'Boka online',
+          services: [
+            ['Klippning och styling', '45 min', '65 €'],
+            ['Färg', '2 h', 'från 110 €'],
+            ['Balayage', '3 h', 'från 160 €'],
           ],
+          slotsTitle: 'Nästa lediga tider',
+          slots: ['Tis 10.00', 'Tis 14.30', 'Ons 9.15'],
         },
-        {
-          title: 'Bygge',
-          items: ['Moderna, snabba webbplatser', 'Drift och publicering', 'Domän och e-post', 'Kontaktformulär'],
+      },
+      construction: {
+        label: 'Bygg',
+        before: {
+          tagline: 'Kvalitetsbygge sedan 1998',
+          menu: ['Startsida', 'Tjänster', 'Referenser', 'Kontakta oss'],
+          servicesTitle: 'Våra tjänster:',
+          services: ['Renoveringar', 'Nybyggnad', 'Takarbeten', 'Fasadarbeten'],
+          contact: 'Kontakta oss för en offert!',
         },
-        {
-          title: 'Försäljning och bokning',
-          items: ['Shopify', 'Stripe-betalningar', 'Bokningssystem', 'Länkar till sociala medier'],
+        after: {
+          nav: ['Tjänster', 'Projekt', 'Kontakt'],
+          kicker: 'Renoveringar · Nybyggen · Fasader',
+          title: 'Rätt byggt. Klart i tid.',
+          text: 'En entreprenör från plan till överlämning, med en fast tidsplan som vi står för.',
+          cta: 'Begär offert',
+          secondary: 'Se projekt',
+          services: ['Renoveringar', 'Nybyggen', 'Fasader'],
+          area: 'Vi arbetar i hela Nyland',
         },
-        {
-          title: 'Synlighet',
-          items: [
-            'Grunderna i sökmotoroptimering',
-            'Google-företagsprofil',
-            'Besöksstatistik',
-            'Webbplatser på finska, svenska och engelska',
-          ],
-        },
-      ],
+      },
     },
   },
   work: {
-    eyebrow: 'Exempel',
-    title: 'Så här kan din webbplats se ut.',
-    description:
-      'Fyra exempelwebbplatser för påhittade företag, var och en med sitt eget syfte. Din webbplats får samma omsorg och designas kring just ditt företag.',
-    tagsLabel: 'Funktioner',
-    conceptBadge: 'Designstudie',
+    eyebrow: 'Projekt',
+    title: 'Utvalda projekt.',
+    description: 'Först en riktig lansering, sedan konceptstudier som visar hur vi närmar oss olika branscher.',
+    caseLabel: 'Kundprojekt',
+    caseLive: 'Publicerad webbplats',
+    featured: {
+      client: 'VYRO Athletics',
+      category: 'Webbutik · Träningskläder',
+      summary:
+        'VYRO är ett varumärke för träningskläder. Vi designade och byggde deras webbutik: en djärv butik byggd för mobilen först, där produkterna och varumärket står i centrum och vägen från att titta till att betala är smidig.',
+      built: ['Varumärkesdriven butik', 'Produkt- och kollektionssidor', 'Köpflöde byggt för mobilen först'],
+      builtLabel: 'Det här byggde vi',
+      cta: 'Besök vyroathletics.com',
+      imagesPending: 'Skärmbilder kommer snart',
+    },
+    devicesLabel: 'Förhandsvisningens storlek',
+    desktop: 'Dator',
+    mobile: 'Mobil',
+    scrollHint: 'Skrolla i förhandsvisningen',
+    conceptBadge: 'Koncept',
+    conceptsTitle: 'Konceptstudier',
+    conceptsDescription:
+      'Påhittade varumärken som vi designat för att utforska hur olika företag kan se ut och fungera på nätet. Välj ett och skrolla igenom det.',
     disclaimer: 'Varumärkena är påhittade och skapade av vårt team. De är inte kunduppdrag.',
-    projects: [
-      {
+    projectsLabel: 'Välj ett koncept',
+    projects: {
+      ember: {
         id: 'ember',
         name: 'Ember Roasters',
-        category: 'E-handel',
-        summary:
-          'Hur ett litet rosteri kan sälja kaffeprenumerationer och samtidigt behålla värmen i ett berättande varumärke.',
-        tags: ['Shopify', 'Prenumerationer', 'Varumärke'],
+        category: 'Webbutik',
+        summary: 'Ett litet rosteri som säljer kaffe och prenumerationer med värmen från ett berättande varumärke.',
+        site: {
+          nav: ['Butik', 'Prenumeration', 'Journal'],
+          cart: 'Varukorg',
+          kicker: 'Småskaligt rosteri · Helsingfors',
+          title: 'Kaffe värt att vakna för.',
+          text: 'Rostat varje tisdag och skickat samma vecka. Välj en påse, eller låt oss välja åt dig.',
+          cta: 'Köp kaffe',
+          secondary: 'Starta en prenumeration',
+          productsTitle: 'Veckans rostningar',
+          products: [
+            ['Yirgacheffe', 'Etiopien', 'Jasmin · Bergamott', '18 €'],
+            ['La Palma', 'Colombia', 'Kakao · Rött äpple', '16 €'],
+            ['Kiambu', 'Kenya', 'Svarta vinbär · Lime', '19 €'],
+          ],
+          add: 'Lägg i varukorgen',
+          storyTitle: 'Långsamt rostat, i små satser.',
+          storyText:
+            'Vi köper direkt från gårdar vi känner, rostar ljust för att behålla fruktigheten och trycker rostdatumet på varje påse.',
+          subTitle: 'Kaffet tar aldrig slut.',
+          subText: 'Färskt kaffe varannan eller var fjärde vecka. Pausa eller avsluta när du vill.',
+          subCta: 'Prenumerera',
+        },
       },
-      {
+      lumo: {
         id: 'lumo',
         name: 'Lumo Clinic',
-        category: 'Vård',
-        summary: 'En lugn och tillgänglig klinikwebbplats där det tar tre steg att boka en tid.',
-        tags: ['Bokning', 'Tillgänglig', 'Flerspråkig'],
+        category: 'Hälsovård',
+        summary: 'En lugn och tillgänglig klinikwebbplats där tidsbokningen tar tre steg.',
+        site: {
+          nav: ['Behandlingar', 'Specialister', 'Priser'],
+          book: 'Boka',
+          kicker: 'Fysioterapi och idrottsmedicin',
+          title: 'Vård som känns lugn.',
+          text: 'Boka en tid i tre steg, på finska, svenska eller engelska.',
+          cta: 'Boka en tid',
+          month: 'Oktober',
+          times: ['9.00', '10.30', '13.15'],
+          stepsTitle: 'Så bokar du',
+          steps: ['Välj behandling', 'Välj tid', 'Bekräfta'],
+          servicesTitle: 'Behandlingar',
+          services: [
+            ['Fysioterapi', '45 min'],
+            ['Idrottsmassage', '60 min'],
+            ['Löpanalys', '75 min'],
+          ],
+        },
       },
-      {
+      voltra: {
         id: 'voltra',
         name: 'Voltra',
-        category: 'Landningssida för SaaS',
+        category: 'Produktlandningssida',
         summary: 'En lanseringssida för en laddplattform för elbilar med ett tydligt mål: att boka en demo.',
-        tags: ['Landningssida', 'Animation', 'Kontaktformulär'],
+        site: {
+          nav: ['Produkt', 'Priser', 'Företaget'],
+          demo: 'Boka en demo',
+          kicker: 'Elbilsladdning för fordonsflottor',
+          title: ['Ladda', 'snabbare.'],
+          text: 'En plattform för alla laddare i din flotta: tillgänglighet i realtid, smart schemaläggning och enkel fakturering.',
+          cta: 'Boka en demo',
+          secondary: 'Så fungerar det',
+          features: [
+            ['Tillgänglighet i realtid', 'Se varje ledig laddare direkt.'],
+            ['Smart schemaläggning', 'Ladda när elen är billigast.'],
+            ['En faktura', 'Alla platser på en månadsfaktura.'],
+          ],
+          ctaTitle: 'Redo när du är det.',
+        },
       },
-      {
+      fjord: {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Arkitektportfolio',
         summary: 'En redaktionell portfolio där stora bilder och stillsam typografi gör jobbet.',
-        tags: ['Portfolio', 'Bildgalleri', 'Redaktionell'],
+        site: {
+          nav: ['Projekt', 'Studio', 'Kontakt'],
+          title: ['Stillsam', 'arkitektur.'],
+          text: 'En liten byrå som ritar hem och offentliga rum kring ljus och material.',
+          projectsTitle: 'Utvalda projekt',
+          projects: [
+            ['Ö-huset', '2024'],
+            ['Hamnbiblioteket', '2023'],
+            ['Tallpaviljongen', '2022'],
+          ],
+          quote: 'Vi ritar för de ljusa timmar vi har.',
+          contact: 'Inled ett samtal',
+        },
       },
-    ],
-    mock: {
-      shop: 'Butik',
-      subscribe: 'Prenumerera',
-      addToCart: 'Lägg i varukorgen',
-      emberKicker: 'Ett ursprung · Etiopien',
-      emberNotes: ['Jasmin', 'Bergamott', 'Persika'],
-      bookVisit: 'Boka besök',
-      ourServices: 'Våra tjänster',
-      lumoTitle: ['Vård som', 'känns lugn.'],
-      month: 'Oktober',
-      requestDemo: 'Boka en demo',
-      voltraTitle: ['LADDA', 'SNABBARE.'],
-      voltraFeatures: ['Snabbladdning', 'Lediga platser i realtid'],
-      projects: 'Projekt',
-      studio: 'Studio',
-      fjordTitle: ['Stillsam', 'arkitektur'],
-    },
-  },
-  why: {
-    eyebrow: 'Vårt arbetssätt',
-    title: 'Enkelt från början till slut.',
-    description:
-      'Vi är en liten, ny studio. Du pratar direkt med dem som bygger din webbplats, och allt förklaras på ett begripligt sätt.',
-    items: [
-      {
-        id: 'clarity',
-        title: 'Tydlighet först',
-        description:
-          'Vi planerar vad webbplatsen ska säga innan vi designar den, så att besökarna snabbt hittar dina tjänster, priser och kontaktuppgifter.',
-      },
-      {
-        id: 'craft',
-        title: 'Moderna verktyg, äkta omsorg',
-        description:
-          'Vi bygger med moderna verktyg, AI inräknat. Det gör att vi kan arbeta snabbt och hålla rimliga priser, och tiden vi sparar lägger vi på detaljerna i din webbplats.',
-      },
-      {
-        id: 'performance',
-        title: 'Snabbt och lätt att använda',
-        description:
-          'Före lanseringen kontrollerar vi att webbplatsen laddar snabbt, fungerar bra i mobilen och har det grundläggande som Google behöver för att hitta den.',
-      },
-      {
-        id: 'communication',
-        title: 'Öppen kommunikation',
-        description:
-          'Regelbundna uppdateringar, en live-förhandsvisning från första bygget och svar inom en arbetsdag.',
-      },
-    ],
-    commitments: {
-      title: 'Det här kan du förvänta dig av oss',
-      items: [
-        'Ett fast pris innan något arbete börjar',
-        'Direktkontakt med dem som bygger din webbplats',
-        'En förhandsvisning du kan titta på när som helst',
-        'Hastighet och mobilanvändning kontrolleras före lansering',
-        'En kort guide till hur uppdateringar fungerar',
-        'Tydliga svar på finska, svenska eller engelska',
-      ],
-    },
-    newStudio: {
-      title: 'Varför arbeta med en ny studio?',
-      body: 'Ditt projekt får vår fulla uppmärksamhet i stället för att vara ett av många. Vi bygger vårt rykte en webbplats i taget, så vi har all anledning att göra din rätt.',
     },
   },
   process: {
-    eyebrow: 'Vår process',
+    eyebrow: 'Process',
     title: 'Fem steg från första samtalet till lansering.',
     description:
       'De flesta webbplatser går live inom två veckor. Du ser en förhandsvisning redan under de första dagarna, så att du alltid vet vad som händer härnäst och vad vi behöver från dig.',
@@ -306,13 +338,83 @@ const sv: Dictionary = {
       },
     ],
   },
+  pricing: {
+    eyebrow: 'Priser',
+    title: 'Tydliga priser. Inga överraskningar.',
+    description:
+      'Typiska startpriser. Efter ett kostnadsfritt startsamtal får du en offert till fast pris, och priset bestäms innan något arbete börjar.',
+    from: 'från',
+    vat: 'exkl. moms',
+    pending: 'Pris på begäran',
+    recommended: 'Vi rekommenderar',
+    tiers: [
+      {
+        id: 'basic',
+        name: 'Basic',
+        description: 'En skarp och kompakt webbplats för ett företag som behöver se bra ut och vara lätt att hitta.',
+        features: [
+          'Upp till 3 sidor',
+          'Designad för mobilen först',
+          'Kontaktformulär och karta',
+          'Grunderna för Google på plats',
+        ],
+        cta: 'Börja med Basic',
+      },
+      {
+        id: 'standard',
+        name: 'Standard',
+        description: 'En komplett webbplats med plats för dina tjänster, bokning och allt som kunderna frågar om.',
+        features: ['Upp till 8 sidor', 'Bokning eller beställning inbyggd', 'Två språk', 'Besöksstatistik'],
+        cta: 'Börja med Standard',
+      },
+      {
+        id: 'custom',
+        name: 'Custom',
+        description: 'Webbutiker, större flerspråkiga webbplatser och allt som kräver skräddarsydda funktioner.',
+        features: [
+          'Shopify eller skräddarsydd butik',
+          'Integrationer med dina verktyg',
+          'Tre språk',
+          'Skräddarsydda funktioner',
+        ],
+        cta: 'Begär offert',
+      },
+    ],
+    maintenance: {
+      title: 'Drift och underhåll',
+      description:
+        'Drift, säkerhetsuppdateringar, säkerhetskopior och små innehållsändringar varje månad, så att webbplatsen förblir snabb och du aldrig behöver tänka på den.',
+      per: '/ mån',
+    },
+  },
+  about: {
+    eyebrow: 'Om oss',
+    title: 'En liten studio på Verkstadsgatan.',
+    statement:
+      'Vi bygger webbplatser som en bra verkstad bygger vad som helst: omsorgsfullt, för hand och för att hålla.',
+    body: [
+      'Fusion Sites är en ung webbstudio på Verkstadsgatan (Työpajankatu) i Helsingfors. Gatunamnet säger hur vi vill arbeta: ett litet team nära hantverket, utan mellanhänder mellan dig och dem som bygger din webbplats.',
+      'Vi designar och bygger för lokala företag: kaféer, salonger, kliniker, butiker och entreprenörer. Du får en webbplats som ser ut som du, fungerar i alla mobiler och gör det lätt för kunderna att ta nästa steg.',
+    ],
+    valuesTitle: 'Så arbetar vi',
+    values: [
+      { title: 'Direkt', text: 'Du pratar med dem som designar och bygger din webbplats. Inga mellanhänder.' },
+      { title: 'Ärligt', text: 'Fast pris innan vi börjar, klarspråk hela vägen och inga bindningar efteråt.' },
+      {
+        title: 'Omsorgsfullt',
+        text: 'Före varje lansering kontrollerar vi hastighet, mobiler, tillgänglighet och grunderna för Google.',
+      },
+    ],
+    photo: 'Studiobild kommer snart',
+    findUs: 'Hitta hit',
+  },
   faq: {
     eyebrow: 'Frågor',
     title: 'Vanliga frågor.',
     items: [
       {
         q: 'Vad kostar en webbplats?',
-        a: 'Varje projekt prissätts individuellt. Berätta om din budget i projektformuläret, så skickar vi en offert till fast pris efter ett kostnadsfritt startsamtal. Priset kommer vi överens om innan något arbete börjar, så det blir inga överraskningar.',
+        a: 'Våra paket har startpriser som du hittar under Priser. Efter ett kostnadsfritt startsamtal skickar vi en offert till fast pris för ditt projekt. Priset kommer vi överens om innan något arbete börjar, så det blir inga överraskningar.',
       },
       {
         q: 'Hur lång tid tar ett projekt?',
@@ -332,7 +434,7 @@ const sv: Dictionary = {
       },
       {
         q: 'Varför ska vi lita på en ny studio?',
-        a: 'Vi har ingen lång kundlista än, så vi gör arbetet synligt i stället: en offert till fast pris, en förhandsvisning genom hela projektet och kvalitetskontroller som du kan granska före lansering.',
+        a: 'Vi är en ung studio, så vi gör arbetet synligt: riktiga projekt som du kan besöka, en offert till fast pris, en förhandsvisning genom hela projektet och kvalitetskontroller som du kan granska före lansering.',
       },
     ],
   },
@@ -343,11 +445,13 @@ const sv: Dictionary = {
       'Berätta om ditt projekt och välj en tid som passar dig. Vi återkommer inom en arbetsdag med nästa steg.',
     direct: 'Föredrar du e-post eller telefon?',
     hoursLabel: 'Öppettider',
+    nextLabel: 'Vad som händer sedan',
     points: [
       'Kostnadsfritt och förutsättningslöst startmöte',
       'Offert till fast pris inom två dagar',
       'Dina uppgifter hanteras konfidentiellt',
     ],
+    reply: 'Svar inom en arbetsdag',
   },
   form: {
     steps: {

@@ -54,6 +54,26 @@ export const siteConfig = {
     { id: 'b3', min: 5000, max: null },
   ],
 
+  /**
+   * Starting prices shown in the Pricing section, in euros excluding VAT.
+   * `null` shows "Price on request" until you fill in a number, e.g. `basic: 1490`.
+   */
+  pricing: {
+    basic: null as number | null,
+    standard: null as number | null,
+    custom: null as number | null,
+    /** Monthly hosting & maintenance plan. */
+    maintenance: null as number | null,
+  },
+
+  /** The real client project featured in the Work section. */
+  featuredCase: {
+    url: 'https://vyroathletics.com',
+    /** Full-page screenshots in /public/work/vyro/ (path, pixel width and height). Empty shows a placeholder. */
+    desktop: null as { src: string; width: number; height: number } | null,
+    mobile: null as { src: string; width: number; height: number } | null,
+  },
+
   /** Meeting time slots offered in the project form (local time of the studio). */
   meetingSlots: ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
   /** Timezone the meeting slots refer to. */

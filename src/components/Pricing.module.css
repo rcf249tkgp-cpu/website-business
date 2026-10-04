@@ -1,0 +1,197 @@
+.section {
+  border-top: 1px solid var(--border);
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr 1fr;
+  gap: clamp(12px, 1.6vw, 20px);
+  align-items: stretch;
+}
+
+.tier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: clamp(24px, 2.6vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.012);
+  transition:
+    border-color 0.4s,
+    translate 0.6s var(--ease-out);
+}
+
+.tier:hover {
+  border-color: var(--border-strong);
+  translate: 0 -4px;
+}
+
+/* The recommended plan: a brushed-chrome edge and a soft blue light. */
+.tier[data-featured] {
+  border-color: transparent;
+  background:
+    linear-gradient(180deg, #0f1626, #0a0f1a) padding-box,
+    linear-gradient(160deg, #ffffff, #8a95a8 30%, #2f7bff 60%, #e2e8f0) border-box;
+  box-shadow:
+    0 40px 90px -40px rgba(47, 123, 255, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  margin-block: -14px;
+  padding-block: calc(clamp(24px, 2.6vw, 36px) + 14px);
+}
+
+.tierHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tierHead > :first-child {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+
+.tag {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent-strong);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 18px 0;
+  border-block: 1px solid var(--border);
+}
+
+.from {
+  color: var(--text-subtle);
+  font-size: 14px;
+}
+
+.amount {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+.per {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.vat {
+  flex-basis: 100%;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pending {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+}
+
+.features {
+  display: grid;
+  gap: 10px;
+  margin-bottom: auto;
+  font-size: 15px;
+}
+
+.features li {
+  display: flex;
+  gap: 12px;
+}
+
+.features li::before {
+  content: '+';
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.cta {
+  align-self: stretch;
+}
+
+/* The monthly plan, as a slim band under the tiers. */
+.maintenance {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px 48px;
+  margin-top: clamp(28px, 3vw, 40px);
+  padding: clamp(22px, 2.4vw, 32px) clamp(24px, 2.6vw, 36px);
+  border: 1px dashed var(--border-strong);
+  border-radius: 22px;
+}
+
+.maintenance h2,
+.maintenance h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+}
+
+.maintenance p {
+  max-width: 64ch;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.maintenance .price {
+  border: 0;
+  padding: 0;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.maintenance .vat {
+  text-align: right;
+}
+
+@media (max-width: 960px) {
+  .tiers {
+    grid-template-columns: 1fr;
+  }
+
+  .tier[data-featured] {
+    margin-block: 0;
+    padding-block: clamp(24px, 2.6vw, 36px);
+  }
+
+  .maintenance {
+    grid-template-columns: 1fr;
+  }
+
+  .maintenance .price,
+  .maintenance .vat {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tier {
+    transition: none;
+  }
+
+  .tier:hover {
+    translate: none;
+  }
+}

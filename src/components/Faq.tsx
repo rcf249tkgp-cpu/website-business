@@ -7,14 +7,19 @@ import styles from './Faq.module.css'
 export function Faq({ dict }: { dict: Dictionary }) {
   const { faq } = dict
   return (
-    <section id="faq" className="section" aria-labelledby="faq-title">
+    <section id="faq" className={`section ${styles.section}`} aria-labelledby="faq-title">
       <div className={`container ${styles.layout}`}>
-        <SectionHeading id="faq-title" eyebrow={faq.eyebrow} title={faq.title} />
+        <div className={styles.side}>
+          <SectionHeading id="faq-title" index="07" eyebrow={faq.eyebrow} title={faq.title} layout="stack" />
+        </div>
         <div className={styles.list}>
           {faq.items.map((item, i) => (
             <details key={item.q} className={`${styles.item} reveal`} open={i === 0}>
               <summary>
-                <span>{item.q}</span>
+                <span className={styles.num} aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className={styles.q}>{item.q}</span>
                 <Plus className={styles.icon} />
               </summary>
               <p>{item.a}</p>

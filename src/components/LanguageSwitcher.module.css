@@ -56,16 +56,7 @@
   display: inline;
 }
 
-@media (min-width: 1240px) {
-  .code {
-    display: none;
-  }
-  .name {
-    display: inline;
-  }
-}
-
-@media (max-width: 360px) {
+@media (max-width: 440px) {
   .globe {
     display: none;
   }

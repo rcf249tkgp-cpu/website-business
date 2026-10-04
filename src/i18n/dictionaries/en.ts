@@ -16,242 +16,272 @@ const en = {
   nav: {
     services: 'Services',
     work: 'Work',
-    why: 'Approach',
     process: 'Process',
+    pricing: 'Pricing',
+    about: 'About',
     faq: 'FAQ',
     contact: 'Contact',
     cta: 'Start a project',
   },
   hero: {
-    eyebrow: 'Web studio in Helsinki',
+    kicker: 'Web studio — Helsinki',
     titleLead: 'Websites that bring your business',
     titleHighlight: 'more customers.',
     description:
-      'We build modern websites, online stores and booking pages for local businesses. A clear price up front, a first preview within days and a site that works on every phone.',
+      'We design and build fast, good-looking websites, online stores and booking pages for local businesses. A fixed price up front and a first preview within days.',
     primaryCta: 'Start a project',
-    secondaryCta: 'How we work',
-    trust: ['Reply within one business day', 'Fixed price up front', 'Finnish, Swedish and English'],
-    visual: {
-      label: 'Preview size',
-      desktop: 'Desktop',
-      tablet: 'Tablet',
-      mobile: 'Mobile',
-      hint: 'Switch sizes to see the layout adapt',
-      checksTitle: 'Checked before every launch',
-      checks: ['Works on every phone', 'Loads fast', 'Ready for Google', 'Every language checked'],
-      deploy: 'Preview deployed',
-      live: 'Live',
-    },
-  },
-  marquee: {
-    label: 'Technologies we work with',
+    secondaryCta: 'See our work',
+    facts: [
+      { label: 'Studio', value: 'Työpajankatu, Helsinki' },
+      { label: 'Reply', value: 'Within one business day' },
+      { label: 'Languages', value: 'Finnish · Swedish · English' },
+    ],
+    scroll: 'Scroll',
   },
   services: {
     eyebrow: 'Services',
     title: 'What we do.',
     description:
-      'Five ways we help local businesses get online and get found. The same small team takes care of your site from the first call to launch.',
+      'Four things we do well. The same small team takes your project from the first call to launch, and looks after it afterwards if you want.',
+    includesLabel: 'Includes',
     items: [
       {
-        id: 'design',
+        id: 'websites',
         title: 'Websites',
         description:
-          'A clear, good-looking website built around your business: your services, prices, photos and contact details, easy to find on any device.',
-        points: ['Designed for phones first', 'Your texts, photos and logo', 'Contact details, map and opening hours'],
+          'A clear, good-looking website built around your business, so customers find your services, prices and contact details on any device.',
+        includes: ['Phone-first design', 'Your texts, photos and logo', 'Map, opening hours and contact form'],
       },
       {
-        id: 'development',
-        title: 'Online and ready',
-        description:
-          'We put your site online and take care of the technical side, so it loads fast, stays secure and simply works.',
-        points: ['Hosting on Vercel', 'Your own domain connected', 'Business email set up if you need it'],
-      },
-      {
-        id: 'ecommerce',
+        id: 'stores',
         title: 'Online stores',
         description:
-          'A simple online store where customers can browse your products and pay safely, built on Shopify or with Stripe payments.',
-        points: ['Shopify store set up for you', 'Card and online payments', 'Products, shipping and receipts'],
+          'A store your customers enjoy buying from, built on Shopify or with Stripe payments, with products, shipping and receipts set up for you.',
+        includes: ['Shopify or Stripe', 'Card and mobile payments', 'Products, shipping and receipts'],
       },
       {
-        id: 'landing',
-        title: 'Booking and integrations',
+        id: 'booking',
+        title: 'Booking & integrations',
         description:
           'Let customers book, order or get in touch straight from your site, using the tools you already have or new ones we set up.',
-        points: [
-          'Online booking (Timma, Fresha and others)',
-          'Contact forms that reach your inbox',
-          'Google Maps, social media and reviews',
-        ],
+        includes: ['Timma, Fresha and similar', 'Forms that reach your inbox', 'Google Maps, reviews and social'],
       },
       {
         id: 'redesign',
         title: 'Redesigns',
         description:
-          'Is your current website dated or hard to use on a phone? We rebuild it, keep what works and move your content over.',
-        points: ['A fresh, modern look', 'Your content moved over for you', 'Your Google visibility kept'],
+          'Dated or hard to use on a phone? We rebuild your site, keep what works, move your content over and protect your Google visibility.',
+        includes: ['A modern look', 'Content moved for you', 'Search visibility kept'],
       },
     ],
-    labels: {
-      before: 'Before',
-      after: 'After',
-      compare: 'Compare the old and new design',
-      demo: {
-        home: 'Home',
-        menu: 'Menu',
-        contact: 'Contact',
-        welcome: 'Welcome to Café Aamu',
-        intro: 'Coffee · Pastries · Lunch',
-        readMore: 'Read more',
-        cookies: 'This website uses cookies to improve your experience.',
-        book: 'Book a table',
-        open: 'Open today 7–18',
-        headline: 'Slow mornings, great coffee.',
-        cta: 'See the menu',
+  },
+  beforeAfter: {
+    eyebrow: 'Before & after',
+    title: 'Same business. A completely different first impression.',
+    description:
+      'Drag the handle to compare a typical dated website with what we would build instead. Pick an industry to see another example.',
+    tabsLabel: 'Choose an example',
+    hint: 'Drag',
+    before: 'Before',
+    after: 'After',
+    compare: 'Compare the old and new design',
+    disclaimer: 'Illustrative examples. The businesses are made up.',
+    examples: {
+      cafe: {
+        label: 'Café',
+        before: {
+          nav: ['Home', 'Menu', 'Contact'],
+          welcome: 'Welcome to Café Aamu',
+          intro: 'Coffee · Pastries · Lunch',
+          readMore: 'Read more',
+          cookies: 'This website uses cookies to improve your experience.',
+        },
+        after: {
+          nav: ['Menu', 'Visit', 'Order'],
+          kicker: 'Kallio, Helsinki',
+          title: 'Slow mornings, serious coffee.',
+          text: 'Specialty coffee, cardamom buns baked every morning and soup lunch on weekdays.',
+          cta: 'See the menu',
+          secondary: 'Order ahead',
+          open: 'Open today 7–18',
+          menuTitle: 'This week',
+          menu: [
+            ['Oat flat white', '4.90'],
+            ['Cardamom bun', '3.80'],
+            ['Soup of the day', '12.50'],
+          ],
+        },
       },
-      buildPassed: 'Build passed',
-      checkout: 'Checkout',
-      getStarted: 'Book now',
-    },
-    capabilities: {
-      eyebrow: 'What is included',
-      title: 'Everything a small business website needs.',
-      description:
-        'From design to going live, one team handles it all, so you have one contact and nothing gets lost in handovers.',
-      groups: [
-        {
-          title: 'Design',
-          items: [
-            'Mobile-friendly layouts',
-            'Your colours and logo',
-            'Clear texts and structure',
-            'Photos and galleries',
+      salon: {
+        label: 'Hair salon',
+        before: {
+          welcome: 'Welcome to our homepage!',
+          text: 'We offer haircuts, colouring and treatments for the whole family. Call us to book an appointment!',
+          phone: 'Tel. 09 123 4567',
+          prices: 'Price list (PDF)',
+          news: 'News',
+          newsText: 'We are closed on Midsummer Eve.',
+        },
+        after: {
+          nav: ['Services', 'Team', 'Prices'],
+          kicker: 'Hair studio in Punavuori',
+          title: 'Hair that feels like you.',
+          text: 'Cuts, colour and care in a calm studio. Book online in under a minute.',
+          cta: 'Book online',
+          services: [
+            ['Cut & style', '45 min', '65 €'],
+            ['Colour', '2 h', 'from 110 €'],
+            ['Balayage', '3 h', 'from 160 €'],
           ],
+          slotsTitle: 'Next free times',
+          slots: ['Tue 10:00', 'Tue 14:30', 'Wed 09:15'],
         },
-        {
-          title: 'Build',
-          items: ['Modern, fast websites', 'Hosting and publishing', 'Domain and email setup', 'Contact forms'],
+      },
+      construction: {
+        label: 'Construction',
+        before: {
+          tagline: 'Quality construction since 1998',
+          menu: ['Front page', 'Services', 'References', 'Contact us'],
+          servicesTitle: 'Our services:',
+          services: ['Renovations', 'New buildings', 'Roofing', 'Facade work'],
+          contact: 'Contact us for an offer!',
         },
-        {
-          title: 'Selling and booking',
-          items: ['Shopify', 'Stripe payments', 'Booking systems', 'Social media links'],
+        after: {
+          nav: ['Services', 'Projects', 'Contact'],
+          kicker: 'Renovations · New builds · Facades',
+          title: 'Built right. Handed over on time.',
+          text: 'One contractor from plan to handover, with a fixed schedule you can hold us to.',
+          cta: 'Request a quote',
+          secondary: 'See projects',
+          services: ['Renovations', 'New builds', 'Facades'],
+          area: 'Working across Uusimaa',
         },
-        {
-          title: 'Getting found',
-          items: [
-            'Google search basics',
-            'Google Business Profile',
-            'Visitor statistics',
-            'Sites in Finnish, Swedish and English',
-          ],
-        },
-      ],
+      },
     },
   },
   work: {
-    eyebrow: 'Examples',
-    title: 'What your website could look like.',
-    description:
-      'Four example sites for made-up businesses, each with a different job to do. Yours gets the same care, designed around your business.',
-    tagsLabel: 'Features',
-    conceptBadge: 'Design study',
+    eyebrow: 'Work',
+    title: 'Selected work.',
+    description: 'A real launch first, followed by concept studies that show how we approach different industries.',
+    caseLabel: 'Case study',
+    caseLive: 'Live site',
+    featured: {
+      client: 'VYRO Athletics',
+      category: 'Online store · Gym apparel',
+      summary:
+        'VYRO is a gym clothing brand. We designed and built their online store: a bold, mobile-first shop where the products and the brand lead, with a smooth path from browsing to checkout.',
+      built: ['Brand-led storefront', 'Product and collection pages', 'Mobile-first checkout flow'],
+      builtLabel: 'What we built',
+      cta: 'Visit vyroathletics.com',
+      imagesPending: 'Screenshots coming soon',
+    },
+    devicesLabel: 'Preview size',
+    desktop: 'Desktop',
+    mobile: 'Mobile',
+    scrollHint: 'Scroll inside the preview',
+    conceptBadge: 'Concept',
+    conceptsTitle: 'Concept studies',
+    conceptsDescription:
+      'Fictional brands we designed to explore how different businesses can look and work online. Pick one and scroll through it.',
     disclaimer: 'These brands are fictional and were created by our team. They are not client projects.',
-    projects: [
-      {
+    projectsLabel: 'Choose a concept',
+    projects: {
+      ember: {
         id: 'ember',
         name: 'Ember Roasters',
-        category: 'E-commerce',
-        summary: 'How a small roastery could sell coffee subscriptions while keeping the warmth of a story-led brand.',
-        tags: ['Shopify', 'Subscriptions', 'Brand'],
+        category: 'Online store',
+        summary: 'A small roastery selling coffee and subscriptions, with the warmth of a story-led brand.',
+        site: {
+          nav: ['Shop', 'Subscriptions', 'Journal'],
+          cart: 'Cart',
+          kicker: 'Small-batch roastery · Helsinki',
+          title: 'Coffee worth waking up for.',
+          text: 'Roasted every Tuesday and shipped the same week. Pick a bag, or let us choose for you.',
+          cta: 'Shop coffee',
+          secondary: 'Start a subscription',
+          productsTitle: 'This week’s roasts',
+          products: [
+            ['Yirgacheffe', 'Ethiopia', 'Jasmine · Bergamot', '€18'],
+            ['La Palma', 'Colombia', 'Cocoa · Red apple', '€16'],
+            ['Kiambu', 'Kenya', 'Blackcurrant · Lime', '€19'],
+          ],
+          add: 'Add to cart',
+          storyTitle: 'Roasted slowly, in small batches.',
+          storyText:
+            'We buy directly from farms we know, roast light to keep the fruit, and print the roast date on every bag.',
+          subTitle: 'Never run out.',
+          subText: 'Fresh coffee every two or four weeks. Pause or cancel any time.',
+          subCta: 'Subscribe',
+        },
       },
-      {
+      lumo: {
         id: 'lumo',
         name: 'Lumo Clinic',
         category: 'Healthcare',
         summary: 'A calm, accessible clinic website where booking an appointment takes three steps.',
-        tags: ['Booking', 'Accessible', 'Multilingual'],
+        site: {
+          nav: ['Treatments', 'Specialists', 'Prices'],
+          book: 'Book',
+          kicker: 'Physiotherapy & sports medicine',
+          title: 'Care that feels calm.',
+          text: 'Book an appointment in three steps, in Finnish, Swedish or English.',
+          cta: 'Book an appointment',
+          month: 'October',
+          times: ['09:00', '10:30', '13:15'],
+          stepsTitle: 'How booking works',
+          steps: ['Choose a treatment', 'Pick a time', 'Confirm'],
+          servicesTitle: 'Treatments',
+          services: [
+            ['Physiotherapy', '45 min'],
+            ['Sports massage', '60 min'],
+            ['Running analysis', '75 min'],
+          ],
+        },
       },
-      {
+      voltra: {
         id: 'voltra',
         name: 'Voltra',
-        category: 'SaaS landing page',
+        category: 'Product landing page',
         summary: 'A launch page for an EV-charging platform with one clear goal: booking a demo.',
-        tags: ['Landing page', 'Animation', 'Contact form'],
+        site: {
+          nav: ['Product', 'Pricing', 'Company'],
+          demo: 'Book a demo',
+          kicker: 'EV charging for fleets',
+          title: ['Charge', 'faster.'],
+          text: 'One platform for every charger in your fleet: live availability, smart scheduling and simple billing.',
+          cta: 'Book a demo',
+          secondary: 'How it works',
+          features: [
+            ['Live availability', 'See every free charger in real time.'],
+            ['Smart scheduling', 'Charge when electricity is cheapest.'],
+            ['One invoice', 'Every location on one monthly bill.'],
+          ],
+          ctaTitle: 'Ready when you are.',
+        },
       },
-      {
+      fjord: {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Architecture portfolio',
         summary: 'An editorial portfolio where large imagery and quiet typography do the work.',
-        tags: ['Portfolio', 'Image gallery', 'Editorial'],
+        site: {
+          nav: ['Projects', 'Studio', 'Contact'],
+          title: ['Quiet', 'architecture.'],
+          text: 'A small practice designing homes and public spaces around light and material.',
+          projectsTitle: 'Selected projects',
+          projects: [
+            ['Saari House', '2024'],
+            ['Harbour Library', '2023'],
+            ['Pine Pavilion', '2022'],
+          ],
+          quote: 'We design for the hours of light we have.',
+          contact: 'Start a conversation',
+        },
       },
-    ],
-    mock: {
-      shop: 'Shop',
-      subscribe: 'Subscribe',
-      addToCart: 'Add to cart',
-      emberKicker: 'Single origin · Ethiopia',
-      emberNotes: ['Jasmine', 'Bergamot', 'Peach'],
-      bookVisit: 'Book a visit',
-      ourServices: 'Our services',
-      lumoTitle: ['Care that', 'feels calm.'],
-      month: 'October',
-      requestDemo: 'Request a demo',
-      voltraTitle: ['CHARGE', 'FASTER.'],
-      voltraFeatures: ['Fast charging', 'Live availability'],
-      projects: 'Projects',
-      studio: 'Studio',
-      fjordTitle: ['Quiet', 'architecture'],
-    },
-  },
-  why: {
-    eyebrow: 'Our approach',
-    title: 'Straightforward from start to finish.',
-    description:
-      'We are a small, new studio. You talk directly with the people who build your website, and everything is explained in plain language.',
-    items: [
-      {
-        id: 'clarity',
-        title: 'Clarity first',
-        description:
-          'We plan what your site needs to say before we design it, so visitors quickly find your services, prices and how to reach you.',
-      },
-      {
-        id: 'craft',
-        title: 'Modern tools, real care',
-        description:
-          'We build with modern tools, AI included. That lets us work quickly and keep prices fair, and the time we save goes into the details of your site.',
-      },
-      {
-        id: 'performance',
-        title: 'Fast and easy to use',
-        description:
-          'Before launch we check that your site loads quickly, works well on phones and has the basics Google needs to find it.',
-      },
-      {
-        id: 'communication',
-        title: 'Open communication',
-        description: 'Regular updates, a live preview link from the first build, and replies within one business day.',
-      },
-    ],
-    commitments: {
-      title: 'What you can expect from us',
-      items: [
-        'A fixed price before any work starts',
-        'Direct contact with the people building your site',
-        'A live preview you can check at any time',
-        'Speed and mobile use checked before launch',
-        'A short guide to how updates work',
-        'Clear answers in Finnish, Swedish or English',
-      ],
-    },
-    newStudio: {
-      title: 'Why work with a new studio?',
-      body: 'Your project gets our full attention instead of being one of many. We are building our reputation one website at a time, which means we have every reason to get yours right.',
     },
   },
   process: {
-    eyebrow: 'Our process',
+    eyebrow: 'Process',
     title: 'Five steps from first call to launch.',
     description:
       'Most websites go live within two weeks. You see a live preview within the first few days, so you always know what happens next and what we need from you.',
@@ -296,13 +326,72 @@ const en = {
       },
     ],
   },
+  pricing: {
+    eyebrow: 'Pricing',
+    title: 'Clear prices. No surprises.',
+    description:
+      'Typical starting points. After a free intro call you get a fixed quote, and the price is agreed before any work starts.',
+    from: 'from',
+    vat: 'excl. VAT',
+    pending: 'Price on request',
+    recommended: 'Recommended',
+    tiers: [
+      {
+        id: 'basic',
+        name: 'Basic',
+        description: 'A sharp, compact website for a business that needs to look good and be easy to find.',
+        features: ['Up to 3 pages', 'Phone-first design', 'Contact form and map', 'Google basics set up'],
+        cta: 'Start with Basic',
+      },
+      {
+        id: 'standard',
+        name: 'Standard',
+        description: 'A complete website with room for your services, booking and everything customers ask about.',
+        features: ['Up to 8 pages', 'Booking or ordering built in', 'Two languages', 'Visitor statistics'],
+        cta: 'Start with Standard',
+      },
+      {
+        id: 'custom',
+        name: 'Custom',
+        description: 'Online stores, larger multilingual sites and anything that needs custom features.',
+        features: ['Shopify or custom store', 'Integrations with your tools', 'Three languages', 'Custom features'],
+        cta: 'Ask for a quote',
+      },
+    ],
+    maintenance: {
+      title: 'Hosting & maintenance',
+      description:
+        'Hosting, security updates, backups and small content changes every month, so your site stays fast and you never have to think about it.',
+      per: '/ month',
+    },
+  },
+  about: {
+    eyebrow: 'About',
+    title: 'A small studio on Workshop Street.',
+    statement: 'We build websites the way a good workshop builds anything: carefully, by hand and to last.',
+    body: [
+      'Fusion Sites is a young web studio at Työpajankatu in Helsinki. The street name means Workshop Street, and that is how we like to work: a small team, close to the craft, with no layers between you and the people building your site.',
+      'We design and build for local businesses: cafés, salons, clinics, shops and contractors. You get a site that looks like you, works on every phone and is easy for customers to act on.',
+    ],
+    valuesTitle: 'How we work',
+    values: [
+      {
+        title: 'Direct',
+        text: 'You talk to the people who design and build your site. No account managers in between.',
+      },
+      { title: 'Honest', text: 'A fixed price before we start, plain language throughout and no lock-in afterwards.' },
+      { title: 'Careful', text: 'Before every launch we check speed, phones, accessibility and the Google basics.' },
+    ],
+    photo: 'Studio photo coming soon',
+    findUs: 'Find us',
+  },
   faq: {
     eyebrow: 'FAQ',
     title: 'Common questions.',
     items: [
       {
         q: 'How much does a website cost?',
-        a: 'Every project is priced individually. Tell us your budget in the project form, and after a free intro call we send a fixed-price quote. The price is agreed before any work starts, so there are no surprises.',
+        a: 'Our plans have starting prices, which you can see under Pricing. After a free intro call we send a fixed-price quote for your project. The price is agreed before any work starts, so there are no surprises.',
       },
       {
         q: 'How long does a project take?',
@@ -322,7 +411,7 @@ const en = {
       },
       {
         q: 'Why should we trust a new studio?',
-        a: 'We do not have a long client list yet, so we make the work visible instead: a fixed-price proposal, a live preview link throughout the project, and quality checks you can review before launch.',
+        a: 'We are a young studio, so we make the work visible: real projects you can visit, a fixed-price proposal, a live preview link throughout the project, and quality checks you can review before launch.',
       },
     ],
   },
@@ -333,11 +422,13 @@ const en = {
       'Tell us about your project and pick a time that suits you. We’ll get back to you within one business day with next steps.',
     direct: 'Prefer email or phone?',
     hoursLabel: 'Opening hours',
+    nextLabel: 'What happens next',
     points: [
       'Free, no-obligation intro meeting',
       'Fixed-price proposal within two days',
       'Your data is handled confidentially',
     ],
+    reply: 'Reply within one business day',
   },
   form: {
     steps: {

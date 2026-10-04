@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from 'next'
 import { notFound } from 'next/navigation'
-import { GeistMono } from 'geist/font/mono'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Motion } from '@/components/Motion'
 import { siteConfig, siteUrl } from '@/config/site'
-import { inter, michroma } from '@/fonts'
+import { geistMono, inter, michroma } from '@/fonts'
 import { getDictionary } from '@/i18n'
 import { defaultLocale, isLocale, localeTags, locales } from '@/i18n/config'
 import '../globals.css'
@@ -59,7 +58,7 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
     <html
       lang={localeTags[lang]}
       suppressHydrationWarning
-      className={`${inter.variable} ${michroma.variable} ${GeistMono.variable}`}
+      className={`${inter.variable} ${michroma.variable} ${geistMono.variable}`}
     >
       <body>
         {/* Enables entrance animations before first paint, unless the visitor prefers reduced motion. */}

@@ -9,6 +9,7 @@ for (const path of [
   '/sv/work',
   '/fi/approach',
   '/en/process',
+  '/sv/pricing',
   '/en/contact',
   '/en/start',
   '/en/privacy',

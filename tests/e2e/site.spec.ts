@@ -59,9 +59,13 @@ test.describe('languages', () => {
   test('every visible string in the main sections is translated', async ({ page }) => {
     const english = [
       'Services',
-      'Design studies',
-      'Our approach',
-      'Our process',
+      'What we do',
+      'Selected work',
+      'Concept studies',
+      'Before & after',
+      'Clear prices',
+      'Recommended',
+      'Workshop Street',
       'Common questions',
       'Start a project',
       'Continue',
@@ -88,9 +92,10 @@ test.describe('navigation', () => {
         'en',
         [
           ['Services', 'services', 'What we do.'],
-          ['Work', 'work', 'What your website could look like.'],
-          ['Approach', 'approach', 'Straightforward from start to finish.'],
+          ['Work', 'work', 'Selected work.'],
           ['Process', 'process', 'Five steps from first call to launch.'],
+          ['Pricing', 'pricing', 'Clear prices. No surprises.'],
+          ['About', 'approach', 'A small studio on Workshop Street.'],
           ['Contact', 'contact', 'Let’s build something remarkable.'],
         ],
       ],
@@ -98,7 +103,8 @@ test.describe('navigation', () => {
         'fi',
         [
           ['Palvelut', 'services', 'Mitä teemme.'],
-          ['Toimintatapa', 'approach', 'Suoraviivaisesti alusta loppuun.'],
+          ['Hinnat', 'pricing', 'Selkeät hinnat. Ei yllätyksiä.'],
+          ['Meistä', 'approach', 'Pieni studio Työpajankadulla.'],
         ],
       ],
     ] as const) {
@@ -118,7 +124,7 @@ test.describe('navigation', () => {
   })
 
   test('each page works in every language', async ({ page }) => {
-    for (const slug of ['services', 'work', 'approach', 'process', 'contact']) {
+    for (const slug of ['services', 'work', 'process', 'pricing', 'approach', 'contact']) {
       for (const lang of ['en', 'sv', 'fi']) {
         const res = await page.goto(`/${lang}/${slug}`)
         expect(res?.status(), `/${lang}/${slug}`).toBe(200)
@@ -130,7 +136,7 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/fi\/work$/)
   })
 
-  test('hero CTAs lead to the project form and the process', async ({ page }) => {
+  test('hero CTAs lead to the project form and the work', async ({ page }) => {
     await page.goto('/en')
     await page.locator('main').getByRole('link', { name: 'Start a project' }).first().click()
     await expect(page).toHaveURL(/\/en\/start$/)
@@ -146,8 +152,8 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/fi\/start$/)
     await expect(page.locator('#contact form')).toBeVisible()
     await page.goto('/en')
-    await page.getByRole('link', { name: 'How we work' }).click()
-    await expect(page).toHaveURL(/\/en\/process$/)
+    await page.getByRole('link', { name: 'See our work' }).click()
+    await expect(page).toHaveURL(/\/en\/work$/)
   })
 
   test('footer legal links work in every language', async ({ page }) => {
@@ -201,24 +207,51 @@ test.describe('navigation', () => {
 })
 
 test.describe('interactive details', () => {
-  test('hero preview switches between screen sizes', async ({ page }) => {
-    await page.goto('/en')
-    const controls = page.getByRole('group', { name: 'Preview size' })
-    const browser = page.locator('[data-device]')
-    await expect(browser).toHaveAttribute('data-device', 'desktop')
-    const wide = (await browser.boundingBox())!.width
-    await controls.getByRole('button', { name: 'Mobile' }).click()
-    await expect(browser).toHaveAttribute('data-device', 'mobile')
-    await expect(controls.getByRole('button', { name: 'Mobile' })).toHaveAttribute('aria-pressed', 'true')
-    await expect.poll(async () => (await browser.boundingBox())!.width).toBeLessThan(wide * 0.6)
+  test('concept previews switch project and device', async ({ page }) => {
+    await page.goto('/en/work')
+    const frame = page.locator('[data-device]')
+    await expect(frame).toHaveAttribute('data-device', 'desktop')
+    const wide = (await frame.boundingBox())!.width
+    await page
+      .getByRole('group', { name: 'Choose a concept' })
+      .getByRole('button', { name: /Voltra/ })
+      .click()
+    await expect(page.getByRole('region', { name: /Voltra/ })).toBeVisible()
+    const devices = page.getByRole('group', { name: 'Preview size' })
+    await devices.getByRole('button', { name: 'Mobile' }).click()
+    await expect(frame).toHaveAttribute('data-device', 'mobile')
+    await expect(devices.getByRole('button', { name: 'Mobile' })).toHaveAttribute('aria-pressed', 'true')
+    await expect.poll(async () => (await frame.boundingBox())!.width).toBeLessThan(wide * 0.6)
   })
 
-  test('redesign comparison can be dragged with the keyboard', async ({ page }) => {
+  test('the real case study links to the live site', async ({ page }) => {
+    await page.goto('/en/work')
+    const link = page.getByRole('link', { name: /Visit vyroathletics\.com/ })
+    await expect(link).toHaveAttribute('href', 'https://vyroathletics.com')
+    await expect(link).toHaveAttribute('target', '_blank')
+  })
+
+  test('redesign comparison works with keyboard, pointer and tabs', async ({ page }) => {
     await page.goto('/en')
     const slider = page.getByRole('slider', { name: 'Compare the old and new design' })
     await slider.focus()
     await page.keyboard.press('End')
     await expect(slider).toHaveValue('100')
+
+    // Pointer drag moves it too, and the industry tabs swap the example.
+    const stage = page.locator('#before-after [class*=stage]')
+    await stage.scrollIntoViewIfNeeded()
+    const box = (await stage.boundingBox())!
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(box.x + box.width * 0.25, box.y + box.height / 2, { steps: 6 })
+    await page.mouse.up()
+    await expect.poll(async () => Number(await slider.inputValue())).toBeLessThan(35)
+    await page
+      .getByRole('group', { name: 'Choose an example' })
+      .getByRole('button', { name: /Construction/ })
+      .click()
+    await expect(page.locator('#before-after').getByText('vahvarakennus.fi', { exact: true })).toBeVisible()
   })
 
   test('FAQ answers open and close', async ({ page }) => {

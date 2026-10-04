@@ -1,64 +1,64 @@
-import type { CSSProperties } from 'react'
+import { archivo, fraunces, instrumentSerif } from '@/fonts'
 import type { Dictionary } from '@/i18n'
-import { ProjectMockup } from './ProjectMockups'
+import type { Locale } from '@/i18n/config'
+import { ConceptShowcase } from './ConceptShowcase'
+import { FeaturedCase } from './FeaturedCase'
 import { SectionHeading } from './SectionHeading'
 import styles from './Work.module.css'
 
-/** Address shown in each example's browser bar. The brands are fictional. */
-const addresses: Record<string, string> = {
-  ember: 'emberroasters.fi',
-  lumo: 'lumoclinic.fi',
-  voltra: 'voltra.fi',
-  fjord: 'formfjord.fi',
-}
-
-/**
- * Example sites as a stack of full-width panels. On wide screens each panel
- * sticks below the header and the next one slides over it, so every example
- * gets the whole stage for a moment. Each panel takes its colours from the
- * brand it shows.
- */
-export function Work({ dict, standalone = false }: { dict: Dictionary; standalone?: boolean }) {
+export function Work({ dict, standalone = false }: { lang: Locale; dict: Dictionary; standalone?: boolean }) {
   const { work } = dict
+  const Sub = standalone ? 'h2' : 'h3'
+  const { ember, lumo, voltra, fjord } = work.projects
+  const concepts = (
+    [
+      [ember, 'emberroasters.example'],
+      [lumo, 'lumoclinic.example'],
+      [voltra, 'voltra.example'],
+      [fjord, 'formfjord.example'],
+    ] as const
+  ).map(([{ id, name, category, summary }, url]) => ({
+    id: id as keyof typeof work.projects,
+    name,
+    category,
+    summary,
+    url,
+  }))
+
   return (
-    <section id="work" className={`section${standalone ? ' section-page' : ''}`} aria-labelledby="work-title">
+    <section
+      id="work"
+      className={`section ${styles.section}${standalone ? ' section-page' : ''} ${fraunces.variable} ${instrumentSerif.variable} ${archivo.variable}`}
+      aria-labelledby="work-title"
+    >
       <div className="container">
         <SectionHeading
           id="work-title"
-          as={standalone ? 'h1' : 'h2'}
+          index="03"
           eyebrow={work.eyebrow}
           title={work.title}
           description={work.description}
+          as={standalone ? 'h1' : 'h2'}
         />
-        <ul className={styles.stack}>
-          {work.projects.map((project, i) => (
-            <li key={project.id} className={styles.panel} data-id={project.id} style={{ '--i': i } as CSSProperties}>
-              <div className={styles.text}>
-                <p className={styles.category}>{project.category}</p>
-                <h3 className={styles.name}>{project.name}</h3>
-                <p className={styles.summary}>{project.summary}</p>
-                <ul className={styles.tags} aria-label={work.tagsLabel}>
-                  {project.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className={styles.visual} aria-hidden="true">
-                <div className={styles.frame}>
-                  <div className={styles.browserBar}>
-                    <span className={styles.dots}>
-                      <i />
-                      <i />
-                      <i />
-                    </span>
-                    <span className={styles.address}>{addresses[project.id] ?? ''}</span>
-                  </div>
-                  <ProjectMockup id={project.id} t={work.mock} />
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+
+        <FeaturedCase t={work} heading={Sub} />
+
+        <div className={`${styles.conceptsHead} reveal`}>
+          <Sub>{work.conceptsTitle}</Sub>
+          <p>{work.conceptsDescription}</p>
+        </div>
+        <ConceptShowcase
+          concepts={concepts}
+          sites={work.projects}
+          t={{
+            projectsLabel: work.projectsLabel,
+            devicesLabel: work.devicesLabel,
+            desktop: work.desktop,
+            mobile: work.mobile,
+            scrollHint: work.scrollHint,
+            conceptBadge: work.conceptBadge,
+          }}
+        />
         <p className={styles.disclaimer}>{work.disclaimer}</p>
       </div>
     </section>

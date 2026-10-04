@@ -19,7 +19,7 @@ export default async function Page({ params }: PageProps<'/[lang]/work'>) {
   const dict = getDictionary(lang)
   return (
     <>
-      <Work dict={dict} standalone />
+      <Work lang={lang} dict={dict} standalone />
       <Contact lang={lang} dict={dict} variant="teaser" />
     </>
   )

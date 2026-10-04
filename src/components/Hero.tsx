@@ -1,52 +1,52 @@
 import Link from 'next/link'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
-import { HeroVisual } from './HeroVisual'
-import { ArrowRight, Check } from './Icons'
+import { HeroMark } from './HeroMark'
+import { ArrowRight, ArrowUpRight } from './Icons'
 import styles from './Hero.module.css'
 
 export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const { hero } = dict
   return (
-    <section className={styles.hero} aria-labelledby="hero-title" data-glow>
-      <div className={styles.backdrop} aria-hidden="true">
-        <div className={styles.grid} />
-        <div className={`${styles.orb} ${styles.orbA}`} />
-        <div className={`${styles.orb} ${styles.orbB}`} />
-      </div>
+    <section className={styles.hero} aria-labelledby="hero-title">
+      <div className={`container ${styles.grid}`}>
+        <div className={styles.topline}>
+          <span className={styles.kicker}>{hero.kicker}</span>
+          <span className={styles.index} aria-hidden="true">
+            FS / 01
+          </span>
+        </div>
 
-      <div className={`container ${styles.layout}`}>
-        <div className={styles.content}>
-          <p className={styles.eyebrow} style={{ animationDelay: '0.05s' }}>
-            <span className={styles.pulse} aria-hidden="true" />
-            {hero.eyebrow}
-          </p>
-          <h1 id="hero-title" className={styles.title} style={{ animationDelay: '0.12s' }}>
-            {hero.titleLead} <span className="gradient-text">{hero.titleHighlight}</span>
-          </h1>
-          <p className={styles.description} style={{ animationDelay: '0.22s' }}>
-            {hero.description}
-          </p>
-          <div className={styles.ctas} style={{ animationDelay: '0.32s' }}>
+        <div className={styles.markWrap}>
+          <HeroMark />
+        </div>
+
+        <h1 id="hero-title" className={styles.title}>
+          <span className={styles.lead}>{hero.titleLead}</span>{' '}
+          <span className={styles.highlight}>{hero.titleHighlight}</span>
+        </h1>
+
+        <div className={styles.bottom}>
+          <p className={styles.description}>{hero.description}</p>
+          <div className={styles.ctas}>
             <Link href={`/${lang}/start`} className="btn btn-primary" data-magnetic>
               {hero.primaryCta}
               <ArrowRight />
             </Link>
-            <Link href={`/${lang}/process`} className="btn btn-secondary" data-magnetic>
+            <Link href={`/${lang}/work`} className={styles.textLink}>
               {hero.secondaryCta}
+              <ArrowUpRight />
             </Link>
           </div>
-          <ul className={styles.trust} style={{ animationDelay: '0.42s' }}>
-            {hero.trust.map((item) => (
-              <li key={item}>
-                <Check />
-                {item}
-              </li>
+          <dl className={styles.facts}>
+            {hero.facts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </div>
-
-        <HeroVisual t={hero.visual} />
       </div>
     </section>
   )

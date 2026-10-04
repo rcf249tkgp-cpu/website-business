@@ -1,5 +1,10 @@
 import { useId } from 'react'
 
+/** Path data of the F (64 × 64 box): upper ribbon, lower ribbon and the blue inner curve. */
+export const F_UPPER = 'M14 37V25C14 13 21 6 33 6h29l-9.5 11.5H35c-6 0-9.5 3.5-9.5 9.5v3.5Z'
+export const F_LOWER = 'M14 62V46.5c0-9 5-13.5 14-13.5h27l-9.5 10.5H33c-4 0-7.5 2-7.5 6v1Z'
+export const F_CURVE = 'M14 37V25C14 13 21 6 33 6h9C30 8 22 14.5 20.5 26v7.4Z'
+
 /**
  * The Fusion Sites "F": two chrome ribbons with an electric-blue inner curve.
  * Vector redraw of the brand mark, so it stays crisp at any size. Swap for the
@@ -10,7 +15,7 @@ export function BrandMark({ size = 32, glow = true }: { size?: number; glow?: bo
   const chrome = `chrome-${id}`
   const blue = `blue-${id}`
   const blur = `glow-${id}`
-  const curve = 'M14 37V25C14 13 21 6 33 6h9C30 8 22 14.5 20.5 26v7.4Z'
+  const curve = F_CURVE
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
       <defs>
@@ -32,8 +37,8 @@ export function BrandMark({ size = 32, glow = true }: { size?: number; glow?: bo
           </filter>
         )}
       </defs>
-      <path d="M14 37V25C14 13 21 6 33 6h29l-9.5 11.5H35c-6 0-9.5 3.5-9.5 9.5v3.5Z" fill={`url(#${chrome})`} />
-      <path d="M14 62V46.5c0-9 5-13.5 14-13.5h27l-9.5 10.5H33c-4 0-7.5 2-7.5 6v1Z" fill={`url(#${chrome})`} />
+      <path d={F_UPPER} fill={`url(#${chrome})`} />
+      <path d={F_LOWER} fill={`url(#${chrome})`} />
       {glow && <path d={curve} fill={`url(#${blue})`} filter={`url(#${blur})`} opacity="0.8" />}
       <path d={curve} fill={`url(#${blue})`} />
     </svg>

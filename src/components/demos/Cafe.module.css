@@ -1,0 +1,531 @@
+/* ================================================================ Before */
+.before {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  color: #333;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+.oNav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 52px;
+  padding: 0 4%;
+  border-bottom: 1px solid #ddd;
+  background: linear-gradient(#fff, #efefef);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.oLogo {
+  margin-right: auto;
+  color: #6b4226;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.oLinks {
+  display: flex;
+  align-self: stretch;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.oLinks span {
+  display: grid;
+  place-items: center;
+  padding: 0 14px;
+}
+
+.oLinks [data-on] {
+  background: #8b5a3c;
+  color: #fff;
+}
+
+.oSocial {
+  display: flex;
+  gap: 4px;
+}
+
+.oSocial i {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: #3b5998;
+  color: #fff;
+  font:
+    700 12px Arial,
+    sans-serif;
+}
+
+.oSocial i + i {
+  background: #55acee;
+}
+
+.oSlider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58%;
+  padding: 0 2%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    radial-gradient(30% 45% at 30% 60%, #c89b6d, transparent 70%),
+    radial-gradient(25% 35% at 72% 40%, #e8d2b4, transparent 70%),
+    linear-gradient(120deg, #5a3a24, #8a6040 50%, #3d2717);
+}
+
+.oArrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 28px;
+}
+
+.oCaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.oWelcome {
+  font-size: clamp(18px, 3.4cqi, 38px);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oIntro {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.oButton {
+  padding: 8px 22px;
+  border: 2px solid #fff;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.oDots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  display: flex;
+  gap: 7px;
+  translate: -50% 0;
+}
+
+.oDots i {
+  width: 9px;
+  height: 9px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.oDots [data-on] {
+  background: #fff;
+}
+
+.oCols {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+  padding: 3% 4%;
+}
+
+.oCols span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.oCols i {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #8b5a3c;
+}
+
+.oCols b {
+  width: 80%;
+  height: 7px;
+  background: #ccc;
+}
+
+.oCols b + b {
+  width: 60%;
+}
+
+.oCookie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px;
+  background: #222;
+  color: #ccc;
+  font-size: 11px;
+}
+
+.oCookie span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oCookie b {
+  padding: 3px 12px;
+  border-radius: 3px;
+  background: #5cb85c;
+  color: #fff;
+}
+
+/* ================================================================ After */
+.after {
+  --ink: #2a1a12;
+  --cream: #f4eee5;
+  --terracotta: #b8532a;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4cqi;
+  padding: 2.2cqi 4.5cqi;
+  font-size: clamp(11px, 1.1cqi, 14px);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  font-family: var(--font-fraunces);
+  font-size: clamp(20px, 2.2cqi, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.sun {
+  width: 0.62em;
+  height: 0.31em;
+  border-radius: 0.62em 0.62em 0 0;
+  background: var(--terracotta);
+  translate: 0 -0.08em;
+}
+
+.links {
+  display: flex;
+  gap: 2.4cqi;
+  opacity: 0.8;
+}
+
+.open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid rgba(42, 26, 18, 0.18);
+  border-radius: 999px;
+}
+
+.open i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3f9b5b;
+}
+
+.hero {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 4cqi;
+  padding: 1cqi 4.5cqi 4cqi;
+  min-height: 0;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2cqi;
+  padding-bottom: 4cqi;
+}
+
+.kicker {
+  color: var(--terracotta);
+  font-size: clamp(10px, 1cqi, 13px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-fraunces);
+  font-size: clamp(30px, 5.2cqi, 76px);
+  font-weight: 380;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-variation-settings:
+    'SOFT' 100,
+    'opsz' 144;
+}
+
+.text {
+  max-width: 34ch;
+  font-size: clamp(12px, 1.35cqi, 17px);
+  line-height: 1.55;
+  opacity: 0.78;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 2.4cqi;
+  margin-top: 0.6cqi;
+  font-size: clamp(11px, 1.15cqi, 15px);
+  font-weight: 600;
+}
+
+.primary {
+  padding: 1.1cqi 2.2cqi;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.secondary {
+  border-bottom: 1.5px solid currentColor;
+}
+
+/* A flat-lay "photo": cup, saucer and a cardamom bun on linen, lit from the top left. */
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.6cqi;
+  background:
+    radial-gradient(120% 90% at 10% 0%, rgba(255, 236, 210, 0.55), transparent 55%),
+    linear-gradient(160deg, #c9653a, #a5482a 60%, #8c3a22);
+}
+
+.linen {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 4px);
+  mix-blend-mode: overlay;
+}
+
+.saucer {
+  position: absolute;
+  left: 30%;
+  top: 22%;
+  width: 46%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, #fbf8f3 0 52%, #e9e1d5 64%, #d8cdbd 70%, #efe8dd 72%);
+  box-shadow:
+    1.6cqi 2.4cqi 3cqi rgba(60, 20, 5, 0.45),
+    inset -0.4cqi -0.6cqi 1cqi rgba(0, 0, 0, 0.12);
+}
+
+.cup {
+  position: absolute;
+  inset: 17%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 36%, #ffffff, #efe7dc 70%, #dcd0c0);
+  box-shadow:
+    0.8cqi 1.2cqi 1.6cqi rgba(70, 30, 10, 0.35),
+    inset 0 0 0 0.25cqi #f7f2ea;
+}
+
+.latte {
+  position: absolute;
+  inset: 9%;
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+  box-shadow: inset 0 0.4cqi 1cqi rgba(40, 15, 0, 0.45);
+}
+
+.handle {
+  position: absolute;
+  right: 6%;
+  top: 44%;
+  width: 16%;
+  height: 9%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffffff, #e2d8ca);
+  box-shadow: 0.6cqi 0.8cqi 1cqi rgba(70, 30, 10, 0.3);
+}
+
+/* Cardamom roll seen from above, with pearl sugar. */
+.bun {
+  position: absolute;
+  left: 5%;
+  top: 6%;
+  width: 30%;
+  aspect-ratio: 1;
+  filter: drop-shadow(1.2cqi 1.8cqi 1.4cqi rgba(60, 20, 5, 0.45));
+}
+
+.spoon {
+  position: absolute;
+  right: 8%;
+  bottom: 12%;
+  width: 26%;
+  height: 3.2%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f2f2f2, #9b9b9b);
+  rotate: -32deg;
+  box-shadow: 0.6cqi 1cqi 1cqi rgba(60, 20, 5, 0.35);
+}
+
+.spoon::before {
+  content: '';
+  position: absolute;
+  left: -22%;
+  top: 50%;
+  width: 34%;
+  aspect-ratio: 1.5;
+  border-radius: 50%;
+  translate: 0 -50%;
+  background: radial-gradient(circle at 40% 35%, #ffffff, #a9a9a9);
+}
+
+/* The menu card overlaps the photo, like a printed card on the table. */
+.menu {
+  position: absolute;
+  left: calc(50% - 6cqi);
+  bottom: 3cqi;
+  display: grid;
+  gap: 0.9cqi;
+  width: 25cqi;
+  padding: 1.8cqi 2cqi;
+  border-radius: 1.2cqi;
+  background: var(--cream);
+  box-shadow: 0 2cqi 4cqi -1.4cqi rgba(60, 25, 10, 0.5);
+  font-size: clamp(10px, 1.1cqi, 14px);
+}
+
+.menuTitle {
+  font-family: var(--font-fraunces);
+  font-size: 1.35em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.menuRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.menuRow i {
+  flex: 1;
+  border-bottom: 1px dotted rgba(42, 26, 18, 0.35);
+}
+
+/* ---------------------------------------------------------------- Phone layout */
+@container (max-width: 560px) {
+  .oLinks,
+  .oSocial,
+  .oCols {
+    display: none;
+  }
+
+  .oSlider {
+    flex: 1;
+    height: auto;
+  }
+
+  .oWelcome {
+    font-size: 20px;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .nav {
+    padding: 16px 18px;
+  }
+
+  .open {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 18px;
+    padding: 4px 18px 18px;
+  }
+
+  .copy {
+    gap: 12px;
+    padding: 0;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .text {
+    font-size: 13.5px;
+  }
+
+  .ctas {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .primary {
+    padding: 10px 18px;
+  }
+
+  .photo {
+    border-radius: 14px;
+    min-height: 200px;
+  }
+
+  .menu {
+    display: none;
+  }
+}

@@ -48,7 +48,7 @@ export function LanguageSwitcher({ lang, label, expanded = false, onSwitch }: Pr
           lang={l}
           className={styles.item}
           aria-pressed={l === lang}
-          aria-label={localeNames[l]}
+          aria-label={`${localeNames[l]} (${l.toUpperCase()})`}
           title={localeNames[l]}
           onClick={() => choose(l)}
         >

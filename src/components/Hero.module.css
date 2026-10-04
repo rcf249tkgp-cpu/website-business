@@ -1,238 +1,302 @@
 .hero {
   position: relative;
-  padding-top: calc(var(--header-h) + clamp(40px, 6vw, 88px));
-  padding-bottom: clamp(40px, 6vw, 80px);
+  display: flex;
+  min-height: max(640px, 100svh);
+  padding: calc(var(--header-h) + clamp(20px, 3vw, 40px)) 0 clamp(28px, 4vw, 48px);
   overflow: hidden;
   isolation: isolate;
 }
 
-/* ---- Background ---- */
-.backdrop {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-  background-position: center top;
-  mask-image: radial-gradient(ellipse 80% 60% at 60% 10%, #000 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 60% 10%, #000 20%, transparent 75%);
-}
-
-/* Soft light that follows the cursor across the hero (position set by Motion.tsx). */
+/* A faint 12-column grid, like the rulings on a drawing board. */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(520px circle at var(--gx, 70%) var(--gy, 30%), rgba(77, 141, 255, 0.13), transparent 60%);
+  background: linear-gradient(90deg, rgba(200, 215, 240, 0.045) 1px, transparent 1px) center top /
+    calc((min(100vw, var(--container) + var(--gutter) * 2) - var(--gutter) * 2) / 12) 100%;
+  mask-image: linear-gradient(180deg, transparent, #000 25%, #000 70%, transparent);
   pointer-events: none;
-  transition: opacity 0.6s;
 }
 
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  will-change: transform;
-}
-
-.orbA {
-  top: -20%;
-  right: -10%;
-  width: min(880px, 110vw);
-  height: 620px;
-  background: radial-gradient(closest-side, rgba(47, 123, 255, 0.42), transparent);
-  animation: drift 20s var(--ease-in-out) infinite alternate;
-}
-
-.orbB {
-  bottom: -30%;
-  left: -15%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(closest-side, rgba(0, 180, 255, 0.18), transparent);
-  animation: drift 26s var(--ease-in-out) infinite alternate-reverse;
-}
-
-@keyframes drift {
-  to {
-    transform: translate3d(-6%, 8%, 0) scale(1.06);
-  }
-}
-
-/* ---- Layout ---- */
-.layout {
+.grid {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto 1fr auto;
+  column-gap: clamp(12px, 2vw, 24px);
+  width: 100%;
 }
 
-.content {
+.topline {
+  grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.content > * {
-  animation: fade-up 0.9s var(--ease-out) both;
-}
-
-/* The headline and intro are the first thing people read (and the LCP element),
-   so they rise into place without starting invisible. */
-.title,
-.description {
-  animation-name: rise !important;
-}
-
-@keyframes rise {
-  from {
-    translate: 0 14px;
-  }
-}
-
-.eyebrow {
+.kicker {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 14px 6px 10px;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
   color: var(--text-muted);
-  font-size: 13px;
-  font-weight: 500;
 }
 
-.pulse {
-  position: relative;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--success);
-}
-
-.pulse::after {
+.kicker::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: var(--success);
-  animation: ping 2.4s var(--ease-out) infinite;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
 }
 
-@keyframes ping {
-  to {
-    transform: scale(3);
-    opacity: 0;
-  }
+/* ------------------------------------------------------------ Mark */
+.markWrap {
+  grid-column: 6 / -1;
+  grid-row: 2;
+  align-self: center;
+  justify-self: end;
+  width: min(100%, calc(100svh - 330px), 660px);
+  margin-right: calc(var(--gutter) * -0.5);
+  z-index: 0;
 }
 
+/* ------------------------------------------------------------ Title */
 .title {
-  margin-top: 26px;
-  font-size: clamp(1.75rem, 3.7vw, 3.4rem);
-  font-weight: 400;
-  letter-spacing: -0.005em;
-  line-height: 1.12;
-  /* One chrome sweep per line, so every line reads equally bright. */
-  background: var(--chrome) 0 0 / 100% 1.12em repeat-y;
+  grid-column: 1 / span 10;
+  grid-row: 2;
+  align-self: center;
+  z-index: 1;
+  margin: clamp(28px, 5vh, 64px) 0;
+  font-size: clamp(2rem, 5.6vw, 5.8rem);
+  /* Keeps the letters crisp where they cross the chrome F. */
+  filter: drop-shadow(0 1px 10px rgba(5, 7, 13, 0.9));
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  background: var(--chrome) 0 0 / 100% 1.04em repeat-y;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+.highlight {
+  display: inline-block;
+  background: linear-gradient(180deg, #a9c8ff 0%, #4d8dff 55%, #2f7bff 100%) 0 0 / 100% 1.04em repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ------------------------------------------------------------ Bottom */
+.bottom {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: end;
+  row-gap: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
 .description {
-  max-width: 54ch;
-  margin-top: 22px;
+  grid-column: 1 / span 5;
+  max-width: 46ch;
   color: var(--text-muted);
-  font-size: clamp(1.02rem, 1.3vw, 1.15rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
 }
 
 .ctas {
+  grid-column: 6 / span 3;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
+  align-items: center;
+  gap: 14px 22px;
 }
 
-.trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin-top: 30px;
-  padding-top: 22px;
-  border-top: 1px solid var(--border);
-  color: var(--text-subtle);
-  font-size: 13.5px;
-}
-
-.trust li {
+.textLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    border-color 0.3s,
+    gap 0.3s var(--ease-out);
 }
 
-.trust svg {
-  width: 15px;
-  height: 15px;
-  color: var(--accent);
+.textLink svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s var(--ease-out);
 }
 
-/* The preview drifts up gently and fades as the page scrolls away from it. */
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 1081px) {
-    .layout > :last-child {
-      animation: drift-away linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 90vh;
-    }
+.textLink:hover {
+  border-color: var(--accent);
+}
+
+.textLink:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.facts {
+  grid-column: 9 / -1;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.facts div {
+  display: grid;
+  grid-template-columns: 9ch 1fr;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.facts div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.facts dt {
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.9;
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------ Entrance */
+:global(.motion) .topline,
+:global(.motion) .bottom > * {
+  animation: rise 1s var(--ease-out) backwards;
+}
+
+:global(.motion) .topline {
+  animation-delay: 0.05s;
+}
+
+:global(.motion) .bottom > :nth-child(1) {
+  animation-delay: 0.45s;
+}
+
+:global(.motion) .bottom > :nth-child(2) {
+  animation-delay: 0.55s;
+}
+
+:global(.motion) .bottom > :nth-child(3) {
+  animation-delay: 0.65s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 16px;
   }
 }
 
-@keyframes drift-away {
-  to {
-    translate: 0 -60px;
-    opacity: 0.35;
+/* ------------------------------------------------------------ Responsive */
+@media (max-width: 1100px) {
+  .description {
+    grid-column: 1 / span 7;
   }
-}
 
-@media (max-width: 1080px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  .content {
-    align-items: center;
-    text-align: center;
-  }
-  .ctas,
-  .trust {
-    justify-content: center;
-  }
-  .title {
-    max-width: 18ch;
-  }
-}
-
-@media (max-width: 600px) {
   .ctas {
-    width: 100%;
-    flex-direction: column;
+    grid-column: 8 / -1;
+    justify-content: flex-end;
   }
+
+  .facts {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .facts div,
+  .facts div:last-child {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 12px 0 0;
+    border-bottom: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 0;
+  }
+
+  .grid {
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .markWrap {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    width: min(82vw, 420px);
+    margin: 8px 0 -12%;
+  }
+
+  .title {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin: 0 0 28px;
+    font-size: clamp(1.7rem, 8.2vw, 3rem);
+  }
+
+  .bottom {
+    grid-row: 4;
+  }
+
+  .description,
+  .ctas {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
   .ctas :global(.btn) {
-    width: 100%;
+    flex: 1 1 100%;
   }
-  .trust {
-    flex-direction: column;
-    align-items: center;
+
+  .facts {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .facts div,
+  .facts div:last-child {
+    grid-template-columns: 10ch 1fr;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .index {
+    display: none;
   }
 }
