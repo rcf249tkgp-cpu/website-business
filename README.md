@@ -1,4 +1,4 @@
-# Novaform — agency website
+# Fusion Sites — agency website
 
 A premium, trilingual (English / Swedish / Finnish) marketing site for a web design & development studio, with a working multi-step project inquiry and meeting-request system.
 
@@ -32,7 +32,7 @@ For local development without real email, set `MAIL_PROVIDER=console` in `.env.l
 
 ### 1. Branding & contact details — `src/config/site.ts`
 
-One file holds the company name, legal name, business ID, email, phone, address, opening hours, social links, currency, budget ranges and meeting time slots. **The current values (“Novaform”, Helsinki address, phone, business ID) are placeholders. Replace them before launch.**
+One file holds the company name, legal name, business ID, email, phone, address, opening hours, social links, currency, budget ranges and meeting time slots. **The current values (“Fusion Sites”, Helsinki address, phone, business ID) are placeholders. Replace them before launch.**
 
 - The logo mark is in `src/components/Logo.tsx` and the favicon in `src/app/icon.svg`.
 - Colours and design tokens are at the top of `src/app/globals.css`.

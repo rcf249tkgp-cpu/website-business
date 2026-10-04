@@ -104,7 +104,8 @@
 .wordmark {
   margin-bottom: -0.22em;
   color: transparent;
-  font-size: clamp(5rem, 21vw, 18rem);
+  font-size: clamp(3.5rem, 14vw, 13rem);
+  white-space: nowrap;
   font-weight: 700;
   letter-spacing: -0.06em;
   line-height: 1;

@@ -105,7 +105,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
       <div className={styles.wordmark} aria-hidden="true" data-split>
         {Array.from(siteConfig.name).map((letter, i) => (
           <span key={i} className="split-word">
-            <span style={{ '--i': i } as CSSProperties}>{letter}</span>
+            <span style={{ '--i': i } as CSSProperties}>{letter === ' ' ? '\u00a0' : letter}</span>
           </span>
         ))}
       </div>

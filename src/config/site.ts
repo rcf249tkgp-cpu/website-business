@@ -7,17 +7,17 @@
  */
 export const siteConfig = {
   /** Brand name shown in the header, footer, metadata and emails. */
-  name: 'Novaform',
+  name: 'Fusion Sites',
   /** Short tagline used in metadata and the footer. */
   tagline: 'Digital studio',
   /** Legal entity shown in the footer and legal pages. */
-  legalName: 'Novaform Oy',
+  legalName: 'Fusion Sites Oy',
   /** Business ID / org. number (Y-tunnus / organisationsnummer). Leave empty to hide. */
   businessId: '1234567-8',
 
   /** Public contact details. */
   contact: {
-    email: 'hello@novaform.studio',
+    email: 'hello@fusionsites.fi',
     phone: '+358 40 123 4567',
     /** Phone in E.164 format for `tel:` links. */
     phoneHref: '+358401234567',

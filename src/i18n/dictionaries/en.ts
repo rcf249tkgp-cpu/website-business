@@ -1,8 +1,8 @@
 const en = {
   meta: {
-    title: 'Novaform — Websites for local businesses in Helsinki',
+    title: 'Fusion Sites — Websites for local businesses in Helsinki',
     description:
-      'Novaform builds modern websites, online stores and booking pages for local businesses. A fixed price up front, in Finnish, Swedish and English.',
+      'Fusion Sites builds modern websites, online stores and booking pages for local businesses. A fixed price up front, in Finnish, Swedish and English.',
   },
   a11y: {
     skipToContent: 'Skip to content',

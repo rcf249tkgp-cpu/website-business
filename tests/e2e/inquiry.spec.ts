@@ -132,7 +132,7 @@ test.describe('inquiry form', () => {
     await expect(f.getByRole('heading', { name: 'Tack — vi har tagit emot din förfrågan!' })).toBeVisible()
     await expect(f.getByText('Ditt möte är inte bokat än')).toBeVisible()
     await expect(f.getByText(/En bekräftelse har skickats till aino@example\.fi/)).toBeVisible()
-    await expect(f.locator('code')).toHaveText(/^NO-\d{6}-[0-9A-F]{6}$/)
+    await expect(f.locator('code')).toHaveText(/^[A-Z]{2}-\d{6}-[0-9A-F]{6}$/)
 
     const reference = await f.locator('code').innerText()
     const hook = hooks.payloads.find((p) => p.reference === reference)
@@ -151,7 +151,7 @@ test.describe('inquiry form', () => {
     expect(business.text).toContain('Language: Svenska')
 
     expect(customer.to && 'text' in customer.to ? customer.to.text : '').toContain('aino@example.fi')
-    expect(customer.subject).toBe('Vi har tagit emot din projektförfrågan — Novaform')
+    expect(customer.subject).toBe('Vi har tagit emot din projektförfrågan — Fusion Sites')
     expect(customer.text).toContain('Hej Aino,')
     expect(customer.text).toContain('inte en bekräftad bokning')
 
@@ -194,9 +194,9 @@ test.describe('inquiry form', () => {
       await form(page).getByRole('button', { name: en.submit }).click()
       const alert = form(page).getByRole('alert')
       await expect(alert).toContainText(text)
-      await expect(alert.getByRole('link', { name: /hello@novaform\.studio/ })).toHaveAttribute(
+      await expect(alert.getByRole('link', { name: /hello@fusionsites\.fi/ })).toHaveAttribute(
         'href',
-        'mailto:hello@novaform.studio',
+        'mailto:hello@fusionsites.fi',
       )
       await expect(form(page).getByRole('button', { name: 'Try again' })).toBeEnabled()
       await expect(form(page).getByText('Thank you')).toHaveCount(0)

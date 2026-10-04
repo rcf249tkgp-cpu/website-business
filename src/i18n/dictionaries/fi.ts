@@ -2,9 +2,9 @@ import type { Dictionary } from './en'
 
 const fi: Dictionary = {
   meta: {
-    title: 'Novaform — Verkkosivut paikallisille yrityksille Helsingissä',
+    title: 'Fusion Sites — Verkkosivut paikallisille yrityksille Helsingissä',
     description:
-      'Novaform tekee moderneja verkkosivuja, verkkokauppoja ja ajanvaraussivuja paikallisille yrityksille. Kiinteä hinta etukäteen, suomeksi, ruotsiksi ja englanniksi.',
+      'Fusion Sites tekee moderneja verkkosivuja, verkkokauppoja ja ajanvaraussivuja paikallisille yrityksille. Kiinteä hinta etukäteen, suomeksi, ruotsiksi ja englanniksi.',
   },
   a11y: {
     skipToContent: 'Siirry sisältöön',

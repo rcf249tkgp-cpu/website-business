@@ -18,7 +18,7 @@ export function Logo({ className }: { className?: string }) {
       >
         <svg width="16" height="16" viewBox="0 0 16 16">
           <path
-            d="M3 13V3l10 10V3"
+            d="M4.5 13V3h7.5M4.5 8h6"
             fill="none"
             stroke="#fff"
             strokeWidth="2.2"
@@ -27,7 +27,11 @@ export function Logo({ className }: { className?: string }) {
           />
         </svg>
       </span>
-      <span style={{ fontWeight: 600, fontSize: 18, letterSpacing: '-0.03em' }}>{siteConfig.name}</span>
+      <span
+        style={{ fontWeight: 600, fontSize: 'var(--logo-size, 18px)', letterSpacing: '-0.03em', whiteSpace: 'nowrap' }}
+      >
+        {siteConfig.name}
+      </span>
     </span>
   )
 }

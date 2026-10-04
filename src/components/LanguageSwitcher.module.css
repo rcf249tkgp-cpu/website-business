@@ -69,4 +69,9 @@
   .globe {
     display: none;
   }
+
+  .root:not([data-expanded]) .item {
+    min-width: 34px;
+    padding: 0 7px;
+  }
 }

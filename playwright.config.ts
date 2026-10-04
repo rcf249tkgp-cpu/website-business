@@ -30,7 +30,7 @@ export default defineConfig({
       SMTP_HOST: '127.0.0.1',
       SMTP_PORT: String(SMTP_PORT),
       SMTP_SECURE: 'false',
-      MAIL_FROM: 'Novaform <no-reply@studio.test>',
+      MAIL_FROM: 'Fusion Sites <no-reply@studio.test>',
       INQUIRY_TO_EMAIL: 'inbox@studio.test',
       INQUIRY_RATE_LIMIT: '100',
       // Second delivery channel, captured by a local server in the tests.

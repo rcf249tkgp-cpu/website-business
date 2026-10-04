@@ -191,3 +191,18 @@
     display: none;
   }
 }
+
+/* Very small phones: tighten the header so the menu button always fits. */
+@media (max-width: 380px) {
+  .inner {
+    gap: 8px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .logo {
+    --logo-size: 15px;
+  }
+}
