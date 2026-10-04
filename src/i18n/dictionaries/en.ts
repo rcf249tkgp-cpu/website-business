@@ -388,14 +388,14 @@ const en = {
     title: 'A small studio on Workshop Street.',
     statement: 'We build websites the way a good workshop builds anything: carefully, by hand and to last.',
     body: [
-      'Fusion Sites is a young web studio at Työpajankatu in Helsinki. The street name means Workshop Street, and that is how we like to work: a small team, close to the craft, with no layers between you and the people building your site.',
+      'Fusion Sites is a young web studio at Työpajankatu in Helsinki, run by Martin Haukerud and Casper Gauffin-Kauste. The street name means Workshop Street, and that is how we like to work: a small team, close to the craft, with no layers between you and the people building your site.',
       'We design and build for local businesses: cafés, salons, clinics, shops and contractors. You get a site that looks like you, works on every phone and is easy for customers to act on.',
     ],
     valuesTitle: 'How we work',
     values: [
       {
         title: 'Direct',
-        text: 'You talk to the people who design and build your site. No account managers in between.',
+        text: 'You talk to Martin and Casper, who design and build your site. No account managers in between.',
       },
       { title: 'Honest', text: 'A fixed price before we start, plain language throughout and no lock-in afterwards.' },
       { title: 'Careful', text: 'Before every launch we check speed, phones, accessibility and the Google basics.' },
@@ -446,6 +446,7 @@ const en = {
       'Fixed-price proposal within two days',
       'Your data is handled confidentially',
     ],
+    peopleLabel: 'Team',
     reply: 'Reply within one business day',
   },
   form: {
@@ -475,7 +476,7 @@ const en = {
       meetingTime: 'Preferred time',
       meetingFormat: 'Meeting format',
       timezoneNote: 'Times are in Finnish time ({tz}).',
-      consent: 'I agree that {company} may process my details to respond to this inquiry, as described in the',
+      consent: 'I agree that {legalName} may process my details to respond to this inquiry, as described in the',
       privacyLink: 'privacy policy',
     },
     websiteTypes: {
@@ -590,6 +591,7 @@ const en = {
     terms: 'Terms of service',
     cookies: 'This site uses no tracking cookies.',
     businessId: 'Business ID',
+    brandNote: 'Fusion Sites is a brand of Fusion Hauk Oy.',
     rights: 'All rights reserved.',
     backToTop: 'Back to top',
   },
@@ -599,7 +601,7 @@ const en = {
     privacy: {
       title: 'Privacy policy',
       intro:
-        '{company} respects your privacy. This policy explains what personal data we collect through this website, why, and what rights you have under the EU General Data Protection Regulation (GDPR).',
+        '{legalName} respects your privacy. This policy explains what personal data we collect through this website, why, and what rights you have under the EU General Data Protection Regulation (GDPR).',
       sections: [
         {
           title: 'Data controller',

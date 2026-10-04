@@ -63,6 +63,13 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             <address className={styles.list}>
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
               <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a>
+              {contact.people.map((person) => (
+                <span key={person.email} className={styles.person}>
+                  <strong>{person.name}</strong>
+                  <a href={`mailto:${person.email}`}>{person.email}</a>
+                  <a href={`tel:${person.phoneHref}`}>{person.phone}</a>
+                </span>
+              ))}
               <span>
                 {contact.address.street}
                 <br />
@@ -88,15 +95,18 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         </div>
 
         <div className={styles.bottom}>
-          <p>
-            © {year} {siteConfig.legalName}. {footer.rights}
-            {siteConfig.businessId && (
-              <>
-                {' '}
-                · {footer.businessId} {siteConfig.businessId}
-              </>
-            )}
-          </p>
+          <div>
+            <p>
+              © {year} {siteConfig.legalName}
+              {siteConfig.businessId && (
+                <>
+                  {' '}
+                  · {footer.businessId} {siteConfig.businessId}
+                </>
+              )}
+            </p>
+            <p>{footer.brandNote}</p>
+          </div>
           <a href="#main" className={styles.top}>
             {footer.backToTop}
             <ArrowUp />

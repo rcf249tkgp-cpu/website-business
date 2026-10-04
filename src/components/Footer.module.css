@@ -139,3 +139,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+.person {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.person strong {
+  color: var(--text);
+  font-weight: 500;
+}

@@ -10,10 +10,10 @@ export const siteConfig = {
   name: 'Fusion Sites',
   /** Short tagline used in metadata and the footer. */
   tagline: 'Digital studio',
-  /** Legal entity shown in the footer and legal pages. */
-  legalName: 'Fusion Sites Oy',
+  /** Legal company that owns the Fusion Sites brand (footer, legal pages, structured data). */
+  legalName: 'Fusion Hauk Oy',
   /** Business ID / org. number (Y-tunnus / organisationsnummer). Leave empty to hide. */
-  businessId: '1234567-8',
+  businessId: '3602341-5',
 
   /** Public contact details. */
   contact: {
@@ -21,6 +21,21 @@ export const siteConfig = {
     phone: '+358 40 123 4567',
     /** Phone in E.164 format for `tel:` links. */
     phoneHref: '+358401234567',
+    /** The people behind the studio, shown in the contact section and footer. */
+    people: [
+      {
+        name: 'Martin Haukerud',
+        email: 'martin@atlashaukerud.fi',
+        phone: '+358 40 152 2531',
+        phoneHref: '+358401522531',
+      },
+      {
+        name: 'Casper Gauffin-Kauste',
+        email: 'casper@atlashaukerud.fi',
+        phone: '+358 40 726 3199',
+        phoneHref: '+358407263199',
+      },
+    ],
     address: {
       street: 'Työpajankatu 17',
       postalCode: '00580',

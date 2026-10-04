@@ -32,7 +32,7 @@ For local development without real email, set `MAIL_PROVIDER=console` in `.env.l
 
 ### 1. Branding & contact details — `src/config/site.ts`
 
-One file holds the company name, legal name, business ID, email, phone, address, opening hours, social links, currency, budget ranges and meeting time slots. **The current values (“Fusion Sites”, Helsinki address, phone, business ID) are placeholders. Replace them before launch.**
+One file holds the company name, legal name, business ID, email, phone, address, opening hours, social links, currency, budget ranges and meeting time slots. The brand is “Fusion Sites”; the legal company is Fusion Hauk Oy (business ID 3602341-5). **The general phone number and email are still placeholders. Replace them before launch.**
 
 - The logo lockup is `src/components/Logo.tsx`; the F mark itself is a vector redraw in `src/components/BrandMark.tsx`. The favicon is `src/app/icon.svg` (plus `src/app/apple-icon.png`). Replace them with the official artwork when you have SVG/PNG exports.
 - Colours and design tokens (near-black navy background, electric blue accent, silver/chrome gradients) are at the top of `src/app/globals.css`.

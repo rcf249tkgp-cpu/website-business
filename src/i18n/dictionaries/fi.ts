@@ -408,12 +408,15 @@ const fi: Dictionary = {
     title: 'Pieni studio Työpajankadulla.',
     statement: 'Rakennamme verkkosivuja niin kuin hyvä työpaja rakentaa mitä tahansa: huolella, käsin ja kestämään.',
     body: [
-      'Fusion Sites on nuori verkkostudio Helsingin Työpajankadulla. Kadun nimi kertoo, miten haluamme tehdä työtä: pieni tiimi lähellä käsityötä, eikä välikäsiä sinun ja sivustosi tekijöiden välillä.',
+      'Fusion Sites on Martin Haukerudin ja Casper Gauffin-Kausten nuori verkkostudio Helsingin Työpajankadulla. Kadun nimi kertoo, miten haluamme tehdä työtä: pieni tiimi lähellä käsityötä, eikä välikäsiä sinun ja sivustosi tekijöiden välillä.',
       'Suunnittelemme ja rakennamme paikallisille yrityksille: kahviloille, kampaamoille, klinikoille, kaupoille ja urakoitsijoille. Saat sivuston, joka näyttää sinulta, toimii jokaisella puhelimella ja helpottaa asiakkaan seuraavaa askelta.',
     ],
     valuesTitle: 'Näin toimimme',
     values: [
-      { title: 'Suoraan', text: 'Puhut niiden kanssa, jotka suunnittelevat ja rakentavat sivustosi. Ei välikäsiä.' },
+      {
+        title: 'Suoraan',
+        text: 'Puhut suoraan Martinin ja Casperin kanssa, jotka suunnittelevat ja rakentavat sivustosi. Ei välikäsiä.',
+      },
       {
         title: 'Rehellisesti',
         text: 'Kiinteä hinta ennen aloitusta, selkeää kieltä koko matkan eikä sitoumuksia jälkikäteen.',
@@ -469,6 +472,7 @@ const fi: Dictionary = {
       'Kiinteähintainen tarjous kahdessa päivässä',
       'Tietojasi käsitellään luottamuksellisesti',
     ],
+    peopleLabel: 'Tiimi',
     reply: 'Vastaus yhden arkipäivän sisällä',
   },
   form: {
@@ -498,7 +502,7 @@ const fi: Dictionary = {
       meetingTime: 'Toivottu aika',
       meetingFormat: 'Tapaamismuoto',
       timezoneNote: 'Ajat ovat Suomen aikaa ({tz}).',
-      consent: 'Hyväksyn, että {company} käsittelee tietojani yhteydenottooni vastaamiseksi, kuten kuvataan',
+      consent: 'Hyväksyn, että {legalName} käsittelee tietojani yhteydenottooni vastaamiseksi, kuten kuvataan',
       privacyLink: 'tietosuojaselosteessa',
     },
     websiteTypes: {
@@ -614,6 +618,7 @@ const fi: Dictionary = {
     terms: 'Käyttöehdot',
     cookies: 'Sivusto ei käytä seurantaevästeitä.',
     businessId: 'Y-tunnus',
+    brandNote: 'Fusion Sites on Fusion Hauk Oy:n brändi.',
     rights: 'Kaikki oikeudet pidätetään.',
     backToTop: 'Takaisin ylös',
   },
@@ -623,7 +628,7 @@ const fi: Dictionary = {
     privacy: {
       title: 'Tietosuojaseloste',
       intro:
-        '{company} kunnioittaa yksityisyyttäsi. Tämä seloste kertoo, mitä henkilötietoja keräämme tämän verkkosivuston kautta, miksi, ja mitä oikeuksia sinulla on EU:n yleisen tietosuoja-asetuksen (GDPR) mukaan.',
+        '{legalName} kunnioittaa yksityisyyttäsi. Tämä seloste kertoo, mitä henkilötietoja keräämme tämän verkkosivuston kautta, miksi, ja mitä oikeuksia sinulla on EU:n yleisen tietosuoja-asetuksen (GDPR) mukaan.',
       sections: [
         {
           title: 'Rekisterinpitäjä',

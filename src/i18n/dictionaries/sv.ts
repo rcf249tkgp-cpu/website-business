@@ -411,12 +411,15 @@ const sv: Dictionary = {
     statement:
       'Vi bygger webbplatser som en bra verkstad bygger vad som helst: omsorgsfullt, för hand och för att hålla.',
     body: [
-      'Fusion Sites är en ung webbstudio på Verkstadsgatan (Työpajankatu) i Helsingfors. Gatunamnet säger hur vi vill arbeta: ett litet team nära hantverket, utan mellanhänder mellan dig och dem som bygger din webbplats.',
+      'Fusion Sites är en ung webbstudio på Verkstadsgatan (Työpajankatu) i Helsingfors, som drivs av Martin Haukerud och Casper Gauffin-Kauste. Gatunamnet säger hur vi vill arbeta: ett litet team nära hantverket, utan mellanhänder mellan dig och dem som bygger din webbplats.',
       'Vi designar och bygger för lokala företag: kaféer, salonger, kliniker, butiker och entreprenörer. Du får en webbplats som ser ut som du, fungerar i alla mobiler och gör det lätt för kunderna att ta nästa steg.',
     ],
     valuesTitle: 'Så arbetar vi',
     values: [
-      { title: 'Direkt', text: 'Du pratar med dem som designar och bygger din webbplats. Inga mellanhänder.' },
+      {
+        title: 'Direkt',
+        text: 'Du pratar direkt med Martin och Casper, som designar och bygger din webbplats. Inga mellanhänder.',
+      },
       { title: 'Ärligt', text: 'Fast pris innan vi börjar, klarspråk hela vägen och inga bindningar efteråt.' },
       {
         title: 'Omsorgsfullt',
@@ -469,6 +472,7 @@ const sv: Dictionary = {
       'Offert till fast pris inom två dagar',
       'Dina uppgifter hanteras konfidentiellt',
     ],
+    peopleLabel: 'Team',
     reply: 'Svar inom en arbetsdag',
   },
   form: {
@@ -498,7 +502,7 @@ const sv: Dictionary = {
       meetingTime: 'Önskad tid',
       meetingFormat: 'Mötesform',
       timezoneNote: 'Tiderna anges i finsk tid ({tz}).',
-      consent: 'Jag godkänner att {company} behandlar mina uppgifter för att besvara förfrågan, enligt',
+      consent: 'Jag godkänner att {legalName} behandlar mina uppgifter för att besvara förfrågan, enligt',
       privacyLink: 'integritetspolicyn',
     },
     websiteTypes: {
@@ -613,6 +617,7 @@ const sv: Dictionary = {
     terms: 'Användarvillkor',
     cookies: 'Webbplatsen använder inga spårningscookies.',
     businessId: 'Organisationsnummer',
+    brandNote: 'Fusion Sites är ett varumärke som tillhör Fusion Hauk Oy.',
     rights: 'Alla rättigheter förbehållna.',
     backToTop: 'Till toppen',
   },
@@ -622,7 +627,7 @@ const sv: Dictionary = {
     privacy: {
       title: 'Integritetspolicy',
       intro:
-        '{company} värnar om din integritet. Den här policyn förklarar vilka personuppgifter vi samlar in via webbplatsen, varför, och vilka rättigheter du har enligt EU:s dataskyddsförordning (GDPR).',
+        '{legalName} värnar om din integritet. Den här policyn förklarar vilka personuppgifter vi samlar in via webbplatsen, varför, och vilka rättigheter du har enligt EU:s dataskyddsförordning (GDPR).',
       sections: [
         {
           title: 'Personuppgiftsansvarig',

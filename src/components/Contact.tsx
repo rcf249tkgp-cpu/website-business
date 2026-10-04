@@ -40,6 +40,16 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
 
   const direct = (
     <div className={styles.direct}>
+      <p className={styles.label}>{contact.peopleLabel}</p>
+      <ul className={styles.people}>
+        {siteConfig.contact.people.map((person) => (
+          <li key={person.email}>
+            <strong>{person.name}</strong>
+            <a href={`mailto:${person.email}`}>{person.email}</a>
+            <a href={`tel:${person.phoneHref}`}>{person.phone}</a>
+          </li>
+        ))}
+      </ul>
       <p className={styles.label}>{contact.direct}</p>
       <ul>
         <li>

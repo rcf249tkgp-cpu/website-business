@@ -129,6 +129,21 @@
   text-align: center;
 }
 
+.direct ul.people {
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.direct ul.people li {
+  flex-direction: column;
+  gap: 2px;
+}
+
+.direct ul.people strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
 .direct ul {
   display: grid;
   gap: 12px;

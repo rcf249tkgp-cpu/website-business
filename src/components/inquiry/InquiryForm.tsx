@@ -504,7 +504,7 @@ export function InquiryForm({ lang, dict, schedulingUrl, turnstileSiteKey }: Pro
                     aria-describedby={errors.consent ? 'f-consent-error' : undefined}
                   />
                   <span>
-                    {format(t.labels.consent, { company: siteConfig.name })}{' '}
+                    {format(t.labels.consent, { legalName: siteConfig.legalName })}{' '}
                     <Link href={`/${lang}/privacy`} target="_blank" className={styles.link}>
                       {t.labels.privacyLink}
                     </Link>
