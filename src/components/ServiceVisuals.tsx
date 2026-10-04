@@ -122,7 +122,7 @@ function LandingVisual({ t }: { t: Labels }) {
 
 /**
  * Before/after comparison the visitor can drag (keyboard accessible range input).
- * Both sides show the same made-up café: a dated early-2000s homepage on the left
+ * Both sides show the same made-up café: a dated mid-2010s template site on the left
  * and the kind of site we would build for it on the right.
  */
 function RedesignVisual({ t }: { t: Labels }) {
@@ -131,31 +131,35 @@ function RedesignVisual({ t }: { t: Labels }) {
   return (
     <div className={`${styles.visual} ${styles.redesign}`} style={{ '--split': `${split}%` } as CSSProperties}>
       <div className={styles.before} aria-hidden="true">
-        <div className={styles.oldHeader}>
-          <span className={styles.oldTitle}>~*~ Café Aamu ~*~</span>
-        </div>
         <div className={styles.oldNav}>
-          [ <u>{d.home}</u> ] [ <u>{d.menu}</u> ] [ <u>{d.contact}</u> ]
-        </div>
-        <div className={styles.oldMarquee}>
-          <span>{d.news}</span>
-        </div>
-        <div className={styles.oldBody}>
-          <span className={styles.oldImage}>
-            <span className={styles.oldBroken} />
-            cafe_kuva1.JPG
+          <span className={styles.oldLogo}>Café Aamu</span>
+          <span className={styles.oldLinks}>
+            <span data-active>{d.home}</span>
+            <span>{d.menu}</span>
+            <span>{d.contact}</span>
           </span>
-          <span className={styles.oldCopy}>
+          <span className={styles.oldSocial}>
+            <i>f</i>
+            <i>t</i>
+          </span>
+        </div>
+        <div className={styles.oldSlider}>
+          <span className={styles.oldArrow}>‹</span>
+          <span className={styles.oldCaption}>
             <span className={styles.oldWelcome}>{d.welcome}</span>
             <span className={styles.oldIntro}>{d.intro}</span>
+            <span className={styles.oldButton}>{d.readMore}</span>
+          </span>
+          <span className={styles.oldArrow}>›</span>
+          <span className={styles.oldDots}>
+            <i data-active />
+            <i />
+            <i />
           </span>
         </div>
-        <div className={styles.oldFooter}>
-          <span className={styles.oldCounter}>
-            {d.visitors}: <b>004213</b>
-          </span>
-          <span className={styles.oldConstruction}>{d.construction}</span>
-          <span className={styles.oldBest}>{d.bestViewed}</span>
+        <div className={styles.oldCookie}>
+          <span>{d.cookies}</span>
+          <b>OK</b>
         </div>
         <span className={styles.tag}>{t.before}</span>
       </div>
