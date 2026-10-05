@@ -2,7 +2,7 @@ import { schedulingUrl, siteConfig, turnstileSiteKey } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import Link from 'next/link'
-import { ArrowRight, Clock, Mail, MapPin, Phone } from './Icons'
+import { ArrowRight, Clock, MapPin } from './Icons'
 import { InquiryForm } from './inquiry/InquiryForm'
 import { SplitWords } from './SectionHeading'
 import styles from './Contact.module.css'
@@ -40,7 +40,7 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
 
   const direct = (
     <div className={styles.direct}>
-      <p className={styles.label}>{contact.peopleLabel}</p>
+      <p className={styles.label}>{contact.direct}</p>
       <ul className={styles.people}>
         {siteConfig.contact.people.map((person) => (
           <li key={person.email}>
@@ -50,16 +50,7 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
           </li>
         ))}
       </ul>
-      <p className={styles.label}>{contact.direct}</p>
       <ul>
-        <li>
-          <Mail />
-          <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
-        </li>
-        <li>
-          <Phone />
-          <a href={`tel:${siteConfig.contact.phoneHref}`}>{siteConfig.contact.phone}</a>
-        </li>
         <li>
           <MapPin />
           <span>

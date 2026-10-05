@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
-import { siteConfig } from '@/config/site'
+import { primaryContact, siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import { format } from '@/i18n/format'
@@ -419,7 +419,7 @@ export function InquiryForm({ lang, dict, schedulingUrl, turnstileSiteKey }: Pro
                 error={err('phone')}
                 autoComplete="tel"
                 inputMode="tel"
-                placeholder="+358 40 123 4567"
+                placeholder="+358 40 000 0000"
                 maxLength={24}
               />
               <div className={styles.span2}>
@@ -529,9 +529,9 @@ export function InquiryForm({ lang, dict, schedulingUrl, turnstileSiteKey }: Pro
                     : t.validation.summary}
               </p>
               {submitError && !['validation', 'captcha'].includes(submitError) && (
-                <a href={`mailto:${siteConfig.contact.email}`} className={styles.link}>
+                <a href={`mailto:${primaryContact.email}`} className={styles.link}>
                   <Mail />
-                  {format(t.errors.emailUs, { email: siteConfig.contact.email })}
+                  {format(t.errors.emailUs, { email: primaryContact.email })}
                 </a>
               )}
             </div>

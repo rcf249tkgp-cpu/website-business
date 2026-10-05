@@ -17,11 +17,11 @@ export const siteConfig = {
 
   /** Public contact details. */
   contact: {
-    email: 'hello@fusionsites.fi',
-    phone: '+358 40 123 4567',
-    /** Phone in E.164 format for `tel:` links. */
-    phoneHref: '+358401234567',
-    /** The people behind the studio, shown in the contact section and footer. */
+    /**
+     * The people behind the studio, shown in the contact section, footer and menu.
+     * The first person is the main contact (legal pages, structured data, form errors).
+     * `phoneHref` is the E.164 format for `tel:` links.
+     */
     people: [
       {
         name: 'Martin Haukerud',
@@ -128,5 +128,8 @@ export const schedulingUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || ''
 
 /** Optional Cloudflare Turnstile site key for extra spam protection. */
 export const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
+
+/** Main contact: the first person in `contact.people`. */
+export const primaryContact = siteConfig.contact.people[0]
 
 export type BudgetRangeId = (typeof siteConfig.budgetRanges)[number]['id']

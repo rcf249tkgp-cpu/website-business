@@ -472,7 +472,6 @@ const sv: Dictionary = {
       'Offert till fast pris inom två dagar',
       'Dina uppgifter hanteras konfidentiellt',
     ],
-    peopleLabel: 'Team',
     reply: 'Svar inom en arbetsdag',
   },
   form: {
@@ -616,7 +615,7 @@ const sv: Dictionary = {
     privacy: 'Integritetspolicy',
     terms: 'Användarvillkor',
     cookies: 'Webbplatsen använder inga spårningscookies.',
-    businessId: 'Organisationsnummer',
+    businessId: 'FO-nummer',
     brandNote: 'Fusion Sites är ett varumärke som tillhör Fusion Hauk Oy.',
     rights: 'Alla rättigheter förbehållna.',
     backToTop: 'Till toppen',

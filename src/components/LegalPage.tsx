@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { siteConfig } from '@/config/site'
+import { primaryContact, siteConfig } from '@/config/site'
 import type { Locale } from '@/i18n/config'
 import { localeTags } from '@/i18n/config'
 import { format } from '@/i18n/format'
@@ -21,7 +21,7 @@ export function LegalPage({ lang, back, updatedLabel, content }: Props) {
   const vars = {
     company: siteConfig.name,
     legalName: siteConfig.legalName,
-    email: siteConfig.contact.email,
+    email: primaryContact.email,
     address: `${address.street}, ${address.postalCode} ${address.city}, ${address.country[lang]}`,
   }
   const updated = new Intl.DateTimeFormat(localeTags[lang], { dateStyle: 'long', timeZone: 'UTC' }).format(

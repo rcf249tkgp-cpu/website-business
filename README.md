@@ -32,7 +32,7 @@ For local development without real email, set `MAIL_PROVIDER=console` in `.env.l
 
 ### 1. Branding & contact details — `src/config/site.ts`
 
-One file holds the company name, legal name, business ID, email, phone, address, opening hours, social links, currency, budget ranges and meeting time slots. The brand is “Fusion Sites”; the legal company is Fusion Hauk Oy (business ID 3602341-5). **The general phone number and email are still placeholders. Replace them before launch.**
+One file holds the company name, legal name, business ID, email, phone, address, opening hours, social links, currency, budget ranges and meeting time slots. The brand is “Fusion Sites”; the legal company is Fusion Hauk Oy (business ID 3602341-5). Contact details are the people listed under `contact.people` (Martin Haukerud and Casper Gauffin-Kauste); the first person is the main contact.
 
 - The logo lockup is `src/components/Logo.tsx`; the F mark itself is a vector redraw in `src/components/BrandMark.tsx`. The favicon is `src/app/icon.svg` (plus `src/app/apple-icon.png`). Replace them with the official artwork when you have SVG/PNG exports.
 - Colours and design tokens (near-black navy background, electric blue accent, silver/chrome gradients) are at the top of `src/app/globals.css`.
@@ -57,7 +57,8 @@ Each delivery is retried once on a temporary failure. For extra safety you can a
 1. Create an account at <https://resend.com>.
 2. Add and verify your domain (DNS records: SPF + DKIM).
 3. Create an API key.
-4. Set `RESEND_API_KEY` and `MAIL_FROM="Fusion Sites <no-reply@yourdomain.com>"`. Inquiries go to the people in `src/config/site.ts` (Martin and Casper) unless you set `INQUIRY_TO_EMAIL` (comma-separated).
+4. Set `RESEND_API_KEY`, `MAIL_FROM="Fusion Sites <no-reply@yourdomain.com>"` and `INQUIRY_TO_EMAIL` (comma-separated, e.g. `martin@atlashaukerud.fi,casper@atlashaukerud.fi`).
+   Before your domain is verified, Resend only delivers to the account owner's address: leave `MAIL_FROM` empty (the shared `onboarding@resend.dev` sender is used), set `INQUIRY_TO_EMAIL` to that one address and `SEND_CUSTOMER_CONFIRMATION=false`.
 
 **Option B: SMTP (Google Workspace, Microsoft 365, Zoho, Mailgun…)**
 Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` (use an *app password*, not your login password), `MAIL_FROM` and `INQUIRY_TO_EMAIL`.
@@ -94,7 +95,7 @@ Set `NEXT_PUBLIC_SITE_URL=https://www.yourdomain.com` so canonical URLs, `hrefla
 | `NEXT_PUBLIC_SITE_URL` | Yes (prod) | Canonical/sitemap/OG base URL |
 | `RESEND_API_KEY` **or** `SMTP_*` | Yes | Email delivery |
 | `MAIL_FROM` | Yes | Sender address (verified domain) |
-| `INQUIRY_TO_EMAIL` | Optional | Inboxes for new inquiries, comma-separated (defaults to the people in `site.ts`) |
+| `INQUIRY_TO_EMAIL` | Recommended | Inboxes for new inquiries, comma-separated (defaults to the main contact, Martin) |
 | `NEXT_PUBLIC_CALENDLY_URL` | Optional | Instant booking on the confirmation screen |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` | Optional | CAPTCHA |
 | `SEND_CUSTOMER_CONFIRMATION` | Optional | `false` disables the customer acknowledgement email |

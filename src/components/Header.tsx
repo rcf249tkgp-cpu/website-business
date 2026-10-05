@@ -113,10 +113,12 @@ export function Header({ lang, dict }: Props) {
             {dict.nav.cta}
             <ArrowRight />
           </Link>
-          <p className={styles.mobileContact}>
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
-            <a href={`tel:${siteConfig.contact.phoneHref}`}>{siteConfig.contact.phone}</a>
-          </p>
+          {siteConfig.contact.people.map((person) => (
+            <p key={person.email} className={styles.mobileContact}>
+              <a href={`mailto:${person.email}`}>{person.email}</a>
+              <a href={`tel:${person.phoneHref}`}>{person.phone}</a>
+            </p>
+          ))}
         </div>
       </div>
     </header>

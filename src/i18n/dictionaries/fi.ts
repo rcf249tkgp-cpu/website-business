@@ -472,7 +472,6 @@ const fi: Dictionary = {
       'Kiinteähintainen tarjous kahdessa päivässä',
       'Tietojasi käsitellään luottamuksellisesti',
     ],
-    peopleLabel: 'Tiimi',
     reply: 'Vastaus yhden arkipäivän sisällä',
   },
   form: {

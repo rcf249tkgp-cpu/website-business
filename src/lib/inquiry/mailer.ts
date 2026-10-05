@@ -1,6 +1,6 @@
 import 'server-only'
 import nodemailer from 'nodemailer'
-import { siteConfig } from '@/config/site'
+import { primaryContact, siteConfig } from '@/config/site'
 
 export interface MailMessage {
   to: string | string[]
@@ -16,19 +16,21 @@ export interface Mailer {
 }
 
 /**
- * Where new inquiries are delivered: INQUIRY_TO_EMAIL (comma-separated for
- * several inboxes), otherwise the people listed in src/config/site.ts.
+ * Where new inquiries are delivered: INQUIRY_TO_EMAIL, comma-separated for
+ * several inboxes. Falls back to the main contact only, because Resend can
+ * deliver only to the account owner until a domain is verified.
  */
 export function inquiryRecipients(): string[] {
   const fromEnv = (process.env.INQUIRY_TO_EMAIL ?? '')
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean)
-  return fromEnv.length ? fromEnv : siteConfig.contact.people.map((p) => p.email)
+  return fromEnv.length ? fromEnv : [primaryContact.email]
 }
 
 function sender(): string {
-  return process.env.MAIL_FROM?.trim() || `${siteConfig.name} <${siteConfig.contact.email}>`
+  // Resend's shared test sender works before your own domain is verified.
+  return process.env.MAIL_FROM?.trim() || `${siteConfig.name} <onboarding@resend.dev>`
 }
 
 function resendMailer(apiKey: string): Mailer {

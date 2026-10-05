@@ -7,7 +7,7 @@ import { Pricing } from '@/components/Pricing'
 import { Process } from '@/components/Process'
 import { Services } from '@/components/Services'
 import { Work } from '@/components/Work'
-import { siteConfig, siteUrl } from '@/config/site'
+import { primaryContact, siteConfig, siteUrl } from '@/config/site'
 import { getDictionary } from '@/i18n'
 import { isLocale, localeTags } from '@/i18n/config'
 import { notFound } from 'next/navigation'
@@ -24,8 +24,14 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
     legalName: siteConfig.legalName,
     description: dict.meta.description,
     url: `${siteUrl}/${lang}`,
-    email: siteConfig.contact.email,
-    telephone: siteConfig.contact.phoneHref,
+    email: primaryContact.email,
+    telephone: primaryContact.phoneHref,
+    employee: siteConfig.contact.people.map((p) => ({
+      '@type': 'Person',
+      name: p.name,
+      email: p.email,
+      telephone: p.phoneHref,
+    })),
     inLanguage: localeTags[lang],
     address: {
       '@type': 'PostalAddress',

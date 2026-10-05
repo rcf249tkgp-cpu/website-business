@@ -446,7 +446,6 @@ const en = {
       'Fixed-price proposal within two days',
       'Your data is handled confidentially',
     ],
-    peopleLabel: 'Team',
     reply: 'Reply within one business day',
   },
   form: {

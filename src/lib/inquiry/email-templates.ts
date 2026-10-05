@@ -107,8 +107,8 @@ export function customerEmail(data: InquiryData, locale: Locale, reference: stri
 ${rowsHtml(rows)}
 <p style="margin:24px 0 0;font-size:14px;color:#4b5563">${escapeHtml(e.reply)}</p>
 <p style="margin:16px 0 0;font-size:15px">${escapeHtml(e.signoff)}<br>${escapeHtml(format(e.team, vars))}<br>
-<span style="color:#6b7280;font-size:13px">${escapeHtml(siteConfig.contact.email)} · ${escapeHtml(siteConfig.contact.phone)}</span></p>`,
+${siteConfig.contact.people.map((p) => `<span style="color:#6b7280;font-size:13px">${escapeHtml(p.name)} · ${escapeHtml(p.email)} · ${escapeHtml(p.phone)}</span>`).join('<br>')}</p>`,
   )
-  const text = `${paragraphs.join('\n\n')}\n\n${meetingNote}\n\n${e.summaryTitle}\n${rowsText(rows)}\n\n${e.reply}\n\n${e.signoff}\n${format(e.team, vars)}\n${siteConfig.contact.email} · ${siteConfig.contact.phone}`
+  const text = `${paragraphs.join('\n\n')}\n\n${meetingNote}\n\n${e.summaryTitle}\n${rowsText(rows)}\n\n${e.reply}\n\n${e.signoff}\n${format(e.team, vars)}\n${siteConfig.contact.people.map((p) => `${p.name} · ${p.email} · ${p.phone}`).join('\n')}`
   return { subject, html, text }
 }

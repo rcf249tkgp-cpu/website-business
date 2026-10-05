@@ -61,8 +61,6 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           <div>
             <h2 className={styles.heading}>{footer.contact}</h2>
             <address className={styles.list}>
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a>
               {contact.people.map((person) => (
                 <span key={person.email} className={styles.person}>
                   <strong>{person.name}</strong>

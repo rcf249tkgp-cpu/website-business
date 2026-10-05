@@ -196,9 +196,9 @@ test.describe('inquiry form', () => {
       await form(page).getByRole('button', { name: en.submit }).click()
       const alert = form(page).getByRole('alert')
       await expect(alert).toContainText(text)
-      await expect(alert.getByRole('link', { name: /hello@fusionsites\.fi/ })).toHaveAttribute(
+      await expect(alert.getByRole('link', { name: /martin@atlashaukerud\.fi/ })).toHaveAttribute(
         'href',
-        'mailto:hello@fusionsites.fi',
+        'mailto:martin@atlashaukerud.fi',
       )
       await expect(form(page).getByRole('button', { name: 'Try again' })).toBeEnabled()
       await expect(form(page).getByText('Thank you')).toHaveCount(0)
