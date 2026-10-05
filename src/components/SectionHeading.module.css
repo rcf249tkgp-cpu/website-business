@@ -4,7 +4,7 @@
   column-gap: clamp(12px, 2vw, 24px);
   row-gap: 22px;
   align-items: end;
-  margin-bottom: clamp(48px, 7vw, 96px);
+  margin-bottom: var(--space-heading);
 }
 
 /* A ruled line with the section number, like a sheet in a drawing set. */
@@ -17,7 +17,7 @@
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -34,24 +34,17 @@
 
 .title {
   grid-column: 1 / span 8;
-  font-size: clamp(2rem, 4.6vw, 4.2rem);
-  line-height: 1.08;
+  font-size: var(--fs-section);
+  line-height: 1.1;
   letter-spacing: -0.015em;
-}
-
-/* Brushed-chrome words, echoing the logo. */
-.title :global(.split-word) > span {
-  background: var(--chrome) 0 0 / 100% 1.08em repeat-y;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 .description {
   grid-column: 9 / -1;
   max-width: 44ch;
   color: var(--text-muted);
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-size: var(--fs-lead);
+  line-height: 1.6;
 }
 
 .heading[data-layout='stack'] .title,

@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
@@ -34,15 +33,17 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             <div className={styles.lang}>
               <LanguageSwitcher lang={lang} label={dict.a11y.language} expanded />
             </div>
-            <ul className={styles.social}>
-              {siteConfig.social.map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer">
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {siteConfig.social.length > 0 && (
+              <ul className={styles.social}>
+                {siteConfig.social.map((s) => (
+                  <li key={s.label}>
+                    <a href={s.href} target="_blank" rel="noopener noreferrer">
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <nav aria-labelledby="footer-nav">
@@ -111,12 +112,8 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           </a>
         </div>
       </div>
-      <div className={styles.wordmark} aria-hidden="true" data-split>
-        {Array.from(siteConfig.name).map((letter, i) => (
-          <span key={i} className="split-word">
-            <span style={{ '--i': i } as CSSProperties}>{letter === ' ' ? '\u00a0' : letter}</span>
-          </span>
-        ))}
+      <div className={styles.wordmark} aria-hidden="true">
+        {siteConfig.name}
       </div>
     </footer>
   )

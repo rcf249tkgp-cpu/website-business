@@ -31,7 +31,7 @@
   margin-bottom: 12px;
   color: var(--text-subtle);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -43,28 +43,23 @@
 
 /* ================================================================ Teaser */
 .teaser {
-  padding-bottom: clamp(96px, 12vw, 160px);
+  padding-bottom: calc(var(--space-section) * 1.2);
   background: radial-gradient(70% 60% at 50% 120%, rgba(47, 123, 255, 0.2), transparent 70%), var(--bg);
 }
 
 .bigTitle {
-  margin: clamp(36px, 5vw, 64px) 0 clamp(48px, 7vw, 96px);
-  font-size: clamp(2.2rem, 7.4vw, 7.6rem);
-  line-height: 1.02;
+  max-width: 16ch;
+  margin: clamp(28px, 4vw, 48px) 0 clamp(40px, 5vw, 64px);
+  font-size: clamp(2rem, 5.2vw, 4.75rem);
+  line-height: 1.06;
   letter-spacing: -0.02em;
 }
 
-.bigTitle :global(.split-word) > span {
-  background: var(--chrome) 0 0 / 100% 1.02em repeat-y;
+.highlight {
+  background: linear-gradient(180deg, #a9c8ff, #4d8dff 55%, #2f7bff) 0 0 / 100% 1lh repeat-y;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-.bigTitle > span:last-child :global(.split-word) > span {
-  background: linear-gradient(180deg, #a9c8ff, #4d8dff 55%, #2f7bff) 0 0 / 100% 1.02em repeat-y;
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
 .row {
@@ -115,7 +110,7 @@
   border-radius: 50%;
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label);
 }
 
 .cta {
@@ -167,6 +162,19 @@
 .direct a {
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s;
+}
+
+/* Comfortable thumb-sized targets on touch screens. */
+@media (pointer: coarse) {
+  .direct ul.people li {
+    gap: 0;
+  }
+
+  .direct a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
 
 .direct a:hover {

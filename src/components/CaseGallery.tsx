@@ -8,11 +8,15 @@ interface Screen {
   id: string
   src: string
   label: string
+  /** CSS object-position for the cropped frame (defaults to the top of the page). */
+  focus?: string
   /** Areas to blur (placeholder text): [left, top, width, height] in %. */
   blur?: number[][]
 }
 
 const INTERVAL = 5000
+/** The desktop frame shows a 16:10 crop of each screenshot (kept in sync with Work.module.css). */
+const FRAME_RATIO = 16 / 10
 
 /**
  * Screenshots of the live case-study site in a browser frame. It steps through
@@ -68,6 +72,8 @@ export function CaseGallery({
   }, [auto, paused, active, screens.length])
 
   const playing = auto && !paused
+  // Blur areas are measured on the full screenshot; the frame crops it from the top.
+  const stretch = size.height / (size.width / FRAME_RATIO)
 
   return (
     <div
@@ -85,7 +91,7 @@ export function CaseGallery({
           </span>
           <span className={styles.caseUrl}>{host}</span>
         </div>
-        <div className={styles.shots} style={{ aspectRatio: `${size.width} / ${size.height}` }}>
+        <div className={styles.shots}>
           {screens.map((s, i) => (
             <div
               key={s.id}
@@ -98,14 +104,20 @@ export function CaseGallery({
                 width={size.width}
                 height={size.height}
                 alt={`${client} — ${s.label}`}
-                sizes="(max-width: 1000px) 100vw, 62vw"
+                sizes="(max-width: 760px) 100vw, 72vw"
+                style={s.focus ? { objectPosition: s.focus } : undefined}
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
               {s.blur?.map(([left, top, width, height]) => (
                 <span
                   key={`${left}-${top}`}
                   className={styles.blur}
-                  style={{ left: `${left}%`, top: `${top}%`, width: `${width}%`, height: `${height}%` }}
+                  style={{
+                    left: `${left}%`,
+                    top: `${top * stretch}%`,
+                    width: `${width}%`,
+                    height: `${height * stretch}%`,
+                  }}
                 />
               ))}
             </div>

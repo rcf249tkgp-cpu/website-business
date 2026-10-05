@@ -12,9 +12,9 @@ export function Faq({ dict }: { dict: Dictionary }) {
         <div className={styles.side}>
           <SectionHeading id="faq-title" index="07" eyebrow={faq.eyebrow} title={faq.title} layout="stack" />
         </div>
-        <div className={styles.list}>
+        <div className={styles.list} data-stagger>
           {faq.items.map((item, i) => (
-            <details key={item.q} className={`${styles.item} reveal`} open={i === 0}>
+            <details key={item.q} className={styles.item} open={i === 0}>
               <summary>
                 <span className={styles.num} aria-hidden="true">
                   {String(i + 1).padStart(2, '0')}

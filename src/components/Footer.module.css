@@ -33,7 +33,6 @@
 
 .social a {
   color: var(--text-muted);
-  transition: color 0.2s;
 }
 
 .social a:hover {
@@ -43,8 +42,8 @@
 .heading {
   color: var(--text-subtle);
   font-family: var(--font-display);
-  font-size: 10.5px;
-  letter-spacing: 0.3em;
+  font-size: var(--fs-label);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 
@@ -58,8 +57,26 @@
   font-style: normal;
 }
 
-.list a {
+.list a,
+.social a,
+.top {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
   transition: color 0.2s;
+}
+
+/* Comfortable thumb-sized targets on touch screens. */
+@media (pointer: coarse) {
+  .list {
+    gap: 0;
+  }
+
+  .list a,
+  .social a,
+  .top {
+    min-height: 44px;
+  }
 }
 
 .list a:hover {
@@ -85,10 +102,7 @@
 }
 
 .top {
-  display: inline-flex;
-  align-items: center;
   gap: 6px;
-  transition: color 0.2s;
 }
 
 .top:hover {
@@ -102,6 +116,9 @@
 
 .wordmark {
   margin-bottom: -0.16em;
+  background: linear-gradient(180deg, rgba(226, 232, 240, 0.22), rgba(77, 141, 255, 0.1) 50%, transparent 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 7.2vw, 7rem);
@@ -114,16 +131,6 @@
   pointer-events: none;
 }
 
-.wordmark :global(.split-word) > span {
-  background: linear-gradient(180deg, rgba(226, 232, 240, 0.22), rgba(77, 141, 255, 0.1) 50%, transparent 92%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.wordmark:global([data-split]) :global(.split-word) > span {
-  transition-duration: 1.4s;
-  transition-delay: calc(var(--i) * 70ms);
-}
 
 @media (max-width: 860px) {
   .grid {

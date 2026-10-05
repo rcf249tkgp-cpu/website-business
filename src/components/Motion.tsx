@@ -1,95 +1,119 @@
 'use client'
 
+import { animate, inView, stagger } from 'motion'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
+/** Shared motion tokens: short, soft and the same everywhere. */
+const EASE = [0.16, 1, 0.3, 1] as const
+const REVEAL = { duration: 0.6, ease: EASE }
+const RISE = 14
+/** Reveal when an element is 8% into the viewport, or already above it (fast scrolls and jumps can skip past). */
+const MARGIN = '100000px 0px -8% 0px'
+
 /**
- * All interface motion in one place, driven by CSS. This component only:
- * - marks `.reveal` / `[data-split]` elements with `data-inview` once they scroll
- *   into view (one-shot, with a small stagger between siblings),
- * - feeds the pointer position to `.card` spotlights and `[data-glow]` areas,
- * - nudges `[data-magnetic]` buttons toward the cursor.
- * Nothing runs when the visitor prefers reduced motion (see the `motion` class in the layout).
+ * All interface motion in one place, powered by Motion:
+ * - the hero entrance (`[data-hero]` parts, in order),
+ * - one-shot section reveals: each `.reveal` element fades up a few pixels the
+ *   first time it scrolls into view; `[data-stagger]` lists reveal their children in turn,
+ * - the pointer position for `.card` spotlights and `[data-glow]` areas.
+ * The hidden starting states live in CSS under `html.motion`, a class the layout
+ * adds before first paint only when the visitor has not asked for reduced motion.
+ * Without it (or without JavaScript) everything is simply visible and still.
  */
 export function Motion() {
   const pathname = usePathname()
 
-  // Reveal on scroll. Re-scans after every navigation so new pages animate too.
+  // Hero entrance: the mark settles in, then the headline and the rest follow.
   useEffect(() => {
     if (!document.documentElement.classList.contains('motion')) return
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('.reveal, [data-split]')).filter(
-      (el) => !el.hasAttribute('data-inview'),
-    )
-    for (const el of targets) {
-      const siblings = Array.from(el.parentElement?.children ?? []).filter((c) => c.classList.contains('reveal'))
-      const index = siblings.indexOf(el)
-      if (index > 0) el.style.setProperty('--stagger', `${Math.min(index, 6) * 90}ms`)
+    const part = (name: string) => document.querySelectorAll<HTMLElement>(`[data-hero="${name}"]:not([data-shown])`)
+    const mark = part('mark')
+    const lines = part('line')
+    const rest = part('rest')
+    if (!mark.length && !lines.length && !rest.length) return
+    const all = [...mark, ...lines, ...rest]
+    const controls = [
+      animate(mark, { opacity: [0, 1], scale: [0.94, 1] }, { duration: 1.1, ease: EASE }),
+      animate(lines, { opacity: [0, 1], y: [22, 0] }, { duration: 0.8, ease: EASE, delay: stagger(0.08, { startDelay: 0.12 }) }),
+      animate(rest, { opacity: [0, 1], y: [RISE, 0] }, { duration: 0.7, ease: EASE, delay: stagger(0.07, { startDelay: 0.4 }) }),
+    ]
+    Promise.all(controls.map((c) => c.finished)).then(() => all.forEach(settle))
+    return () => {
+      controls.forEach((c) => c.complete())
+      all.forEach(settle)
     }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue
-          entry.target.setAttribute('data-inview', '')
-          observer.unobserve(entry.target)
-        }
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
-    )
-    targets.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
   }, [pathname])
 
-  // Pointer effects: card spotlight, area glow, magnetic buttons.
+  // Scroll reveals. Re-scans after every navigation so new pages animate too.
+  useEffect(() => {
+    if (!document.documentElement.classList.contains('motion')) return
+    const stops: (() => void)[] = []
+    // Plays once: the observer stops as soon as the element has been revealed.
+    const once = (el: HTMLElement, play: () => void) => {
+      const stop = inView(
+        el,
+        () => {
+          stop()
+          play()
+        },
+        { margin: MARGIN },
+      )
+      stops.push(stop)
+    }
+
+    for (const el of document.querySelectorAll<HTMLElement>('.reveal:not([data-shown])')) {
+      once(el, () => {
+        animate(el, { opacity: [0, 1], y: [RISE, 0] }, REVEAL).finished.then(() => settle(el))
+      })
+    }
+
+    for (const list of document.querySelectorAll<HTMLElement>('[data-stagger]:not([data-shown])')) {
+      once(list, () => {
+        const items = Array.from(list.children) as HTMLElement[]
+        settle(list)
+        animate(items, { opacity: [0, 1], y: [RISE, 0] }, { ...REVEAL, delay: stagger(0.07) }).finished.then(() =>
+          items.forEach(settle),
+        )
+      })
+    }
+
+    return () => stops.forEach((stop) => stop())
+  }, [pathname])
+
+  // Pointer position for card spotlights and glow areas (mouse only).
   useEffect(() => {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
-    const still = !document.documentElement.classList.contains('motion')
     let frame = 0
-    let magnet: HTMLElement | null = null
-
     const onMove = (event: PointerEvent) => {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
         const target = event.target as Element | null
-
-        const card = target?.closest?.<HTMLElement>('.card')
-        if (card) {
-          const r = card.getBoundingClientRect()
-          card.style.setProperty('--mx', `${event.clientX - r.left}px`)
-          card.style.setProperty('--my', `${event.clientY - r.top}px`)
-        }
-
-        const glow = target?.closest?.<HTMLElement>('[data-glow]')
-        if (glow) {
-          const r = glow.getBoundingClientRect()
-          glow.style.setProperty('--gx', `${event.clientX - r.left}px`)
-          glow.style.setProperty('--gy', `${event.clientY - r.top}px`)
-        }
-
-        if (still) return
-        const next = target?.closest?.<HTMLElement>('[data-magnetic]') ?? null
-        if (magnet && magnet !== next) magnet.style.translate = ''
-        magnet = next
-        if (magnet) {
-          const r = magnet.getBoundingClientRect()
-          const dx = (event.clientX - (r.left + r.width / 2)) / (r.width / 2)
-          const dy = (event.clientY - (r.top + r.height / 2)) / (r.height / 2)
-          magnet.style.translate = `${(dx * 6).toFixed(1)}px ${(dy * 5).toFixed(1)}px`
+        for (const [selector, x, y] of [
+          ['.card', '--mx', '--my'],
+          ['[data-glow]', '--gx', '--gy'],
+        ] as const) {
+          const el = target?.closest?.<HTMLElement>(selector)
+          if (!el) continue
+          const r = el.getBoundingClientRect()
+          el.style.setProperty(x, `${event.clientX - r.left}px`)
+          el.style.setProperty(y, `${event.clientY - r.top}px`)
         }
       })
     }
-    const onLeave = () => {
-      if (magnet) magnet.style.translate = ''
-      magnet = null
-    }
-
     document.addEventListener('pointermove', onMove, { passive: true })
-    document.addEventListener('pointerleave', onLeave)
     return () => {
       cancelAnimationFrame(frame)
       document.removeEventListener('pointermove', onMove)
-      document.removeEventListener('pointerleave', onLeave)
     }
   }, [])
 
   return null
+}
+
+/** Marks an element as shown and hands its styling back to CSS (so hover transforms work). */
+function settle(el: HTMLElement) {
+  el.setAttribute('data-shown', '')
+  el.style.removeProperty('opacity')
+  el.style.removeProperty('transform')
 }

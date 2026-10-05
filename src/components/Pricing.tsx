@@ -46,13 +46,13 @@ export function Pricing({ lang, dict, standalone = false }: { lang: Locale; dict
           as={standalone ? 'h1' : 'h2'}
         />
 
-        <div className={styles.tiers}>
+        <div className={styles.tiers} data-stagger>
           {pricing.tiers.map((tier) => {
             const featured = tier.id === 'standard'
             return (
               <article
                 key={tier.id}
-                className={`${styles.tier} reveal`}
+                className={styles.tier}
                 data-featured={featured || undefined}
                 aria-labelledby={`tier-${tier.id}`}
               >

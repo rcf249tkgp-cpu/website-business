@@ -10,26 +10,28 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={`container ${styles.grid}`}>
-        <div className={styles.topline}>
+        <div className={styles.topline} data-hero="rest">
           <span className={styles.kicker}>{hero.kicker}</span>
           <span className={styles.index} aria-hidden="true">
             FS / 01
           </span>
         </div>
 
-        <div className={styles.markWrap}>
+        <div className={styles.markWrap} data-hero="mark">
           <HeroMark />
         </div>
 
-        <h1 id="hero-title" className={styles.title}>
+        <h1 id="hero-title" className={styles.title} data-hero="line">
           <span className={styles.lead}>{hero.titleLead}</span>{' '}
           <span className={styles.highlight}>{hero.titleHighlight}</span>
         </h1>
 
         <div className={styles.bottom}>
-          <p className={styles.description}>{hero.description}</p>
-          <div className={styles.ctas}>
-            <Link href={`/${lang}/start`} className="btn btn-primary" data-magnetic>
+          <p className={styles.description} data-hero="rest">
+            {hero.description}
+          </p>
+          <div className={styles.ctas} data-hero="rest">
+            <Link href={`/${lang}/start`} className="btn btn-primary">
               {hero.primaryCta}
               <ArrowRight />
             </Link>
@@ -38,7 +40,7 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
               <ArrowUpRight />
             </Link>
           </div>
-          <dl className={styles.facts}>
+          <dl className={styles.facts} data-hero="rest">
             {hero.facts.map((fact) => (
               <div key={fact.label}>
                 <dt>{fact.label}</dt>

@@ -47,12 +47,11 @@ export const siteConfig = {
     },
   },
 
-  /** Social profiles. Remove any you don't use. */
-  social: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'Instagram', href: 'https://www.instagram.com/' },
-    { label: 'GitHub', href: 'https://github.com/' },
-  ],
+  /**
+   * Social profiles, shown in the footer only when listed here. Add the real
+   * profile URLs, e.g. { label: 'LinkedIn', href: 'https://www.linkedin.com/company/…' }.
+   */
+  social: [] as { label: string; href: string }[],
 
   /** Currency used for budget ranges in the project form. */
   currency: 'EUR',
@@ -84,7 +83,8 @@ export const siteConfig = {
     url: 'https://vyroathletics.com',
     /** Screenshots of the live site in /public/work/vyro/ (all 1564 × 1220). */
     screens: [
-      { id: 'drop', src: '/work/vyro/drop.webp' },
+      /** `focus`: which part of the screenshot stays in view when the frame crops it. */
+      { id: 'drop', src: '/work/vyro/drop.webp', focus: 'center 48%' },
       { id: 'shop', src: '/work/vyro/shop.webp' },
       { id: 'product', src: '/work/vyro/product.webp' },
       {

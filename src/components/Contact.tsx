@@ -4,7 +4,6 @@ import type { Locale } from '@/i18n/config'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from './Icons'
 import { InquiryForm } from './inquiry/InquiryForm'
-import { SplitWords } from './SectionHeading'
 import styles from './Contact.module.css'
 
 interface Props {
@@ -104,8 +103,9 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
           <span aria-hidden="true">08</span>
           {contact.eyebrow}
         </p>
-        <Heading id="contact-title" className={styles.bigTitle} data-split>
-          <SplitWords text={contact.title} />
+        <Heading id="contact-title" className={`${styles.bigTitle} reveal`}>
+          <span className="chrome-lines">{contact.title.slice(0, contact.title.lastIndexOf(' '))}</span>{' '}
+          <span className={styles.highlight}>{contact.title.slice(contact.title.lastIndexOf(' ') + 1)}</span>
         </Heading>
 
         <div className={styles.row}>
@@ -120,7 +120,7 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
                 </li>
               ))}
             </ol>
-            <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.cta}`} data-magnetic>
+            <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.cta}`}>
               {dict.nav.cta}
               <ArrowRight />
             </Link>

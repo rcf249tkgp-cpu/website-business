@@ -10,40 +10,34 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
   const { url, screens, screenSize, mobileScreens, mobileSize } = siteConfig.featuredCase
   const host = url.replace(/^https?:\/\//, '')
   return (
-    <article className={`${styles.case} reveal`} aria-labelledby="case-title">
-      <div className={styles.caseInfo}>
-        <p className={styles.caseLabel}>
-          <span className={styles.liveDot} aria-hidden="true" />
-          {t.caseLabel} · {t.caseLive}
-        </p>
-        <Heading id="case-title" className={styles.client}>
-          {featured.client}
-        </Heading>
-        <p className={styles.category}>{featured.category}</p>
-        <p className={styles.summary}>{featured.summary}</p>
-        <div className={styles.built}>
-          <p className={styles.builtLabel}>{featured.builtLabel}</p>
-          <ul>
-            {featured.built.map((item, i) => (
-              <li key={item}>
-                <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+    <article className={styles.case} aria-labelledby="case-title">
+      <header className={`${styles.caseHead} reveal`}>
+        <div className={styles.caseIntro}>
+          <p className={styles.caseLabel}>
+            <span className={styles.liveDot} aria-hidden="true" />
+            {t.caseLabel} · {t.caseLive}
+          </p>
+          <Heading id="case-title" className={styles.client}>
+            <span className="chrome-lines">{featured.client}</span>
+          </Heading>
+          <p className={styles.category}>{featured.category}</p>
         </div>
-        <a href={url} target="_blank" rel="noopener noreferrer" className={styles.caseLink}>
-          {featured.cta}
-          <ArrowUpRight />
-        </a>
-      </div>
+        <div className={styles.caseText}>
+          <p className={styles.summary}>{featured.summary}</p>
+          <a href={url} target="_blank" rel="noopener noreferrer" className={`btn btn-secondary ${styles.caseLink}`}>
+            {featured.cta}
+            <ArrowUpRight />
+          </a>
+        </div>
+      </header>
 
-      <div className={styles.caseVisual}>
+      <div className={`${styles.caseStage} reveal`} data-glow>
         <CaseGallery
           screens={screens.map((sc) => ({
             id: sc.id,
             src: sc.src,
             label: featured.pages[sc.id],
+            focus: 'focus' in sc ? sc.focus : undefined,
             blur: 'blur' in sc ? sc.blur.map((r) => [...r]) : undefined,
           }))}
           size={screenSize}
@@ -54,6 +48,18 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
           phoneSize={mobileSize}
           mobileLabel={t.mobile}
         />
+      </div>
+
+      <div className={styles.built}>
+        <p className={styles.builtLabel}>{featured.builtLabel}</p>
+        <ul data-stagger>
+          {featured.built.map((item, i) => (
+            <li key={item}>
+              <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   )

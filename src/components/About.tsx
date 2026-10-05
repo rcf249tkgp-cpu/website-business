@@ -1,8 +1,7 @@
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
-import { BrandMark } from './BrandMark'
-import { SectionHeading, SplitWords } from './SectionHeading'
+import { SectionHeading } from './SectionHeading'
 import styles from './About.module.css'
 
 export function About({ lang, dict, standalone = false }: { lang: Locale; dict: Dictionary; standalone?: boolean }) {
@@ -26,15 +25,8 @@ export function About({ lang, dict, standalone = false }: { lang: Locale; dict: 
           as={standalone ? 'h1' : 'h2'}
         />
 
-        <p className={styles.statement} data-split>
-          <SplitWords text={about.statement} />
-        </p>
-
         <div className={styles.grid}>
-          <figure className={`${styles.photo} reveal`}>
-            <BrandMark size={56} />
-            <figcaption>{about.photo}</figcaption>
-          </figure>
+          <p className={`${styles.statement} reveal`}>{about.statement}</p>
 
           <div className={styles.body}>
             {about.body.map((p) => (
@@ -42,11 +34,13 @@ export function About({ lang, dict, standalone = false }: { lang: Locale; dict: 
                 {p}
               </p>
             ))}
+          </div>
 
+          <div className={styles.valuesWrap}>
             <Sub className={styles.valuesTitle}>{about.valuesTitle}</Sub>
-            <ol className={styles.values}>
+            <ol className={styles.values} data-stagger>
               {about.values.map((v, i) => (
-                <li key={v.title} className="reveal">
+                <li key={v.title}>
                   <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                   <SubSub>{v.title}</SubSub>
                   <p>{v.text}</p>
