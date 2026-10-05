@@ -2,7 +2,7 @@ import { schedulingUrl, siteConfig, turnstileSiteKey } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import Link from 'next/link'
-import { ArrowRight, Clock, MapPin } from './Icons'
+import { ArrowRight, MapPin } from './Icons'
 import { InquiryForm } from './inquiry/InquiryForm'
 import { SplitWords } from './SectionHeading'
 import styles from './Contact.module.css'
@@ -55,13 +55,6 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
           <MapPin />
           <span>
             {address.street}, {address.postalCode} {address.city}
-          </span>
-        </li>
-        <li>
-          <Clock />
-          <span>
-            <span className="sr-only">{contact.hoursLabel}: </span>
-            {siteConfig.contact.hours[lang]}
           </span>
         </li>
       </ul>

@@ -75,8 +75,8 @@ const en = {
         id: 'redesign',
         title: 'Redesigns',
         description:
-          'Dated or hard to use on a phone? We rebuild your site, keep what works, move your content over and protect your Google visibility.',
-        includes: ['A modern look', 'Content moved for you', 'Search visibility kept'],
+          'Dated or hard to use on a phone? We rebuild your site, keep what works, move your content over and keep your existing Google setup intact.',
+        includes: ['A modern look', 'Content moved for you', 'Existing Google setup kept intact'],
       },
     ],
   },
@@ -295,7 +295,7 @@ const en = {
     eyebrow: 'Process',
     title: 'Five steps from first call to launch.',
     description:
-      'Most websites go live within two weeks. You see a live preview within the first few days, so you always know what happens next and what we need from you.',
+      'A typical website takes about two weeks. You see a live preview within the first few days, so you always know what happens next and what we need from you.',
     note: 'Timings are typical for a business website. Online stores and larger sites take longer, and we agree on the exact schedule in the proposal.',
     deliverablesLabel: 'You get',
     steps: [
@@ -417,7 +417,7 @@ const en = {
       },
       {
         q: 'Can we update the content ourselves?',
-        a: 'Yes, if you want to. Most clients simply send us their changes and we make them quickly, for example as part of a monthly maintenance plan. If you would rather edit texts yourself, we can add a simple editing tool.',
+        a: 'Yes, if you want to. You can also simply send us your changes and we make them quickly, for example as part of a monthly maintenance plan. If you would rather edit texts yourself, we can add a simple editing tool.',
       },
       {
         q: 'Do you build multilingual websites?',
@@ -429,7 +429,7 @@ const en = {
       },
       {
         q: 'Why should we trust a new studio?',
-        a: 'We are a young studio, so we make the work visible: real projects you can visit, a fixed-price proposal, a live preview link throughout the project, and quality checks you can review before launch.',
+        a: 'We are a young studio, so we make the work visible: a real project you can visit, a fixed-price proposal, a live preview link throughout the project, and quality checks you can review before launch.',
       },
     ],
   },
@@ -439,7 +439,6 @@ const en = {
     description:
       'Tell us about your project and pick a time that suits you. We’ll get back to you within one business day with next steps.',
     direct: 'Prefer email or phone?',
-    hoursLabel: 'Opening hours',
     nextLabel: 'What happens next',
     points: [
       'Free, no-obligation intro meeting',
@@ -582,7 +581,7 @@ const en = {
     team: 'The {company} team',
   },
   footer: {
-    description: 'A web design and development studio crafting premium websites for ambitious Nordic businesses.',
+    description: 'A Helsinki web studio building websites for local businesses.',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Legal',
@@ -638,7 +637,7 @@ const en = {
         },
         {
           title: 'Example sites',
-          body: 'The example sites shown on this website were created by our team for fictional businesses, to show what we can do. They are not real client projects.',
+          body: 'The concept sites shown on this website were created by our team for fictional businesses, to show what we can do. They are not real client projects. VYRO Athletics is a real client project.',
         },
         {
           title: 'Inquiries and meetings',

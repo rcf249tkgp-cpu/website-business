@@ -85,8 +85,8 @@ const sv: Dictionary = {
         id: 'redesign',
         title: 'Förnyelser',
         description:
-          'Föråldrad eller svår att använda i mobilen? Vi bygger om webbplatsen, behåller det som fungerar, flyttar innehållet och skyddar din synlighet på Google.',
-        includes: ['Ett modernt utseende', 'Innehållet flyttas åt dig', 'Synligheten i sök behålls'],
+          'Föråldrad eller svår att använda i mobilen? Vi bygger om webbplatsen, behåller det som fungerar, flyttar innehållet och behåller dina befintliga Google-inställningar intakta.',
+        includes: ['Ett modernt utseende', 'Innehållet flyttas åt dig', 'Befintliga Google-inställningar behålls'],
       },
     ],
   },
@@ -305,7 +305,7 @@ const sv: Dictionary = {
     eyebrow: 'Process',
     title: 'Fem steg från första samtalet till lansering.',
     description:
-      'De flesta webbplatser går live inom två veckor. Du ser en förhandsvisning redan under de första dagarna, så att du alltid vet vad som händer härnäst och vad vi behöver från dig.',
+      'En typisk webbplats tar ungefär två veckor att bygga. Du ser en förhandsvisning redan under de första dagarna, så att du alltid vet vad som händer härnäst och vad vi behöver från dig.',
     note: 'Tiderna gäller en typisk företagswebbplats. Webbutiker och större webbplatser tar längre tid, och den exakta tidsplanen kommer vi överens om i offerten.',
     deliverablesLabel: 'Du får',
     steps: [
@@ -443,7 +443,7 @@ const sv: Dictionary = {
       },
       {
         q: 'Kan vi uppdatera innehållet själva?',
-        a: 'Ja, om du vill. De flesta kunder skickar sina ändringar till oss och vi gör dem snabbt, till exempel som en del av ett månatligt underhållsavtal. Om du hellre redigerar texterna själv kan vi lägga till ett enkelt redigeringsverktyg.',
+        a: 'Ja, om du vill. Du kan också bara skicka dina ändringar till oss, så gör vi dem snabbt, till exempel som en del av ett månatligt underhållsavtal. Om du hellre redigerar texterna själv kan vi lägga till ett enkelt redigeringsverktyg.',
       },
       {
         q: 'Bygger ni flerspråkiga webbplatser?',
@@ -455,7 +455,7 @@ const sv: Dictionary = {
       },
       {
         q: 'Varför ska vi lita på en ny studio?',
-        a: 'Vi är en ung studio, så vi gör arbetet synligt: riktiga projekt som du kan besöka, en offert till fast pris, en förhandsvisning genom hela projektet och kvalitetskontroller som du kan granska före lansering.',
+        a: 'Vi är en ung studio, så vi gör arbetet synligt: ett riktigt projekt som du kan besöka, en offert till fast pris, en förhandsvisning genom hela projektet och kvalitetskontroller som du kan granska före lansering.',
       },
     ],
   },
@@ -465,7 +465,6 @@ const sv: Dictionary = {
     description:
       'Berätta om ditt projekt och välj en tid som passar dig. Vi återkommer inom en arbetsdag med nästa steg.',
     direct: 'Föredrar du e-post eller telefon?',
-    hoursLabel: 'Öppettider',
     nextLabel: 'Vad som händer sedan',
     points: [
       'Kostnadsfritt och förutsättningslöst startmöte',
@@ -607,8 +606,7 @@ const sv: Dictionary = {
     team: 'Teamet på {company}',
   },
   footer: {
-    description:
-      'En studio för webbdesign och webbutveckling som skapar premiumwebbplatser för ambitiösa nordiska företag.',
+    description: 'En webbstudio i Helsingfors som bygger webbplatser för lokala företag.',
     navigation: 'Navigering',
     contact: 'Kontakt',
     legal: 'Juridiskt',
@@ -664,7 +662,7 @@ const sv: Dictionary = {
         },
         {
           title: 'Exempelwebbplatser',
-          body: 'Exempelwebbplatserna på den här webbplatsen har vårt team skapat för påhittade företag, för att visa vad vi kan. De är inte verkliga kunduppdrag.',
+          body: 'Konceptwebbplatserna på den här webbplatsen har vårt team skapat för påhittade företag, för att visa vad vi kan. De är inte verkliga kunduppdrag. VYRO Athletics är ett verkligt kunduppdrag.',
         },
         {
           title: 'Förfrågningar och möten',

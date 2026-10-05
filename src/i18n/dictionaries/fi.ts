@@ -81,8 +81,8 @@ const fi: Dictionary = {
         id: 'redesign',
         title: 'Uudistukset',
         description:
-          'Onko nykyinen sivusto vanhentunut tai hankala puhelimella? Rakennamme sen uudelleen, säilytämme toimivan, siirrämme sisällön ja pidämme huolen näkyvyydestä Googlessa.',
-        includes: ['Moderni ulkoasu', 'Sisältö siirretään puolestasi', 'Hakunäkyvyys säilyy'],
+          'Onko nykyinen sivusto vanhentunut tai hankala puhelimella? Rakennamme sen uudelleen, säilytämme toimivan, siirrämme sisällön ja pidämme nykyiset Google-asetuksesi ennallaan.',
+        includes: ['Moderni ulkoasu', 'Sisältö siirretään puolestasi', 'Nykyiset Google-asetukset säilyvät'],
       },
     ],
   },
@@ -301,7 +301,7 @@ const fi: Dictionary = {
     eyebrow: 'Prosessi',
     title: 'Viisi vaihetta ensimmäisestä puhelusta julkaisuun.',
     description:
-      'Useimmat sivustot julkaistaan kahdessa viikossa. Näet esikatselun jo ensimmäisinä päivinä, joten tiedät aina, mitä seuraavaksi tapahtuu ja mitä tarvitsemme sinulta.',
+      'Tyypillisen verkkosivuston tekeminen kestää noin kaksi viikkoa. Näet esikatselun jo ensimmäisinä päivinä, joten tiedät aina, mitä seuraavaksi tapahtuu ja mitä tarvitsemme sinulta.',
     note: 'Ajat ovat tyypillisiä yrityksen verkkosivustolle. Verkkokaupat ja laajemmat sivustot vievät enemmän aikaa, ja tarkasta aikataulusta sovitaan tarjouksessa.',
     deliverablesLabel: 'Saat',
     steps: [
@@ -443,7 +443,7 @@ const fi: Dictionary = {
       },
       {
         q: 'Voimmeko päivittää sisältöä itse?',
-        a: 'Halutessasi kyllä. Useimmat asiakkaat lähettävät muutokset meille ja teemme ne nopeasti, esimerkiksi osana kuukausittaista ylläpitosopimusta. Jos haluat muokata tekstejä itse, voimme lisätä yksinkertaisen muokkaustyökalun.',
+        a: 'Halutessasi kyllä. Voit myös vain lähettää muutokset meille, ja teemme ne nopeasti, esimerkiksi osana kuukausittaista ylläpitosopimusta. Jos haluat muokata tekstejä itse, voimme lisätä yksinkertaisen muokkaustyökalun.',
       },
       {
         q: 'Teettekö monikielisiä sivustoja?',
@@ -455,7 +455,7 @@ const fi: Dictionary = {
       },
       {
         q: 'Miksi luottaa uuteen studioon?',
-        a: 'Olemme nuori studio, joten teemme työn näkyväksi: oikeita projekteja, joihin voit tutustua, kiinteähintainen tarjous, esikatselulinkki koko projektin ajan ja laaduntarkistukset, jotka voit käydä läpi ennen julkaisua.',
+        a: 'Olemme nuori studio, joten teemme työn näkyväksi: oikea projekti, johon voit tutustua, kiinteähintainen tarjous, esikatselulinkki koko projektin ajan ja laaduntarkistukset, jotka voit käydä läpi ennen julkaisua.',
       },
     ],
   },
@@ -465,7 +465,6 @@ const fi: Dictionary = {
     description:
       'Kerro projektistasi ja valitse sinulle sopiva aika. Palaamme asiaan yhden arkipäivän sisällä ja kerromme seuraavat askeleet.',
     direct: 'Haluatko mieluummin sähköpostin tai puhelun?',
-    hoursLabel: 'Aukioloajat',
     nextLabel: 'Mitä seuraavaksi tapahtuu',
     points: [
       'Maksuton ja sitoumukseton aloituspalaveri',
@@ -608,8 +607,7 @@ const fi: Dictionary = {
     team: '{company}-tiimi',
   },
   footer: {
-    description:
-      'Verkkosuunnittelu- ja kehitysstudio, joka luo premium-verkkosivuja kunnianhimoisille pohjoismaisille yrityksille.',
+    description: 'Helsinkiläinen verkkostudio, joka tekee verkkosivuja paikallisille yrityksille.',
     navigation: 'Navigaatio',
     contact: 'Yhteystiedot',
     legal: 'Juridiset tiedot',
@@ -665,7 +663,7 @@ const fi: Dictionary = {
         },
         {
           title: 'Esimerkkisivustot',
-          body: 'Sivustolla esitellyt esimerkkisivustot ovat tiimimme kuvitteellisille yrityksille tekemiä näytteitä osaamisestamme. Ne eivät ole todellisia asiakastöitä.',
+          body: 'Sivustolla esitellyt konseptisivustot ovat tiimimme kuvitteellisille yrityksille tekemiä näytteitä osaamisestamme. Ne eivät ole todellisia asiakastöitä. VYRO Athletics on todellinen asiakastyö.',
         },
         {
           title: 'Yhteydenotot ja tapaamiset',

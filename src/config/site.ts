@@ -45,8 +45,6 @@ export const siteConfig = {
       /** Per language: en / sv / fi. */
       country: { en: 'Finland', sv: 'Finland', fi: 'Suomi' },
     },
-    /** Opening hours shown next to the contact details, per language. */
-    hours: { en: 'Mon–Fri 9–17 (Finnish time)', sv: 'Mån–fre 9–17 (finsk tid)', fi: 'Ma–pe 9–17' },
   },
 
   /** Social profiles. Remove any you don't use. */
