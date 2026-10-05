@@ -1,16 +1,5 @@
 import 'server-only'
 
-/** Minimum time a human needs to fill in the form. Faster submissions are bots. */
-const MIN_FILL_MS = 4_000
-const MAX_FILL_MS = 1000 * 60 * 60 * 24
-
-export function looksAutomated({ honeypot, startedAt }: { honeypot: unknown; startedAt: unknown }): boolean {
-  if (typeof honeypot === 'string' && honeypot.trim() !== '') return true
-  if (typeof startedAt !== 'number' || !Number.isFinite(startedAt)) return true
-  const elapsed = Date.now() - startedAt
-  return elapsed < MIN_FILL_MS || elapsed > MAX_FILL_MS
-}
-
 /** Verify a Cloudflare Turnstile token when TURNSTILE_SECRET_KEY is configured. */
 export async function verifyTurnstile(token: unknown, ip: string | null): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY

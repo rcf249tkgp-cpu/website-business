@@ -5,7 +5,8 @@ import { defaultLocale, isLocale } from '@/i18n/config'
 import { inquiryWebhookUrl, postWebhook, withRetry } from '@/lib/inquiry/delivery'
 import { businessEmail, customerEmail } from '@/lib/inquiry/email-templates'
 import { getMailer, inquiryRecipients } from '@/lib/inquiry/mailer'
-import { looksAutomated, rateLimited, verifyTurnstile } from '@/lib/inquiry/spam'
+import { rateLimited, verifyTurnstile } from '@/lib/inquiry/spam'
+import { automatedReason, originAllowed, type SpamReason } from '@/lib/inquiry/spam-rules'
 import type { InquiryResponse } from '@/lib/inquiry/types'
 import { coerceInquiry, validateInquiry } from '@/lib/inquiry/validation'
 
@@ -33,20 +34,17 @@ function newReference(): string {
   return `${prefix}-${date}-${randomBytes(3).toString('hex').toUpperCase()}`
 }
 
-/** Reject cross-site form posts (only when the browser tells us the origin). */
-function sameOrigin(request: NextRequest): boolean {
-  const origin = request.headers.get('origin')
-  if (!origin) return true
-  const host = request.headers.get('x-forwarded-host') ?? request.headers.get('host')
-  try {
-    return new URL(origin).host === host
-  } catch {
-    return false
-  }
+/** Log why a submission was treated as spam, so it shows up in the hosting logs. */
+function spam(reason: SpamReason | 'turnstile', status: number, detail = '') {
+  console.warn(`[inquiry] spam: ${reason}${detail ? ` (${detail})` : ''}`)
+  return reply({ ok: false, error: 'spam' }, status)
 }
 
 export async function POST(request: NextRequest) {
-  if (!sameOrigin(request)) return reply({ ok: false, error: 'spam' }, 403)
+  if (!originAllowed(request.headers, process.env.NEXT_PUBLIC_SITE_URL)) {
+    const host = request.headers.get('x-forwarded-host') ?? request.headers.get('host')
+    return spam('origin', 403, `origin ${request.headers.get('origin')}, host ${host}`)
+  }
 
   const length = Number(request.headers.get('content-length') || 0)
   if (length > MAX_BODY_BYTES) return reply({ ok: false, error: 'validation' }, 413)
@@ -63,11 +61,13 @@ export async function POST(request: NextRequest) {
   const ip = clientIp(request)
   if (rateLimited(ip)) return reply({ ok: false, error: 'rateLimited' }, 429)
 
-  if (looksAutomated({ honeypot: body.hp, startedAt: body.startedAt })) {
-    return reply({ ok: false, error: 'spam' }, 400)
+  const reason = automatedReason({ honeypot: body.hp, elapsedMs: body.elapsedMs, startedAt: body.startedAt })
+  if (reason) {
+    const detail = reason === 'too fast' ? `elapsedMs ${String(body.elapsedMs ?? 'missing')}` : ''
+    return spam(reason, 400, detail)
   }
   if (!(await verifyTurnstile(body.turnstileToken, ip === 'unknown' ? null : ip))) {
-    return reply({ ok: false, error: 'spam' }, 400)
+    return spam('turnstile', 400)
   }
 
   const locale = isLocale(body.locale) ? body.locale : defaultLocale

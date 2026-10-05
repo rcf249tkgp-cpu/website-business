@@ -181,6 +181,8 @@ export function InquiryForm({ lang, dict, schedulingUrl, turnstileSiteKey }: Pro
       data,
       locale: lang,
       startedAt: startedAt.current,
+      // Measured on this device's clock only, so a wrong system clock can't look like a bot.
+      elapsedMs: Date.now() - startedAt.current,
       hp: honeypot,
       turnstileToken: captchaToken || undefined,
     }
@@ -293,15 +295,21 @@ export function InquiryForm({ lang, dict, schedulingUrl, turnstileSiteKey }: Pro
 
         {restored && <p className={styles.notice}>{t.draftRestored}</p>}
 
-        {/* Honeypot — invisible to humans, tempting to bots. */}
+        {/* Honeypot: invisible to humans, tempting to bots. The name, id and label deliberately
+            avoid anything browser autofill or password managers recognise (company, name,
+            email, phone, address, fax…), so autofill never fills it for a real visitor. */}
         <div className={styles.honeypot} aria-hidden="true">
-          <label htmlFor="f-company-fax">Fax</label>
+          <label htmlFor="f-xq7">Leave this empty</label>
           <input
-            id="f-company-fax"
-            name="company_fax"
+            id="f-xq7"
+            name="xq7_k2"
             type="text"
             tabIndex={-1}
-            autoComplete="off"
+            autoComplete="one-time-code"
+            data-1p-ignore=""
+            data-lpignore="true"
+            data-bwignore=""
+            data-form-type="other"
             value={honeypot}
             onChange={(e) => setHoneypot(e.target.value)}
           />

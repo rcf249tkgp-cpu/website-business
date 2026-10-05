@@ -9,8 +9,10 @@ export type InquiryResponse =
 export interface InquiryRequest {
   data: unknown
   locale: string
-  /** Epoch ms when the form was first shown — used to detect bots. */
+  /** Epoch ms when the form was first shown (client clock). */
   startedAt: number
+  /** Time spent on the form, measured on the client's own clock — used to detect bots. */
+  elapsedMs?: number
   /** Honeypot: must stay empty. */
   hp: string
   turnstileToken?: string

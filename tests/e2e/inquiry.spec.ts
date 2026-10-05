@@ -165,6 +165,80 @@ test.describe('inquiry form', () => {
     await expect(form(page).getByText('Step 1 of 4')).toBeVisible()
   })
 
+  test('autofill never fills the honeypot, and an autofilled submission goes through', async ({ page }) => {
+    // A clock one hour ahead of the server must not matter either.
+    await page.addInitScript(() => {
+      const real = Date.now.bind(Date)
+      Date.now = () => real() + 60 * 60 * 1000
+    })
+    await page.goto('/en/start')
+    const f = form(page)
+
+    // The honeypot must not look like anything autofill or a password manager would fill.
+    const trap = f.locator('[aria-hidden="true"] input')
+    await expect(trap).toHaveCount(1)
+    const attrs = await trap.evaluate((el: HTMLInputElement) =>
+      [el.name, el.id, el.autocomplete, el.labels?.[0]?.textContent ?? ''].join(' '),
+    )
+    expect(attrs).not.toMatch(
+      /company|organi[sz]ation|name|mail|phone|tel|fax|address|street|city|zip|postal|website|url/i,
+    )
+    expect(await trap.getAttribute('autocomplete')).toBe('one-time-code')
+
+    await f.getByText(en.ecommerce, { exact: true }).click()
+    await f.locator('#f-description').fill('We sell handmade ceramics and want a fast, beautiful online store.')
+    await f.getByRole('button', { name: en.next }).click()
+    await f
+      .locator('label')
+      .filter({ hasText: /2[\s,.]500/ })
+      .first()
+      .click()
+    await f.getByText(en.timeline, { exact: true }).click()
+    await f.getByRole('button', { name: en.next }).click()
+
+    // Simulate Chrome autofill: instantly fill every input on the page (hidden ones included)
+    // whose name, id, label or autocomplete looks like company or contact details.
+    const filled = await page.evaluate(() => {
+      const values: [RegExp, string][] = [
+        [/company|organi[sz]ation|fax/i, 'Autofill Oy'],
+        [/e-?mail/i, 'aino@example.fi'],
+        [/phone|tel/i, '+358 40 765 4321'],
+        [/website|url|homepage/i, 'autofill.fi'],
+        [/name/i, 'Aino Virtanen'],
+      ]
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!.set!
+      const touched: string[] = []
+      for (const input of Array.from(
+        document.querySelectorAll<HTMLInputElement>(
+          'input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input:not([type])',
+        ),
+      )) {
+        const hint = [input.name, input.id, input.autocomplete, input.labels?.[0]?.textContent ?? ''].join(' ')
+        const match = values.find(([re]) => re.test(hint))
+        if (!match) continue
+        setter.call(input, match[1])
+        input.dispatchEvent(new Event('input', { bubbles: true }))
+        input.dispatchEvent(new Event('change', { bubbles: true }))
+        touched.push(input.id)
+      }
+      return touched
+    })
+    expect(filled).toEqual(expect.arrayContaining(['f-company', 'f-name', 'f-email', 'f-phone']))
+    await expect(trap).toHaveValue('')
+
+    await f.getByRole('button', { name: en.next }).click()
+    await f.locator('#f-meetingDate').fill(futureWeekday())
+    await f.getByText('10:00', { exact: true }).click()
+    await f.locator('#f-consent').check()
+    await page.waitForTimeout(3300) // a fast autofill user, just over the minimum fill time
+
+    const response = page.waitForResponse('**/api/inquiry')
+    await f.getByRole('button', { name: en.submit }).click()
+    const res = await response
+    expect(res.status(), JSON.stringify(await res.json())).toBe(200)
+    await expect(f.getByRole('heading', { name: /Thank you/ })).toBeVisible()
+  })
+
   test('keeps unsent answers when switching language', async ({ page }) => {
     await page.goto('/en/start')
     const f = form(page)
