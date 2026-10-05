@@ -3,11 +3,11 @@ import nodemailer from 'nodemailer'
 import { siteConfig } from '@/config/site'
 
 export interface MailMessage {
-  to: string
+  to: string | string[]
   subject: string
   html: string
   text: string
-  replyTo?: string
+  replyTo?: string | string[]
 }
 
 export interface Mailer {
@@ -15,9 +15,16 @@ export interface Mailer {
   send(message: MailMessage): Promise<void>
 }
 
-/** Where new inquiries are delivered. Falls back to the public contact email. */
-export function inquiryRecipient(): string {
-  return process.env.INQUIRY_TO_EMAIL?.trim() || siteConfig.contact.email
+/**
+ * Where new inquiries are delivered: INQUIRY_TO_EMAIL (comma-separated for
+ * several inboxes), otherwise the people listed in src/config/site.ts.
+ */
+export function inquiryRecipients(): string[] {
+  const fromEnv = (process.env.INQUIRY_TO_EMAIL ?? '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean)
+  return fromEnv.length ? fromEnv : siteConfig.contact.people.map((p) => p.email)
 }
 
 function sender(): string {
@@ -33,7 +40,7 @@ function resendMailer(apiKey: string): Mailer {
         headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           from: sender(),
-          to: [message.to],
+          to: Array.isArray(message.to) ? message.to : [message.to],
           subject: message.subject,
           html: message.html,
           text: message.text,
@@ -73,7 +80,9 @@ function consoleMailer(): Mailer {
   return {
     name: 'console',
     async send(message) {
-      console.info(`\n[mail:console] To: ${message.to}\nSubject: ${message.subject}\n\n${message.text}\n`)
+      console.info(
+        `\n[mail:console] To: ${[message.to].flat().join(', ')}\nSubject: ${message.subject}\n\n${message.text}\n`,
+      )
     },
   }
 }

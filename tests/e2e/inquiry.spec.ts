@@ -142,7 +142,9 @@ test.describe('inquiry form', () => {
 
     await expect.poll(() => catcher.messages.length).toBe(before + 2)
     const [business, customer] = catcher.messages.slice(before)
-    expect(business.to && 'text' in business.to ? business.to.text : '').toContain('inbox@studio.test')
+    const businessTo = business.to && 'text' in business.to ? business.to.text : ''
+    expect(businessTo).toContain('inbox@studio.test')
+    expect(businessTo).toContain('second@studio.test')
     expect(business.subject).toBe('New project inquiry: Lagom AB (Online store)')
     expect(business.replyTo?.text).toContain('aino@example.fi')
     expect(business.text).toContain('Aino Virtanen')

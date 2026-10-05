@@ -57,7 +57,7 @@ Each delivery is retried once on a temporary failure. For extra safety you can a
 1. Create an account at <https://resend.com>.
 2. Add and verify your domain (DNS records: SPF + DKIM).
 3. Create an API key.
-4. Set `RESEND_API_KEY`, `MAIL_FROM="Your Studio <no-reply@yourdomain.com>"` and `INQUIRY_TO_EMAIL=you@yourdomain.com`.
+4. Set `RESEND_API_KEY` and `MAIL_FROM="Fusion Sites <no-reply@yourdomain.com>"`. Inquiries go to the people in `src/config/site.ts` (Martin and Casper) unless you set `INQUIRY_TO_EMAIL` (comma-separated).
 
 **Option B: SMTP (Google Workspace, Microsoft 365, Zoho, Mailgun…)**
 Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` (use an *app password*, not your login password), `MAIL_FROM` and `INQUIRY_TO_EMAIL`.
@@ -94,7 +94,7 @@ Set `NEXT_PUBLIC_SITE_URL=https://www.yourdomain.com` so canonical URLs, `hrefla
 | `NEXT_PUBLIC_SITE_URL` | Yes (prod) | Canonical/sitemap/OG base URL |
 | `RESEND_API_KEY` **or** `SMTP_*` | Yes | Email delivery |
 | `MAIL_FROM` | Yes | Sender address (verified domain) |
-| `INQUIRY_TO_EMAIL` | Recommended | Inbox for new inquiries (defaults to `contact.email`) |
+| `INQUIRY_TO_EMAIL` | Optional | Inboxes for new inquiries, comma-separated (defaults to the people in `site.ts`) |
 | `NEXT_PUBLIC_CALENDLY_URL` | Optional | Instant booking on the confirmation screen |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` | Optional | CAPTCHA |
 | `SEND_CUSTOMER_CONFIRMATION` | Optional | `false` disables the customer acknowledgement email |

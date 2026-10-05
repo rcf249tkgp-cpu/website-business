@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site'
 import { defaultLocale, isLocale } from '@/i18n/config'
 import { inquiryWebhookUrl, postWebhook, withRetry } from '@/lib/inquiry/delivery'
 import { businessEmail, customerEmail } from '@/lib/inquiry/email-templates'
-import { getMailer, inquiryRecipient } from '@/lib/inquiry/mailer'
+import { getMailer, inquiryRecipients } from '@/lib/inquiry/mailer'
 import { looksAutomated, rateLimited, verifyTurnstile } from '@/lib/inquiry/spam'
 import type { InquiryResponse } from '@/lib/inquiry/types'
 import { coerceInquiry, validateInquiry } from '@/lib/inquiry/validation'
@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
 
   if (mailer) {
     try {
-      await withRetry(() => mailer.send({ to: inquiryRecipient(), replyTo: data.email, ...message }))
+      await withRetry(() => mailer.send({ to: inquiryRecipients(), replyTo: data.email, ...message }))
       delivered = true
     } catch (error) {
       console.error(`[inquiry] Email delivery of ${reference} via ${mailer.name} failed:`, error)
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
   if (mailer && process.env.SEND_CUSTOMER_CONFIRMATION !== 'false') {
     try {
       const confirmation = customerEmail(data, locale, reference)
-      await withRetry(() => mailer.send({ to: data.email, replyTo: inquiryRecipient(), ...confirmation }))
+      await withRetry(() => mailer.send({ to: data.email, replyTo: inquiryRecipients(), ...confirmation }))
       confirmationSent = true
     } catch (error) {
       console.error(`[inquiry] Customer confirmation for ${reference} failed:`, error)
