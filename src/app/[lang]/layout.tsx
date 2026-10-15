@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Prom
   }
 }
 
-export default async function RootLayout({ children, params }: LayoutProps<'/[lang]'>) {
+export default async function RootLayout({ children, modal, params }: LayoutProps<'/[lang]'>) {
   const { lang } = await params
   if (!isLocale(lang)) notFound()
   const dict = getDictionary(lang)
@@ -77,6 +77,8 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
         <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y }} />
         <main id="main">{children}</main>
         <Footer lang={lang} dict={dict} />
+        {/* The "Start a project" dialog (intercepted /[lang]/start), when open. */}
+        {modal}
         <Motion />
       </body>
     </html>

@@ -10,6 +10,7 @@ const fi: Dictionary = {
     skipToContent: 'Siirry sisältöön',
     openMenu: 'Avaa valikko',
     closeMenu: 'Sulje valikko',
+    close: 'Sulje',
     language: 'Kieli',
     mainNav: 'Päänavigaatio',
     home: 'Etusivu',
@@ -46,6 +47,7 @@ const fi: Dictionary = {
     description:
       'Neljä asiaa, jotka osaamme hyvin. Sama pieni tiimi vie projektisi ensimmäisestä puhelusta julkaisuun ja pitää siitä huolta myöhemminkin, jos haluat.',
     includesLabel: 'Sisältää',
+    readMore: 'Lue lisää',
     addon: {
       label: 'Lisäpalvelu',
       title: 'Shopify-integraatio',

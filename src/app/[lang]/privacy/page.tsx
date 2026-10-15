@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: PageProps<'/[lang]/privacy'>)
       canonical: `/${lang}/privacy`,
       languages: Object.fromEntries(locales.map((l) => [localeTags[l], `/${l}/privacy`])),
     },
+    openGraph: { url: `/${lang}/privacy` },
   }
 }
 

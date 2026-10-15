@@ -170,7 +170,6 @@ export function CaseGallery({
               setAuto(false)
             }}
           >
-            <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             {s.label}
             {i === active && playing && <i key={active} className={styles.timer} aria-hidden="true" />}
           </button>

@@ -136,24 +136,45 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/fi\/work$/)
   })
 
-  test('hero CTAs lead to the project form and the work', async ({ page }) => {
+  test('start buttons open the project dialog; Back closes it; direct visits get the full page', async ({ page }) => {
     await page.goto('/en')
     await page.locator('main').getByRole('link', { name: 'Start a project' }).first().click()
     await expect(page).toHaveURL(/\/en\/start$/)
-    await expect(page.locator('h1')).toHaveText('Let’s build something remarkable.')
-    await expect(page.locator('#contact form')).toBeVisible()
+    const dialog = page.getByRole('dialog')
+    await expect(dialog.getByRole('heading', { name: 'Let’s build something remarkable.' })).toBeVisible()
+    await expect(dialog.locator('form')).toBeVisible()
+    await page.goBack()
+    await expect(page).toHaveURL(/\/en$/)
+    await expect(page.getByRole('dialog')).toHaveCount(0)
 
-    // The header button and the homepage contact section lead there too.
+    // The header button and the closing call to action open it too; the close button closes it.
     await page.goto('/sv')
     await page.locator('header').getByRole('link', { name: 'Starta ett projekt' }).click()
     await expect(page).toHaveURL(/\/sv\/start$/)
+    await page.getByRole('dialog').getByRole('button', { name: 'Stäng' }).click()
+    await expect(page).toHaveURL(/\/sv$/)
     await page.goto('/fi#contact')
     await page.locator('#contact').getByRole('link', { name: 'Aloita projekti' }).click()
     await expect(page).toHaveURL(/\/fi\/start$/)
+    await expect(page.getByRole('dialog').locator('form')).toBeVisible()
+
+    // A shared link opens the full page.
+    await page.goto('/en/start')
+    await expect(page.getByRole('dialog')).toHaveCount(0)
+    await expect(page.locator('h1')).toHaveText('Let’s build something remarkable.')
     await expect(page.locator('#contact form')).toBeVisible()
+
     await page.goto('/en')
     await page.getByRole('link', { name: 'See our work' }).click()
     await expect(page).toHaveURL(/\/en\/work$/)
+  })
+
+  test('the logo scrolls back to the top of the homepage', async ({ page }) => {
+    await page.goto('/sv')
+    await page.evaluate(() => window.scrollTo(0, 2500))
+    await page.locator('header').getByRole('link', { name: /Fusion Sites/ }).click()
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
+    await expect(page).toHaveURL(/\/sv$/)
   })
 
   test('footer legal links work in every language', async ({ page }) => {

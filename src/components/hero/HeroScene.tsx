@@ -1,11 +1,19 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import type { Locale } from '@/i18n/config'
 import { cssMatrix3d, faceToImage, scene } from './geometry'
 import styles from './HeroScene.module.css'
 
-/** The photo with the website baked into the laptop screen (see scripts/hero/compose.py). */
-export const HERO_SRCSET = '/hero-800.webp 800w, /hero-1200.webp 1200w, /hero-2000.webp 2000w'
+/**
+ * The photo with this site baked into the laptop screen, one set per language so the
+ * laptop shows the page in the visitor's language (see scripts/hero/compose.py).
+ */
+export const heroImage = (lang: Locale, width: 800 | 1200 | 2000) => `/hero-${lang}-${width}.webp`
+export const heroSrcSet = (lang: Locale) =>
+  ([800, 1200, 2000] as const).map((w) => `${heroImage(lang, w)} ${w}w`).join(', ')
+/** Sharp screenshot of the homepage in each language (scripts/hero/capture-screen.mjs). */
+export const heroScreen = (lang: Locale) => `/hero-screen-${lang}.webp`
 /**
  * The scene is wider than the viewport: ~130% on desktop and ~180% on phones, where about
  * 55% of it (the laptop) is on screen. 160vw keeps phones on the 1200px file (quicker to
@@ -28,7 +36,7 @@ const DEPTH_QUERY = '(min-width: 1024px) and (hover: hover) and (pointer: fine) 
  * - on phones, a slow zoom and a gentle scroll parallax (transform only).
  * With reduced motion it is a still image.
  */
-export function HeroScene({ className }: { className?: string }) {
+export function HeroScene({ className, lang }: { className?: string; lang: Locale }) {
   const sceneRef = useRef<HTMLDivElement>(null)
   const layerRef = useRef<HTMLDivElement>(null)
 
@@ -65,7 +73,9 @@ export function HeroScene({ className }: { className?: string }) {
       const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 300))
       const handle = idle(() => {
         import('./depth')
-          .then(({ startDepth }) => (cancelled ? undefined : startDepth(el, layer)))
+          .then(({ startDepth }) =>
+            cancelled ? undefined : startDepth(el, layer, { image: heroImage(lang, 2000), screen: heroScreen(lang) }),
+          )
           .then((s) => {
             if (cancelled) s?.()
             else stop = s
@@ -99,7 +109,7 @@ export function HeroScene({ className }: { className?: string }) {
       window.removeEventListener('scroll', onScroll)
       io.disconnect()
     }
-  }, [])
+  }, [lang])
 
   return (
     <div className={`${styles.media} ${className ?? ''}`} aria-hidden="true">
@@ -109,8 +119,8 @@ export function HeroScene({ className }: { className?: string }) {
             {/* eslint-disable-next-line @next/next/no-img-element -- preloaded responsive WebP, sized by CSS */}
             <img
               className={styles.photo}
-              src="/hero-2000.webp"
-              srcSet={HERO_SRCSET}
+              src={heroImage(lang, 2000)}
+              srcSet={heroSrcSet(lang)}
               sizes={HERO_SIZES}
               width={scene.image.width}
               height={scene.image.height}
@@ -124,7 +134,7 @@ export function HeroScene({ className }: { className?: string }) {
               <div className={styles.display} style={{ inset: `${D.top}px ${D.right}px ${D.bottom}px ${D.left}px` }}>
                 {/* eslint-disable-next-line @next/next/no-img-element -- fixed-size screenshot inside a 3D transform */}
                 <img
-                  src="/hero-screen.webp"
+                  src={heroScreen(lang)}
                   width={scene.screenshot.width}
                   height={scene.screenshot.height}
                   alt=""

@@ -2,21 +2,23 @@ import styles from './SectionHeading.module.css'
 
 interface Props {
   id: string
-  /** Section number shown before the eyebrow, e.g. "01". */
+  /** @deprecated Section numbers are no longer shown. */
   index?: string
   eyebrow: string
+  /** Show the small eyebrow label above the title (used on only a few sections). */
+  showEyebrow?: boolean
   title: string
   description?: string
-  /** `split`: title left, description right on wide screens. `stack`: one column. */
-  layout?: 'split' | 'stack'
+  /** `split`: title left, description right on wide screens. `stack`: one column. `center`: centred. */
+  layout?: 'split' | 'stack' | 'center'
   /** `h1` when the section is the main content of its own page. */
   as?: 'h1' | 'h2'
 }
 
 export function SectionHeading({
   id,
-  index,
   eyebrow,
+  showEyebrow = false,
   title,
   description,
   layout = 'split',
@@ -24,16 +26,9 @@ export function SectionHeading({
 }: Props) {
   return (
     <div className={`${styles.heading} reveal`} data-layout={layout}>
-      <p className={`eyebrow ${styles.eyebrow}`}>
-        {index && (
-          <span className={styles.index} aria-hidden="true">
-            {index}
-          </span>
-        )}
-        {eyebrow}
-      </p>
+      {showEyebrow && <p className={`eyebrow ${styles.eyebrow}`}>{eyebrow}</p>}
       <Heading id={id} className={styles.title}>
-        <span className="chrome-lines">{title}</span>
+        {title}
       </Heading>
       {description && <p className={styles.description}>{description}</p>}
     </div>

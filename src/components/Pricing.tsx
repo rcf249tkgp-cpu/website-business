@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import { localeTags, type Locale } from '@/i18n/config'
-import { ArrowRight } from './Icons'
+import { ArrowRight, Check } from './Icons'
 import { SectionHeading } from './SectionHeading'
 import styles from './Pricing.module.css'
 
@@ -39,11 +39,11 @@ export function Pricing({ lang, dict, standalone = false }: { lang: Locale; dict
       <div className="container">
         <SectionHeading
           id="pricing-title"
-          index="05"
           eyebrow={pricing.eyebrow}
           title={pricing.title}
           description={pricing.description}
           as={standalone ? 'h1' : 'h2'}
+          layout="center"
         />
 
         <div className={styles.tiers} data-stagger>
@@ -62,9 +62,12 @@ export function Pricing({ lang, dict, standalone = false }: { lang: Locale; dict
                 </header>
                 <p className={styles.description}>{tier.description}</p>
                 {price(prices[tier.id] ?? null)}
-                <ul className={styles.features}>
+                <ul className={`check-list ${styles.features}`}>
                   {tier.features.map((f) => (
-                    <li key={f}>{f}</li>
+                    <li key={f}>
+                      <Check aria-hidden="true" />
+                      {f}
+                    </li>
                   ))}
                 </ul>
                 <Link

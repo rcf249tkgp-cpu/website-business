@@ -1,10 +1,10 @@
 """Bakes the website screenshot into the laptop screen of public/hero.jpg (development only).
 
-  python scripts/hero/compose.py
+  python scripts/hero/compose.py            # all languages: fi, sv, en
 
-Reads  public/hero.jpg, public/hero-screen.webp and src/components/hero/scene.json.
-Writes public/hero-{800,1200,2000}.webp: the photo with the screenshot warped onto the
-laptop's display (perspective transform), a dark bezel and a soft glossy reflection.
+Reads  public/hero.jpg, public/hero-screen-{lang}.webp and src/components/hero/scene.json.
+Writes public/hero-{lang}-{800,1200,2000}.webp: the photo with that language's screenshot
+warped onto the laptop's display (perspective transform), a dark bezel and a soft gloss.
 
 The page also lays a sharp copy of the screenshot over this exact spot (CSS matrix3d,
 or the WebGL shader on desktop). Baking it in as well means the original placeholder
@@ -12,6 +12,7 @@ screen never shows: not before scripts load, not in link previews, not in any fa
 """
 
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -33,7 +34,7 @@ def homography(src, dst):
     return h / h[2, 2]
 
 
-def face_image():
+def face_image(lang):
     """The lid's front: black glass bezel, the screenshot, and a gloss highlight."""
     fw, fh = SCENE['face']['width'], SCENE['face']['height']
     d = SCENE['display']
@@ -42,7 +43,7 @@ def face_image():
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, fw - 1, fh - 1], radius=46, fill=255)
     face.paste((6, 7, 10, 255), (0, 0), mask)
 
-    shot = Image.open(ROOT / 'public/hero-screen.webp').convert('RGB')
+    shot = Image.open(ROOT / f'public/hero-screen-{lang}.webp').convert('RGB')
     dw, dh = fw - d['left'] - d['right'], fh - d['top'] - d['bottom']
     # Cover the display area, anchored to the top of the page.
     scale = max(dw / shot.width, dh / shot.height)
@@ -90,14 +91,15 @@ def warp_onto(base, face):
     return out.convert('RGB')
 
 
-def main():
+def main(langs):
     base = Image.open(ROOT / 'public/hero.jpg').convert('RGB')
-    out = warp_onto(base, face_image())
-    for width in (800, 1200, 2000):
-        img = out if width == out.width else out.resize((width, round(out.height * width / out.width)), Image.LANCZOS)
-        img.save(ROOT / f'public/hero-{width}.webp', quality=72, method=6)
-        print(f'wrote public/hero-{width}.webp', img.size)
+    for lang in langs:
+        out = warp_onto(base, face_image(lang))
+        for width in (800, 1200, 2000):
+            img = out if width == out.width else out.resize((width, round(out.height * width / out.width)), Image.LANCZOS)
+            img.save(ROOT / f'public/hero-{lang}-{width}.webp', quality=72, method=6)
+            print(f'wrote public/hero-{lang}-{width}.webp', img.size)
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:] or ['fi', 'sv', 'en'])

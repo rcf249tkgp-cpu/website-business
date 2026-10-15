@@ -1,0 +1,210 @@
+/* ------------------------------------------------------------ Featured: VYRO */
+.featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  color: var(--text);
+}
+
+.featuredImage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.featuredImage img,
+.conceptImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.featuredBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 22px 22px 24px;
+}
+
+.caseLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.featuredTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 650;
+  line-height: 1.1;
+}
+
+/* Small tags under a title. */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.summary {
+  max-width: 52ch;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.arrow {
+  margin-top: 4px;
+}
+
+@media (hover: hover) {
+  .featured:hover img,
+  .concept:hover img {
+    transform: scale(1.025);
+  }
+
+  .featured:hover :global(.round-arrow),
+  .concept:hover :global(.round-arrow) {
+    border-color: transparent;
+    background: var(--accent-fill);
+    color: #fff;
+  }
+}
+
+@media (min-width: 900px) {
+  .featured {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .featuredImage {
+    aspect-ratio: auto;
+    min-height: 400px;
+  }
+
+  .featuredBody {
+    justify-content: flex-end;
+    padding: 36px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    margin: 0;
+  }
+}
+
+/* ------------------------------------------------------------ Concepts */
+.conceptsHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 32px;
+  margin: 48px 0 20px;
+}
+
+.conceptsTitle {
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.conceptsHead p {
+  max-width: 56ch;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.concepts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.concept {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  color: var(--text);
+}
+
+.conceptImage {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.conceptBody {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 18px;
+}
+
+.conceptName {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.disclaimer {
+  margin-top: 16px;
+  color: var(--text-subtle);
+  font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+  .concepts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Phones: concept cards swipe sideways. */
+@media (max-width: 760px) {
+  .conceptsHead {
+    margin-top: 40px;
+  }
+
+  .concepts {
+    display: flex;
+    gap: 12px;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 2px var(--gutter) 6px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .concepts::-webkit-scrollbar {
+    display: none;
+  }
+
+  .concepts li {
+    flex: 0 0 min(78%, 300px);
+    scroll-snap-align: start;
+  }
+}

@@ -1,64 +1,57 @@
 .heading {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: clamp(12px, 2vw, 24px);
-  row-gap: 16px;
+  column-gap: 24px;
+  row-gap: 12px;
   align-items: end;
   margin-bottom: var(--space-heading);
 }
 
-/* Small blue uppercase label, with the section number before it. */
 .eyebrow {
   grid-column: 1 / -1;
-}
-
-.index {
-  color: var(--text-subtle);
-  font-variant-numeric: tabular-nums;
-}
-
-.index::after {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 1px;
-  margin-left: 12px;
-  vertical-align: middle;
-  background: currentColor;
-  opacity: 0.6;
 }
 
 .title {
   grid-column: 1 / span 7;
   font-size: var(--fs-section);
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  line-height: 1.1;
 }
 
 .description {
   grid-column: 8 / -1;
   max-width: 46ch;
   color: var(--text-muted);
-  font-size: var(--fs-lead);
-  line-height: 1.65;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 .heading[data-layout='stack'] .title,
 .heading[data-layout='stack'] .description {
-  grid-column: 1 / span 9;
+  grid-column: 1 / span 8;
+}
+
+.heading[data-layout='center'] {
+  justify-items: center;
+  text-align: center;
+}
+
+.heading[data-layout='center'] .title,
+.heading[data-layout='center'] .description,
+.heading[data-layout='center'] .eyebrow {
+  grid-column: 2 / span 10;
+  justify-content: center;
 }
 
 @media (max-width: 960px) {
-  .heading {
-    row-gap: 14px;
-  }
-
-  .title,
-  .description {
+  .heading .title,
+  .heading .description,
+  .heading[data-layout] .title,
+  .heading[data-layout] .description {
     grid-column: 1 / -1;
   }
 
-  .description {
-    margin-top: 4px;
+  .heading[data-layout='center'] {
+    justify-items: start;
+    text-align: left;
   }
 }

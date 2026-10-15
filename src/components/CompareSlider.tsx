@@ -112,7 +112,6 @@ export function CompareSlider({
               aria-pressed={i === active}
               onClick={() => setActive(i)}
             >
-              <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               {ex.label}
             </button>
           ))}

@@ -115,11 +115,16 @@ export const siteConfig = {
   meetingTimezone: 'Europe/Helsinki',
 } as const
 
+/** The live site, used when NEXT_PUBLIC_SITE_URL isn't set in a production build. */
+const productionUrl = 'https://website-business.rcf249tkgp.workers.dev'
+
 /**
- * Public site URL, used for canonical links, sitemap and Open Graph.
- * Set NEXT_PUBLIC_SITE_URL in production.
+ * Public site URL, used for canonical links, hreflang, the sitemap and Open Graph
+ * (og:url, og:image) in every language. Set NEXT_PUBLIC_SITE_URL to the real domain.
  */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '')
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'production' ? productionUrl : 'http://localhost:3000')
+).replace(/\/$/, '')
 
 /** Optional Calendly (or compatible) scheduling link, e.g. https://calendly.com/your-team/intro-call */
 export const schedulingUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || ''

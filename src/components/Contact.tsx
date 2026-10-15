@@ -2,7 +2,7 @@ import { schedulingUrl, siteConfig, turnstileSiteKey } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import Link from 'next/link'
-import { ArrowRight, MapPin } from './Icons'
+import { ArrowRight, Check, MapPin } from './Icons'
 import { InquiryForm } from './inquiry/InquiryForm'
 import styles from './Contact.module.css'
 
@@ -26,10 +26,10 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
   const next = (
     <div className={styles.next}>
       <p className={styles.label}>{contact.nextLabel}</p>
-      <ol>
-        {contact.points.map((point, i) => (
+      <ol className="check-list">
+        {contact.points.map((point) => (
           <li key={point}>
-            <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <Check aria-hidden="true" />
             {point}
           </li>
         ))}
@@ -99,36 +99,24 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
       aria-labelledby="contact-title"
     >
       <div className="container">
-        <p className={`eyebrow ${styles.eyebrow}`}>
-          <span aria-hidden="true">08</span>
-          {contact.eyebrow}
-        </p>
-        <Heading id="contact-title" className={`${styles.bigTitle} reveal`}>
-          <span className="chrome-lines">{contact.title.slice(0, contact.title.lastIndexOf(' '))}</span>{' '}
-          <span className={styles.highlight}>{contact.title.slice(contact.title.lastIndexOf(' ') + 1)}</span>
-        </Heading>
-
-        <div className={styles.row}>
-          <p className={`${styles.description} reveal`}>{contact.description}</p>
-
-          <div className={`${styles.action} reveal`}>
-            <ol className={styles.steps}>
-              {Object.values(dict.form.steps).map((step, i) => (
-                <li key={step}>
-                  <span aria-hidden="true">{i + 1}</span>
-                  {step}
-                </li>
-              ))}
-            </ol>
+        {/* One clear call to action; the inquiry flow itself opens in its own dialog. */}
+        <div className={`${styles.band} reveal`}>
+          <div className={styles.bandText}>
+            <Heading id="contact-title" className={styles.bigTitle}>
+              <span>{contact.title.slice(0, contact.title.lastIndexOf(' '))}</span>{' '}
+              <span className={styles.highlight}>{contact.title.slice(contact.title.lastIndexOf(' ') + 1)}</span>
+            </Heading>
+            <p className={styles.description}>{contact.description}</p>
+          </div>
+          <div className={styles.action}>
             <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.cta}`}>
               {dict.nav.cta}
               <ArrowRight />
             </Link>
             <p className={styles.reply}>{contact.reply}</p>
           </div>
-
-          <div className="reveal">{direct}</div>
         </div>
+        <div className={`${styles.directRow} reveal`}>{direct}</div>
       </div>
     </section>
   )

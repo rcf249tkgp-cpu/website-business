@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import { ArrowUp } from './Icons'
+import { HomeLink } from './HomeLink'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { Logo } from './Logo'
 import styles from './Footer.module.css'
@@ -26,9 +27,9 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <Link href={`/${lang}`} aria-label={`${siteConfig.name} — ${dict.a11y.home}`}>
+            <HomeLink href={`/${lang}`} label={`${siteConfig.name} — ${dict.a11y.home}`}>
               <Logo />
-            </Link>
+            </HomeLink>
             <p>{footer.description}</p>
             <div className={styles.lang}>
               <LanguageSwitcher lang={lang} label={dict.a11y.language} expanded />
@@ -111,9 +112,6 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             <ArrowUp />
           </a>
         </div>
-      </div>
-      <div className={styles.wordmark} aria-hidden="true">
-        {siteConfig.name}
       </div>
     </footer>
   )

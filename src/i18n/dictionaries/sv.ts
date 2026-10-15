@@ -10,6 +10,7 @@ const sv: Dictionary = {
     skipToContent: 'Hoppa till innehållet',
     openMenu: 'Öppna menyn',
     closeMenu: 'Stäng menyn',
+    close: 'Stäng',
     language: 'Språk',
     mainNav: 'Huvudnavigering',
     home: 'Startsida',
@@ -46,6 +47,7 @@ const sv: Dictionary = {
     description:
       'Fyra saker vi är bra på. Samma lilla team tar ditt projekt från första samtalet till lansering, och tar hand om det efteråt om du vill.',
     includesLabel: 'Innehåller',
+    readMore: 'Läs mer',
     addon: {
       label: 'Tillägg',
       title: 'Shopify-integration',

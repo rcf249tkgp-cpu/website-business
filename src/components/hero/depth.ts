@@ -88,11 +88,15 @@ function load(url: string): Promise<Texture> {
  * and frees the GPU resources. Rejects if WebGL or the images aren't available, in which
  * case the plain image stays.
  */
-export async function startDepth(container: HTMLElement, layer: HTMLElement): Promise<() => void> {
+export async function startDepth(
+  container: HTMLElement,
+  layer: HTMLElement,
+  urls: { image: string; screen: string },
+): Promise<() => void> {
   const [image, depth, screen] = await Promise.all([
-    load('/hero-2000.webp'),
+    load(urls.image),
     load('/hero-depth.png'),
-    load('/hero-screen.webp'),
+    load(urls.screen),
   ])
   for (const t of [image, depth, screen]) {
     t.flipY = false

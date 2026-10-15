@@ -13,8 +13,7 @@ const MARGIN = '100000px 0px -8% 0px'
 /**
  * Interface motion, powered by Motion (the hero entrance is pure CSS, see Hero.module.css):
  * - one-shot section reveals: each `.reveal` element fades up a few pixels the
- *   first time it scrolls into view; `[data-stagger]` lists reveal their children in turn,
- * - the pointer position for `.card` spotlights and `[data-glow]` areas.
+ *   first time it scrolls into view; `[data-stagger]` lists reveal their children in turn.
  * The hidden starting states live in CSS under `html.motion`, a class the layout
  * adds before first paint only when the visitor has not asked for reduced motion.
  * Without it (or without JavaScript) everything is simply visible and still.
@@ -59,33 +58,6 @@ export function Motion() {
 
     return () => stops.forEach((stop) => stop())
   }, [pathname])
-
-  // Pointer position for card spotlights and glow areas (mouse only).
-  useEffect(() => {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
-    let frame = 0
-    const onMove = (event: PointerEvent) => {
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(() => {
-        const target = event.target as Element | null
-        for (const [selector, x, y] of [
-          ['.card', '--mx', '--my'],
-          ['[data-glow]', '--gx', '--gy'],
-        ] as const) {
-          const el = target?.closest?.<HTMLElement>(selector)
-          if (!el) continue
-          const r = el.getBoundingClientRect()
-          el.style.setProperty(x, `${event.clientX - r.left}px`)
-          el.style.setProperty(y, `${event.clientY - r.top}px`)
-        }
-      })
-    }
-    document.addEventListener('pointermove', onMove, { passive: true })
-    return () => {
-      cancelAnimationFrame(frame)
-      document.removeEventListener('pointermove', onMove)
-    }
-  }, [])
 
   return null
 }

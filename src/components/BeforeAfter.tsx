@@ -17,16 +17,16 @@ export function BeforeAfter({ dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <section
       id="before-after"
-      className={`section ${styles.section} ${fraunces.variable} ${instrumentSerif.variable} ${archivo.variable}`}
+      className={`section section-alt ${styles.section} ${fraunces.variable} ${instrumentSerif.variable} ${archivo.variable}`}
       aria-labelledby="before-after-title"
     >
       <div className="container">
         <SectionHeading
           id="before-after-title"
-          index="02"
           eyebrow={t.eyebrow}
           title={t.title}
           description={t.description}
+          layout="center"
         />
         <div className="reveal">
           <CompareSlider

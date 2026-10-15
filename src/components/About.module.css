@@ -1,17 +1,15 @@
 .section {
-  border-top: 1px solid var(--border);
-  background: radial-gradient(60% 50% at 0% 100%, rgba(47, 123, 255, 0.07), transparent 70%);
+  border-block: 1px solid var(--border);
 }
 
 .statement {
   grid-column: 1 / span 5;
   grid-row: 1;
   max-width: 26ch;
-  padding-left: 20px;
-  border-left: 2px solid var(--accent);
   color: var(--text);
-  font-size: clamp(1.3rem, 2vw, 1.65rem);
-  font-weight: 500;
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1.4;
   letter-spacing: -0.01em;
   text-wrap: balance;
@@ -59,18 +57,20 @@
 
 .values li {
   display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 6px;
   align-content: start;
-  gap: 10px;
-  padding: 22px 24px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.02));
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
 }
 
-.values span {
+.check {
+  grid-row: 1;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
   color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
 }
 
 .values h3,
@@ -78,12 +78,12 @@
   margin: 0;
   color: var(--text);
   font-family: var(--font-sans);
-  font-size: var(--fs-h3);
+  font-size: 1.125rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
 }
 
 .values p {
+  grid-column: 2;
   color: var(--text-muted);
   font-size: 16px;
   line-height: 1.6;
@@ -97,8 +97,9 @@
   align-items: end;
   gap: 24px;
   padding: 20px;
-  border-radius: 20px;
-  box-shadow: inset 0 0 0 1px var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-card);
 }
 
 .map {
@@ -133,9 +134,7 @@
   transform-origin: center;
 }
 
-:global(.motion) .pinRing {
-  animation: ping 2.4s var(--ease-out) infinite;
-}
+
 
 @keyframes ping {
   from {

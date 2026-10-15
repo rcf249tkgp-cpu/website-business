@@ -1,6 +1,7 @@
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
+import { Check } from './Icons'
 import { SectionHeading } from './SectionHeading'
 import styles from './About.module.css'
 
@@ -12,13 +13,12 @@ export function About({ lang, dict, standalone = false }: { lang: Locale; dict: 
   return (
     <section
       id="about"
-      className={`section ${styles.section}${standalone ? ' section-page' : ''}`}
+      className={`section section-alt ${styles.section}${standalone ? ' section-page' : ''}`}
       aria-labelledby="about-title"
     >
       <div className="container">
         <SectionHeading
           id="about-title"
-          index="06"
           eyebrow={about.eyebrow}
           title={about.title}
           layout="stack"
@@ -39,9 +39,9 @@ export function About({ lang, dict, standalone = false }: { lang: Locale; dict: 
           <div className={styles.valuesWrap}>
             <Sub className={styles.valuesTitle}>{about.valuesTitle}</Sub>
             <ol className={styles.values} data-stagger>
-              {about.values.map((v, i) => (
+              {about.values.map((v) => (
                 <li key={v.title}>
-                  <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  <Check aria-hidden="true" className={styles.check} />
                   <SubSub>{v.title}</SubSub>
                   <p>{v.text}</p>
                 </li>

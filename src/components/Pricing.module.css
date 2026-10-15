@@ -1,5 +1,4 @@
 .section {
-  border-top: 1px solid var(--border);
 }
 
 .tiers {
@@ -16,31 +15,22 @@
   gap: 22px;
   padding: clamp(24px, 2.6vw, 36px);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.02));
-  transition:
-    border-color 0.3s,
-    box-shadow 0.35s var(--ease-out),
-    translate 0.35s var(--ease-out);
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: border-color 0.25s;
 }
 
 @media (hover: hover) {
   .tier:hover {
-    border-color: rgba(96, 165, 250, 0.4);
-    box-shadow: 0 24px 60px -30px rgba(59, 130, 246, 0.55);
-    translate: 0 -3px;
+    border-color: rgba(255, 255, 255, 0.14);
   }
 }
 
 /* The recommended plan: a blue edge and a soft blue light. */
 .tier[data-featured] {
-  border-color: rgba(96, 165, 250, 0.6);
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.14), rgba(11, 17, 32, 0.6) 45%);
-  box-shadow:
-    0 40px 90px -40px rgba(59, 130, 246, 0.6),
-    0 1px 0 rgba(255, 255, 255, 0.08) inset;
-  margin-block: -14px;
-  padding-block: calc(clamp(24px, 2.6vw, 36px) + 14px);
+  border-color: rgba(47, 123, 255, 0.55);
+  background: linear-gradient(180deg, rgba(47, 123, 255, 0.1), transparent 40%), var(--bg-card);
+
 }
 
 .tierHead {
@@ -119,16 +109,7 @@
   font-size: 16px;
 }
 
-.features li {
-  display: flex;
-  gap: 12px;
-}
 
-.features li::before {
-  content: '+';
-  color: var(--accent);
-  font-weight: 700;
-}
 
 .cta {
   align-self: stretch;
@@ -187,10 +168,6 @@
     grid-template-columns: 1fr;
   }
 
-  .tier[data-featured] {
-    margin-block: 0;
-    padding-block: clamp(24px, 2.6vw, 36px);
-  }
 
   .maintenance {
     grid-template-columns: 1fr;

@@ -8,6 +8,7 @@ const en = {
     skipToContent: 'Skip to content',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    close: 'Close',
     language: 'Language',
     mainNav: 'Main navigation',
     home: 'Home',
@@ -44,6 +45,7 @@ const en = {
     description:
       'Four things we do well. The same small team takes your project from the first call to launch, and looks after it afterwards if you want.',
     includesLabel: 'Includes',
+    readMore: 'Read more',
     addon: {
       label: 'Add-on',
       title: 'Shopify integration',

@@ -54,9 +54,6 @@ export function ConceptShowcase({ concepts, sites, t }: { concepts: Concept[]; s
             aria-pressed={i === active}
             onClick={() => setActive(i)}
           >
-            <span className={styles.conceptIndex} aria-hidden="true">
-              {String(i + 1).padStart(2, '0')}
-            </span>
             <span className={styles.conceptName}>{c.name}</span>
             <span className={styles.conceptCategory}>{c.category}</span>
             <span className={styles.conceptSummary}>

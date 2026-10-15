@@ -4,9 +4,10 @@ import type { Locale } from '@/i18n/config'
 import { ConceptShowcase } from './ConceptShowcase'
 import { FeaturedCase } from './FeaturedCase'
 import { SectionHeading } from './SectionHeading'
+import { WorkCards } from './WorkCards'
 import styles from './Work.module.css'
 
-export function Work({ dict, standalone = false }: { lang: Locale; dict: Dictionary; standalone?: boolean }) {
+export function Work({ lang, dict, standalone = false }: { lang: Locale; dict: Dictionary; standalone?: boolean }) {
   const { work } = dict
   const Sub = standalone ? 'h2' : 'h3'
   const { ember, lumo, voltra, fjord } = work.projects
@@ -34,32 +35,38 @@ export function Work({ dict, standalone = false }: { lang: Locale; dict: Diction
       <div className="container">
         <SectionHeading
           id="work-title"
-          index="03"
           eyebrow={work.eyebrow}
+          showEyebrow={!standalone}
           title={work.title}
           description={work.description}
           as={standalone ? 'h1' : 'h2'}
         />
 
-        <FeaturedCase t={work} heading={Sub} />
+        {standalone ? (
+          <>
+            <FeaturedCase t={work} heading={Sub} />
 
-        <div className={`${styles.conceptsHead} reveal`}>
-          <Sub>{work.conceptsTitle}</Sub>
-          <p>{work.conceptsDescription}</p>
-        </div>
-        <ConceptShowcase
-          concepts={concepts}
-          sites={work.projects}
-          t={{
-            projectsLabel: work.projectsLabel,
-            devicesLabel: work.devicesLabel,
-            desktop: work.desktop,
-            mobile: work.mobile,
-            scrollHint: work.scrollHint,
-            conceptBadge: work.conceptBadge,
-          }}
-        />
-        <p className={styles.disclaimer}>{work.disclaimer}</p>
+            <div className={`${styles.conceptsHead} reveal`}>
+              <Sub>{work.conceptsTitle}</Sub>
+              <p>{work.conceptsDescription}</p>
+            </div>
+            <ConceptShowcase
+              concepts={concepts}
+              sites={work.projects}
+              t={{
+                projectsLabel: work.projectsLabel,
+                devicesLabel: work.devicesLabel,
+                desktop: work.desktop,
+                mobile: work.mobile,
+                scrollHint: work.scrollHint,
+                conceptBadge: work.conceptBadge,
+              }}
+            />
+            <p className={styles.disclaimer}>{work.disclaimer}</p>
+          </>
+        ) : (
+          <WorkCards lang={lang} t={work} />
+        )}
       </div>
     </section>
   )

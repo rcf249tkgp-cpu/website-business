@@ -1,5 +1,4 @@
 .section {
-  border-top: 1px solid var(--border);
 }
 
 /* ================================================================ Case study */
@@ -90,12 +89,7 @@
   padding: clamp(14px, 3vw, 40px);
   border: 1px solid var(--border);
   border-radius: calc(var(--radius-lg) + 6px);
-  background:
-    radial-gradient(70% 60% at var(--gx, 50%) var(--gy, 0%), rgba(47, 123, 255, 0.16), transparent 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 60px 120px -60px rgba(47, 123, 255, 0.35);
+  background: var(--bg-card);
   isolation: isolate;
 }
 
@@ -215,8 +209,7 @@
   background: #0b0e14;
   box-shadow:
     0 0 0 1px rgba(200, 215, 240, 0.2),
-    0 40px 80px -24px rgba(0, 0, 0, 0.95),
-    0 0 60px -20px rgba(47, 123, 255, 0.35);
+    0 40px 80px -24px rgba(0, 0, 0, 0.95);
 }
 
 .phoneNotch {
@@ -328,7 +321,6 @@
   right: 0;
   height: 1px;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
   transform-origin: left;
   animation: timer 5s linear both;
 }
@@ -423,11 +415,11 @@
 /* Work cards: name, a small category tag, the summary and a round arrow button. */
 .conceptItem {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   grid-template-areas:
-    'index name arrow'
-    'index category arrow'
-    'index summary summary';
+    'name arrow'
+    'category arrow'
+    'summary summary';
   column-gap: 14px;
   row-gap: 8px;
   align-items: center;
@@ -436,14 +428,7 @@
   text-align: left;
 }
 
-.conceptIndex {
-  grid-area: index;
-  align-self: start;
-  padding-top: 3px;
-  color: var(--text-subtle);
-  font-size: var(--fs-label);
-  font-variant-numeric: tabular-nums;
-}
+
 
 .conceptName {
   grid-area: name;
@@ -486,14 +471,10 @@
 }
 
 .conceptItem[aria-pressed='true'] {
-  border-color: rgba(96, 165, 250, 0.55);
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.03));
-  box-shadow: 0 20px 50px -30px rgba(59, 130, 246, 0.6);
+  border-color: rgba(47, 123, 255, 0.55);
 }
 
-.conceptItem[aria-pressed='true'] .conceptIndex {
-  color: var(--accent);
-}
+
 
 .conceptItem[aria-pressed='true'] .conceptSummary {
   grid-template-rows: 1fr;
@@ -504,7 +485,6 @@
   border-color: transparent;
   background: var(--accent-strong);
   color: #fff;
-  box-shadow: 0 8px 24px -8px rgba(59, 130, 246, 0.8);
 }
 
 @media (hover: hover) {

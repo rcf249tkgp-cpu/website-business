@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: PageProps<'/[lang]/start'>): 
       canonical: `/${lang}/start`,
       languages: Object.fromEntries(locales.map((l) => [localeTags[l], `/${l}/start`])),
     },
+    openGraph: { url: `/${lang}/start` },
   }
 }
 

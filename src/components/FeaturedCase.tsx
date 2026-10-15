@@ -1,7 +1,7 @@
 import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import { CaseGallery } from './CaseGallery'
-import { ArrowUpRight } from './Icons'
+import { ArrowUpRight, Check } from './Icons'
 import styles from './Work.module.css'
 
 /** The real client project: VYRO Athletics. */
@@ -31,7 +31,7 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
         </div>
       </header>
 
-      <div className={`${styles.caseStage} reveal`} data-glow>
+      <div className={`${styles.caseStage} reveal`}>
         <CaseGallery
           screens={screens.map((sc) => ({
             id: sc.id,
@@ -52,10 +52,10 @@ export function FeaturedCase({ t, heading: Heading = 'h3' }: { t: Dictionary['wo
 
       <div className={styles.built}>
         <p className={styles.builtLabel}>{featured.builtLabel}</p>
-        <ul data-stagger>
-          {featured.built.map((item, i) => (
+        <ul className="check-list" data-stagger>
+          {featured.built.map((item) => (
             <li key={item}>
-              <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <Check aria-hidden="true" />
               {item}
             </li>
           ))}

@@ -1,8 +1,5 @@
 .section {
-  border-top: 1px solid var(--border);
-  background:
-    radial-gradient(60% 40% at 50% 0%, rgba(47, 123, 255, 0.06), transparent 70%),
-    linear-gradient(180deg, #070b14, var(--bg));
+  border-block: 1px solid var(--border);
 }
 
 .compare {
@@ -72,8 +69,7 @@
   background: #0d121c;
   box-shadow:
     0 0 0 1px rgba(200, 215, 240, 0.12),
-    0 60px 120px -40px rgba(0, 0, 0, 0.9),
-    0 0 120px -40px rgba(47, 123, 255, 0.25);
+    0 40px 100px -40px rgba(0, 0, 0, 0.9);
 }
 
 .chrome {
@@ -175,7 +171,6 @@
   width: 2px;
   margin-left: -1px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), #fff 30%, #fff 70%, rgba(255, 255, 255, 0.4));
-  box-shadow: 0 0 18px rgba(77, 141, 255, 0.8);
   pointer-events: none;
 }
 

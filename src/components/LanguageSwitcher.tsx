@@ -35,6 +35,12 @@ export function LanguageSwitcher({ lang, label, expanded = false, onSwitch }: Pr
     if (next === lang) return
     rememberLocale(next)
     const target = switchLocalePath(pathname, next) + window.location.hash
+    // On the full /start page (not the dialog), keep the full page in the new language:
+    // a soft navigation to /[lang]/start would open the project dialog instead.
+    if (/\/start$/.test(pathname) && !document.documentElement.hasAttribute('data-dialog-open')) {
+      window.location.replace(target)
+      return
+    }
     startTransition(() => router.replace(target, { scroll: false }))
   }
 

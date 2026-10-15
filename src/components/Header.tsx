@@ -7,6 +7,7 @@ import { siteConfig } from '@/config/site'
 import type { Dictionary } from '@/i18n'
 import type { Locale } from '@/i18n/config'
 import { ArrowRight, Close, Menu } from './Icons'
+import { HomeLink } from './HomeLink'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { Logo } from './Logo'
 import styles from './Header.module.css'
@@ -54,14 +55,14 @@ export function Header({ lang, dict }: Props) {
     <header className={styles.header} data-scrolled={scrolled || undefined} data-menu-open={menuOpen || undefined}>
       <span className={styles.progress} aria-hidden="true" />
       <div className={`container ${styles.inner}`}>
-        <Link
+        <HomeLink
           href={`/${lang}`}
           className={styles.logo}
-          aria-label={`${siteConfig.name} — ${dict.a11y.home}`}
-          onClick={close}
+          label={`${siteConfig.name} — ${dict.a11y.home}`}
+          onNavigate={close}
         >
           <Logo />
-        </Link>
+        </HomeLink>
 
         <nav aria-label={dict.a11y.mainNav} className={styles.nav}>
           <ul>
@@ -77,8 +78,9 @@ export function Header({ lang, dict }: Props) {
 
         <div className={styles.actions}>
           <LanguageSwitcher lang={lang} label={dict.a11y.language} />
-          <Link href={`/${lang}/start`} className={`btn btn-primary btn-sm ${styles.cta}`}>
+          <Link href={`/${lang}/start`} className={`btn btn-secondary btn-sm ${styles.cta}`}>
             {dict.nav.cta}
+            <ArrowRight />
           </Link>
           <button
             type="button"
@@ -99,9 +101,6 @@ export function Header({ lang, dict }: Props) {
             {links.map((l, i) => (
               <li key={l.href} style={{ '--i': i } as CSSProperties}>
                 <Link href={l.href} onClick={close} aria-current={pathname === l.href ? 'page' : undefined}>
-                  <span className={styles.index} aria-hidden="true">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
                   {l.label}
                 </Link>
               </li>

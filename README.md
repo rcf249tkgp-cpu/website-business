@@ -145,8 +145,8 @@ The homepage hero is `public/hero.jpg` (a laptop on a rock). Generated from it, 
 
 | File | What it is | How it's made |
 | --- | --- | --- |
-| `public/hero-screen.webp` | Screenshot of the homepage shown on the laptop screen | `node scripts/hero/capture-screen.mjs http://localhost:3000/fi` (Playwright, with `npm start` running) |
-| `public/hero-{800,1200,2000}.webp` | The photo with the screenshot baked onto the screen in perspective (responsive WebP) | `python scripts/hero/compose.py` |
+| `public/hero-screen-{fi,sv,en}.webp` | Screenshot of the homepage in each language, shown on the laptop screen | `node scripts/hero/capture-screen.mjs http://localhost:3000` (Playwright, with `npm start` running) |
+| `public/hero-{lang}-{800,1200,2000}.webp` | The photo with that language's screenshot baked onto the screen in perspective (responsive WebP) | `python scripts/hero/compose.py` |
 | `public/hero-depth.png` | Depth map for the desktop 3D effect (white = near) | `python scripts/hero/depth.py depth_anything_v2_vits.onnx` (Depth Anything V2) |
 
 The laptop's screen corners and the bezel live in `src/components/hero/scene.json`; the page, the WebGL shader and the scripts all read them from there. After a redesign, run `capture-screen.mjs` twice (so the laptop inside the screenshot shows the new design too), then `compose.py`.

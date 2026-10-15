@@ -4,38 +4,37 @@
 :root {
   color-scheme: dark;
 
-  /* Deep navy / near-black surfaces. */
-  --bg: #070b14;
-  --bg-elevated: #0b1120;
-  --bg-card: rgba(148, 163, 184, 0.045);
-  --bg-card-hover: rgba(148, 163, 184, 0.075);
-  --border: rgba(148, 163, 184, 0.14);
-  --border-strong: rgba(148, 163, 184, 0.26);
+  /* Palette (matches the inspiration). */
+  --bg: #05080f;
+  --bg-alt: #080d18;
+  --bg-elevated: #0c1322;
+  --bg-card: #0c1322;
+  --bg-card-hover: #0f1729;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
 
-  --text: #eef2f8;
-  --text-muted: #a9b3c4;
-  --text-subtle: #8d97a9;
-  --surface: #0a0f1c;
+  --text: #f3f6fb;
+  --text-muted: #9aa6b8;
+  --text-subtle: #8792a5;
+  --surface: #0c1322;
 
-  /* Brand: electric blue, matching the chrome "F" logo's glow. */
-  --accent: #60a5fa;
-  --accent-strong: #2563eb;
-  --accent-bright: #3b82f6;
-  --blue: #3b82f6;
+  /* One accent, used sparingly: primary buttons, highlighted headline words, icons. */
+  --accent: #2f7bff;
+  --accent-hover: #5b9bff;
+  /* Fill for buttons with white text: the accent, 6% deeper so the label passes WCAG AA. */
+  --accent-fill: #276def;
+  --accent-strong: #276def;
+  --accent-bright: #2f7bff;
+  --blue: #2f7bff;
   --silver: #e2e8f0;
   --steel: #8a95a8;
-  --cyan: #38d6f5;
   --success: #34d399;
   --danger: #ff6b81;
   --warning: #fbbf24;
-
-  --gradient: linear-gradient(100deg, #bfdbfe 0%, #60a5fa 45%, #3b82f6 100%);
+  --accent-soft: rgba(47, 123, 255, 0.12);
   --chrome: linear-gradient(180deg, #ffffff 0%, #e2e8f0 38%, #a7b2c4 62%, #e6e9ef 100%);
-  --accent-soft: rgba(59, 130, 246, 0.14);
-  --glow: 0 0 0 1px rgba(96, 165, 250, 0.35), 0 18px 50px -24px rgba(59, 130, 246, 0.55);
-  --shadow-lg:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 40px 80px -40px rgba(0, 0, 0, 0.9),
-    0 24px 60px -48px rgba(59, 130, 246, 0.5);
+  --gradient: linear-gradient(100deg, #9cc0ff 0%, #2f7bff 100%);
+  --shadow-lg: 0 30px 80px -40px rgba(0, 0, 0, 0.9);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   /* Headings use Inter too (bold and tight); Michroma is kept for the wordmark. */
@@ -54,19 +53,26 @@
   --fs-body: 16px;
   --fs-lead: clamp(1.0625rem, 1.2vw, 1.2rem);
   --fs-h3: clamp(1.15rem, 1.5vw, 1.3rem);
-  --fs-section: clamp(2rem, 4.2vw, 3.4rem);
+  --fs-section: clamp(1.875rem, 3.6vw, 2.875rem);
 
-  /* One vertical rhythm for every section. */
-  --space-section: clamp(72px, 9vw, 120px);
-  --space-heading: clamp(32px, 4.5vw, 56px);
+  /* One vertical rhythm for every section: 56px on phones, 72px on desktop. */
+  --space-section: 56px;
+  --space-heading: 32px;
 
-  --container: 1200px;
+  --container: 1240px;
   /* 20px side padding on phones, growing on larger screens. */
   --gutter: max(20px, min(4vw, 32px));
   --header-h: 72px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --space-section: 72px;
+    --space-heading: 40px;
+  }
 }
 
 /* ==========================================================================
@@ -98,16 +104,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Fine film grain gives flat dark surfaces some depth. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+
 
 h1,
 h2,
@@ -122,9 +119,9 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
   text-wrap: balance;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -316,21 +313,18 @@ main:has(#hero-title) .section {
   font-weight: 600;
   letter-spacing: -0.005em;
   white-space: nowrap;
-  overflow: hidden;
-  isolation: isolate;
   transition:
-    transform 0.25s var(--ease-out),
-    box-shadow 0.3s var(--ease-out),
-    background-color 0.25s,
-    border-color 0.25s,
-    color 0.25s,
-    opacity 0.2s;
+    transform 0.2s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
 
 .btn svg {
   width: 16px;
   height: 16px;
-  transition: transform 0.25s var(--ease-out);
+  transition: transform 0.2s var(--ease-out);
 }
 
 .btn:hover svg {
@@ -346,35 +340,28 @@ main:has(#hero-title) .section {
   opacity: 0.55;
 }
 
-/* Solid electric blue (deep enough for white text to pass WCAG AA). */
+/* Solid accent with a soft glow: the only glow on the site. */
 .btn-primary {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 55%) var(--accent-strong);
-  border-color: rgba(147, 197, 253, 0.35);
+  background: var(--accent-fill);
   color: #fff;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 10px 30px -12px rgba(59, 130, 246, 0.8);
+  box-shadow: 0 8px 28px -10px rgba(47, 123, 255, 0.7);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 60%) #1d4ed8;
   transform: translateY(-1px);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.3) inset,
-    0 0 0 4px rgba(59, 130, 246, 0.22),
-    0 16px 44px -12px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 12px 36px -10px rgba(47, 123, 255, 0.9);
 }
 
 /* Outlined pill. */
 .btn-secondary {
-  background: rgba(7, 11, 20, 0.35);
-  border-color: rgba(226, 232, 240, 0.32);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
   color: var(--text);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: rgba(96, 165, 250, 0.08);
-  border-color: var(--accent);
+  border-color: var(--accent-hover);
+  color: #fff;
 }
 
 .btn-ghost {
@@ -385,13 +372,38 @@ main:has(#hero-title) .section {
 
 .btn-ghost:hover:not(:disabled) {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .btn-sm {
   --btn-h: 44px;
   padding-inline: 18px;
   font-size: 14px;
+}
+
+/* Text link with an arrow ("Read more →", "See our work"). */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.text-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.text-link:hover {
+  color: var(--accent-hover);
+}
+
+.text-link:hover svg {
+  transform: translateX(3px);
 }
 
 /* Round arrow button, as on the work cards. */
@@ -401,14 +413,14 @@ main:has(#hero-title) .section {
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(226, 232, 240, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 50%;
   color: var(--text);
   transition:
-    background-color 0.25s,
-    border-color 0.25s,
-    box-shadow 0.3s,
-    transform 0.25s var(--ease-out);
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s var(--ease-out);
 }
 
 .round-arrow svg {
@@ -416,58 +428,65 @@ main:has(#hero-title) .section {
   height: 18px;
 }
 
-/* Small uppercase, letter-spaced label above a title. */
+/* Small uppercase label above a title (used sparingly). */
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--accent);
-  font-size: var(--fs-label);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   line-height: 1.4;
   text-transform: uppercase;
 }
 
+/* Small accent check icon before list items (see CheckList). */
+.check-list {
+  display: grid;
+  gap: 10px;
+}
+
+.check-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.check-list svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
 /* ==========================================================================
-   Glass cards (glow follows the cursor, see Motion.tsx)
+   Cards
    ========================================================================== */
 .card,
 .glass {
   position: relative;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.025));
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+  border-radius: 16px;
+  background: var(--bg-card);
   transition:
-    border-color 0.3s,
-    background-color 0.3s,
-    box-shadow 0.35s var(--ease-out),
-    transform 0.35s var(--ease-out);
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), rgba(59, 130, 246, 0.09), transparent 45%);
-  opacity: 0;
-  transition: opacity 0.35s;
-  pointer-events: none;
+    border-color 0.25s,
+    background-color 0.25s,
+    transform 0.25s var(--ease-out);
 }
 
 @media (hover: hover) {
   .card:hover {
-    border-color: rgba(96, 165, 250, 0.4);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.06) inset,
-      0 24px 60px -30px rgba(59, 130, 246, 0.55);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: var(--bg-card-hover);
   }
+}
 
-  .card:hover::after {
-    opacity: 1;
-  }
+/* Alternate section background. */
+.section-alt {
+  background: var(--bg-alt);
 }
 
 /* ==========================================================================
@@ -520,7 +539,8 @@ html[data-switching] main {
   }
 }
 
-/* The mobile menu covers the page; keep the page behind it still. */
+/* The mobile menu and the project dialog cover the page; keep the page behind still. */
+html[data-dialog-open],
 html[data-menu-open] {
   overflow: hidden;
 }
