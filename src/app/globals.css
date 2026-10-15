@@ -4,30 +4,24 @@
 :root {
   color-scheme: dark;
 
-  --bg: #05070d;
-  --bg-elevated: #0a0f1a;
-  --bg-card: rgba(255, 255, 255, 0.025);
-  --bg-card-hover: rgba(255, 255, 255, 0.045);
-  --border: rgba(200, 215, 240, 0.09);
-  --border-strong: rgba(200, 215, 240, 0.18);
+  /* Deep navy / near-black surfaces. */
+  --bg: #070b14;
+  --bg-elevated: #0b1120;
+  --bg-card: rgba(148, 163, 184, 0.045);
+  --bg-card-hover: rgba(148, 163, 184, 0.075);
+  --border: rgba(148, 163, 184, 0.14);
+  --border-strong: rgba(148, 163, 184, 0.26);
 
-  --text: #e6e9ef;
-  --text-muted: #a0a7b4;
-  --text-subtle: #8a93a3;
-  --surface: #080c15;
-  --hairline: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.12) 20%,
-    rgba(255, 255, 255, 0.12) 80%,
-    transparent
-  );
+  --text: #eef2f8;
+  --text-muted: #a9b3c4;
+  --text-subtle: #8d97a9;
+  --surface: #0a0f1c;
 
-  /* Brand: electric blue on near-black, with chrome/silver accents. */
-  --accent: #4d8dff;
-  --accent-strong: #1f66f0;
-  --accent-bright: #2f7bff;
-  --blue: #00b4ff;
+  /* Brand: electric blue, matching the chrome "F" logo's glow. */
+  --accent: #60a5fa;
+  --accent-strong: #2563eb;
+  --accent-bright: #3b82f6;
+  --blue: #3b82f6;
   --silver: #e2e8f0;
   --steel: #8a95a8;
   --cyan: #38d6f5;
@@ -35,38 +29,41 @@
   --danger: #ff6b81;
   --warning: #fbbf24;
 
-  /* Gradients are reserved for highlights, headings and the logo mark. */
-  --gradient: linear-gradient(100deg, #d6e2ff 0%, #6fa3ff 45%, #2f7bff 100%);
+  --gradient: linear-gradient(100deg, #bfdbfe 0%, #60a5fa 45%, #3b82f6 100%);
   --chrome: linear-gradient(180deg, #ffffff 0%, #e2e8f0 38%, #a7b2c4 62%, #e6e9ef 100%);
-  --accent-soft: rgba(77, 141, 255, 0.14);
+  --accent-soft: rgba(59, 130, 246, 0.14);
+  --glow: 0 0 0 1px rgba(96, 165, 250, 0.35), 0 18px 50px -24px rgba(59, 130, 246, 0.55);
   --shadow-lg:
     0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 40px 80px -40px rgba(0, 0, 0, 0.9),
-    0 24px 60px -48px rgba(47, 123, 255, 0.5);
+    0 24px 60px -48px rgba(59, 130, 246, 0.5);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: var(--font-michroma), var(--font-sans);
-  --font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  /* Headings use Inter too (bold and tight); Michroma is kept for the wordmark. */
+  --font-display: var(--font-sans);
+  --font-brand: var(--font-michroma), var(--font-sans);
+  /* Technical labels use the same clean sans-serif (set in uppercase and letter-spaced). */
+  --font-mono: var(--font-sans);
 
   --radius-sm: 10px;
   --radius: 16px;
-  --radius-lg: 22px;
+  --radius-lg: 20px;
 
-  /* Type scale. Michroma (display) is reserved for the hero, section titles and
-     the brand; everything else is Inter. Labels never go below 12px. */
+  /* Type scale. Body text never goes below 16px; labels never below 12px. */
   --fs-label: 12px;
   --fs-small: 14px;
   --fs-body: 16px;
-  --fs-lead: clamp(1.05rem, 1.2vw, 1.2rem);
-  --fs-h3: clamp(1.15rem, 1.6vw, 1.35rem);
-  --fs-section: clamp(1.9rem, 3.8vw, 3.5rem);
+  --fs-lead: clamp(1.0625rem, 1.2vw, 1.2rem);
+  --fs-h3: clamp(1.15rem, 1.5vw, 1.3rem);
+  --fs-section: clamp(2rem, 4.2vw, 3.4rem);
 
   /* One vertical rhythm for every section. */
   --space-section: clamp(72px, 9vw, 120px);
-  --space-heading: clamp(36px, 5vw, 64px);
+  --space-heading: clamp(32px, 4.5vw, 56px);
 
   --container: 1200px;
-  --gutter: clamp(16px, 4vw, 32px);
-  --header-h: 76px;
+  /* 20px side padding on phones, growing on larger screens. */
+  --gutter: max(20px, min(4vw, 32px));
+  --header-h: 72px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -84,16 +81,13 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 16px);
+  scroll-padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 16px);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(1200px 600px at 50% -10%, rgba(47, 123, 255, 0.07), transparent 70%),
-    linear-gradient(180deg, #05070d, #070b14 50%, #05070d) fixed,
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -123,16 +117,14 @@ p {
   margin: 0;
 }
 
-/* Michroma is a single-weight, very wide face: keep headings regular weight,
-   slightly tracked out, and allow long Finnish compounds to break. */
+/* Large, bold, tight headlines. Long Finnish compounds may break. */
 h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-synthesis: none;
-  letter-spacing: -0.01em;
-  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   text-wrap: balance;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -190,7 +182,9 @@ ol {
   width: 100%;
   max-width: calc(var(--container) + var(--gutter) * 2);
   margin-inline: auto;
-  padding-inline: var(--gutter);
+  /* Clear the notch and rounded corners in landscape on iPhones. */
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
 }
 
 .section {
@@ -198,9 +192,19 @@ ol {
   padding-block: var(--space-section);
 }
 
+/* Homepage: sections below the fold skip style and layout until they come near the
+   viewport (browsers start about half a screen ahead), so the hero paints sooner on
+   phones. `auto` remembers each section's real height once it has rendered. Not used on
+   the inner pages, which rely on #anchor links. */
+main:has(#hero-title) .section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
+}
+
+
 /* A section that is the main content of its own page clears the fixed header. */
 .section-page {
-  padding-top: calc(var(--header-h) + clamp(48px, 7vw, 96px));
+  padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(48px, 7vw, 96px));
 }
 
 .sr-only {
@@ -278,7 +282,7 @@ ol {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-family: var(--font-display);
+  font-family: var(--font-brand);
   font-size: var(--logo-size, 17px);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -288,7 +292,7 @@ ol {
   /* Optical centring: trailing letter-spacing is cancelled by the padding. */
   padding-left: 0.62em;
   color: var(--accent);
-  font-family: var(--font-display);
+  font-family: var(--font-brand);
   font-size: calc(var(--logo-size, 17px) * 0.5);
   letter-spacing: 0.62em;
   text-transform: uppercase;
@@ -304,28 +308,29 @@ ol {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: var(--btn-h);
-  padding-inline: 22px;
+  min-height: var(--btn-h);
+  padding: 0 24px;
   border-radius: 999px;
   border: 1px solid transparent;
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: -0.005em;
   white-space: nowrap;
   overflow: hidden;
   isolation: isolate;
   transition:
-    transform 0.3s var(--ease-out),
+    transform 0.25s var(--ease-out),
     box-shadow 0.3s var(--ease-out),
-    background-color 0.3s,
-    border-color 0.3s,
+    background-color 0.25s,
+    border-color 0.25s,
+    color 0.25s,
     opacity 0.2s;
 }
 
 .btn svg {
   width: 16px;
   height: 16px;
-  transition: transform 0.3s var(--ease-out);
+  transition: transform 0.25s var(--ease-out);
 }
 
 .btn:hover svg {
@@ -341,34 +346,35 @@ ol {
   opacity: 0.55;
 }
 
+/* Solid electric blue (deep enough for white text to pass WCAG AA). */
 .btn-primary {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 60%) var(--accent-strong);
-  border-color: rgba(143, 182, 255, 0.35);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 55%) var(--accent-strong);
+  border-color: rgba(147, 197, 253, 0.35);
   color: #fff;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.28) inset,
-    0 10px 30px -12px rgba(47, 123, 255, 0.75);
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 10px 30px -12px rgba(59, 130, 246, 0.8);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 70%) var(--accent-strong);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 60%) #1d4ed8;
   transform: translateY(-1px);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.35) inset,
-    0 0 0 4px rgba(47, 123, 255, 0.2),
-    0 16px 44px -12px rgba(0, 180, 255, 0.6);
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 0 0 4px rgba(59, 130, 246, 0.22),
+    0 16px 44px -12px rgba(59, 130, 246, 0.7);
 }
 
+/* Outlined pill. */
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--border-strong);
+  background: rgba(7, 11, 20, 0.35);
+  border-color: rgba(226, 232, 240, 0.32);
   color: var(--text);
-  backdrop-filter: blur(12px);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(96, 165, 250, 0.08);
+  border-color: var(--accent);
 }
 
 .btn-ghost {
@@ -383,46 +389,61 @@ ol {
 }
 
 .btn-sm {
-  --btn-h: 40px;
+  --btn-h: 44px;
   padding-inline: 18px;
   font-size: 14px;
 }
 
-/* ==========================================================================
-   Cards with cursor spotlight (see Spotlight.tsx)
-   ========================================================================== */
-.card {
-  position: relative;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--bg-card);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+/* Round arrow button, as on the work cards. */
+.round-arrow {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 50%;
+  color: var(--text);
   transition:
-    border-color 0.4s,
-    background-color 0.4s,
-    transform 0.5s var(--ease-out);
+    background-color 0.25s,
+    border-color 0.25s,
+    box-shadow 0.3s,
+    transform 0.25s var(--ease-out);
 }
 
-.card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: radial-gradient(
-    420px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(77, 141, 255, 0.55),
-    rgba(0, 180, 255, 0.18) 40%,
-    transparent 70%
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
+.round-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Small uppercase, letter-spaced label above a title. */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Glass cards (glow follows the cursor, see Motion.tsx)
+   ========================================================================== */
+.card,
+.glass {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.025));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    box-shadow 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
 }
 
 .card::after {
@@ -430,20 +451,23 @@ ol {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(47, 123, 255, 0.07), transparent 45%);
+  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), rgba(59, 130, 246, 0.09), transparent 45%);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.35s;
   pointer-events: none;
 }
 
-.card:hover {
-  border-color: var(--border-strong);
-  background: var(--bg-card-hover);
-}
+@media (hover: hover) {
+  .card:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 24px 60px -30px rgba(59, 130, 246, 0.55);
+  }
 
-.card:hover::before,
-.card:hover::after {
-  opacity: 1;
+  .card:hover::after {
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -453,19 +477,13 @@ ol {
    enabled motion (html.motion: JavaScript on, no reduced-motion preference) and
    only until Motion has played the element in, so content is never stuck hidden. */
 .motion .reveal:not([data-shown]),
-.motion [data-stagger]:not([data-shown]) > *,
-.motion [data-hero]:not([data-shown]) {
+.motion [data-stagger]:not([data-shown]) > * {
   opacity: 0;
 }
 
-/* Chrome lettering for headings: one gradient per line of text. */
+/* Heading text (was chrome lettering; now plain, crisp white). */
 .chrome-lines {
-  background: var(--chrome) 0 0 / 100% 1lh repeat-y;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  color: transparent;
+  color: var(--text);
 }
 
 /* Soft entrance when moving between pages (see app/[lang]/template.tsx). */

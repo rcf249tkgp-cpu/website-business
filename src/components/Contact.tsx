@@ -70,7 +70,7 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
       >
         <div className={`container ${styles.pageLayout}`}>
           <div className={styles.intro}>
-            <p className={styles.eyebrow}>{contact.eyebrow}</p>
+            <p className={`eyebrow ${styles.eyebrow}`}>{contact.eyebrow}</p>
             <Heading id="contact-title" className={styles.pageTitle}>
               {contact.title}
             </Heading>
@@ -99,7 +99,7 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
       aria-labelledby="contact-title"
     >
       <div className="container">
-        <p className={styles.eyebrow}>
+        <p className={`eyebrow ${styles.eyebrow}`}>
           <span aria-hidden="true">08</span>
           {contact.eyebrow}
         </p>

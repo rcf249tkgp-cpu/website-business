@@ -106,7 +106,7 @@ export function CaseGallery({
                 alt={`${client} — ${s.label}`}
                 sizes="(max-width: 760px) 100vw, 72vw"
                 style={s.focus ? { objectPosition: s.focus } : undefined}
-                loading={i === 0 ? 'eager' : 'lazy'}
+                loading="lazy"
               />
               {s.blur?.map(([left, top, width, height]) => (
                 <span

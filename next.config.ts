@@ -10,6 +10,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  // Images are already optimised WebP files in /public, so no on-the-fly resizing
+  // (that would need a Cloudflare Images binding on the account).
+  images: { unoptimized: true },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]
   },

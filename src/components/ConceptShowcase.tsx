@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useRef, useState } from 'react'
 import type { Dictionary } from '@/i18n'
-import { Monitor, Smartphone } from './Icons'
+import { ArrowRight, Monitor, Smartphone } from './Icons'
 import styles from './Work.module.css'
 
 const ConceptSite = dynamic(() => import('./ConceptSite'))
@@ -50,7 +50,7 @@ export function ConceptShowcase({ concepts, sites, t }: { concepts: Concept[]; s
           <button
             key={c.id}
             type="button"
-            className={styles.conceptItem}
+            className={`card ${styles.conceptItem}`}
             aria-pressed={i === active}
             onClick={() => setActive(i)}
           >
@@ -61,6 +61,9 @@ export function ConceptShowcase({ concepts, sites, t }: { concepts: Concept[]; s
             <span className={styles.conceptCategory}>{c.category}</span>
             <span className={styles.conceptSummary}>
               <span>{c.summary}</span>
+            </span>
+            <span className={`round-arrow ${styles.conceptArrow}`} aria-hidden="true">
+              <ArrowRight />
             </span>
           </button>
         ))}

@@ -2,49 +2,45 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: clamp(12px, 2vw, 24px);
-  row-gap: 22px;
+  row-gap: 16px;
   align-items: end;
   margin-bottom: var(--space-heading);
 }
 
-/* A ruled line with the section number, like a sheet in a drawing set. */
+/* Small blue uppercase label, with the section number before it. */
 .eyebrow {
   grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .index {
-  color: var(--accent);
+  color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
 }
 
 .index::after {
-  content: '—';
-  margin-left: 16px;
-  color: var(--text-subtle);
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  margin-left: 12px;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: 0.6;
 }
 
 .title {
-  grid-column: 1 / span 8;
+  grid-column: 1 / span 7;
   font-size: var(--fs-section);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
 }
 
 .description {
-  grid-column: 9 / -1;
-  max-width: 44ch;
+  grid-column: 8 / -1;
+  max-width: 46ch;
   color: var(--text-muted);
   font-size: var(--fs-lead);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .heading[data-layout='stack'] .title,
@@ -53,8 +49,16 @@
 }
 
 @media (max-width: 960px) {
+  .heading {
+    row-gap: 14px;
+  }
+
   .title,
   .description {
     grid-column: 1 / -1;
+  }
+
+  .description {
+    margin-top: 4px;
   }
 }

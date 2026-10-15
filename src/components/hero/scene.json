@@ -1,0 +1,14 @@
+{
+  "comment": "Geometry of public/hero.jpg, shared by the hero components, the WebGL effect and scripts/hero/compose.py. Corners are the inside of the laptop lid's silver edge, in image pixels (TL, TR, BR, BL), found by fitting lines to the four lid edges.",
+  "image": { "width": 2000, "height": 782 },
+  "lid": [
+    [1112.3, 61.63],
+    [1763.49, 116.24],
+    [1664.44, 607.36],
+    [1016.11, 494.39]
+  ],
+  "face": { "width": 1600, "height": 1130 },
+  "display": { "left": 25, "top": 38, "right": 25, "bottom": 36 },
+  "screenshot": { "width": 1440, "height": 984 },
+  "laptop": { "left": 700, "right": 1800, "top": 40, "bottom": 720 }
+}

@@ -75,7 +75,7 @@ Without it, the customer's preferred date and time are sent to you as a **reques
 
 These are built in and need no setup:
 - a hidden honeypot field
-- a minimum fill time (submissions faster than 4 s are rejected)
+- a minimum fill time (submissions faster than 3 s are rejected)
 - per-IP rate limiting (`INQUIRY_RATE_LIMIT`, default 5 per 15 min)
 - same-origin checks
 - server-side re-validation of every field
@@ -107,13 +107,49 @@ All secrets are read only on the server. The browser never sees them.
 
 ---
 
-## Deployment
+## Deployment (Cloudflare)
 
-The easiest option is **Vercel**: import the repository, add the environment variables above, and deploy. Any Node.js 20+ host also works:
+The site runs on **Cloudflare Workers** (with static assets) through the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare). Every page is prerendered at build time and served from the static assets; the Worker only handles the language redirect on `/`, the contact form API (`/api/inquiry`) and the 404 page. No R2, KV or database is needed.
+
+**Connect the repository (GitHub → Cloudflare):** in the Cloudflare dashboard, go to *Workers & Pages → Create → Import a repository*, pick this repo and use:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npx opennextjs-cloudflare build` |
+| Deploy command | `npx wrangler deploy` |
+| Worker / project name | `fusion-sites` (must match `name` in `wrangler.jsonc`) |
+
+- **Build variables** (Settings → Build → Variables): `NEXT_PUBLIC_SITE_URL` and any other `NEXT_PUBLIC_*` values. They are baked in at build time.
+- **Runtime variables and secrets** (Settings → Variables and Secrets): `RESEND_API_KEY` (as a secret), `MAIL_FROM`, `INQUIRY_TO_EMAIL`, and the optional ones from the table above.
+- **Email on Cloudflare:** use **Resend** (option A above). It sends over HTTPS, which Workers support. SMTP (option B) needs raw TCP sockets and is meant for local development and other Node hosts.
+- **Custom domain:** add it under the Worker's *Settings → Domains & Routes*, then set `NEXT_PUBLIC_SITE_URL` to it and redeploy.
+
+The build needs only Node.js and npm: no Playwright, Python or ML models. Those are only used locally to regenerate the hero images (see *Hero image* below), and the results are committed to `public/`.
+
+Cache headers for static files are in `public/_headers`: hashed build files (`/_next/static/*`) are cached for a year as immutable, images for 30 days.
+
+**Try the Cloudflare build locally:**
 
 ```bash
-npm ci && npm run build && npm start
+npm run preview        # opennextjs-cloudflare build + local Workers runtime (wrangler)
+npm run deploy         # build and deploy from your machine (needs `npx wrangler login`)
 ```
+
+Plain Node.js hosting also still works: `npm ci && npm run build && npm start`.
+
+---
+
+## Hero image
+
+The homepage hero is `public/hero.jpg` (a laptop on a rock). Generated from it, all committed:
+
+| File | What it is | How it's made |
+| --- | --- | --- |
+| `public/hero-screen.webp` | Screenshot of the homepage shown on the laptop screen | `node scripts/hero/capture-screen.mjs http://localhost:3000/fi` (Playwright, with `npm start` running) |
+| `public/hero-{800,1200,2000}.webp` | The photo with the screenshot baked onto the screen in perspective (responsive WebP) | `python scripts/hero/compose.py` |
+| `public/hero-depth.png` | Depth map for the desktop 3D effect (white = near) | `python scripts/hero/depth.py depth_anything_v2_vits.onnx` (Depth Anything V2) |
+
+The laptop's screen corners and the bezel live in `src/components/hero/scene.json`; the page, the WebGL shader and the scripts all read them from there. After a redesign, run `capture-screen.mjs` twice (so the laptop inside the screenshot shows the new design too), then `compose.py`.
 
 ---
 

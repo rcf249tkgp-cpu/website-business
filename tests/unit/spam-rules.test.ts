@@ -34,10 +34,10 @@ describe('automatedReason', () => {
 })
 
 describe('originAllowed', () => {
-  it('allows same-origin posts on Vercel with a custom domain', () => {
+  it('allows same-origin posts behind a proxy with a custom domain', () => {
     assert.ok(
       originAllowed(
-        headers({ origin: 'https://fusionsites.fi', host: 'x.vercel.app', 'x-forwarded-host': 'fusionsites.fi' }),
+        headers({ origin: 'https://fusionsites.fi', host: 'fusion-sites.workers.dev', 'x-forwarded-host': 'fusionsites.fi' }),
       ),
     )
   })

@@ -16,27 +16,29 @@
   gap: 22px;
   padding: clamp(24px, 2.6vw, 36px);
   border: 1px solid var(--border);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.012);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.02));
   transition:
-    border-color 0.4s,
-    translate 0.6s var(--ease-out);
+    border-color 0.3s,
+    box-shadow 0.35s var(--ease-out),
+    translate 0.35s var(--ease-out);
 }
 
-.tier:hover {
-  border-color: var(--border-strong);
-  translate: 0 -4px;
+@media (hover: hover) {
+  .tier:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 24px 60px -30px rgba(59, 130, 246, 0.55);
+    translate: 0 -3px;
+  }
 }
 
-/* The recommended plan: a brushed-chrome edge and a soft blue light. */
+/* The recommended plan: a blue edge and a soft blue light. */
 .tier[data-featured] {
-  border-color: transparent;
-  background:
-    linear-gradient(180deg, #0f1626, #0a0f1a) padding-box,
-    linear-gradient(160deg, #ffffff, #8a95a8 30%, #2f7bff 60%, #e2e8f0) border-box;
+  border-color: rgba(96, 165, 250, 0.6);
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.14), rgba(11, 17, 32, 0.6) 45%);
   box-shadow:
-    0 40px 90px -40px rgba(47, 123, 255, 0.55),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    0 40px 90px -40px rgba(59, 130, 246, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
   margin-block: -14px;
   padding-block: calc(clamp(24px, 2.6vw, 36px) + 14px);
 }
@@ -57,16 +59,16 @@
   border-radius: 999px;
   background: var(--accent-strong);
   color: #fff;
-  font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .description {
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .price {
@@ -84,8 +86,9 @@
 }
 
 .amount {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
@@ -104,15 +107,16 @@
 }
 
 .pending {
-  font-family: var(--font-display);
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .features {
   display: grid;
   gap: 10px;
   margin-bottom: auto;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .features li {
@@ -123,7 +127,7 @@
 .features li::before {
   content: '+';
   color: var(--accent);
-  font-family: var(--font-mono);
+  font-weight: 700;
 }
 
 .cta {
@@ -139,7 +143,7 @@
   margin-top: clamp(28px, 3vw, 40px);
   padding: clamp(22px, 2.4vw, 32px) clamp(24px, 2.6vw, 36px);
   border: 1px dashed var(--border-strong);
-  border-radius: 22px;
+  border-radius: var(--radius);
 }
 
 .addonLabel {
@@ -164,7 +168,7 @@
 .maintenance p {
   max-width: 64ch;
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .maintenance .price {

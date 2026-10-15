@@ -61,8 +61,19 @@
     display: none;
   }
 
+  /* Phones: 44px tall tap targets (44 × 44 in the compact header version). */
+  .item {
+    height: 44px;
+  }
+
+  .root:not([data-expanded]) {
+    gap: 0;
+    padding: 0;
+  }
+
   .root:not([data-expanded]) .item {
-    min-width: 34px;
-    padding: 0 7px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 6px;
   }
 }

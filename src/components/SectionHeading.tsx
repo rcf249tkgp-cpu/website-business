@@ -24,7 +24,7 @@ export function SectionHeading({
 }: Props) {
   return (
     <div className={`${styles.heading} reveal`} data-layout={layout}>
-      <p className={styles.eyebrow}>
+      <p className={`eyebrow ${styles.eyebrow}`}>
         {index && (
           <span className={styles.index} aria-hidden="true">
             {index}

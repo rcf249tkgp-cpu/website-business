@@ -1,6 +1,7 @@
 .footer {
   position: relative;
   padding-top: clamp(64px, 8vw, 96px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   border-top: 1px solid var(--border);
   overflow: hidden;
 }
@@ -12,11 +13,17 @@
   padding-block: 0 clamp(48px, 6vw, 72px);
 }
 
+.brand > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 .brand p {
   max-width: 36ch;
   margin-top: 18px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .lang {
@@ -53,7 +60,7 @@
   gap: 10px;
   margin-top: 18px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
 }
 
@@ -120,7 +127,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-family: var(--font-display);
+  font-family: var(--font-brand);
   font-size: clamp(1.9rem, 7.2vw, 7rem);
   white-space: nowrap;
   letter-spacing: 0.02em;

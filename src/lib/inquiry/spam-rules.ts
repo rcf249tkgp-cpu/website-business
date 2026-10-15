@@ -36,7 +36,7 @@ export function automatedReason(
   return 'too fast'
 }
 
-/** Hosts this request can legitimately come from (Vercel may list several in forwarded headers). */
+/** Hosts this request can legitimately come from (a proxy or CDN may list several in forwarded headers). */
 function hostsOf(headers: { get(name: string): string | null }, siteUrl?: string): Set<string> {
   const hosts = new Set<string>()
   for (const name of ['host', 'x-forwarded-host']) {

@@ -1,0 +1,16 @@
+# Cache headers for Cloudflare static assets (Workers static assets / Pages).
+
+# Hashed build output (JS, CSS, fonts): the file name changes whenever the content does.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images: long cache, refreshed in the background. They keep their names when replaced,
+# so not "immutable".
+/hero-*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+/hero.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+/work/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+/apple-icon.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800

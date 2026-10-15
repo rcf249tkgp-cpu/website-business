@@ -16,8 +16,11 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#05070d',
+  themeColor: '#070b14',
   colorScheme: 'dark',
+  // Edge to edge on iPhones; the header, page gutters and footer pad themselves with
+  // env(safe-area-inset-*) so nothing sits under the notch or the home indicator.
+  viewportFit: 'cover',
 }
 
 export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Promise<Metadata> {

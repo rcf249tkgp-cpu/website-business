@@ -61,8 +61,10 @@
   display: grid;
   align-content: start;
   gap: 10px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border-strong);
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.02));
 }
 
 .values span {
@@ -83,7 +85,7 @@
 
 .values p {
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -183,11 +185,7 @@
 
   .values {
     grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .values li {
-    padding-block: 18px;
+    gap: 12px;
   }
 }
 

@@ -2,7 +2,8 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  height: var(--header-h);
+  height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 /* The bar itself. Solid as soon as anything scrolls under it, so page
@@ -31,13 +32,13 @@
 
 .header[data-scrolled]::before,
 .header[data-menu-open]::before {
-  background: rgba(5, 7, 13, 0.94);
+  background: rgba(7, 11, 20, 0.94);
   border-bottom-color: var(--border);
 }
 
 @supports (backdrop-filter: blur(1px)) {
   .header[data-scrolled]::before {
-    background: rgba(5, 7, 13, 0.93);
+    background: rgba(7, 11, 20, 0.9);
     backdrop-filter: saturate(140%) blur(16px);
   }
 }
@@ -49,6 +50,9 @@
 
 .logo {
   justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   border-radius: 10px;
 }
 
@@ -189,9 +193,11 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 40px;
-    padding: calc(var(--header-h) + clamp(24px, 6vh, 64px)) 0 calc(32px + env(safe-area-inset-bottom));
+    padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(24px, 6vh, 64px)) 0
+      calc(32px + env(safe-area-inset-bottom, 0px));
     background:
-      linear-gradient(var(--border), var(--border)) 0 var(--header-h) / 100% 1px no-repeat,
+      linear-gradient(var(--border), var(--border)) 0 calc(var(--header-h) + env(safe-area-inset-top, 0px)) / 100%
+        1px no-repeat,
       radial-gradient(80% 50% at 100% 100%, rgba(47, 123, 255, 0.12), transparent 70%),
       var(--bg);
     overflow-y: auto;
@@ -298,6 +304,26 @@
   }
 }
 
+/* Phones: a slightly smaller logo so the 44px language buttons and the menu button fit. */
+@media (max-width: 440px) {
+  .inner {
+    gap: 10px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .logo {
+    --logo-size: 14px;
+    --logo-mark: 28px;
+  }
+
+  .logo :global(.brand-logo) {
+    gap: 7px;
+  }
+}
+
 /* Very small phones: tighten the header so the menu button always fits. */
 @media (max-width: 380px) {
   .inner {
@@ -309,12 +335,12 @@
   }
 
   .logo {
-    --logo-size: 14px;
-    --logo-mark: 28px;
+    --logo-size: 12.5px;
+    --logo-mark: 26px;
   }
 
   .logo :global(.brand-logo) {
-    gap: 7px;
+    gap: 6px;
   }
 }
 
