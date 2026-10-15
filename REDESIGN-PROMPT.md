@@ -54,7 +54,7 @@ Keep a short translated note that these are illustrative example businesses, not
 - List shortened/removed text and low-res crops. Keep Cloudflare-compatible.
 
 ## Checklist
-- [ ] Crop all images to /public/img/
+- [x] Crop all images to /public/img/ (21 WebP files; ba-*.webp have baked-in Swedish Före/Efter text — overlay translated labels or crop further)
 - [ ] Colors + typography tokens
 - [ ] Before/after section with new images
 - [ ] Concept studies with new images
