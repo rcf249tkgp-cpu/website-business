@@ -117,7 +117,7 @@ The site runs on **Cloudflare Workers** (with static assets) through the [OpenNe
 | --- | --- |
 | Build command | `npx opennextjs-cloudflare build` |
 | Deploy command | `npx wrangler deploy` |
-| Worker / project name | `fusion-sites` (must match `name` in `wrangler.jsonc`) |
+| Worker / project name | `website-business` (must match `name` in `wrangler.jsonc`) |
 
 - **Build variables** (Settings → Build → Variables): `NEXT_PUBLIC_SITE_URL` and any other `NEXT_PUBLIC_*` values. They are baked in at build time.
 - **Runtime variables and secrets** (Settings → Variables and Secrets): `RESEND_API_KEY` (as a secret), `MAIL_FROM`, `INQUIRY_TO_EMAIL`, and the optional ones from the table above.

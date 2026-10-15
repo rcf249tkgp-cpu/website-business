@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   // The Worker name must match the project name in the Cloudflare dashboard.
-  "name": "fusion-sites",
+  "name": "website-business",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-09-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -10,5 +10,8 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  // Keep variables set in the Cloudflare dashboard (e.g. MAIL_FROM, INQUIRY_TO_EMAIL)
+  // when a new version is deployed from Git. Secrets are always kept.
+  "keep_vars": true,
   "observability": { "enabled": true }
 }
