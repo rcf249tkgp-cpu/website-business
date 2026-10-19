@@ -99,24 +99,30 @@ export function Contact({ lang, dict, variant, standalone = false }: Props) {
       aria-labelledby="contact-title"
     >
       <div className="container">
-        {/* One clear call to action; the inquiry flow itself opens in its own dialog. */}
+        {/* One clear call to action over a dark photo; the inquiry flow opens in its own dialog. */}
         <div className={`${styles.band} reveal`}>
+          <img
+            className={styles.bandImage}
+            src="/img/house-dusk.webp"
+            alt=""
+            width={502}
+            height={377}
+            loading="lazy"
+            decoding="async"
+          />
           <div className={styles.bandText}>
             <Heading id="contact-title" className={styles.bigTitle}>
               <span>{contact.title.slice(0, contact.title.lastIndexOf(' '))}</span>{' '}
               <span className={styles.highlight}>{contact.title.slice(contact.title.lastIndexOf(' ') + 1)}</span>
             </Heading>
             <p className={styles.description}>{contact.description}</p>
-          </div>
-          <div className={styles.action}>
             <Link href={`/${lang}/start`} className={`btn btn-primary ${styles.cta}`}>
               {dict.nav.cta}
               <ArrowRight />
             </Link>
-            <p className={styles.reply}>{contact.reply}</p>
           </div>
         </div>
-        <div className={`${styles.directRow} reveal`}>{direct}</div>
+        {standalone && <div className={`${styles.directRow} reveal`}>{direct}</div>}
       </div>
     </section>
   )

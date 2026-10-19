@@ -55,9 +55,9 @@
   --fs-h3: clamp(1.15rem, 1.5vw, 1.3rem);
   --fs-section: clamp(1.875rem, 3.6vw, 2.875rem);
 
-  /* One vertical rhythm for every section: 56px on phones, 72px on desktop. */
-  --space-section: 56px;
-  --space-heading: 32px;
+  /* One vertical rhythm for every section: 48px on phones, 72px on desktop. */
+  --space-section: 48px;
+  --space-heading: 28px;
 
   --container: 1240px;
   /* 20px side padding on phones, growing on larger screens. */

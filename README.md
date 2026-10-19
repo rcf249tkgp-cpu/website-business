@@ -151,6 +151,20 @@ The homepage hero is `public/hero.jpg` (a laptop on a rock). Generated from it, 
 
 The laptop's screen corners and the bezel live in `src/components/hero/scene.json`; the page, the WebGL shader and the scripts all read them from there. After a redesign, run `capture-screen.mjs` twice (so the laptop inside the screenshot shows the new design too), then `compose.py`.
 
+## Section images
+
+| Files | Used for |
+| --- | --- |
+| `public/img/ba-row-*.webp` | Before/after showcase (tabs). Old site on the left, new on the right; the "Before/After" labels are HTML, in the page language |
+| `public/img/ba-*.webp` | Before/after gallery (made-up businesses) |
+| `public/img/concept-*.webp` | Concept study cards |
+| `public/img/craft-mockup.webp` | Services image |
+| `public/img/house-dusk.webp`, `office-view.webp`, `terrace-sunset.webp`, `phone-rock.webp` | Image band, About photo, final call to action |
+| `public/work/vyro/` | VYRO Athletics screenshots (client project card) |
+| `public/work/niipperin/share-{lang}.webp` | Niipperin Maanrakennus card: the site's own share image, until real screenshots replace it |
+
+The sources are in `public/source/`. `python3 scripts/img/variants.py` writes the smaller `-640` / `-480` / `-768` / `-1152` copies used in `srcset`.
+
 ---
 
 ## How it works
@@ -188,4 +202,4 @@ src/
 - [ ] Have the privacy policy and terms (`legal` in the dictionaries) reviewed for your business
 - [ ] Proofread Swedish and Finnish copy
 - [ ] Confirm the commitments you make on the site are ones you'll keep: fixed-price proposals, reply within one business day, free intro meeting, live preview link, training at launch (`why.commitments`, `faq` and `contact.points` in the dictionaries)
-- [ ] Swap concept projects for real case studies as you get them (`work` in the dictionaries plus `src/components/ProjectMockups.tsx`)
+- [ ] Add real case studies as you get them (`work` in the dictionaries plus `src/components/WorkCards.tsx`)

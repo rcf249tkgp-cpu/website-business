@@ -163,9 +163,27 @@
   text-align: right;
 }
 
+/* Phones and tablets: the plans side by side in a swipeable row. */
 @media (max-width: 960px) {
   .tiers {
-    grid-template-columns: 1fr;
+    grid-auto-columns: min(84%, 360px);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 4px var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--gutter);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .tiers::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tier {
+    scroll-snap-align: start;
   }
 
 

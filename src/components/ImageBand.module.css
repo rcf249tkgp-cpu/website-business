@@ -1,0 +1,59 @@
+.band {
+  padding-block: var(--space-section);
+  overflow: hidden;
+}
+
+.line {
+  max-width: 22ch;
+  margin-bottom: 32px;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.strip {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  padding-left: var(--gutter);
+}
+
+.strip img {
+  flex: none;
+  width: auto;
+  height: clamp(180px, 22vw, 300px);
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* Slow parallax: the strip drifts sideways while the band crosses the viewport. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .strip {
+      animation: drift linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(2%);
+  }
+  to {
+    transform: translateX(-8%);
+  }
+}
+
+@media (min-width: 900px) {
+  .strip {
+    gap: 16px;
+    padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2));
+  }
+}

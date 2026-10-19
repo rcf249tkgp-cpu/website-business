@@ -1,0 +1,78 @@
+.devices {
+  position: relative;
+  /* Room for the phone, which hangs below the laptop's right corner. */
+  padding: 0 6% 6% 0;
+}
+
+.devices:not([data-phone]) {
+  padding: 0 4% 4%;
+}
+
+/* ------------------------------------------------------------ Laptop */
+.laptop {
+  position: relative;
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  padding: 2.2%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+  background: #0a0e17;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.9);
+}
+
+.screen img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* The keyboard deck, seen edge-on: a little wider than the screen. */
+.base {
+  position: relative;
+  height: 10px;
+  margin-inline: -5%;
+  border-radius: 0 0 14px 14px;
+  background: linear-gradient(180deg, #3a4150 0%, #1b202b 60%, #0d1118 100%);
+}
+
+.base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 16%;
+  height: 4px;
+  border-radius: 0 0 6px 6px;
+  background: #11151e;
+  transform: translateX(-50%);
+}
+
+/* ------------------------------------------------------------ Phone */
+.phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 24%;
+  aspect-ratio: 9 / 19;
+  overflow: hidden;
+  padding: 1.5%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background: #0a0e17;
+  box-shadow: -20px 30px 60px -20px rgba(0, 0, 0, 0.85);
+}
+
+.phone img {
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  object-fit: cover;
+  object-position: top center;
+}

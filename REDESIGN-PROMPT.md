@@ -55,11 +55,18 @@ Keep a short translated note that these are illustrative example businesses, not
 
 ## Checklist
 - [x] Crop all images to /public/img/ (21 WebP files; ba-*.webp have baked-in Swedish Före/Efter text — overlay translated labels or crop further)
-- [ ] Colors + typography tokens
-- [ ] Before/after section with new images
-- [ ] Concept studies with new images
-- [ ] Homepage restructure + shorter text (FI/SV/EN)
-- [ ] Image bands, About image, final CTA
-- [ ] Bugs (logo, start modal, hero language, canonical)
-- [ ] Mobile pass + screenshots
-- [ ] Build check
+- [x] Colors + typography tokens
+- [x] Before/after section with new images
+- [x] Concept studies with new images
+- [x] Homepage restructure + shorter text (FI/SV/EN)
+- [x] Image bands, About image, final CTA
+- [x] Bugs (logo, start modal, hero language, canonical)
+- [x] Mobile pass + screenshots
+- [x] Build check
+
+## Notes from the v3 pass
+- **Niipperin Maanrakennus card:** shows the site's own share image (`public/work/niipperin/share-{lang}.webp`, from its repo) in the laptop, because the workers.dev preview could not be reached from the build environment. Replace it with real 1440px / 390px screenshots and add a phone screen (`WorkCards.tsx`). The card says "Preview", since that site is not launched yet.
+- **Low-res crops (please regenerate at 2× or larger):** `house-dusk` (502 px wide), `office-view` (443), `terrace-sunset` (400), `phone-rock` (369), `desk-devices` (639, unused), `laptop-edge` (283, unused), `blue-wave` (260, unused). They are shown at about their own size (image band, About, final CTA), never stretched. `ba-row-*` (1157) and `concept-*` (760) are a little soft on retina screens at full width.
+- **Removed:** the interactive before/after slider and its fake demo sites, the built-in concept mini-sites, the VYRO page gallery, and the fonts only they used.
+- **Shortened:** hero sentence, every section intro, service, process and pricing descriptions, About (one paragraph; values and map only on the About page), FAQ (6 → 4 questions), VYRO summary, concept summaries.
+- **Phone homepage:** 13,088 px → about 8,600 px. Work, services, concepts, process, pricing and the before/after gallery are swipe rows on phones.

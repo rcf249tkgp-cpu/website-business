@@ -17,61 +17,62 @@ export function About({ lang, dict, standalone = false }: { lang: Locale; dict: 
       aria-labelledby="about-title"
     >
       <div className="container">
-        <SectionHeading
-          id="about-title"
-          eyebrow={about.eyebrow}
-          title={about.title}
-          layout="stack"
-          as={standalone ? 'h1' : 'h2'}
-        />
-
-        <div className={styles.grid}>
-          <p className={`${styles.statement} reveal`}>{about.statement}</p>
-
-          <div className={styles.body}>
-            {about.body.map((p) => (
-              <p key={p.slice(0, 24)} className="reveal">
-                {p}
-              </p>
-            ))}
+        <div className={styles.intro}>
+          {/* Decorative: the studio's own photo is not available yet. */}
+          <div className={`${styles.photo} reveal`}>
+            <img src="/img/office-view.webp" alt="" width={443} height={304} loading="lazy" decoding="async" />
           </div>
-
-          <div className={styles.valuesWrap}>
-            <Sub className={styles.valuesTitle}>{about.valuesTitle}</Sub>
-            <ol className={styles.values} data-stagger>
-              {about.values.map((v) => (
-                <li key={v.title}>
-                  <Check aria-hidden="true" className={styles.check} />
-                  <SubSub>{v.title}</SubSub>
-                  <p>{v.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          <div className={`${styles.place} reveal`}>
-            <svg className={styles.map} viewBox="0 0 320 200" aria-hidden="true">
-              <path className={styles.water} d="M246 0c-14 30 6 52-16 84s-12 58-40 80c-14 12-18 24-20 36h150V0Z" />
-              <g className={styles.streets}>
-                <path d="M0 40l230 30M0 110l200 20M20 200l40-200M110 200l30-200M0 170l190 10" />
-                <path className={styles.main} d="M60 0l60 200M0 80l220 40" />
-              </g>
-              <circle className={styles.pinRing} cx="128" cy="104" r="14" />
-              <circle className={styles.pin} cx="128" cy="104" r="5" />
-              <text x="142" y="96">
-                {address.street}
-              </text>
-            </svg>
-            <div className={styles.address}>
-              <span>{about.findUs}</span>
-              <address>
-                {address.street}
-                <br />
-                {address.postalCode} {address.city}, {address.country[lang]}
-              </address>
-            </div>
+          <div className={styles.text}>
+            <SectionHeading
+              id="about-title"
+              eyebrow={about.eyebrow}
+              title={about.title}
+              layout="stack"
+              as={standalone ? 'h1' : 'h2'}
+            />
+            <p className={`${styles.body} reveal`}>{about.text}</p>
           </div>
         </div>
+
+        {standalone && (
+          <div className={styles.grid}>
+            <div className={styles.valuesWrap}>
+              <Sub className={styles.valuesTitle}>{about.valuesTitle}</Sub>
+              <ol className={styles.values} data-stagger>
+                {about.values.map((v) => (
+                  <li key={v.title}>
+                    <Check aria-hidden="true" className={styles.check} />
+                    <SubSub>{v.title}</SubSub>
+                    <p>{v.text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className={`${styles.place} reveal`}>
+              <svg className={styles.map} viewBox="0 0 320 200" aria-hidden="true">
+                <path className={styles.water} d="M246 0c-14 30 6 52-16 84s-12 58-40 80c-14 12-18 24-20 36h150V0Z" />
+                <g className={styles.streets}>
+                  <path d="M0 40l230 30M0 110l200 20M20 200l40-200M110 200l30-200M0 170l190 10" />
+                  <path className={styles.main} d="M60 0l60 200M0 80l220 40" />
+                </g>
+                <circle className={styles.pinRing} cx="128" cy="104" r="14" />
+                <circle className={styles.pin} cx="128" cy="104" r="5" />
+                <text x="142" y="96">
+                  {address.street}
+                </text>
+              </svg>
+              <div className={styles.address}>
+                <span>{about.findUs}</span>
+                <address>
+                  {address.street}
+                  <br />
+                  {address.postalCode} {address.city}, {address.country[lang]}
+                </address>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

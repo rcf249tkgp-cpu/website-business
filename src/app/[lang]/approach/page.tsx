@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps<'/[lang]/approach'>
   const { lang } = await params
   if (!isLocale(lang)) return {}
   const dict = getDictionary(lang)
-  return pageMetadata(lang, 'approach', dict.nav.about, dict.about.statement)
+  return pageMetadata(lang, 'approach', dict.nav.about, dict.about.text)
 }
 
 export default async function Page({ params }: PageProps<'/[lang]/approach'>) {

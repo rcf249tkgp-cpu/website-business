@@ -69,7 +69,8 @@ test.describe('languages', () => {
       'Common questions',
       'Start a project',
       'Continue',
-      'Desktop',
+      'Before',
+      'After',
     ]
     for (const path of ['/sv', '/fi', '/sv/start', '/fi/start']) {
       const lang = path.slice(1, 3)
@@ -228,21 +229,14 @@ test.describe('navigation', () => {
 })
 
 test.describe('interactive details', () => {
-  test('concept previews switch project and device', async ({ page }) => {
+  test('the work page shows both client projects and the concept studies', async ({ page }) => {
     await page.goto('/en/work')
-    const frame = page.locator('[data-device]')
-    await expect(frame).toHaveAttribute('data-device', 'desktop')
-    const wide = (await frame.boundingBox())!.width
-    await page
-      .getByRole('group', { name: 'Choose a concept' })
-      .getByRole('button', { name: /Voltra/ })
-      .click()
-    await expect(page.getByRole('region', { name: /Voltra/ })).toBeVisible()
-    const devices = page.getByRole('group', { name: 'Preview size' })
-    await devices.getByRole('button', { name: 'Mobile' }).click()
-    await expect(frame).toHaveAttribute('data-device', 'mobile')
-    await expect(devices.getByRole('button', { name: 'Mobile' })).toHaveAttribute('aria-pressed', 'true')
-    await expect.poll(async () => (await frame.boundingBox())!.width).toBeLessThan(wide * 0.6)
+    await expect(page.getByRole('heading', { name: 'VYRO Athletics' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Niipperin Maanrakennus' })).toBeVisible()
+    for (const name of ['Ember Roasters', 'Lumo Clinic', 'Voltra', 'Form & Fjord']) {
+      await expect(page.getByRole('heading', { name, exact: true })).toBeVisible()
+    }
+    await expect(page.getByText('They are not client projects.')).toBeVisible()
   })
 
   test('the real case study links to the live site', async ({ page }) => {
@@ -252,27 +246,27 @@ test.describe('interactive details', () => {
     await expect(link).toHaveAttribute('target', '_blank')
   })
 
-  test('redesign comparison works with keyboard, pointer and tabs', async ({ page }) => {
-    await page.goto('/en')
-    const slider = page.getByRole('slider', { name: 'Compare the old and new design' })
-    await slider.focus()
-    await page.keyboard.press('End')
-    await expect(slider).toHaveValue('100')
+  test('before and after examples switch with tabs and keyboard, with translated labels', async ({ page }) => {
+    await page.goto('/fi')
+    const section = page.locator('#before-after')
+    const tabs = section.getByRole('tablist', { name: 'Valitse esimerkki' })
+    const first = tabs.getByRole('tab', { name: 'Rakennusala' })
+    await expect(first).toHaveAttribute('aria-selected', 'true')
+    await expect(section.getByRole('tabpanel')).toHaveCount(1)
+    await expect(section.getByRole('img', { name: /Bygg & Renovering AB/ })).toBeVisible()
+    await expect(section.getByText('Ennen', { exact: true }).locator('visible=true').first()).toBeVisible()
+    await expect(section.getByText('Jälkeen', { exact: true }).locator('visible=true').first()).toBeVisible()
 
-    // Pointer drag moves it too, and the industry tabs swap the example.
-    const stage = page.locator('#before-after [class*=stage]')
-    await stage.scrollIntoViewIfNeeded()
-    const box = (await stage.boundingBox())!
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
-    await page.mouse.down()
-    await page.mouse.move(box.x + box.width * 0.25, box.y + box.height / 2, { steps: 6 })
-    await page.mouse.up()
-    await expect.poll(async () => Number(await slider.inputValue())).toBeLessThan(35)
-    await page
-      .getByRole('group', { name: 'Choose an example' })
-      .getByRole('button', { name: /Construction/ })
-      .click()
-    await expect(page.locator('#before-after').getByText('vahvarakennus.fi', { exact: true })).toBeVisible()
+    await first.focus()
+    await page.keyboard.press('ArrowRight')
+    const second = tabs.getByRole('tab', { name: 'Ravintola' })
+    await expect(second).toHaveAttribute('aria-selected', 'true')
+    await expect(second).toBeFocused()
+    await expect(section.getByRole('img', { name: /Restaurang Sofia/ })).toBeVisible()
+
+    await tabs.getByRole('tab', { name: 'Kuntosali' }).click()
+    await expect(section.getByRole('img', { name: /Nordic Gym/ })).toBeVisible()
+    await expect(section.getByText('Yritykset ovat keksittyjä')).toBeVisible()
   })
 
   test('FAQ answers open and close', async ({ page }) => {

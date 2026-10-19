@@ -31,7 +31,7 @@ export default async function OpengraphImage({ params }: { params: Promise<{ lan
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        { }
         <img src={mark} width={64} height={64} alt="" />
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontFamily: 'Michroma' }}>
           <div style={{ fontSize: 34, letterSpacing: 2, color: '#e2e8f0' }}>FUSION</div>

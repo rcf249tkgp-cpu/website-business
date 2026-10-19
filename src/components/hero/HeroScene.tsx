@@ -116,7 +116,7 @@ export function HeroScene({ className, lang }: { className?: string; lang: Local
       <div className={styles.scene} ref={sceneRef}>
         <div className={styles.layer} ref={layerRef}>
           <div className={styles.zoom}>
-            {/* eslint-disable-next-line @next/next/no-img-element -- preloaded responsive WebP, sized by CSS */}
+            { }
             <img
               className={styles.photo}
               src={heroImage(lang, 2000)}
@@ -132,7 +132,7 @@ export function HeroScene({ className, lang }: { className?: string; lang: Local
               style={{ width: scene.face.width, height: scene.face.height, ['--face' as string]: FACE_TRANSFORM }}
             >
               <div className={styles.display} style={{ inset: `${D.top}px ${D.right}px ${D.bottom}px ${D.left}px` }}>
-                {/* eslint-disable-next-line @next/next/no-img-element -- fixed-size screenshot inside a 3D transform */}
+                { }
                 <img
                   src={heroScreen(lang)}
                   width={scene.screenshot.width}

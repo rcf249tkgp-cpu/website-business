@@ -13,8 +13,8 @@ export function Faq({ dict }: { dict: Dictionary }) {
           <SectionHeading id="faq-title" eyebrow={faq.eyebrow} title={faq.title} layout="stack" />
         </div>
         <div className={styles.list} data-stagger>
-          {faq.items.map((item, i) => (
-            <details key={item.q} className={styles.item} open={i === 0}>
+          {faq.items.map((item) => (
+            <details key={item.q} className={styles.item}>
               <summary>
                 <span className={styles.q}>{item.q}</span>
                 <Plus className={styles.icon} />

@@ -32,38 +32,3 @@ export const geistMono = localFont({
   variable: '--font-geist-mono',
   fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
 })
-
-/*
- * Typefaces for the example client sites (before/after and concept work).
- * Not preloaded: they are only fetched when those previews render.
- */
-export const fraunces = localFont({
-  src: './fraunces-latin.woff2',
-  weight: '100 900',
-  display: 'swap',
-  preload: false,
-  variable: '--font-fraunces',
-  fallback: ['Georgia', 'serif'],
-})
-
-export const instrumentSerif = localFont({
-  src: [
-    { path: './instrument-serif-latin.woff2', style: 'normal', weight: '400' },
-    { path: './instrument-serif-latin-italic.woff2', style: 'italic', weight: '400' },
-  ],
-  display: 'swap',
-  preload: false,
-  variable: '--font-instrument-serif',
-  fallback: ['Georgia', 'serif'],
-})
-
-export const archivo = localFont({
-  src: './archivo-latin.woff2',
-  weight: '100 900',
-  style: 'normal',
-  display: 'swap',
-  preload: false,
-  variable: '--font-archivo',
-  fallback: ['Arial Narrow', 'Arial', 'sans-serif'],
-  declarations: [{ prop: 'font-stretch', value: '62% 125%' }],
-})

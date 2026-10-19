@@ -31,7 +31,7 @@ const fi: Dictionary = {
     titleLead: 'Verkkosivut, jotka tuovat yrityksellesi',
     titleHighlight: 'lisää asiakkaita.',
     description:
-      'Suunnittelemme ja rakennamme nopeita, näyttäviä verkkosivuja, verkkokauppoja ja ajanvaraussivuja paikallisille yrityksille. Kiinteä hinta etukäteen ja ensimmäinen esikatselu muutamassa päivässä.',
+      'Nopeat ja näyttävät verkkosivut, verkkokaupat ja ajanvaraussivut paikallisille yrityksille kiinteään hintaan.',
     primaryCta: 'Aloita projekti',
     secondaryCta: 'Katso työmme',
     facts: [
@@ -39,26 +39,24 @@ const fi: Dictionary = {
       { label: 'Vastaus', value: 'Yhden arkipäivän sisällä' },
       { label: 'Kielet', value: 'Suomi · Ruotsi · Englanti' },
     ],
-    scroll: 'Vieritä',
   },
   services: {
     eyebrow: 'Palvelut',
     title: 'Mitä teemme.',
-    description:
-      'Neljä asiaa, jotka osaamme hyvin. Sama pieni tiimi vie projektisi ensimmäisestä puhelusta julkaisuun ja pitää siitä huolta myöhemminkin, jos haluat.',
+    description: 'Sama pieni tiimi vie projektisi ensimmäisestä puhelusta julkaisuun.',
     includesLabel: 'Sisältää',
     readMore: 'Lue lisää',
+    imageAlt: 'Kannettava tietokone ja puhelin pöydällä, molemmissa sama verkkosivusto',
     addon: {
       label: 'Lisäpalvelu',
       title: 'Shopify-integraatio',
-      text: 'Yhdistämme sivustosi Shopifyhin: tuotteet, maksut ja tilaukset. Saatavilla valinnaisena lisäpalveluna lisähinnasta.',
+      text: 'Yhdistämme sivustosi Shopifyhin: tuotteet, maksut ja tilaukset. Valinnainen lisäpalvelu lisähinnasta.',
     },
     items: [
       {
         id: 'websites',
         title: 'Verkkosivut',
-        description:
-          'Selkeät ja näyttävät verkkosivut yrityksesi ympärille, jotta asiakkaat löytävät palvelut, hinnat ja yhteystiedot millä tahansa laitteella.',
+        description: 'Selkeät sivut, joilta asiakkaat löytävät palvelut, hinnat ja yhteystiedot millä tahansa laitteella.',
         includes: [
           'Suunniteltu ensin puhelimille',
           'Omat tekstisi, kuvasi ja logosi',
@@ -68,282 +66,142 @@ const fi: Dictionary = {
       {
         id: 'stores',
         title: 'Verkkokaupat',
-        description:
-          'Verkkokauppa, josta asiakkaasi ostavat mielellään. Toteutus Shopifylla tai Stripe-maksuilla, ja tuotteet, toimitukset ja kuitit valmiiksi asetettuina.',
+        description: 'Verkkokauppa Shopifylla tai Stripe-maksuilla, tuotteet, toimitukset ja kuitit valmiiksi asetettuina.',
         includes: ['Shopify tai Stripe', 'Kortti- ja mobiilimaksut', 'Tuotteet, toimitukset ja kuitit'],
       },
       {
         id: 'booking',
         title: 'Ajanvaraus ja integraatiot',
-        description:
-          'Asiakkaasi voivat varata, tilata tai ottaa yhteyttä suoraan sivuiltasi, joko jo käyttämilläsi työkaluilla tai uusilla, jotka otamme käyttöön.',
+        description: 'Asiakkaat varaavat, tilaavat tai ottavat yhteyttä suoraan sivuiltasi, jo käyttämilläsi työkaluilla.',
         includes: ['Timma, Fresha ja vastaavat', 'Lomakkeet suoraan sähköpostiisi', 'Google Maps, arvostelut ja some'],
       },
       {
         id: 'redesign',
         title: 'Uudistukset',
-        description:
-          'Onko nykyinen sivusto vanhentunut tai hankala puhelimella? Rakennamme sen uudelleen, säilytämme toimivan, siirrämme sisällön ja pidämme nykyiset Google-asetuksesi ennallaan.',
+        description: 'Rakennamme vanhentuneen sivuston uudelleen, siirrämme sisällön ja säilytämme Google-asetuksesi.',
         includes: ['Moderni ulkoasu', 'Sisältö siirretään puolestasi', 'Nykyiset Google-asetukset säilyvät'],
       },
     ],
   },
   beforeAfter: {
     eyebrow: 'Ennen ja jälkeen',
-    title: 'Sama yritys. Täysin eri ensivaikutelma.',
-    description:
-      'Vedä kahvasta ja vertaa tyypillistä vanhentunutta sivustoa siihen, mitä me rakentaisimme tilalle. Valitse toimiala nähdäksesi toisen esimerkin.',
+    title: 'Sama yritys. Uusi ensivaikutelma.',
+    description: 'Tyypillinen vanhentunut sivusto ja se, mitä me rakentaisimme tilalle.',
     tabsLabel: 'Valitse esimerkki',
-    hint: 'Vedä',
     before: 'Ennen',
     after: 'Jälkeen',
-    compare: 'Vertaa vanhaa ja uutta ulkoasua',
-    disclaimer: 'Havainnollistavia esimerkkejä. Yritykset ovat keksittyjä.',
-    examples: {
-      cafe: {
-        label: 'Kahvila',
-        before: {
-          nav: ['Etusivu', 'Menu', 'Yhteystiedot'],
-          welcome: 'Tervetuloa Café Aamuun',
-          intro: 'Kahvia · Leivonnaisia · Lounasta',
-          readMore: 'Lue lisää',
-          cookies: 'Tämä sivusto käyttää evästeitä käyttökokemuksen parantamiseksi.',
-        },
-        after: {
-          nav: ['Menu', 'Löydä meidät', 'Tilaa'],
-          kicker: 'Kallio, Helsinki',
-          title: 'Rauhallisia aamuja, vakavasti otettavaa kahvia.',
-          text: 'Erikoiskahvia, joka aamu leivottuja korvapuusteja ja keittolounas arkisin.',
-          cta: 'Katso menu',
-          secondary: 'Tilaa ennakkoon',
-          open: 'Avoinna tänään 7–18',
-          menuTitle: 'Tällä viikolla',
-          menu: [
-            ['Flat white kauramaidolla', '4,90'],
-            ['Kardemummapulla', '3,80'],
-            ['Päivän keitto', '12,50'],
-          ],
-        },
-      },
-      salon: {
-        label: 'Kampaamo',
-        before: {
-          welcome: 'Tervetuloa kotisivuillemme!',
-          text: 'Tarjoamme hiustenleikkuut, värjäykset ja hoidot koko perheelle. Soita ja varaa aika!',
-          phone: 'Puh. 09 123 4567',
-          prices: 'Hinnasto (PDF)',
-          news: 'Uutiset',
-          newsText: 'Olemme suljettuna juhannusaattona.',
-        },
-        after: {
-          nav: ['Palvelut', 'Tiimi', 'Hinnasto'],
-          kicker: 'Kampaamo Punavuoressa',
-          title: 'Hiukset, jotka tuntuvat sinulta.',
-          text: 'Leikkaukset, värit ja hoidot rauhallisessa studiossa. Varaa aika verkossa alle minuutissa.',
-          cta: 'Varaa aika',
-          services: [
-            ['Leikkaus ja muotoilu', '45 min', '65 €'],
-            ['Väri', '2 h', 'alk. 110 €'],
-            ['Balayage', '3 h', 'alk. 160 €'],
-          ],
-          slotsTitle: 'Seuraavat vapaat ajat',
-          slots: ['Ti 10.00', 'Ti 14.30', 'Ke 9.15'],
-        },
-      },
-      construction: {
-        label: 'Rakennusala',
-        before: {
-          tagline: 'Laadukasta rakentamista vuodesta 1998',
-          menu: ['Etusivu', 'Palvelut', 'Referenssit', 'Ota yhteyttä'],
-          servicesTitle: 'Palvelumme:',
-          services: ['Remontit', 'Uudisrakentaminen', 'Kattotyöt', 'Julkisivutyöt'],
-          contact: 'Pyydä tarjous!',
-        },
-        after: {
-          nav: ['Palvelut', 'Kohteet', 'Yhteystiedot'],
-          kicker: 'Remontit · Uudiskohteet · Julkisivut',
-          title: 'Tehty oikein. Valmis ajallaan.',
-          text: 'Yksi urakoitsija suunnitelmasta luovutukseen ja aikataulu, josta pidämme kiinni.',
-          cta: 'Pyydä tarjous',
-          secondary: 'Katso kohteet',
-          services: ['Remontit', 'Uudiskohteet', 'Julkisivut'],
-          area: 'Toimimme koko Uudellamaalla',
-        },
-      },
+    rows: {
+      construction: 'Rakennusala',
+      restaurant: 'Ravintola',
+      gym: 'Kuntosali',
     },
+    galleryTitle: 'Lisää esimerkkejä',
+    galleryLabel: 'Lisää ennen ja jälkeen -esimerkkejä',
+    pairs: {
+      construction: 'Rakennusala',
+      electrician: 'Sähköasennus',
+      salon: 'Kampaamo',
+      roofing: 'Kattotyöt',
+      gym: 'Kuntosali',
+      cafe: 'Kahvila',
+    },
+    alt: '{name}: vanha sivusto vasemmalla, uudistus oikealla',
+    disclaimer: 'Havainnollistavia esimerkkejä. Yritykset ovat keksittyjä eivätkä ole asiakkaitamme.',
   },
   work: {
     eyebrow: 'Työt',
     title: 'Valittuja töitä.',
-    description: 'Ensin oikea julkaisu, sitten konseptitöitä, jotka näyttävät, miten lähestymme eri toimialoja.',
+    description: 'Oikeita asiakasprojekteja, jotka olemme suunnitelleet ja rakentaneet.',
     caseLabel: 'Asiakastyö',
     caseLive: 'Julkaistu sivusto',
+    casePreview: 'Esikatselu',
     featured: {
       client: 'VYRO Athletics',
       category: 'Verkkokauppa · Treenivaatteet',
-      summary:
-        'VYRO on treenivaatebrändi, joka julkaisee ensimmäisen mallistonsa, Drop 01:n. Suunnittelimme ja rakensimme heidän verkkokauppansa: tumman ja rohkean kaupan, jossa tuote on pääosassa. Mukana on julkaisusivu, värivaihtoehtojen vaihtaja, suodattimet, yksityiskohtaiset tuotesivut ja arvostelut istuvuusvinkein, englanniksi ja suomeksi.',
-      built: [
-        'Julkaisusivu ja värivaihtoehtojen vaihtaja',
-        'Kauppa suodattimineen ja tuotesivuineen',
-        'Arvostelut istuvuusvinkein, englanniksi ja suomeksi',
-        'Verkkokaupan Shopify-integraatio',
-      ],
-      builtLabel: 'Mitä rakensimme',
+      summary: 'Tumma ja rohkea verkkokauppa treenivaatebrändille, joka julkaisee ensimmäisen mallistonsa.',
       cta: 'Vieraile vyroathletics.comissa',
-      pages: { drop: 'Julkaisusivu', shop: 'Kauppa', product: 'Tuotesivu', reviews: 'Arvostelut' },
-      galleryLabel: 'Sivuja julkaistusta sivustosta',
     },
-    devicesLabel: 'Esikatselun koko',
-    desktop: 'Tietokone',
-    mobile: 'Mobiili',
-    scrollHint: 'Vieritä esikatselun sisällä',
+    niipperin: {
+      client: 'Niipperin Maanrakennus',
+      category: 'Verkkosivut · Maanrakennus',
+      summary:
+        'Tarjouspyyntölomakkeella varustettu sivusto espoolaiselle maanrakennus- ja kiinteistönhoitoyritykselle suomeksi, ruotsiksi ja englanniksi.',
+      cta: 'Katso esikatselu',
+    },
     conceptBadge: 'Konsepti',
     conceptsTitle: 'Konseptityöt',
-    conceptsDescription:
-      'Kuvitteellisia brändejä, jotka suunnittelimme tutkiaksemme, miltä eri yritykset voivat näyttää ja miten ne toimivat verkossa. Valitse yksi ja selaa sitä.',
+    conceptsDescription: 'Kuvitteellisia brändejä, joilla tutkimme eri toimialojen mahdollisuuksia.',
     disclaimer: 'Brändit ovat kuvitteellisia ja tiimimme luomia. Ne eivät ole asiakastöitä.',
-    projectsLabel: 'Valitse konsepti',
     projects: {
       ember: {
         id: 'ember',
         name: 'Ember Roasters',
         category: 'Verkkokauppa',
-        summary: 'Pienpaahtimo, joka myy kahvia ja tilauksia lämpimän, tarinallisen brändin voimin.',
-        site: {
-          nav: ['Kauppa', 'Tilaukset', 'Blogi'],
-          cart: 'Ostoskori',
-          kicker: 'Pienpaahtimo · Helsinki',
-          title: 'Kahvia, jonka takia kannattaa herätä.',
-          text: 'Paahdettu joka tiistai ja lähetetty samalla viikolla. Valitse pussi tai anna meidän valita puolestasi.',
-          cta: 'Osta kahvia',
-          secondary: 'Aloita tilaus',
-          productsTitle: 'Viikon paahdot',
-          products: [
-            ['Yirgacheffe', 'Etiopia', 'Jasmiini · Bergamotti', '18 €'],
-            ['La Palma', 'Kolumbia', 'Kaakao · Punainen omena', '16 €'],
-            ['Kiambu', 'Kenia', 'Mustaherukka · Lime', '19 €'],
-          ],
-          add: 'Lisää koriin',
-          storyTitle: 'Hitaasti paahdettu, pienissä erissä.',
-          storyText:
-            'Ostamme suoraan tutuilta tiloilta, paahdamme vaaleaksi hedelmäisyyden säilyttämiseksi ja painamme paahtopäivän jokaiseen pussiin.',
-          subTitle: 'Kahvi ei lopu koskaan.',
-          subText: 'Tuoretta kahvia kahden tai neljän viikon välein. Tauota tai peru milloin vain.',
-          subCta: 'Tilaa',
-        },
+        summary: 'Lämmin, tarinallinen verkkokauppa pienpaahtimolle.',
       },
       lumo: {
         id: 'lumo',
         name: 'Lumo Clinic',
         category: 'Terveydenhuolto',
-        summary: 'Rauhallinen ja saavutettava klinikkasivusto, jossa ajan varaaminen vie kolme vaihetta.',
-        site: {
-          nav: ['Hoidot', 'Asiantuntijat', 'Hinnasto'],
-          book: 'Varaa',
-          kicker: 'Fysioterapia ja urheilulääketiede',
-          title: 'Hoitoa, joka tuntuu rauhalliselta.',
-          text: 'Varaa aika kolmessa vaiheessa suomeksi, ruotsiksi tai englanniksi.',
-          cta: 'Varaa aika',
-          month: 'Lokakuu',
-          times: ['9.00', '10.30', '13.15'],
-          stepsTitle: 'Näin varaat',
-          steps: ['Valitse hoito', 'Valitse aika', 'Vahvista'],
-          servicesTitle: 'Hoidot',
-          services: [
-            ['Fysioterapia', '45 min'],
-            ['Urheiluhieronta', '60 min'],
-            ['Juoksuanalyysi', '75 min'],
-          ],
-        },
+        summary: 'Rauhallinen klinikkasivusto, jossa ajanvaraus vie kolme vaihetta.',
       },
       voltra: {
         id: 'voltra',
         name: 'Voltra',
         category: 'Tuotteen laskeutumissivu',
-        summary: 'Sähköautojen latausalustan julkaisusivu, jolla on yksi selkeä tavoite: demon varaaminen.',
-        site: {
-          nav: ['Tuote', 'Hinnoittelu', 'Yritys'],
-          demo: 'Varaa demo',
-          kicker: 'Sähköautojen lataus kalustoille',
-          title: ['Lataa', 'nopeammin.'],
-          text: 'Yksi alusta kaikille kalustosi latureille: reaaliaikainen saatavuus, älykäs ajoitus ja yksinkertainen laskutus.',
-          cta: 'Varaa demo',
-          secondary: 'Näin se toimii',
-          features: [
-            ['Reaaliaikainen saatavuus', 'Näe jokainen vapaa laturi heti.'],
-            ['Älykäs ajoitus', 'Lataa silloin, kun sähkö on halvinta.'],
-            ['Yksi lasku', 'Kaikki toimipisteet yhdellä kuukausilaskulla.'],
-          ],
-          ctaTitle: 'Valmiina, kun sinä olet.',
-        },
+        summary: 'Sähköautojen latauksen julkaisusivu, jolla on yksi tavoite: varattu demo.',
       },
       fjord: {
         id: 'fjord',
         name: 'Form & Fjord',
         category: 'Arkkitehtiportfolio',
-        summary: 'Journalistinen portfolio, jossa suuret kuvat ja hillitty typografia hoitavat työn.',
-        site: {
-          nav: ['Projektit', 'Studio', 'Yhteystiedot'],
-          title: ['Hiljaista', 'arkkitehtuuria.'],
-          text: 'Pieni toimisto, joka suunnittelee koteja ja julkisia tiloja valon ja materiaalin ehdoilla.',
-          projectsTitle: 'Valitut projektit',
-          projects: [
-            ['Saaren talo', '2024'],
-            ['Satamakirjasto', '2023'],
-            ['Mäntypaviljonki', '2022'],
-          ],
-          quote: 'Suunnittelemme niille valoisille tunneille, jotka meillä on.',
-          contact: 'Aloita keskustelu',
-        },
+        summary: 'Journalistinen portfolio, jossa suuret kuvat ovat pääosassa.',
       },
     },
+  },
+  band: {
+    text: 'Suunniteltu ja rakennettu käsin Helsingissä.',
   },
   process: {
     eyebrow: 'Prosessi',
     title: 'Viisi vaihetta ensimmäisestä puhelusta julkaisuun.',
-    description:
-      'Tyypillisen verkkosivuston tekeminen kestää noin kaksi viikkoa. Näet esikatselun jo ensimmäisinä päivinä, joten tiedät aina, mitä seuraavaksi tapahtuu ja mitä tarvitsemme sinulta.',
-    note: 'Ajat ovat tyypillisiä yrityksen verkkosivustolle. Verkkokaupat ja laajemmat sivustot vievät enemmän aikaa, ja tarkasta aikataulusta sovitaan tarjouksessa.',
+    description: 'Tyypillinen verkkosivusto valmistuu noin kahdessa viikossa, ja esikatselun näet jo ensimmäisinä päivinä.',
+    note: 'Ajat ovat tyypillisiä yrityksen verkkosivustolle. Verkkokaupat ja laajemmat sivustot vievät enemmän aikaa; aikataulusta sovitaan tarjouksessa.',
     deliverablesLabel: 'Saat',
     steps: [
       {
         id: 'discovery',
         title: 'Kartoitus',
         duration: 'Päivä 1',
-        description:
-          'Maksuton aloituspalaveri, jossa tutustumme yritykseesi, asiakkaisiisi ja tavoitteisiisi sekä nykyiseen sivustoosi.',
+        description: 'Maksuton aloituspalaveri yrityksestäsi, asiakkaistasi ja tavoitteistasi.',
         deliverables: ['Projektikuvaus', 'Sovitut tavoitteet'],
       },
       {
         id: 'planning',
         title: 'Suunnittelu',
         duration: 'Päivät 1–2',
-        description: 'Suunnittelemme sivut ja sisällön ja lähetämme kiinteähintaisen tarjouksen aikatauluineen.',
+        description: 'Suunnittelemme sivut ja lähetämme kiinteähintaisen tarjouksen.',
         deliverables: ['Sivusuunnitelma', 'Kiinteähintainen tarjous'],
       },
       {
         id: 'development',
         title: 'Design ja toteutus',
         duration: 'Päivät 3–9',
-        description:
-          'Suunnittelemme ja rakennamme lyhyissä jaksoissa ja jaamme edistymisen live-esikatselulinkin kautta.',
+        description: 'Rakennamme lyhyissä jaksoissa, esikatselulinkin kautta.',
         deliverables: ['Tärkeimpien sivujen ulkoasu', 'Esikatselulinkki'],
       },
       {
         id: 'review',
         title: 'Tarkistus',
         duration: 'Päivät 9–12',
-        description:
-          'Testaat kaiken. Tarkistamme nopeuden, mobiilikäytön ja Googlen perusasiat ja korjaamme havainnot.',
+        description: 'Testaat kaiken; tarkistamme nopeuden, puhelimet ja Googlen perusasiat.',
         deliverables: ['Lopputarkistus', 'Viimeistely'],
       },
       {
         id: 'launch',
         title: 'Julkaisu',
         duration: 'Päivät 12–14',
-        description:
-          'Yhdistämme verkkotunnuksesi, julkaisemme sivuston ja otamme kävijätilastot käyttöön. Lopuksi näytämme, miten päivitykset hoituvat.',
+        description: 'Yhdistämme verkkotunnuksen, julkaisemme ja näytämme, miten päivitykset hoituvat.',
         deliverables: ['Valmis sivusto', 'Lyhyt ohje'],
       },
     ],
@@ -351,8 +209,7 @@ const fi: Dictionary = {
   pricing: {
     eyebrow: 'Hinnat',
     title: 'Selkeät hinnat. Ei yllätyksiä.',
-    description:
-      'Tyypilliset lähtöhinnat. Maksuttoman aloituspuhelun jälkeen saat kiinteän tarjouksen, ja hinnasta sovitaan ennen kuin työ alkaa.',
+    description: 'Maksuttoman aloituspuhelun jälkeen saat kiinteän tarjouksen, josta sovitaan ennen työn alkua.',
     from: 'alk.',
     vat: 'alv 0 %',
     pending: 'Hinta pyynnöstä',
@@ -361,7 +218,7 @@ const fi: Dictionary = {
       {
         id: 'basic',
         name: 'Basic',
-        description: 'Terävä ja tiivis verkkosivusto yritykselle, jonka pitää näyttää hyvältä ja löytyä helposti.',
+        description: 'Terävä ja tiivis sivusto, joka näyttää hyvältä ja löytyy helposti.',
         features: [
           'Enintään 3 sivua',
           'Suunniteltu ensin puhelimille',
@@ -373,15 +230,14 @@ const fi: Dictionary = {
       {
         id: 'standard',
         name: 'Standard',
-        description:
-          'Kattava verkkosivusto, jossa on tilaa palveluillesi, ajanvaraukselle ja kaikelle, mitä asiakkaat kysyvät.',
+        description: 'Kattava sivusto, jossa on tilaa palveluillesi ja ajanvaraukselle.',
         features: ['Enintään 8 sivua', 'Ajanvaraus tai tilaus sivustolla', 'Kaksi kieltä', 'Kävijätilastot'],
         cta: 'Aloita Standardilla',
       },
       {
         id: 'custom',
         name: 'Custom',
-        description: 'Verkkokaupat, laajemmat monikieliset sivustot ja kaikki, mikä vaatii räätälöityjä toimintoja.',
+        description: 'Verkkokaupat, laajemmat monikieliset sivustot ja räätälöidyt toiminnot.',
         features: [
           'Shopify tai räätälöity kauppa',
           'Integraatiot työkaluihisi',
@@ -394,25 +250,19 @@ const fi: Dictionary = {
     addon: {
       label: 'Lisäpalvelu',
       title: 'Shopify-integraatio',
-      description:
-        'Yhdistämme verkkosivustosi Shopifyhin: tuotteet, varastosaldot, maksut ja tilaukset yhdessä paikassa. Valinnainen lisäpalvelu.',
+      description: 'Tuotteet, varastosaldot, maksut ja tilaukset yhdessä paikassa, yhdistettynä sivustoosi. Valinnainen lisäpalvelu.',
       price: 'Lisähinnasta',
     },
     maintenance: {
       title: 'Ylläpito ja palvelin',
-      description:
-        'Palvelin, tietoturvapäivitykset, varmuuskopiot ja pienet sisältömuutokset joka kuukausi, jotta sivustosi pysyy nopeana eikä sinun tarvitse murehtia sitä.',
+      description: 'Palvelin, tietoturvapäivitykset, varmuuskopiot ja pienet sisältömuutokset joka kuukausi.',
       per: '/ kk',
     },
   },
   about: {
     eyebrow: 'Meistä',
     title: 'Pieni studio Työpajankadulla.',
-    statement: 'Rakennamme verkkosivuja niin kuin hyvä työpaja rakentaa mitä tahansa: huolella, käsin ja kestämään.',
-    body: [
-      'Fusion Sites on Martin Haukerudin ja Casper Gauffin-Kausten nuori verkkostudio Helsingin Työpajankadulla. Kadun nimi kertoo, miten haluamme tehdä työtä: pieni tiimi lähellä käsityötä, eikä välikäsiä sinun ja sivustosi tekijöiden välillä.',
-      'Suunnittelemme ja rakennamme paikallisille yrityksille: kahviloille, kampaamoille, klinikoille, kaupoille ja urakoitsijoille. Saat sivuston, joka näyttää sinulta, toimii jokaisella puhelimella ja helpottaa asiakkaan seuraavaa askelta.',
-    ],
+    text: 'Fusion Sites on Martin Haukerudin ja Casper Gauffin-Kausten nuori verkkostudio Helsingin Työpajankadulla. Puhut suoraan niiden kahden kanssa, jotka suunnittelevat ja rakentavat sivustosi.',
     valuesTitle: 'Näin toimimme',
     values: [
       {
@@ -428,7 +278,6 @@ const fi: Dictionary = {
         text: 'Ennen jokaista julkaisua tarkistamme nopeuden, puhelimet, saavutettavuuden ja Googlen perusasiat.',
       },
     ],
-    photo: 'Studiokuva tulossa',
     findUs: 'Löydät meidät',
   },
   faq: {
@@ -437,35 +286,26 @@ const fi: Dictionary = {
     items: [
       {
         q: 'Paljonko verkkosivusto maksaa?',
-        a: 'Pakettiemme lähtöhinnat löydät Hinnat-osiosta. Maksuttoman aloituspuhelun jälkeen lähetämme projektillesi kiinteähintaisen tarjouksen. Hinnasta sovitaan ennen kuin työ alkaa, joten yllätyksiä ei tule.',
+        a: 'Maksuttoman aloituspuhelun jälkeen lähetämme projektillesi kiinteähintaisen tarjouksen. Hinnasta sovitaan ennen kuin työ alkaa, joten yllätyksiä ei tule.',
       },
       {
         q: 'Kuinka kauan projekti kestää?',
-        a: 'Tyypillinen yrityksen verkkosivusto on julkaistu yhdessä–kahdessa viikossa aloituksesta. Laskeutumissivut voivat valmistua vielä nopeammin, verkkokaupat ja laajemmat sivustot vievät enemmän aikaa. Aikataulusta sovitaan tarjouksessa.',
+        a: 'Tyypillinen yrityksen verkkosivusto on julkaistu yhdessä–kahdessa viikossa aloituksesta. Verkkokaupat ja laajemmat sivustot vievät enemmän aikaa; aikataulusta sovitaan tarjouksessa.',
       },
       {
         q: 'Voimmeko päivittää sisältöä itse?',
-        a: 'Halutessasi kyllä. Voit myös vain lähettää muutokset meille, ja teemme ne nopeasti, esimerkiksi osana kuukausittaista ylläpitosopimusta. Jos haluat muokata tekstejä itse, voimme lisätä yksinkertaisen muokkaustyökalun.',
-      },
-      {
-        q: 'Teettekö monikielisiä sivustoja?',
-        a: 'Kyllä. Työskentelemme suomeksi, ruotsiksi ja englanniksi ja rakennamme sivustoja tarvitsemillasi kielillä, hakukoneasetukset kunkin kielen mukaan.',
+        a: 'Halutessasi kyllä. Voit myös lähettää muutokset meille, ja teemme ne nopeasti, esimerkiksi osana kuukausittaista ylläpitosopimusta.',
       },
       {
         q: 'Mitä julkaisun jälkeen tapahtuu?',
         a: 'Seuraamme julkaisua ja korjaamme mahdolliset ongelmat. Halutessasi hoidamme ylläpidon, päivitykset ja pienet muutokset kuukausimaksua vastaan.',
-      },
-      {
-        q: 'Miksi luottaa uuteen studioon?',
-        a: 'Olemme nuori studio, joten teemme työn näkyväksi: oikea projekti, johon voit tutustua, kiinteähintainen tarjous, esikatselulinkki koko projektin ajan ja laaduntarkistukset, jotka voit käydä läpi ennen julkaisua.',
       },
     ],
   },
   contact: {
     eyebrow: 'Aloita projekti',
     title: 'Rakennetaan jotain merkittävää.',
-    description:
-      'Kerro projektistasi ja valitse sinulle sopiva aika. Palaamme asiaan yhden arkipäivän sisällä ja kerromme seuraavat askeleet.',
+    description: 'Kerro projektistasi. Vastaamme yhden arkipäivän sisällä.',
     direct: 'Haluatko mieluummin sähköpostin tai puhelun?',
     nextLabel: 'Mitä seuraavaksi tapahtuu',
     points: [
@@ -473,7 +313,6 @@ const fi: Dictionary = {
       'Kiinteähintainen tarjous kahdessa päivässä',
       'Tietojasi käsitellään luottamuksellisesti',
     ],
-    reply: 'Vastaus yhden arkipäivän sisällä',
   },
   form: {
     steps: {

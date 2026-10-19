@@ -51,7 +51,7 @@ export function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             <h2 id="footer-nav" className={styles.heading}>
               {footer.navigation}
             </h2>
-            <ul className={styles.list}>
+            <ul className={`${styles.list} ${styles.navList}`}>
               {links.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href}>{l.label}</Link>

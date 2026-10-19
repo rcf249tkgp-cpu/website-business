@@ -2,308 +2,224 @@
   border-block: 1px solid var(--border);
 }
 
-.compare {
+/* ------------------------------------------------------------ Tabs */
+.showcase {
   display: grid;
-  gap: 20px;
-}
-
-.toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-items: center;
+  gap: 24px;
 }
 
 .tabs {
   display: inline-flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
+  max-width: 100%;
+  overflow-x: auto;
   padding: 4px;
+  scrollbar-width: none;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.02);
 }
 
 .tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  height: 40px;
+  min-height: 40px;
   padding: 0 18px;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
+  white-space: nowrap;
   transition:
-    background-color 0.3s,
-    color 0.3s;
-}
-
-.tab span {
-  color: var(--text-subtle);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
+    background-color 0.25s,
+    color 0.25s;
 }
 
 .tab:hover {
   color: var(--text);
 }
 
-.tab[aria-pressed='true'] {
-  background: var(--silver);
-  color: #05070d;
-}
-
-.tab[aria-pressed='true'] span {
-  /* Darker blue so the number stays readable on the silver tab. */
-  color: #1747b5;
-}
-
-/* ------------------------------------------------------------ Browser frame */
-.browser {
-  overflow: hidden;
-  border-radius: 18px;
-  background: #0d121c;
-  box-shadow:
-    0 0 0 1px rgba(200, 215, 240, 0.12),
-    0 40px 100px -40px rgba(0, 0, 0, 0.9);
-}
-
-.chrome {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.dots {
-  display: flex;
-  gap: 6px;
-}
-
-.dots i {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.url {
-  min-width: 220px;
-  padding: 5px 16px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  text-align: center;
-}
-
-.stage {
-  --split: 50%;
-  position: relative;
-  height: clamp(460px, 62vw, 680px);
-  overflow: hidden;
-  cursor: ew-resize;
-  touch-action: pan-y;
-  user-select: none;
-}
-
-.layers {
-  position: absolute;
-  inset: 0;
-  animation: swap 0.7s var(--ease-out);
-}
-
-@keyframes swap {
-  from {
-    opacity: 0;
-    scale: 1.015;
+@media (max-width: 400px) {
+  .tab {
+    padding: 0 12px;
+    font-size: 14px;
   }
 }
 
-.before,
-.after {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  container-type: inline-size;
+.tab[aria-selected='true'] {
+  background: var(--text);
+  color: var(--bg);
 }
 
-.before {
-  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+.panel {
+  width: 100%;
 }
 
-.label {
+/* ------------------------------------------------------------ Labels */
+.labelBefore,
+.labelAfter {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
-  z-index: 3;
-  padding: 5px 12px;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(5, 7, 13, 0.78);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.labelBefore {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(5, 8, 15, 0.72);
+  color: var(--text);
 }
 
 .labelAfter {
-  left: auto;
-  right: 14px;
-  background: var(--accent-strong);
-}
-
-/* ------------------------------------------------------------ Handle */
-.handle {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--split);
-  z-index: 4;
-  width: 2px;
-  margin-left: -1px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), #fff 30%, #fff 70%, rgba(255, 255, 255, 0.4));
-  pointer-events: none;
-}
-
-.knob {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  translate: -50% -50%;
-  background: linear-gradient(160deg, #ffffff, #c8d0dc 55%, #f2f5f9);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.6),
-    0 10px 30px rgba(0, 0, 0, 0.55),
-    inset 0 -3px 6px rgba(80, 95, 120, 0.35);
-  transition: scale 0.3s var(--ease-out);
-}
-
-.knob svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: #0a1428;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Pulsing ring until the visitor has used the slider once. */
-.knob::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
-  opacity: 0;
-}
-
-:global(.motion) .stage:not([data-touched]) .knob::after {
-  animation: ping 2.2s var(--ease-out) 1.2s infinite;
-}
-
-@keyframes ping {
-  0% {
-    opacity: 0.8;
-    scale: 1;
-  }
-  80%,
-  100% {
-    opacity: 0;
-    scale: 1.6;
-  }
-}
-
-.hint {
-  position: absolute;
-  top: calc(50% + 40px);
-  left: 50%;
-  translate: -50% 0;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(5, 7, 13, 0.8);
+  background: var(--accent-fill);
   color: #fff;
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: opacity 0.4s;
 }
 
-.stage[data-touched] .hint {
-  opacity: 0;
+/* ------------------------------------------------------------ Showcase row */
+/* The whole row, never wider than its pixels (no upscaling). */
+.full {
+  position: relative;
+  display: none;
+  max-width: 1157px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
 }
 
-.stage:active .knob {
-  scale: 0.92;
-}
-
-/* The real control: an accessible range input, visually hidden but focusable. */
-.range {
-  position: absolute;
-  inset: auto 0 0;
+.full img {
   width: 100%;
-  height: 1px;
-  margin: 0;
-  opacity: 0;
-  pointer-events: none;
+  height: auto;
 }
 
-.stage:has(.range:focus-visible) .knob {
-  box-shadow:
-    0 0 0 3px var(--bg),
-    0 0 0 5px var(--accent),
-    0 10px 30px rgba(0, 0, 0, 0.55);
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+/* One half of a row image: the frame shows only that part. */
+.crop {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.crop img {
+  width: var(--w);
+  max-width: none;
+  height: 100%;
+  margin-left: calc(var(--x) * -1);
+}
+
+@media (min-width: 700px) {
+  .full {
+    display: block;
+  }
+
+  .stack {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------ Gallery */
+.galleryTitle {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+/* Swipeable on phones, three across on wide screens. */
+.gallery {
+  display: grid;
+  grid-auto-columns: 84%;
+  grid-auto-flow: column;
+  gap: 12px;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--gutter);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.pair {
+  scroll-snap-align: start;
+}
+
+.pairImage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-card);
+}
+
+.pairImage img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 761 / 287;
+  object-fit: cover;
+}
+
+.pairImage .labelBefore,
+.pairImage .labelAfter {
+  top: 8px;
+  left: 8px;
+  padding: 2px 10px;
+  font-size: 12px;
+}
+
+.pairImage .labelAfter {
+  left: calc(50% + 8px);
+}
+
+.pairCaption {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.pairCaption span {
+  margin-right: 6px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .galleryTitle {
+    margin-top: 56px;
+  }
+
+  .gallery {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 20px;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
 }
 
 .disclaimer {
-  margin-top: 18px;
+  margin-top: 32px;
   color: var(--text-subtle);
-  font-size: 13px;
-}
-
-@media (max-width: 640px) {
-  .stage {
-    height: 560px;
-  }
-
-  .url {
-    min-width: 0;
-  }
-
-  .tab {
-    height: 44px;
-    padding: 0 14px;
-    font-size: 13px;
-  }
-
-  .tab span {
-    display: none;
-  }
-
-  .knob {
-    width: 46px;
-    height: 46px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .layers {
-    animation: none;
-  }
+  font-size: 14px;
+  text-align: center;
 }

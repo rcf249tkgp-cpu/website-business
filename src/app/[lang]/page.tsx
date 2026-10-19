@@ -6,7 +6,8 @@ import { Hero } from '@/components/Hero'
 import { Pricing } from '@/components/Pricing'
 import { Process } from '@/components/Process'
 import { Services } from '@/components/Services'
-import { Work } from '@/components/Work'
+import { ImageBand } from '@/components/ImageBand'
+import { Concepts, Work } from '@/components/Work'
 import { primaryContact, siteConfig, siteUrl } from '@/config/site'
 import { getDictionary } from '@/i18n'
 import { isLocale, localeTags } from '@/i18n/config'
@@ -69,9 +70,11 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
       />
       <Hero lang={lang} dict={dict} />
-      <Services lang={lang} dict={dict} />
-      <BeforeAfter lang={lang} dict={dict} />
       <Work lang={lang} dict={dict} />
+      <BeforeAfter lang={lang} dict={dict} />
+      <Services lang={lang} dict={dict} />
+      <ImageBand text={dict.band.text} />
+      <Concepts dict={dict} />
       <Process dict={dict} />
       <Pricing lang={lang} dict={dict} />
       <About lang={lang} dict={dict} />
